@@ -1,0 +1,44 @@
+{
+    "login": {
+
+        "incorrectEmail": [
+
+            {
+                "email": "googmail.com",
+                "password": "pawelek1234"
+            }
+        ],
+
+        "emptyEmailField": [
+
+            {
+                "email": "",
+                "password": "pawelek1234"
+            }
+        ],
+
+        "incorrectPassword": [
+
+            {
+                "email": "goo@gmail.com",
+                "password": "kkkkkkkkkkk"
+            }
+        ],
+
+        "emptyPasswordField": [
+
+            {
+                "email": "goo@gmail.com",
+                "password": ""
+            }
+        ],
+
+        "correct": [
+
+            {
+                "email": "goo@gmail.com",
+                "password": "pawelek1234"
+            }
+        ]
+    }
+}
