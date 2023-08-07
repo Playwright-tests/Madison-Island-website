@@ -11,7 +11,6 @@ public class LoginForm extends BasePage {
     private final Locator passwordField;
     private final Locator loginButton;
     private final Locator adviceRequiredEmail;
-
     private final Locator adviceRequiredPassword;
 
     public LoginForm(Page page) {
