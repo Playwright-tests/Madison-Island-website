@@ -7,20 +7,13 @@ import qa.base.BasePage;
 
 public class AccountDropdownList extends BasePage {
 
-    private Locator nav;
-    private Locator dropdownList;
+    private final Locator nav;
 
     public AccountDropdownList(Page page) {
 
         super(page);
 
         nav = getPage().getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Account").setExact(true));
-        dropdownList = getPage().locator("#header-account").locator("div>ul").locator("li");
-    }
-
-    public int getDropdownListCount() {
-
-        return dropdownList.count();
     }
 
     public void clickAccountNav() {
@@ -28,8 +21,10 @@ public class AccountDropdownList extends BasePage {
         nav.click();
     }
 
-    public void clickElementList(int nth) {
+    public void clickItem(String nth) {
 
-        dropdownList.nth(nth).click();
+        getPage().locator("#header-account")
+                 .getByRole(AriaRole.LINK, new Locator
+                 .GetByRoleOptions().setName(nth).setExact(true)).click();
     }
 }
