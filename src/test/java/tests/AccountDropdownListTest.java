@@ -1,62 +1,60 @@
 package tests;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import pages.components.AccountDropdownList;
 import qa.base.BaseTest;
 
 public class AccountDropdownListTest extends BaseTest {
 
-    private static AccountDropdownList accountDropdownList;
+    private AccountDropdownList accountDropdownList;
 
-    enum Items { MY_ACCOUNT, MY_WISHLIST, MY_CART, CHECKOUT, REGISTER, LOG_IN }
-
-    @BeforeAll
-    public static void init() {
+    @BeforeClass
+    public void init() {
 
         accountDropdownList = new AccountDropdownList(getPage());
     }
 
-    private void clickTheLink(Items items) {
+    private void clickTheLink(String items) {
 
         accountDropdownList.clickAccountNav();
-        accountDropdownList.clickElementList(items.ordinal());
+        accountDropdownList.clickItem(items);
         getPage().goBack();
     }
 
     @Test
     void myAccountLink() {
 
-        clickTheLink(Items.MY_ACCOUNT);
+        clickTheLink("My Account");
     }
 
     @Test
     void myWishlistLink() {
 
-        clickTheLink(Items.MY_WISHLIST);
+        clickTheLink("My Wishlist");
     }
 
     @Test
     void myCartLink() {
 
-        clickTheLink(Items.MY_CART);
+        clickTheLink("My Cart");
     }
 
     @Test
     void checkoutLink() {
 
-        clickTheLink(Items.CHECKOUT);
+        clickTheLink("Checkout");
     }
 
     @Test
     void registerLink() {
 
-        clickTheLink(Items.REGISTER);
+        clickTheLink("Register");
     }
 
     @Test
     void logInLink() {
 
-        clickTheLink(Items.LOG_IN);
+        clickTheLink("Log In");
     }
 }
