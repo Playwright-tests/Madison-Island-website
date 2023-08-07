@@ -13,18 +13,18 @@ import java.util.List;
 
 public class LoginTest extends BaseTest {
 
-    private static LoginForm loginForm;
+    private LoginForm loginForm;
 
     private final String expectedMessage = "This is a required field.";
 
     @BeforeClass
-    public static void init() {
+    public void init() {
 
         AccountDropdownList accountDropdownList = new AccountDropdownList(getPage());
         loginForm = new LoginForm(getPage());
 
         accountDropdownList.clickAccountNav();
-        accountDropdownList.clickElementList(5);
+        accountDropdownList.clickItem("My Account");
     }
 
     private void setData(String email, String password) {
