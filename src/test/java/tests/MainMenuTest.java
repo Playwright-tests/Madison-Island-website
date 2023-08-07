@@ -1,65 +1,78 @@
 package tests;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import pages.sections.Header;
 import qa.base.BaseTest;
+import utils.Function;
 
 public class MainMenuTest extends BaseTest {
 
     private static Header header;
 
-
-    @BeforeAll
+    @BeforeClass
     public static void init() {
 
         header = new Header(getPage());
     }
 
-    private void clickElementList(String navHeader, String locator) {
+    private void clickItem(Function function, String[] items) {
 
-        header.getMainMenu().setDropdownList(locator);
 
-        for (int i = 0; i < header.getMainMenu().getDropdownListCount(); i++) {
+        for (String item : items) {
 
-            header.getMainMenu().clickElementList(navHeader, i);
-            //mainMenu.clickElementList(navHeader, i);
+            function.run(item);
         }
     }
 
     @Test
     public void womenDropdownList() {
 
-        clickElementList("Women", "li.nav-1>ul");
+        String[] items = {"View All Women", "New Arrivals", "Tops & Blouses", "Pants & Denim", "Dresses & Skirts"};
+
+        clickItem((x)->{ header.getMainMenu().hoverParent("Women");
+                         header.getMainMenu().clickWomenItem(x); }, items);
     }
 
     @Test
     public void menDropdownList() {
 
-        clickElementList("Men", "li.nav-2>ul");
+        String[] items = {"View All Men", "New Arrivals", "Shirts", "Tees, Knits and Polos", "Pants & Denim", "Blazers"};
+
+        clickItem((x)->{ header.getMainMenu().hoverParent("Men");
+                         header.getMainMenu().clickMenItem(x); }, items);
     }
 
     @Test
     public void accessoriesDropdownList() {
 
-        clickElementList("Accessories", "li.nav-3>ul");
+        String[] items = {"View All Accessories", "Eyewear", "Jewelry", "Shoes", "Bags & Luggage"};
+
+        clickItem((x)->{ header.getMainMenu().hoverParent("Accessories");
+                         header.getMainMenu().clickAccessoriesItem(x); }, items);
     }
 
     @Test
     void homeAndDecorDropdownList() {
 
-        clickElementList("Home & Decor", "li.nav-4>ul");
+        String[] items = {"View All Home & Decor", "Books & Music", "Bed & Bath", "Electronics", "Decorative Accents"};
+
+        clickItem((x)->{ header.getMainMenu().hoverParent("Home & Decor");
+                         header.getMainMenu().clickHomeAndDecorItem(x); }, items);
     }
 
     @Test
     void saleDropdownList() {
 
-        clickElementList("Sale", "li.nav-5>ul");
+        String[] items = {"View All Sale", "Women", "Men", "Accessories", "Home & Decor"};
+
+        clickItem((x)->{ header.getMainMenu().hoverParent("Sale");
+                         header.getMainMenu().clickSaleItem(x); }, items);
     }
 
     @Test
-    void vipDropdownList() {
+    void vipLink() {
 
-        clickElementList("VIP", "li.nav-6>ul");
+        header.getMainMenu().clickVip();
     }
 }
