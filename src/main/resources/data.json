@@ -1,0 +1,86 @@
+{
+    "login": {
+
+        "incorrectEmail": [
+
+            {
+                "email": "googmail.com",
+                "password": "pawelek1234"
+            }
+        ],
+
+        "emptyEmailField": [
+
+            {
+                "email": "",
+                "password": "pawelek1234"
+            }
+        ],
+
+        "incorrectPassword": [
+
+            {
+                "email": "goo@gmail.com",
+                "password": "kkkkkkkkkkk"
+            }
+        ],
+
+        "emptyPasswordField": [
+
+            {
+                "email": "goo@gmail.com",
+                "password": ""
+            }
+        ],
+
+        "correct": [
+
+            {
+                "email": "goo@gmail.com",
+                "password": "pawelek1234"
+            }
+        ]
+    },
+
+    "URLs": {
+
+        "accountDropdownList": [
+
+            "http://demo-store.seleniumacademy.com/customer/account/login/",
+            "http://demo-store.seleniumacademy.com/wishlist/",
+            "http://demo-store.seleniumacademy.com/checkout/cart/",
+            "http://demo-store.seleniumacademy.com/checkout/cart/",
+            "http://demo-store.seleniumacademy.com/customer/account/create/",
+            "http://demo-store.seleniumacademy.com/customer/account/login/"
+        ],
+
+        "footer_1": [
+
+            "http://demo-store.seleniumacademy.com/about-magento-demo-store/",
+            "http://demo-store.seleniumacademy.com/contacts/",
+            "http://demo-store.seleniumacademy.com/customer-service/",
+            "http://demo-store.seleniumacademy.com/privacy-policy-cookie-restriction-mode/"
+        ],
+
+        "footer_2": [
+
+            "http://demo-store.seleniumacademy.com/catalog/seo_sitemap/category/",
+            "http://demo-store.seleniumacademy.com/catalogsearch/term/popular/",
+            "http://demo-store.seleniumacademy.com/catalogsearch/advanced/"
+        ],
+
+        "footer_3": [
+
+            "http://demo-store.seleniumacademy.com/customer/account/login/",
+            "http://demo-store.seleniumacademy.com/sales/guest/form/"
+        ],
+
+        "footer_4": [
+
+            "https://www.facebook.com/",
+            "https://twitter.com/",
+            "https://www.youtube.com/",
+            "https://en.pinterest.com/"
+        ]
+    }
+}
