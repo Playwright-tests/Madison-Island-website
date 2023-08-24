@@ -14,7 +14,7 @@ import java.util.List;
 
 public class JSONReader {
 
-    private static final String filePath = "./src/main/resources/testdata.json";
+    private static final String filePath = "./src/main/resources/data.json";
     private static JSONObject jsonObject;
 
     private static String fileToString() {
