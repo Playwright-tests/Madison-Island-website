@@ -39,4 +39,36 @@ public class Provider {
 
         return new Object[] {data};
     }
+
+    @DataProvider(name = "footerCompany")
+    public Object[] footerCompany() {
+
+        String[] data = JSONReader.get("URLs", "footer_1");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "footerQuickLinks")
+    public Object[] footerQuickLinks() {
+
+        String[] data = JSONReader.get("URLs", "footer_2");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "footerAccount")
+    public Object[] footerAccount() {
+
+        String[] data = JSONReader.get("URLs", "footer_3");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "footerConnectWithUs")
+    public Object[] footerConnectWithUs() {
+
+        String[] data = JSONReader.get("URLs", "footer_4");
+
+        return new Object[] {data};
+    }
 }
