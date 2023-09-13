@@ -44,6 +44,52 @@
 
     "URLs": {
 
+        "mainMenuWomen": [
+
+            "http://demo-store.seleniumacademy.com/women.html",
+            "http://demo-store.seleniumacademy.com/women/new-arrivals.html",
+            "http://demo-store.seleniumacademy.com/women/tops-blouses.html",
+            "http://demo-store.seleniumacademy.com/women/pants-denim.html",
+            "http://demo-store.seleniumacademy.com/women/dresses-skirts.html"
+        ],
+
+        "mainMenuMen": [
+
+            "http://demo-store.seleniumacademy.com/men.html",
+            "http://demo-store.seleniumacademy.com/men/new-arrivals.html",
+            "http://demo-store.seleniumacademy.com/men/shirts.html",
+            "http://demo-store.seleniumacademy.com/men/tees-knits-and-polos.html",
+            "http://demo-store.seleniumacademy.com/men/pants-denim.html",
+            "http://demo-store.seleniumacademy.com/men/blazers.html"
+        ],
+
+        "mainMenuAccessories": [
+
+            "http://demo-store.seleniumacademy.com/accessories.html",
+            "http://demo-store.seleniumacademy.com/accessories/eyewear.html",
+            "http://demo-store.seleniumacademy.com/accessories/jewelry.html",
+            "http://demo-store.seleniumacademy.com/accessories/shoes.html",
+            "http://demo-store.seleniumacademy.com/accessories/bags-luggage.html"
+        ],
+
+        "mainMenuHomeDecor": [
+
+            "http://demo-store.seleniumacademy.com/home-decor.html",
+            "http://demo-store.seleniumacademy.com/home-decor/books-music.html",
+            "http://demo-store.seleniumacademy.com/home-decor/bed-bath.html",
+            "http://demo-store.seleniumacademy.com/home-decor/electronics.html",
+            "http://demo-store.seleniumacademy.com/home-decor/decorative-accents.html"
+        ],
+
+        "mainMenuSale": [
+
+            "http://demo-store.seleniumacademy.com/sale.html",
+            "http://demo-store.seleniumacademy.com/sale/women.html",
+            "http://demo-store.seleniumacademy.com/sale/men.html",
+            "http://demo-store.seleniumacademy.com/sale/accessories.html",
+            "http://demo-store.seleniumacademy.com/sale/home-decor.html"
+        ],
+
         "accountDropdownList": [
 
             "http://demo-store.seleniumacademy.com/customer/account/login/",
