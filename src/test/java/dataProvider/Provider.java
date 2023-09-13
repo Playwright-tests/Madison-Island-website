@@ -40,6 +40,46 @@ public class Provider {
         return new Object[] {data};
     }
 
+    @DataProvider(name = "mainMenuWomen")
+    public Object[] mainMenuWomen() {
+
+        String[] data = JSONReader.get("URLs", "mainMenuWomen");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "mainMenuMen")
+    public Object[] mainMenuMen() {
+
+        String[] data = JSONReader.get("URLs", "mainMenuMen");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "mainMenuAccessories")
+    public Object[] mainMenuAccessories() {
+
+        String[] data = JSONReader.get("URLs", "mainMenuAccessories");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "mainMenuHomeDecor")
+    public Object[] mainMenuHomeDecor() {
+
+        String[] data = JSONReader.get("URLs", "mainMenuHomeDecor");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "mainMenuSale")
+    public Object[] mainMenuSale() {
+
+        String[] data = JSONReader.get("URLs", "mainMenuSale");
+
+        return new Object[] {data};
+    }
+
     @DataProvider(name = "footerCompany")
     public Object[] footerCompany() {
 
