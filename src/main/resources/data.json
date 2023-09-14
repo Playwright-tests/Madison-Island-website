@@ -42,6 +42,36 @@
         ]
     },
 
+    "searchEngine": {
+
+        "correctPhrase": [
+
+            "blouse",
+            "bed",
+            "shoes",
+            "electronics",
+            "pants"
+        ],
+
+        "correctPhraseUpperLower": [
+
+            "bLoUSe",
+            "beD",
+            "sHoEs",
+            "eLeCTroNicS",
+            "pAnTs"
+        ],
+
+        "incorrectPhrase": [
+
+            "saas&*(",
+            "____  ",
+            "(NULL)",
+            "undefined",
+            "1-1-4.5.3"
+        ]
+    },
+
     "URLs": {
 
         "mainMenuWomen": [
@@ -88,6 +118,11 @@
             "http://demo-store.seleniumacademy.com/sale/men.html",
             "http://demo-store.seleniumacademy.com/sale/accessories.html",
             "http://demo-store.seleniumacademy.com/sale/home-decor.html"
+        ],
+
+        "mainMenuVIP": [
+
+            "http://demo-store.seleniumacademy.com/vip.html"
         ],
 
         "accountDropdownList": [
