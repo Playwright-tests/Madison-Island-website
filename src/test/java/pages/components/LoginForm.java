@@ -10,6 +10,7 @@ public class LoginForm extends BasePage {
     private final Locator emailField;
     private final Locator passwordField;
     private final Locator loginButton;
+    private final Locator invalidLoginOrPasswordMessage;
     private final Locator adviceRequiredEmail;
     private final Locator adviceRequiredPassword;
 
@@ -20,6 +21,7 @@ public class LoginForm extends BasePage {
         emailField = getPage().locator("#email");
         passwordField = getPage().locator("#pass");
         loginButton = getPage().getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login"));
+        invalidLoginOrPasswordMessage = getPage().getByRole(AriaRole.LISTITEM).filter(new Locator.FilterOptions().setHasText("Invalid login or password")).first();
         adviceRequiredEmail = getPage().locator("#advice-required-entry-email");
         adviceRequiredPassword = getPage().locator("#advice-required-entry-pass");
     }
@@ -39,13 +41,18 @@ public class LoginForm extends BasePage {
         loginButton.click();
     }
 
-    public String getRequiredEmailMessageText() {
+    public boolean isRequiredEmailMessageVisible() {
 
-        return adviceRequiredEmail.textContent();
+        return adviceRequiredEmail.isVisible();
     }
 
-    public String getRequiredPasswordMessageText() {
+    public boolean isRequiredPasswordMessageVisible() {
 
-        return adviceRequiredPassword.textContent();
+        return adviceRequiredPassword.isVisible();
+    }
+
+    public boolean isInvalidLoginOrPasswordMessageVisible() {
+
+        return invalidLoginOrPasswordMessage.isVisible();
     }
 }
