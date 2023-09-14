@@ -6,11 +6,24 @@ import qa.base.BasePage;
 
 public class SearchResults extends BasePage {
 
-    private Locator categoryProducts;
+    private final Locator amountItemsMessage;
+    private final Locator noResultsMessage;
+
     public SearchResults(Page page) {
 
         super(page);
 
-        categoryProducts = getPage().locator(".products-grid products-grid--max-3-col first last odd");
+        amountItemsMessage = getPage().locator("strong").filter(new Locator.FilterOptions().setHasText("Item(s)")).first();
+        noResultsMessage = getPage().getByText("Your search returns no results.");
+    }
+
+    public Locator getAmountItemsMessage() {
+
+        return amountItemsMessage;
+    }
+
+    public Locator getNoResultsMessage() {
+
+        return noResultsMessage;
     }
 }
