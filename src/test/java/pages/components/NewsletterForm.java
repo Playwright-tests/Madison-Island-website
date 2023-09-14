@@ -7,23 +7,36 @@ import qa.base.BasePage;
 
 public class NewsletterForm extends BasePage {
 
-    Locator nameField;
+    Locator emailField;
     Locator subscribeButton;
+    Locator adviceRequiredEmail;
+
     public NewsletterForm(Page page) {
 
         super(page);
 
-        nameField = getPage().getByTitle("Sign up for our newsletter");
+        emailField = getPage().getByTitle("Sign up for our newsletter");
         subscribeButton = getPage().getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Subscribe"));
+        adviceRequiredEmail = getPage().locator("#advice-required-entry-newsletter");
     }
 
-    public void setName(String name) {
+    public void setEmail(String email) {
 
-        nameField.fill(name);
+        emailField.fill(email);
     }
 
     public void clickSubscribeButton() {
 
         subscribeButton.click();
+    }
+
+    public String getEmailFieldText() {
+
+        return emailField.textContent();
+    }
+
+    public Locator getAdviceRequiredEmail() {
+
+        return adviceRequiredEmail;
     }
 }
