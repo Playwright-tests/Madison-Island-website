@@ -72,6 +72,33 @@
         ]
     },
 
+    "newsletter": {
+
+        "incorrectEmail": [
+
+            "__.2@gmail.com",
+            "@gmail.com",
+            "paul@.gmail-com",
+            "iam_the.user",
+            "pablo@"
+        ],
+
+        "emptyEmailField": [
+
+            "",
+            "    "
+        ],
+
+        "correctEmail": [
+
+            "jamarican91@write-me.xyz",
+            "reginamalina@aflamyclub.com",
+            "fabian789@11thhourgospelgroup.com",
+            "kondratovsd@issou.cloud",
+            "dc6909@lasix4u.top"
+        ]
+    },
+
     "URLs": {
 
         "mainMenuWomen": [
@@ -162,6 +189,21 @@
             "https://twitter.com/",
             "https://www.youtube.com/",
             "https://en.pinterest.com/"
+        ],
+
+        "promosHomeDecor": [
+
+            "http://demo-store.seleniumacademy.com/home-decor.html"
+        ],
+
+        "promosShopPrivateSales": [
+
+            "http://demo-store.seleniumacademy.com/shop-private-sales.html"
+        ],
+
+        "promosTravelGear": [
+
+            "http://demo-store.seleniumacademy.com/accessories/bags-luggage.html"
         ]
     }
 }
