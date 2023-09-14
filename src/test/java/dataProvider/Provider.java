@@ -143,4 +143,52 @@ public class Provider {
 
         return new Object[] {data};
     }
+
+    @DataProvider(name = "newsletterIncorrectEmail")
+    public Object[] newsletterIncorrectEmail() {
+
+        String[] data = JSONReader.get("newsletter", "incorrectEmail");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "newsletterEmptyEmailField")
+    public Object[] newsletterEmptyEmailField() {
+
+        String[] data = JSONReader.get("newsletter", "emptyEmailField");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "newsletterCorrectEmail")
+    public Object[] newsletterCorrectEmail() {
+
+        String[] data = JSONReader.get("newsletter", "correctEmail");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "promosHomeDecor")
+    public Object[] promosHomeDecor() {
+
+        String[] data = JSONReader.get("URLs", "promosHomeDecor");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "promosShopPrivateSales")
+    public Object[] promosShopPrivateSales() {
+
+        String[] data = JSONReader.get("URLs", "promosShopPrivateSales");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "promosTravelGear")
+    public Object[] promosTravelGear() {
+
+        String[] data = JSONReader.get("URLs", "promosTravelGear");
+
+        return new Object[] {data};
+    }
 }
