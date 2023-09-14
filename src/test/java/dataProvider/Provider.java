@@ -119,4 +119,28 @@ public class Provider {
 
         return new Object[] {data};
     }
+
+    @DataProvider(name = "searchEngineCorrectPhrase")
+    public Object[] searchEngineCorrectPhrase() {
+
+        String[] data = JSONReader.get("searchEngine", "correctPhrase");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "searchEngineCorrectPhraseUpperLower")
+    public Object[] searchEngineCorrectPhraseUpperLower() {
+
+        String[] data = JSONReader.get("searchEngine", "correctPhraseUpperLower");
+
+        return new Object[] {data};
+    }
+
+    @DataProvider(name = "searchEngineIncorrectPhrase")
+    public Object[] searchEngineIncorrectPhrase() {
+
+        String[] data = JSONReader.get("searchEngine", "incorrectPhrase");
+
+        return new Object[] {data};
+    }
 }
