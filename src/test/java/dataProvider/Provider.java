@@ -80,6 +80,14 @@ public class Provider {
         return new Object[] {data};
     }
 
+    @DataProvider(name = "mainMenuVIP")
+    public Object[] mainMenuVIP() {
+
+        String[] data = JSONReader.get("URLs", "mainMenuVIP");
+
+        return new Object[] {data};
+    }
+
     @DataProvider(name = "footerCompany")
     public Object[] footerCompany() {
 
