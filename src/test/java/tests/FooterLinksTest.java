@@ -2,62 +2,52 @@ package tests;
 
 import dataProvider.Provider;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import pages.sections.Footer;
 import qa.base.BaseTest;
+import utils.Pair;
+import static playwright.PlaywrightLauncher.*;
 
 public class FooterLinksTest extends BaseTest {
 
-    private static Footer footer;
+    private Footer footer;
 
     public FooterLinksTest() { }
 
-    @BeforeClass
-    public void init() {
+    @BeforeMethod
+    public void create() {
 
         footer = new Footer(getPage());
     }
 
-    private void check(String[] links, String[] expectedResults) {
+    private void check(String link, String expectedURL) {
 
-        Assert.assertEquals(links.length, expectedResults.length);
-
-        for (int i = 0; i < links.length; i++) {
-
-            footer.getFooterLinks().clickElementList(links[i]);
-            String currentURL = getPage().url();
-
-            getPage().goBack();
-            Assert.assertEquals(currentURL, expectedResults[i]);
-        }
+        footer.getFooterLinks().clickElementList(link);
+        Assert.assertEquals(getPage().url(), expectedURL);
     }
 
     @Test(dataProvider = "footerCompany", dataProviderClass = Provider.class)
-    public void companySection(String[] data) {
+    public void companySection(Pair<String, String> data) {
 
-        String[] links = { "About Us", "Contact Us", "Customer Service", "Privacy Policy" };
-        check(links, data);
+        check(data.getFirst(), data.getSecond());
     }
 
     @Test(dataProvider = "footerQuickLinks", dataProviderClass = Provider.class)
-    public void quickLinksSection(String[] data) {
+    public void quickLinksSection(Pair<String, String> data) {
 
-        String[] links = { "Site Map", "Search Terms", "Advanced Search" };
-        check(links, data);
+        check(data.getFirst(), data.getSecond());
     }
 
     @Test(dataProvider = "footerAccount", dataProviderClass = Provider.class)
-    public void accountSection(String[] data) {
+    public void accountSection(Pair<String, String> data) {
 
-        String[] links = { "My Account", "Orders and Returns" };
-        check(links, data);
+        check(data.getFirst(), data.getSecond());
     }
 
     @Test(dataProvider = "footerConnectWithUs", dataProviderClass = Provider.class)
-    public void connectWithUsSection(String[] data) {
+    public void connectWithUsSection(Pair<String, String> data) {
 
-        String[] links = { "Facebook", "Twitter", "Youtube", "Pinterest"};
-        check(links, data);
+        check(data.getFirst(), data.getSecond());
     }
 }
