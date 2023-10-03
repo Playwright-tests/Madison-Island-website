@@ -2,18 +2,19 @@ package tests;
 
 import dataProvider.Provider;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.components.Promos;
 import qa.base.BaseTest;
 import java.util.function.Consumer;
+import static playwright.PlaywrightLauncher.getPage;
 
 public class PromosTest extends BaseTest {
 
     private Promos promos;
 
-    @BeforeClass
-    public void init() {
+    @BeforeMethod
+    public void create() {
 
         promos = new Promos(getPage());
     }
@@ -22,10 +23,7 @@ public class PromosTest extends BaseTest {
 
         consumer.accept(promos);
 
-        String currentURL = getPage().url();
-
-        getPage().goBack();
-        Assert.assertEquals(currentURL, URL);
+        Assert.assertEquals(getPage().url(), URL);
     }
 
     @Test(dataProvider = "promosHomeDecor", dataProviderClass = Provider.class)
