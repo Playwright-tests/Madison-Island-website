@@ -1,31 +1,16 @@
 package qa.base;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserType;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import utils.JSONReader;
+import playwright.PlaywrightLauncher;
 
 public class BaseTest {
 
-    private static Playwright playwright;
-    private static Browser browser;
-    private static Page page;
+    @BeforeTest
+    public void launch() {
 
-    @BeforeClass
-    public static void launch() {
-
-        playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
-        page = browser.newPage();
-        page.navigate("http://demo-store.seleniumacademy.com/");
+        PlaywrightLauncher.launch();
 
         JSONReader.read();
-    }
-
-    public static Page getPage() {
-
-        return page;
     }
 }
