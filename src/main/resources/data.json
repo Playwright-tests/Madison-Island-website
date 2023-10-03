@@ -94,7 +94,7 @@
             "jamarican91@write-me.xyz",
             "reginamalina@aflamyclub.com",
             "fabian789@11thhourgospelgroup.com",
-            "kondratovsd@issou.cloud",
+            "kondratovsd@issou.com",
             "dc6909@lasix4u.top"
         ]
     },
@@ -103,48 +103,147 @@
 
         "mainMenuWomen": [
 
-            "http://demo-store.seleniumacademy.com/women.html",
-            "http://demo-store.seleniumacademy.com/women/new-arrivals.html",
-            "http://demo-store.seleniumacademy.com/women/tops-blouses.html",
-            "http://demo-store.seleniumacademy.com/women/pants-denim.html",
-            "http://demo-store.seleniumacademy.com/women/dresses-skirts.html"
+            {
+                "button": "View All Women",
+                "url": "http://demo-store.seleniumacademy.com/women.html"
+            },
+
+            {
+                "button": "New Arrivals",
+                "url": "http://demo-store.seleniumacademy.com/women/new-arrivals.html"
+            },
+
+            {
+                "button": "Tops & Blouses",
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses.html"
+            },
+
+            {
+                "button": "Pants & Denim",
+                "url": "http://demo-store.seleniumacademy.com/women/pants-denim.html"
+            },
+
+            {
+                "button": "Dresses & Skirts",
+                "url": "http://demo-store.seleniumacademy.com/women/dresses-skirts.html"
+            }
         ],
 
         "mainMenuMen": [
 
-            "http://demo-store.seleniumacademy.com/men.html",
-            "http://demo-store.seleniumacademy.com/men/new-arrivals.html",
-            "http://demo-store.seleniumacademy.com/men/shirts.html",
-            "http://demo-store.seleniumacademy.com/men/tees-knits-and-polos.html",
-            "http://demo-store.seleniumacademy.com/men/pants-denim.html",
-            "http://demo-store.seleniumacademy.com/men/blazers.html"
+            {
+                "button": "View All Men",
+                "url": "http://demo-store.seleniumacademy.com/men.html"
+            },
+
+            {
+                "button": "New Arrivals",
+                "url": "http://demo-store.seleniumacademy.com/men/new-arrivals.html"
+            },
+
+            {
+                "button": "Shirts",
+                "url": "http://demo-store.seleniumacademy.com/men/shirts.html"
+            },
+
+            {
+                "button": "Tees, Knits and Polos",
+                "url": "http://demo-store.seleniumacademy.com/men/tees-knits-and-polos.html"
+            },
+
+            {
+                "button": "Pants & Denim",
+                "url": "http://demo-store.seleniumacademy.com/men/pants-denim.html"
+            },
+
+            {
+                "button": "Blazers",
+                "url": "http://demo-store.seleniumacademy.com/men/blazers.html"
+            }
         ],
 
         "mainMenuAccessories": [
 
-            "http://demo-store.seleniumacademy.com/accessories.html",
-            "http://demo-store.seleniumacademy.com/accessories/eyewear.html",
-            "http://demo-store.seleniumacademy.com/accessories/jewelry.html",
-            "http://demo-store.seleniumacademy.com/accessories/shoes.html",
-            "http://demo-store.seleniumacademy.com/accessories/bags-luggage.html"
+            {
+                "button": "View All Accessories",
+                "url": "http://demo-store.seleniumacademy.com/accessories.html"
+            },
+
+            {
+                "button": "Eyewear",
+                "url": "http://demo-store.seleniumacademy.com/accessories/eyewear.html"
+            },
+
+            {
+                "button": "Jewelry",
+                "url": "http://demo-store.seleniumacademy.com/accessories/jewelry.html"
+            },
+            
+            {
+                "button": "Shoes",
+                "url": "http://demo-store.seleniumacademy.com/accessories/shoes.html"
+            },
+
+            {
+                "button": "Bags & Luggage",
+                "url": "http://demo-store.seleniumacademy.com/accessories/bags-luggage.html"
+            }
         ],
 
         "mainMenuHomeDecor": [
 
-            "http://demo-store.seleniumacademy.com/home-decor.html",
-            "http://demo-store.seleniumacademy.com/home-decor/books-music.html",
-            "http://demo-store.seleniumacademy.com/home-decor/bed-bath.html",
-            "http://demo-store.seleniumacademy.com/home-decor/electronics.html",
-            "http://demo-store.seleniumacademy.com/home-decor/decorative-accents.html"
+            {
+                "button": "View All Home & Decor",
+                "url": "http://demo-store.seleniumacademy.com/home-decor.html"
+            },
+
+            {
+                "button": "Books & Music",
+                "url": "http://demo-store.seleniumacademy.com/home-decor/books-music.html"
+            },
+
+            {
+                "button": "Bed & Bath",
+                "url": "http://demo-store.seleniumacademy.com/home-decor/bed-bath.html"
+            },
+            
+            {
+                "button": "Electronics",
+                "url": "http://demo-store.seleniumacademy.com/home-decor/electronics.html"
+            },
+
+            {
+                "button": "Decorative Accents",
+                "url": "http://demo-store.seleniumacademy.com/home-decor/decorative-accents.html"
+            }
         ],
 
         "mainMenuSale": [
 
-            "http://demo-store.seleniumacademy.com/sale.html",
-            "http://demo-store.seleniumacademy.com/sale/women.html",
-            "http://demo-store.seleniumacademy.com/sale/men.html",
-            "http://demo-store.seleniumacademy.com/sale/accessories.html",
-            "http://demo-store.seleniumacademy.com/sale/home-decor.html"
+            {
+                "button": "View All Sale",
+                "url": "http://demo-store.seleniumacademy.com/sale.html"
+            },
+
+            {
+                "button": "Women",
+                "url": "http://demo-store.seleniumacademy.com/sale/women.html"
+            },
+
+            {
+                "button": "Men",
+                "url": "http://demo-store.seleniumacademy.com/sale/men.html"
+            },
+
+            {
+                "button": "Accessories",
+                "url": "http://demo-store.seleniumacademy.com/sale/accessories.html"
+            },
+            
+            {
+                "button": "Home & Decor",
+                "url": "http://demo-store.seleniumacademy.com/sale/home-decor.html"
+            }
         ],
 
         "mainMenuVIP": [
@@ -152,43 +251,120 @@
             "http://demo-store.seleniumacademy.com/vip.html"
         ],
 
-        "accountDropdownList": [
+        "accountDropdownList": [ 
+        
+            {
+                "button": "My Account",
+                "url": "http://demo-store.seleniumacademy.com/customer/account/login/"
+            },
 
-            "http://demo-store.seleniumacademy.com/customer/account/login/",
-            "http://demo-store.seleniumacademy.com/wishlist/",
-            "http://demo-store.seleniumacademy.com/checkout/cart/",
-            "http://demo-store.seleniumacademy.com/checkout/cart/",
-            "http://demo-store.seleniumacademy.com/customer/account/create/",
-            "http://demo-store.seleniumacademy.com/customer/account/login/"
+            {
+                "button": "My Wishlist",
+                "url": "http://demo-store.seleniumacademy.com/wishlist/"
+            }, 
+
+            {
+                "button": "My Cart",
+                "url": "http://demo-store.seleniumacademy.com/checkout/cart/"
+            }, 
+
+            {
+                "button": "Checkout",
+                "url": "http://demo-store.seleniumacademy.com/checkout/cart/"
+            },           
+        
+            {
+                "button": "Register",
+                "url": "http://demo-store.seleniumacademy.com/customer/account/create/"
+            },
+
+            {
+                "button": "Log In",
+                "url": "http://demo-store.seleniumacademy.com/customer/account/login/"
+            }
+        ],
+        
+
+        "footerCompany": [
+
+            {
+                "link": "About Us",
+                "url": "http://demo-store.seleniumacademy.com/about-magento-demo-store/"
+            },
+
+            {
+                "link": "Contact Us",
+                "url": "http://demo-store.seleniumacademy.com/contacts/"
+            },
+
+            {
+                "link": "Customer Service",
+                "url": "http://demo-store.seleniumacademy.com/customer-service/"
+            },
+            
+            {
+                "link": "Privacy Policy",
+                "url": "http://demo-store.seleniumacademy.com/privacy-policy-cookie-restriction-mode/"
+            }
         ],
 
-        "footer_1": [
+        "footerQuickLinks": [
 
-            "http://demo-store.seleniumacademy.com/about-magento-demo-store/",
-            "http://demo-store.seleniumacademy.com/contacts/",
-            "http://demo-store.seleniumacademy.com/customer-service/",
-            "http://demo-store.seleniumacademy.com/privacy-policy-cookie-restriction-mode/"
+            {
+                "link": "Site Map",
+                "url": "http://demo-store.seleniumacademy.com/catalog/seo_sitemap/category/"
+            },
+
+            {
+                "link": "Search Terms",
+                "url": "http://demo-store.seleniumacademy.com/catalogsearch/term/popular/"
+            },
+
+            {
+                "link": "Search Terms",
+                "url": "http://demo-store.seleniumacademy.com/catalogsearch/term/popular/"
+            },
+
+            {
+                "link": "Advanced Search",
+                "url": "http://demo-store.seleniumacademy.com/catalogsearch/advanced/"
+            }
         ],
 
-        "footer_2": [
+        "footerAccount": [
 
-            "http://demo-store.seleniumacademy.com/catalog/seo_sitemap/category/",
-            "http://demo-store.seleniumacademy.com/catalogsearch/term/popular/",
-            "http://demo-store.seleniumacademy.com/catalogsearch/advanced/"
+            {
+                "link": "My Account",
+                "url": "http://demo-store.seleniumacademy.com/customer/account/login/"
+            },
+
+            {
+                "link": "Orders and Returns",
+                "url": "http://demo-store.seleniumacademy.com/sales/guest/form/"
+            }
         ],
 
-        "footer_3": [
+        "footerConnectWithUs": [
 
-            "http://demo-store.seleniumacademy.com/customer/account/login/",
-            "http://demo-store.seleniumacademy.com/sales/guest/form/"
-        ],
+            {
+                "link": "Facebook",
+                "url": "https://www.facebook.com/"
+            },
 
-        "footer_4": [
+            {
+                "link": "Twitter",
+                "url": "https://twitter.com/"
+            },
 
-            "https://www.facebook.com/",
-            "https://twitter.com/",
-            "https://www.youtube.com/",
-            "https://en.pinterest.com/"
+            {
+                "link": "Youtube",
+                "url": "https://www.youTube.com/"
+            },
+            
+            {
+                "link": "Pinterest",
+                "url": "https://en.pinterest.com/"
+            }
         ],
 
         "promosHomeDecor": [
