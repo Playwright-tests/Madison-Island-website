@@ -2,74 +2,67 @@ package tests;
 
 import dataProvider.Provider;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
+import pages.components.MainMenu;
 import pages.sections.Header;
 import qa.base.BaseTest;
-import qa.base.constans.MainMenuButtonNames;
-
+import utils.Pair;
 import java.util.function.Consumer;
+import static playwright.PlaywrightLauncher.*;
 
 public class MainMenuTest extends BaseTest {
 
-    private static Header header;
+    private Header header;
 
-    @BeforeClass
-    public static void init() {
+    @BeforeMethod
+    public void initDerived() {
 
         header = new Header(getPage());
     }
 
-    private void clickItem(Consumer<String> consumer, String[] items, String[] URLs) {
+    private void check(Consumer<MainMenu> consumer, String menuButton, String expectedURL) {
 
-        for (int i = 0; i < items.length; i++) {
-
-            consumer.accept(items[i]);
-
-            Assert.assertEquals(getPage().url(), URLs[i]);
-        }
+        header.getMainMenu().hoverParent(menuButton);
+        consumer.accept(header.getMainMenu());
+        Assert.assertEquals(getPage().url(), expectedURL);
     }
 
     @Test(dataProvider = "mainMenuWomen", dataProviderClass = Provider.class)
-    public void womenDropdownList(String[] URLs) {
+    public void women(Pair<String, String> data) {
 
-        clickItem((x)->{ header.getMainMenu().hoverParent("Women");
-                         header.getMainMenu().clickWomenItem(x); }, MainMenuButtonNames.women, URLs);
+        check((MainMenu mm)->{ mm.clickWomenItem(data.getFirst()); }, "Women", data.getSecond());
     }
 
     @Test(dataProvider = "mainMenuMen", dataProviderClass = Provider.class)
-    public void menDropdownList(String[] URLs) {
+    public void men(Pair<String, String> data) {
 
-        clickItem((x)->{ header.getMainMenu().hoverParent("Men");
-                         header.getMainMenu().clickMenItem(x); }, MainMenuButtonNames.men, URLs);
+        check((MainMenu mm)->{ mm.clickMenItem(data.getFirst()); }, "Men", data.getSecond());
     }
 
     @Test(dataProvider = "mainMenuAccessories", dataProviderClass = Provider.class)
-    public void accessoriesDropdownList(String[] URLs) {
+    public void accessories(Pair<String, String> data) {
 
-        clickItem((x)->{ header.getMainMenu().hoverParent("Accessories");
-                         header.getMainMenu().clickAccessoriesItem(x); }, MainMenuButtonNames.accessories, URLs);
+        check((MainMenu mm)->{ mm.clickAccessoriesItem(data.getFirst()); }, "Accessories", data.getSecond());
     }
 
     @Test(dataProvider = "mainMenuHomeDecor", dataProviderClass = Provider.class)
-    void homeAndDecorDropdownList(String[] URLs) {
+    void homeAndDecor(Pair<String, String> data) {
 
-        clickItem((x)->{ header.getMainMenu().hoverParent("Home & Decor");
-                         header.getMainMenu().clickHomeAndDecorItem(x); }, MainMenuButtonNames.homeAndDecor, URLs);
+        check((MainMenu mm)->{ mm.clickHomeAndDecorItem(data.getFirst()); }, "Home & Decor", data.getSecond());
     }
 
     @Test(dataProvider = "mainMenuSale", dataProviderClass = Provider.class)
-    void saleDropdownList(String[] URLs) {
+    void sale(Pair<String, String> data) {
 
-        clickItem((x)->{ header.getMainMenu().hoverParent("Sale");
-                         header.getMainMenu().clickSaleItem(x); }, MainMenuButtonNames.sale, URLs);
+        check((MainMenu mm)->{ mm.clickSaleItem(data.getFirst()); }, "Sale", data.getSecond());
     }
 
     @Test(dataProvider = "mainMenuVIP", dataProviderClass = Provider.class)
-    void vipLink(String[] URLs) {
+    void vip(String expectedURL) {
 
         header.getMainMenu().clickVip();
 
-        Assert.assertEquals(getPage().url(), URLs[0]);
+        Assert.assertEquals(getPage().url(), expectedURL);
     }
 }
