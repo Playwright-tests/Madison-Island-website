@@ -9,8 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class JSONReader {
 
@@ -62,21 +61,20 @@ public class JSONReader {
         return data;
     }
 
-    public static List<Pair<String, String>> get(String key, String node, Pair<String, String> params) {
+    public static Pair<String, String>[] get(String key, String node, Pair<String, String> params) {
 
         Object object = jsonObject.get(key);
         JSONObject jsonObject1 = (JSONObject) object;
         JSONArray jsonArray = jsonObject1.getJSONArray(node);
 
-        List<Pair<String, String>> data = new ArrayList<>();
+        Pair<String, String>[] data = new Pair[jsonArray.length()];
 
         for (int i = 0; i < jsonArray.length(); i++) {
 
-            data.add(new Pair<>(jsonArray.getJSONObject(i).getString(params.getFirst()),
-                    (jsonArray.getJSONObject(i).getString(params.getSecond()))));
+            data[i] = new Pair<>(jsonArray.getJSONObject(i).getString(params.getFirst()),
+                    jsonArray.getJSONObject(i).getString(params.getSecond()));
         }
 
         return data;
     }
-
 }
