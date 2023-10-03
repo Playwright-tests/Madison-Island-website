@@ -35,8 +35,8 @@ public class NewsletterForm extends BasePage {
         return emailField.textContent();
     }
 
-    public Locator getAdviceRequiredEmail() {
+    public String getAdviceRequiredEmailText() {
 
-        return adviceRequiredEmail;
+        return adviceRequiredEmail.textContent();
     }
 }
