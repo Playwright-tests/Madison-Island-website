@@ -1,70 +1,31 @@
 package tests;
 
-import enums.AccountDropdownListURLs;
+import dataProvider.Provider;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import pages.components.AccountDropdownList;
 import qa.base.BaseTest;
-import utils.JSONReader;
+import utils.Pair;
+
+import static playwright.PlaywrightLauncher.*;
 
 public class AccountDropdownListTest extends BaseTest {
 
     private AccountDropdownList accountDropdownList;
-    private String[] expectedResults;
 
-    @BeforeClass
-    public void init() {
+    @BeforeMethod
+    public void create() {
 
         accountDropdownList = new AccountDropdownList(getPage());
-        expectedResults = JSONReader.get("URLs", "accountDropdownList");
     }
 
-    private void check(String items, AccountDropdownListURLs index) {
+    @Test(dataProvider = "accountDropdownList", dataProviderClass = Provider.class)
+    void link(Pair<String, String> data) {
 
         accountDropdownList.clickAccountNav();
-        accountDropdownList.clickItem(items);
+        accountDropdownList.clickItem(data.getFirst());
 
-        String currentURL = getPage().url();
-
-        getPage().goBack();
-
-        Assert.assertEquals(currentURL, expectedResults[index.ordinal()]);
-    }
-
-    @Test
-    void myAccountLink() {
-
-        check("My Account", AccountDropdownListURLs.MY_ACCOUNT);
-    }
-
-    @Test
-    void myWishlistLink() {
-
-        check("My Wishlist", AccountDropdownListURLs.MY_WISHLIST);
-    }
-
-    @Test
-    void myCartLink() {
-
-        check("My Cart", AccountDropdownListURLs.MY_CART);
-    }
-
-    @Test
-    void checkoutLink() {
-
-        check("Checkout", AccountDropdownListURLs.CHECKOUT);
-    }
-
-    @Test
-    void registerLink() {
-
-        check("Register", AccountDropdownListURLs.REGISTER);
-    }
-
-    @Test
-    void logInLink() {
-
-        check("Log In", AccountDropdownListURLs.LOG_IN);
+        Assert.assertEquals(getPage().url(), data.getSecond());
     }
 }
