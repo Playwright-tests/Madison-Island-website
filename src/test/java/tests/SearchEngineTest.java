@@ -1,7 +1,7 @@
 package tests;
 
 import dataProvider.Provider;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.components.SearchResults;
 import pages.sections.Header;
@@ -12,11 +12,11 @@ import static playwright.PlaywrightLauncher.*;
 
 public class SearchEngineTest extends BaseTest {
 
-    private static Header header;
+    private Header header;
     private SearchResults searchResults;
 
-    @BeforeClass
-    public void init() {
+    @BeforeMethod
+    public void create() {
 
         header = new Header(getPage());
         searchResults = new SearchResults(getPage());
