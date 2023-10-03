@@ -2,36 +2,34 @@ package tests;
 
 import dataProvider.Provider;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.components.AccountDropdownList;
 import pages.components.LoginForm;
+import playwright.PlaywrightLauncher;
 import qa.base.BaseTest;
 import utils.Pair;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class LoginTest extends BaseTest {
 
-    private LoginForm loginForm;
+    private static LoginForm loginForm;
 
-    @BeforeClass
-    public void init() {
+    @BeforeMethod
+    public void create() {
 
-        AccountDropdownList accountDropdownList = new AccountDropdownList(getPage());
-        loginForm = new LoginForm(getPage());
+        AccountDropdownList accountDropdownList = new AccountDropdownList(PlaywrightLauncher.getPage());
+        loginForm = new LoginForm(PlaywrightLauncher.getPage());
 
         accountDropdownList.clickAccountNav();
         accountDropdownList.clickItem("My Account");
     }
 
-    private void setData(String email, String password, Consumer<LoginForm> consumer) {
+    private void setData(String email, String password) {
 
         loginForm.setEmail(email);
         loginForm.setPassword(password);
         loginForm.clickLoginButton();
-
-        consumer.accept(loginForm);
     }
 
     @Test(dataProvider = "incorrectEmail", dataProviderClass = Provider.class)
@@ -40,20 +38,23 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(dataProvider = "emptyEmailField", dataProviderClass = Provider.class)
-    public void emptyEmailField(List<Pair<String, String>> data) {
+    public void emptyEmailField(Pair<String, String> data) {
 
-        setData(data.get(0).getFirst(), data.get(0).getSecond(), (LoginForm lf)->{Assert.assertTrue(lf.isRequiredEmailMessageVisible());});
+        setData(data.getFirst(), data.getSecond());
+        Assert.assertTrue(loginForm.isRequiredEmailMessageVisible());
     }
 
     @Test(dataProvider = "incorrectPassword", dataProviderClass = Provider.class)
-    public void incorrectPassword(List<Pair<String, String>> data) {
+    public void incorrectPassword(Pair<String, String> data) {
 
-        setData(data.get(0).getFirst(), data.get(0).getSecond(), (LoginForm lf)->{Assert.assertTrue(lf.isInvalidLoginOrPasswordMessageVisible());});
+        setData(data.getFirst(), data.getSecond());
+        Assert.assertTrue(loginForm.isInvalidLoginOrPasswordMessageVisible());
     }
 
     @Test(dataProvider = "emptyPasswordField", dataProviderClass = Provider.class)
-    public void emptyPasswordField(List<Pair<String, String>> data) {
+    public void emptyPasswordField(Pair<String, String> data) {
 
-        setData(data.get(0).getFirst(), data.get(0).getSecond(), (LoginForm lf)->{Assert.assertTrue(lf.isRequiredPasswordMessageVisible());});
+        setData(data.getFirst(), data.getSecond());
+        Assert.assertTrue(loginForm.isRequiredPasswordMessageVisible());
     }
 }
