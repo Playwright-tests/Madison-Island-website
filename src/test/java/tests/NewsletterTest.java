@@ -2,50 +2,49 @@ package tests;
 
 import dataProvider.Provider;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import pages.sections.Footer;
+import playwright.PlaywrightLauncher;
 import qa.base.BaseTest;
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-
-import java.util.function.Consumer;
+import static playwright.PlaywrightLauncher.*;
 
 public class NewsletterTest extends BaseTest {
 
-    private static Footer footer;
+    private Footer footer;
+    private final String subPageUrl = "http://demo-store.seleniumacademy.com/newsletter/subscriber/new/";
 
-    @BeforeClass
-    public static void init() {
+    @BeforeMethod
+    public void create() {
 
-        footer = new Footer(getPage());
+        footer = new Footer(PlaywrightLauncher.getPage());
     }
 
-    private void check(String[] emails, Consumer<Footer> consumer) {
+    private void check(String email, String expectedURL) {
 
-        for (String email: emails) {
+        footer.getNewsletterForm().setEmail(email);
+        footer.getNewsletterForm().clickSubscribeButton();
 
-            footer.getNewsletterForm().setEmail(email);
-            footer.getNewsletterForm().clickSubscribeButton();
-
-            consumer.accept(footer);
-        }
-    }
-
-    @Test(dataProvider = "newsletterIncorrectEmail", dataProviderClass = Provider.class)
-    public void incorrectName(String[] emails) {
-
-
-    }
-
-    @Test(dataProvider = "newsletterEmptyEmailField", dataProviderClass = Provider.class)
-    public void emptyNameField(String[] emails) {
-
-        check(emails, (Footer f)->{assertThat(f.getNewsletterForm().getAdviceRequiredEmail()).isVisible();});
+        Assert.assertEquals(getPage().url(), expectedURL);
     }
 
     @Test(dataProvider = "newsletterCorrectEmail", dataProviderClass = Provider.class)
-    public void correctName(String[] emails) {
+    public void correctEmail(String email) {
 
-        check(emails, (Footer f)->{Assert.assertEquals(f.getNewsletterForm().getEmailFieldText(), "");});
+        check(email, subPageUrl);
+    }
+
+    @Test(dataProvider = "newsletterIncorrectEmail", dataProviderClass = Provider.class)
+    public void incorrectEmail(String email) {
+
+        check(email, getUrl());
+    }
+
+    @Test
+    public void emptyEmailField() {
+
+        check("", getUrl());
+
+        Assert.assertEquals(footer.getNewsletterForm().getAdviceRequiredEmailText(), "This is a required field.");
     }
 }
