@@ -16,7 +16,7 @@ public class MainMenuTest extends BaseTest {
     private Header header;
 
     @BeforeMethod
-    public void initDerived() {
+    public void create() {
 
         header = new Header(getPage());
     }
@@ -25,6 +25,7 @@ public class MainMenuTest extends BaseTest {
 
         header.getMainMenu().hoverParent(menuButton);
         consumer.accept(header.getMainMenu());
+
         Assert.assertEquals(getPage().url(), expectedURL);
     }
 
