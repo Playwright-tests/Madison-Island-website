@@ -10,6 +10,9 @@ public class ProductShop extends BasePage {
     private final Locator price;
     private final Locator quantityField;
     private final Locator addToCartButton;
+    private final Locator requiredColorMessage;
+    private final Locator requiredSizeMessage;
+
     public ProductShop(Page page) {
 
         super(page);
@@ -17,6 +20,8 @@ public class ProductShop extends BasePage {
         price = page.locator("#product-price-421");
         quantityField = page.locator("#qty");
         addToCartButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add to cart"));
+        requiredColorMessage = page.locator("#advice-required-entry-attribute92");
+        requiredSizeMessage = page.locator("#advice-required-entry-attribute180");
     }
 
     public void setColor(String color) {
@@ -47,5 +52,15 @@ public class ProductShop extends BasePage {
     public void clickAddToCartButton() {
 
         addToCartButton.click();
+    }
+
+    public boolean isRequiredColorMessageVisible() {
+
+        return requiredColorMessage.isVisible();
+    }
+
+    public boolean isRequiredSizeMessageVisible() {
+
+        return requiredSizeMessage.isVisible();
     }
 }
