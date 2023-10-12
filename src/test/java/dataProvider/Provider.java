@@ -127,27 +127,15 @@ public class Provider {
         return JSONReader.get("newsletter", "correctEmail");
     }
 
-    @DataProvider(name = "promosHomeDecor")
-    public Object[] promosHomeDecor() {
+    @DataProvider(name = "promos")
+    public Object[] promos() {
 
-        String[] data = JSONReader.get("URLs", "promosHomeDecor");
-
-        return new Object[] {data};
+        return JSONReader.get("URLs", "promos", new Pair<>("altText", "url"));
     }
 
-    @DataProvider(name = "promosShopPrivateSales")
-    public Object[] promosShopPrivateSales() {
+    @DataProvider(name = "correctProductData")
+    public Object[] correctProductData() {
 
-        String[] data = JSONReader.get("URLs", "promosShopPrivateSales");
-
-        return new Object[] {data};
-    }
-
-    @DataProvider(name = "promosTravelGear")
-    public Object[] promosTravelGear() {
-
-        String[] data = JSONReader.get("URLs", "promosTravelGear");
-
-        return new Object[] {data};
+        return JSONReader.get("correctData");
     }
 }
