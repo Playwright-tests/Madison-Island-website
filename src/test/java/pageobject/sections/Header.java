@@ -1,8 +1,8 @@
-package pages.sections;
+package pageobject.sections;
 
 import com.microsoft.playwright.Page;
-import pages.components.MainMenu;
-import pages.components.SearchEngine;
+import pageobject.components.MainMenu;
+import pageobject.components.SearchEngine;
 import qa.base.BasePage;
 
 public class Header extends BasePage {

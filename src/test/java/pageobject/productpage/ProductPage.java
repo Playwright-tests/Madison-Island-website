@@ -1,4 +1,4 @@
-package pages.productpage;
+package pageobject.productpage;
 
 import com.microsoft.playwright.Page;
 import qa.base.BasePage;

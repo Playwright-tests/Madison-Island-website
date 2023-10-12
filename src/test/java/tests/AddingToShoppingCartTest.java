@@ -3,9 +3,9 @@ package tests;
 import dataProvider.Provider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.productpage.ProductPage;
-import pages.components.MainMenu;
-import pages.components.ProductThumbnail;
+import pageobject.productpage.ProductPage;
+import pageobject.components.MainMenu;
+import pageobject.components.ProductThumbnail;
 import qa.base.BaseTest;
 import utils.ProductData;
 

@@ -1,4 +1,4 @@
-package pages.components;
+package pageobject.components;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;

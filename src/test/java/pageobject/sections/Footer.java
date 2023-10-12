@@ -1,8 +1,8 @@
-package pages.sections;
+package pageobject.sections;
 
 import com.microsoft.playwright.Page;
-import pages.components.FooterLinks;
-import pages.components.NewsletterForm;
+import pageobject.components.FooterLinks;
+import pageobject.components.NewsletterForm;
 import qa.base.BasePage;
 
 public class Footer extends BasePage {

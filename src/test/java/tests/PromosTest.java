@@ -4,7 +4,7 @@ import dataProvider.Provider;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.components.Promos;
+import pageobject.components.Promos;
 import qa.base.BaseTest;
 import utils.Pair;
 
