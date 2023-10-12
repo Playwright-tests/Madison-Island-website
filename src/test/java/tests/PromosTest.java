@@ -6,7 +6,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.components.Promos;
 import qa.base.BaseTest;
-import java.util.function.Consumer;
+import utils.Pair;
+
 import static playwright.PlaywrightLauncher.getPage;
 
 public class PromosTest extends BaseTest {
@@ -19,28 +20,11 @@ public class PromosTest extends BaseTest {
         promos = new Promos(getPage());
     }
 
-    private void check(String URL, Consumer<Promos> consumer) {
+    @Test(dataProvider = "promos", dataProviderClass = Provider.class)
+    public void images(Pair<String, String> data) {
 
-        consumer.accept(promos);
+        promos.clickImage(data.getFirst());
 
-        Assert.assertEquals(getPage().url(), URL);
-    }
-
-    @Test(dataProvider = "promosHomeDecor", dataProviderClass = Provider.class)
-    public void homeAndDecorImage(String[] URL) {
-
-        check(URL[0], Promos::clickHomeAndDecorImage);
-    }
-
-    @Test(dataProvider = "promosShopPrivateSales", dataProviderClass = Provider.class)
-    public void shopPrivateSalesImage(String[] URL) {
-
-        check(URL[0], Promos::clickShopPrivateSalesImage);
-    }
-
-    @Test(dataProvider = "promosTravelGear", dataProviderClass = Provider.class)
-    public void travelGearImage(String[] URL) {
-
-        check(URL[0], Promos::clickTravelGearImage);
+        Assert.assertEquals(getPage().url(), data.getSecond());
     }
 }
