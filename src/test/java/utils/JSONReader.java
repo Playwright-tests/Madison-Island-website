@@ -77,4 +77,27 @@ public class JSONReader {
 
         return data;
     }
+
+    public static ProductData[] get(String node) {
+
+        Object object = jsonObject.get("addingToShoppingCart");
+        JSONObject jsonObject1 = (JSONObject) object;
+        JSONArray jsonArray = jsonObject1.getJSONArray(node);
+
+        ProductData[] productData = new ProductData[jsonArray.length()];
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+
+            String category = jsonArray.getJSONObject(i).getString("category");
+            String productType = jsonArray.getJSONObject(i).getString("productType");
+            String name = jsonArray.getJSONObject(i).getString("name");
+            String color = jsonArray.getJSONObject(i).getString("color");
+            String size = jsonArray.getJSONObject(i).getString("size");
+            String quantity = jsonArray.getJSONObject(i).getString("quantity");
+
+            productData[i] = new ProductData(category, productType, name, color, size, quantity);
+        }
+
+        return productData;
+    }
 }
