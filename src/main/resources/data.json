@@ -367,19 +367,37 @@
             }
         ],
 
-        "promosHomeDecor": [
+        "promos": [
 
-            "http://demo-store.seleniumacademy.com/home-decor.html"
-        ],
+            {
+                "altText": "Physical & Virtual Gift Cards",
+                "url": "http://demo-store.seleniumacademy.com/home-decor.html"    
+            },
 
-        "promosShopPrivateSales": [
+            {
+                "altText": "Shop Private Sales - Members Only",
+                "url": "http://demo-store.seleniumacademy.com/shop-private-sales.html"    
+            },
 
-            "http://demo-store.seleniumacademy.com/shop-private-sales.html"
-        ],
+            {
+                "altText": "Travel Gear for Every Occasion",
+                "url": "http://demo-store.seleniumacademy.com/accessories/bags-luggage.html"    
+            }
+        ]
+    },
 
-        "promosTravelGear": [
+    "addingToShoppingCart": {
 
-            "http://demo-store.seleniumacademy.com/accessories/bags-luggage.html"
+        "correctData": [
+
+            {
+                "category": "Women",
+                "productType": "Tops & Blouses",
+                "name": "Elizabeth Knit Top",
+                "color": "Red",
+                "size": "L",
+                "quantity": "5"
+            }
         ]
     }
 }
