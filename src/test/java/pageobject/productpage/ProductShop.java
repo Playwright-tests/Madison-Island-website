@@ -24,19 +24,25 @@ public class ProductShop extends BasePage {
         requiredSizeMessage = page.locator("#advice-required-entry-attribute180");
     }
 
-    public void setColor(String color) {
+    public ProductShop setColor(String color) {
 
         getPage().getByAltText(color).click();
+
+        return this;
     }
 
-    public void setSize(String size) {
+    public ProductShop setSize(String size) {
 
         getPage().getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(size).setExact(true)).click();
+
+        return this;
     }
 
-    public void setQuantity(String quantity) {
+    public ProductShop setQuantity(String quantity) {
 
         quantityField.fill(quantity);
+
+        return this;
     }
 
     public String getPrice() {
