@@ -398,6 +398,42 @@
                 "size": "L",
                 "quantity": "5"
             }
+        ],
+
+        "incorrectQuantityValue": [
+
+            {
+                "category": "Women",
+                "productType": "Tops & Blouses",
+                "name": "Elizabeth Knit Top",
+                "color": "Red",
+                "size": "L",
+                "quantity": "-5"
+            }
+        ],
+
+        "incorrectQuantityFormat" : [
+
+            {
+                "category": "Women",
+                "productType": "Tops & Blouses",
+                "name": "Elizabeth Knit Top",
+                "color": "Red",
+                "size": "L",
+                "quantity": "q_34"
+            }
+        ],
+
+        "blankQuantityField": [
+
+            {
+                "category": "Women",
+                "productType": "Tops & Blouses",
+                "name": "Elizabeth Knit Top",
+                "color": "Red",
+                "size": "L",
+                "quantity": ""
+            }
         ]
     }
 }
