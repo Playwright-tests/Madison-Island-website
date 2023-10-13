@@ -1,17 +1,28 @@
 package tests;
 
 import dataProvider.Provider;
+import factories.ProductShopFactory;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobject.productpage.ProductPage;
 import pageobject.components.MainMenu;
 import pageobject.components.ProductThumbnail;
+import pageobject.productpage.ProductShop;
 import qa.base.BaseTest;
-import utils.ProductData;
+import utils.ProductOptions;
 
 import static playwright.PlaywrightLauncher.*;
 
 public class AddingToShoppingCartTest extends BaseTest {
+
+    private ProductPage productPage;
+
+    @BeforeMethod
+    public void create() {
+
+        productPage = new ProductPage(getPage());
+    }
 
     private void openProductPage(String category, String type, String name) {
 
@@ -23,44 +34,76 @@ public class AddingToShoppingCartTest extends BaseTest {
         productThumbnail.clickViewDetailsButton();
     }
 
-    @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
-    public void correct(ProductData data) {
+    private void setFields(ProductShop productShop) {
 
-        openProductPage(data.getCategory(), data.getProductType(), data.getName());
-
-        ProductPage productPage = new ProductPage(getPage());
-
-        productPage.getProductShop().setColor(data.getColor());
-        productPage.getProductShop().setSize(data.getSize());
-        productPage.getProductShop().setQuantity(data.getQuantity());
+        productPage.setProductShop(productShop);
         productPage.getProductShop().clickAddToCartButton();
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
-    public void colorNotSelected(ProductData data) {
+    public void correct(ProductOptions options) {
 
-        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        openProductPage(options.getCategory(), options.getProductType(), options.getName());
+        setFields(ProductShopFactory.withAllFields(getPage(), options));
 
-        ProductPage productPage = new ProductPage(getPage());
+        Assert.assertEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
+    }
 
-        productPage.getProductShop().setSize(data.getSize());
-        productPage.getProductShop().setQuantity(data.getQuantity());
-        productPage.getProductShop().clickAddToCartButton();
+    @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
+    public void colorNotSelected(ProductOptions options) {
 
+        openProductPage(options.getCategory(), options.getProductType(), options.getName());
+        setFields(ProductShopFactory.withoutColor(getPage(), options));
+
+        Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
         Assert.assertTrue(productPage.getProductShop().isRequiredColorMessageVisible());
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
-    public void sizeNotSelected(ProductData data) {
+    public void sizeNotSelected(ProductOptions options) {
 
-        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        openProductPage(options.getCategory(), options.getProductType(), options.getName());
+        setFields(ProductShopFactory.withoutSize(getPage(), options));
 
-        ProductPage productPage = new ProductPage(getPage());
-
-        productPage.getProductShop().setColor(data.getColor());
-        productPage.getProductShop().setQuantity(data.getQuantity());
-        productPage.getProductShop().clickAddToCartButton();
-
+        Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
         Assert.assertTrue(productPage.getProductShop().isRequiredSizeMessageVisible());
+    }
+
+    @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
+    public void colorAndSizeNotSelected(ProductOptions options) {
+
+        openProductPage(options.getCategory(), options.getProductType(), options.getName());
+        setFields(ProductShopFactory.withoutColorAndSize(getPage(), options));
+
+        Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
+        Assert.assertTrue(productPage.getProductShop().isRequiredColorMessageVisible());
+        Assert.assertTrue(productPage.getProductShop().isRequiredSizeMessageVisible());
+    }
+
+    @Test(dataProvider = "incorrectQuantityValue", dataProviderClass = Provider.class)
+    public void incorrectQuantityValue(ProductOptions options) {
+
+        openProductPage(options.getCategory(), options.getProductType(), options.getName());
+        setFields(ProductShopFactory.withAllFields(getPage(), options));
+
+        Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
+    }
+
+    @Test(dataProvider = "incorrectQuantityFormat", dataProviderClass = Provider.class)
+    public void incorrectQuantityFormat(ProductOptions options) {
+
+        openProductPage(options.getCategory(), options.getProductType(), options.getName());
+        setFields(ProductShopFactory.withAllFields(getPage(), options));
+
+        Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
+    }
+
+    @Test(dataProvider = "blankQuantityField", dataProviderClass = Provider.class)
+    public void blankQuantityField(ProductOptions options) {
+
+        openProductPage(options.getCategory(), options.getProductType(), options.getName());
+        setFields(ProductShopFactory.withAllFields(getPage(), options));
+
+        Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
     }
 }
