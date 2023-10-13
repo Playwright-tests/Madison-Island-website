@@ -138,4 +138,22 @@ public class Provider {
 
         return JSONReader.get("correctData");
     }
+
+    @DataProvider(name = "incorrectQuantityValue")
+    public Object[] incorrectQuantityValue() {
+
+        return JSONReader.get("incorrectQuantityValue");
+    }
+
+    @DataProvider(name = "incorrectQuantityFormat")
+    public Object[] incorrectQuantityFormat() {
+
+        return JSONReader.get("incorrectQuantityFormat");
+    }
+
+    @DataProvider(name = "blankQuantityField")
+    public Object[] blankQuantityField() {
+
+        return JSONReader.get("blankQuantityField");
+    }
 }
