@@ -78,13 +78,13 @@ public class JSONReader {
         return data;
     }
 
-    public static ProductData[] get(String node) {
+    public static ProductOptions[] get(String node) {
 
         Object object = jsonObject.get("addingToShoppingCart");
         JSONObject jsonObject1 = (JSONObject) object;
         JSONArray jsonArray = jsonObject1.getJSONArray(node);
 
-        ProductData[] productData = new ProductData[jsonArray.length()];
+        ProductOptions[] options = new ProductOptions[jsonArray.length()];
 
         for (int i = 0; i < jsonArray.length(); i++) {
 
@@ -95,9 +95,9 @@ public class JSONReader {
             String size = jsonArray.getJSONObject(i).getString("size");
             String quantity = jsonArray.getJSONObject(i).getString("quantity");
 
-            productData[i] = new ProductData(category, productType, name, color, size, quantity);
+            options[i] = new ProductOptions(category, productType, name, color, size, quantity);
         }
 
-        return productData;
+        return options;
     }
 }
