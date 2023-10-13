@@ -5,13 +5,18 @@ import qa.base.BasePage;
 
 public class ProductPage extends BasePage {
 
-    private final ProductShop productShop;
+    private ProductShop productShop;
 
     public ProductPage(Page page) {
 
         super(page);
 
-        productShop = new ProductShop(page);
+        this.productShop = null;
+    }
+
+    public void setProductShop(ProductShop productShop) {
+
+        this.productShop = productShop;
     }
 
     public ProductShop getProductShop() {
