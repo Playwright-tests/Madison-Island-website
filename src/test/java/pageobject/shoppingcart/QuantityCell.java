@@ -14,7 +14,7 @@ public class QuantityCell extends BasePage {
 
         super(page);
 
-        quantityField = parent.getByRole(AriaRole.TEXTBOX);
+        quantityField = parent.getByRole(AriaRole.TEXTBOX, new Locator.GetByRoleOptions().setName("Qty"));
         updateButton = parent.getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Update"));
     }
 
@@ -26,6 +26,11 @@ public class QuantityCell extends BasePage {
     public void setQuantity(String quantity) {
 
         quantityField.fill(quantity);
+    }
+
+    public String getQuantity() {
+
+        return quantityField.inputValue();
     }
 
     public void clickUpdateButton() {
