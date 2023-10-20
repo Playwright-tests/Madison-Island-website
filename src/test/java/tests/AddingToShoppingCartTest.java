@@ -1,19 +1,19 @@
 package tests;
 
-import dataProvider.Provider;
-import factories.ProductShopFactory;
+import qa.dataProvider.Provider;
+import qa.factories.ProductShopFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobject.productpage.ProductPage;
-import pageobject.components.MainMenu;
-import pageobject.components.ProductThumbnail;
-import pageobject.productpage.ProductShop;
-import pageobject.shoppingcart.ShoppingCart;
+import qa.pageobject.productpage.ProductPage;
+import qa.pageobject.components.MainMenu;
+import qa.pageobject.components.ProductThumbnail;
+import qa.pageobject.productpage.ProductShop;
+import qa.pageobject.shoppingcart.ShoppingCart;
 import qa.base.BaseTest;
-import utils.ProductOptions;
+import qa.utils.ProductOptions;
 
-import static playwright.PlaywrightLauncher.*;
+import static qa.playwright.PlaywrightLauncher.*;
 
 public class AddingToShoppingCartTest extends BaseTest {
 

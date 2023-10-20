@@ -1,14 +1,14 @@
 package tests;
 
-import dataProvider.Provider;
+import qa.dataProvider.Provider;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobject.components.AccountDropdownList;
-import pageobject.components.LoginForm;
-import playwright.PlaywrightLauncher;
+import qa.pageobject.components.AccountDropdownList;
+import qa.pageobject.components.LoginForm;
+import qa.playwright.PlaywrightLauncher;
 import qa.base.BaseTest;
-import utils.Pair;
+import qa.utils.Pair;
 import java.util.List;
 
 public class LoginTest extends BaseTest {

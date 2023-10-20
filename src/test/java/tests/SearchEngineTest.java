@@ -1,14 +1,14 @@
 package tests;
 
-import dataProvider.Provider;
+import qa.dataProvider.Provider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobject.components.SearchResults;
-import pageobject.sections.Header;
+import qa.pageobject.components.SearchResults;
+import qa.pageobject.sections.Header;
 import qa.base.BaseTest;
 import java.util.function.Consumer;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import static playwright.PlaywrightLauncher.*;
+import static qa.playwright.PlaywrightLauncher.*;
 
 public class SearchEngineTest extends BaseTest {
 

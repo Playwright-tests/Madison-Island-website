@@ -1,8 +1,8 @@
 package qa.base;
 
 import org.testng.annotations.*;
-import utils.JSONReader;
-import playwright.PlaywrightLauncher;
+import qa.utils.JSONReader;
+import qa.playwright.PlaywrightLauncher;
 
 public class BaseTest {
 

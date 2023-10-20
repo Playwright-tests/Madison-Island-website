@@ -1,13 +1,13 @@
 package tests;
 
-import dataProvider.Provider;
+import qa.dataProvider.Provider;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobject.sections.Header;
+import qa.pageobject.sections.Header;
 import qa.base.BaseTest;
-import utils.Pair;
-import static playwright.PlaywrightLauncher.*;
+import qa.utils.Pair;
+import static qa.playwright.PlaywrightLauncher.*;
 
 public class MainMenuTest extends BaseTest {
 

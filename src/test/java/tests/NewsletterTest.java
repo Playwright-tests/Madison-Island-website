@@ -1,13 +1,13 @@
 package tests;
 
-import dataProvider.Provider;
+import qa.dataProvider.Provider;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobject.sections.Footer;
-import playwright.PlaywrightLauncher;
+import qa.pageobject.sections.Footer;
+import qa.playwright.PlaywrightLauncher;
 import qa.base.BaseTest;
-import static playwright.PlaywrightLauncher.*;
+import static qa.playwright.PlaywrightLauncher.*;
 
 public class NewsletterTest extends BaseTest {
 
