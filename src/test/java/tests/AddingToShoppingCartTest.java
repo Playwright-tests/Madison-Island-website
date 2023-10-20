@@ -9,6 +9,7 @@ import pageobject.productpage.ProductPage;
 import pageobject.components.MainMenu;
 import pageobject.components.ProductThumbnail;
 import pageobject.productpage.ProductShop;
+import pageobject.shoppingcart.ShoppingCart;
 import qa.base.BaseTest;
 import utils.ProductOptions;
 
@@ -30,7 +31,7 @@ public class AddingToShoppingCartTest extends BaseTest {
         ProductThumbnail productThumbnail = new ProductThumbnail(getPage(), name);
 
         mainMenu.hoverParent(category);
-        mainMenu.clickWomenItem(type);
+        mainMenu.clickItem(type);
         productThumbnail.clickViewDetailsButton();
     }
 
@@ -40,6 +41,16 @@ public class AddingToShoppingCartTest extends BaseTest {
         productPage.getProductShop().clickAddToCartButton();
     }
 
+    private void checkCartContents(ProductOptions options) {
+
+        ShoppingCart shoppingCart = new ShoppingCart(getPage());
+
+        Assert.assertEquals(shoppingCart.getTable().getName(), options.getName());
+        Assert.assertEquals(shoppingCart.getTable().getColor(), options.getColor());
+        Assert.assertEquals(shoppingCart.getTable().getSize(), options.getSize());
+        Assert.assertEquals(shoppingCart.getTable().getQuantityCell().getQuantity(), options.getQuantity());
+    }
+
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
     public void correct(ProductOptions options) {
 
@@ -47,6 +58,8 @@ public class AddingToShoppingCartTest extends BaseTest {
         setFields(ProductShopFactory.withAllFields(getPage(), options));
 
         Assert.assertEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
+
+        checkCartContents(options);
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
