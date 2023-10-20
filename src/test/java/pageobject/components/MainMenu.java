@@ -5,70 +5,39 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import qa.base.BasePage;
 
+import java.util.HashMap;
+
 public class MainMenu extends BasePage {
 
     Locator parent;
-    Locator womenItems;
-    Locator menItems;
-    Locator accessoriesItems;
-    Locator homeAndDecorItems;
-    Locator saleItems;
+    String hovered;
+
+    HashMap<String, String> items = new HashMap<>() {{
+
+        put("Women", "WomenView All WomenNew ArrivalsTops & BlousesPants & DenimDresses & Skirts");
+        put("Men", "MenView All MenNew ArrivalsShirtsTees, Knits and PolosPants & DenimBlazers");
+        put("Accessories", "AccessoriesView All AccessoriesEyewearJewelryShoesBags & Luggage");
+        put("Home & Decor", "Home & DecorView all Home & DecorBooks & MusicBed & BathElectronicsDecorative Accents");
+        put("Sale", "SaleView All SaleWomenMenAccessoriesHome & Decor");
+    }};
 
     public MainMenu(Page page) {
 
         super(page);
 
         parent = getPage().locator("#nav");
-
-        womenItems = getPage().getByRole(AriaRole.LISTITEM)
-                .filter(new Locator.FilterOptions().setHasText("WomenView All WomenNew ArrivalsTops & BlousesPants & DenimDresses & Skirts"));
-
-        menItems = getPage().getByRole(AriaRole.LISTITEM)
-                .filter(new Locator.FilterOptions().setHasText("MenView All MenNew ArrivalsShirtsTees, Knits and PolosPants & DenimBlazers"));
-
-        accessoriesItems = getPage().getByRole(AriaRole.LISTITEM)
-                .filter(new Locator.FilterOptions().setHasText("AccessoriesView All AccessoriesEyewearJewelryShoesBags & Luggage"));
-
-        homeAndDecorItems = getPage().getByRole(AriaRole.LISTITEM)
-                .filter(new Locator.FilterOptions().setHasText("Home & DecorView all Home & DecorBooks & MusicBed & BathElectronicsDecorative Accents"));
-
-        saleItems = getPage().getByRole(AriaRole.LISTITEM)
-                .filter(new Locator.FilterOptions().setHasText("SaleView All SaleWomenMenAccessoriesHome & Decor"));
     }
 
     public void hoverParent(String name) {
 
         parent.getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(name).setExact(true)).hover();
+        hovered = name;
     }
 
-    private void clickItem(Locator locator, String name) {
+    public void clickItem(String name) {
 
-        locator.getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(name).setExact(true)).click();;
-    }
-
-    public void clickWomenItem(String name) {
-
-        clickItem(womenItems, name);
-    }
-
-    public void clickMenItem(String name) {
-
-        clickItem(menItems, name);
-    }
-
-    public void clickAccessoriesItem(String name) {
-
-        clickItem(accessoriesItems, name);
-    }
-
-    public void clickHomeAndDecorItem(String name) {
-
-        clickItem(homeAndDecorItems, name);
-    }
-
-    public void clickSaleItem(String name) {
-
-        clickItem(saleItems, name);
+        Locator item = getPage().getByRole(AriaRole.LISTITEM).filter(new Locator.FilterOptions().setHasText(items.get(hovered)));
+        item.getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(name).setExact(true)).click();
     }
 
     public void clickVip() {
