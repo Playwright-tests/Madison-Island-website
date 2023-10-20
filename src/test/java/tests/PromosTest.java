@@ -1,14 +1,14 @@
 package tests;
 
-import dataProvider.Provider;
+import qa.dataProvider.Provider;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobject.components.Promos;
+import qa.pageobject.components.Promos;
 import qa.base.BaseTest;
-import utils.Pair;
+import qa.utils.Pair;
 
-import static playwright.PlaywrightLauncher.getPage;
+import static qa.playwright.PlaywrightLauncher.getPage;
 
 public class PromosTest extends BaseTest {
 

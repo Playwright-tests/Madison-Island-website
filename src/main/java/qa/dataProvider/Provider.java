@@ -1,8 +1,8 @@
-package dataProvider;
+package qa.dataProvider;
 
 import org.testng.annotations.DataProvider;
-import utils.JSONReader;
-import utils.Pair;
+import qa.utils.JSONReader;
+import qa.utils.Pair;
 
 public class Provider {
 

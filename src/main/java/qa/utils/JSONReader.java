@@ -1,4 +1,4 @@
-package utils;
+package qa.utils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

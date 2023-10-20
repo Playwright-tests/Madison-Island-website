@@ -1,4 +1,4 @@
-package utils;
+package qa.utils;
 
 @FunctionalInterface
 public interface Function {

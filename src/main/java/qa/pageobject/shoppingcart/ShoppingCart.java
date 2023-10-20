@@ -1,4 +1,4 @@
-package pageobject.shoppingcart;
+package qa.pageobject.shoppingcart;
 
 import com.microsoft.playwright.Page;
 import qa.base.BasePage;

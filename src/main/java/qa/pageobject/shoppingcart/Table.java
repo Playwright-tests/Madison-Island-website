@@ -1,4 +1,4 @@
-package pageobject.shoppingcart;
+package qa.pageobject.shoppingcart;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
@@ -27,17 +27,17 @@ public class Table extends BasePage {
 
     public String getColor() {
 
-        return row.locator("td.product-cart-info dl.item-options dd").first().textContent();
+        return row.locator("td.product-cart-info dl.item-options dd").first().textContent().replaceAll("\\s", "");
     }
 
     public String getSize() {
 
-        return row.locator("td.product-cart-info dl.item-options dd").nth(1).textContent();
+        return row.locator("td.product-cart-info dl.item-options dd").nth(1).textContent().replaceAll("\\s", "");
     }
 
     public String getPrice() {
 
-        return row.locator("td.product-cart-price span.price").textContent();
+        return row.locator("td.product-cart-price span.price").textContent().replaceAll("\\s", "");
     }
 
     public QuantityCell getQuantityCell() {

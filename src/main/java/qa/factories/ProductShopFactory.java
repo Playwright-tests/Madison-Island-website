@@ -1,8 +1,8 @@
-package factories;
+package qa.factories;
 
 import com.microsoft.playwright.Page;
-import pageobject.productpage.ProductShop;
-import utils.ProductOptions;
+import qa.pageobject.productpage.ProductShop;
+import qa.utils.ProductOptions;
 
 public class ProductShopFactory {
 

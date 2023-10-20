@@ -1,4 +1,4 @@
-package pageobject.productpage;
+package qa.pageobject.productpage;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
@@ -17,7 +17,7 @@ public class ProductShop extends BasePage {
 
         super(page);
 
-        price = page.locator("#product-price-421");
+        price = page.locator(".price-box");
         quantityField = page.locator("#qty");
         addToCartButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add to cart"));
         requiredColorMessage = page.locator("#advice-required-entry-attribute92");
