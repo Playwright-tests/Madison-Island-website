@@ -27,21 +27,31 @@ public class Table extends BasePage {
 
     public String getColor() {
 
-        return row.locator("td.product-cart-info dl.item-options dd").first().textContent().replaceAll("\\s", "");
+        return row.locator("td.product-cart-info dl.item-options dd").first().textContent().trim();
     }
 
     public String getSize() {
 
-        return row.locator("td.product-cart-info dl.item-options dd").nth(1).textContent().replaceAll("\\s", "");
+        return row.locator("td.product-cart-info dl.item-options dd").nth(1).textContent().trim();
     }
 
-    public String getPrice() {
+    public double getPrice() {
 
-        return row.locator("td.product-cart-price span.price").textContent().replaceAll("\\s", "");
+        return Double.parseDouble(row.locator("td.product-cart-price span.price").textContent().replaceAll("\\s", "").replace("$", ""));
+    }
+
+    public String getSubtotal() {
+
+        return row.locator("td.product-cart-total span.price").textContent().replaceAll("\\s", "");
     }
 
     public QuantityCell getQuantityCell() {
 
         return quantityCell;
+    }
+
+    public boolean isVisible() {
+
+        return shoppingCartTable.isVisible();
     }
 }
