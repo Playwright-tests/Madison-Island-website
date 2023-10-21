@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Shopping cart functionalities test suite">
+
+    <parameter name="minValue" value="1"/>
+    <parameter name="maxValue" value="999"/>
+    <parameter name="negative" value="-1"/>
+    <parameter name="tooLarge" value="1000"/>
+
+    <test name="Shopping cart functionalities">
+
+        <classes>
+            <class name="tests.QuantityFieldTest"/>
+        </classes>
+    </test>
+
+</suite>
