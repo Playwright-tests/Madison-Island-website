@@ -156,4 +156,16 @@ public class Provider {
 
         return JSONReader.get("blankQuantityField");
     }
+
+    @DataProvider(name = "floatingPointNumber")
+    public Object[] floatingPointNumber() {
+
+        return JSONReader.get("quantityField", "floatingPointNumber");
+    }
+
+    @DataProvider(name = "notANumber")
+    public Object[] notANumber() {
+
+        return JSONReader.get("quantityField", "notANumber");
+    }
 }
