@@ -397,6 +397,15 @@
                 "color": "Red",
                 "size": "L",
                 "quantity": "5"
+            },
+
+            {
+                "category": "Men",
+                "productType": "Shirts",
+                "name": "Plaid Cotton Shirt",
+                "color": "Khaki",
+                "size": "M",
+                "quantity": "2"
             }
         ],
 
@@ -434,6 +443,32 @@
                 "size": "L",
                 "quantity": ""
             }
+        ]
+    },
+
+    "quantityField": {
+
+        "floatingPointNumber": [
+
+            "1.1",
+            "0.999",
+            "8.01"
+        ],
+
+        "notANumber": [
+
+            "_number%2",
+            "&*23-px"
+        ]
+    },
+
+    "couponCode": {
+
+        "incorrect": [
+
+            "3321",
+            "5436",
+            "3214"
         ]
     }
 }
