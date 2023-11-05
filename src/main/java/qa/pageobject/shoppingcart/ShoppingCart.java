@@ -6,6 +6,7 @@ import qa.base.BasePage;
 
 public class ShoppingCart extends BasePage {
 
+    private final String errorMessageSelector;
     private final Table table;
     private final Locator errorMessage;
     private final Locator pageTitle;
@@ -14,8 +15,10 @@ public class ShoppingCart extends BasePage {
 
         super(page);
 
+        errorMessageSelector = "li.error-msg";
+
         table = new Table(page);
-        errorMessage = page.locator("li.error-msg");
+        errorMessage = page.locator(errorMessageSelector);
         pageTitle = page.locator("div.page-title");
     }
 
@@ -27,6 +30,16 @@ public class ShoppingCart extends BasePage {
     public boolean isErrorMessageVisible() {
 
         return errorMessage.isVisible();
+    }
+
+    public String getErrorMessageSelector() {
+
+        return errorMessageSelector;
+    }
+
+    public String getErrorMessageText() {
+
+        return errorMessage.textContent();
     }
 
     public String getPageTitleText() {
