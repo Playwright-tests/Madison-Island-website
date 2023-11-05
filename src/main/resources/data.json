@@ -470,5 +470,95 @@
             "5436",
             "3214"
         ]
+    },
+
+    "estimateShippingForm": {
+
+        "correct": [
+
+            {
+                "stateType": "field",
+                "country": "TO",
+                "state": "Eua",
+                "city": "Pangai",
+                "postcode": "00000"
+            },
+
+            {
+                "stateType": "dropdownList",
+                "country": "US",
+                "state": "California",
+                "city": "Oxnard",
+                "postcode": "93131"
+            }
+        ],
+
+        "incorrectState": [
+            
+            {
+                "stateType": "field",
+                "country": "TO",
+                "state": "#$$#@$(*&$%",
+                "city": "Pangai",
+                "postcode": "00000"
+            }
+        ],
+
+        "incorrectCity": [
+
+            {
+                "stateType": "field",
+                "country": "TO",
+                "state": "Eua",
+                "city": "___&**",
+                "postcode": "00000"
+            }
+        ],
+
+        "incorrectPostcode": [
+
+            {
+                "stateType": "field",
+                "country": "TO",
+                "state": "Eua",
+                "city": "Pangai",
+                "postcode": "***XxX888"
+            }
+        ],
+
+        "withoutState": [
+
+            {
+                "stateType": "field",
+                "country": "TO",
+                "state": "",
+                "city": "Pangai",
+                "postcode": "00000"
+            }
+        ],
+
+        "withoutCity": [
+
+            {
+                "stateType": "field",
+                "country": "TO",
+                "state": "Eua",
+                "city": "",
+                "postcode": "00000"
+            }
+        ],
+
+        "withoutPostcode": [
+
+            {
+                "stateType": "field",
+                "country": "TO",
+                "state": "Eua",
+                "city": "Pangai",
+                "postcode": ""
+            }
+        ]
     }
+
+
 }
