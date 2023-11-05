@@ -174,4 +174,46 @@ public class Provider {
 
         return JSONReader.get("couponCode", "incorrect");
     }
+
+    @DataProvider(name = "ESF_correct")
+    public Object[] ESF_correct() {
+
+        return JSONReader.getEstimatedShippingData("correct");
+    }
+
+    @DataProvider(name = "ESF_incorrectState")
+    public Object[] ESF_incorrectState() {
+
+        return JSONReader.getEstimatedShippingData("incorrectState");
+    }
+
+    @DataProvider(name = "ESF_incorrectCity")
+    public Object[] ESF_incorrectCity() {
+
+        return JSONReader.getEstimatedShippingData("incorrectCity");
+    }
+
+    @DataProvider(name = "ESF_incorrectPostcode")
+    public Object[] ESF_incorrectPostcode() {
+
+        return JSONReader.getEstimatedShippingData("incorrectPostcode");
+    }
+
+    @DataProvider(name = "ESF_withoutState")
+    public Object[] ESF_withoutState() {
+
+        return JSONReader.getEstimatedShippingData("withoutState");
+    }
+
+    @DataProvider(name = "ESF_withoutCity")
+    public Object[] ESF_withoutCity() {
+
+        return JSONReader.getEstimatedShippingData("withoutCity");
+    }
+
+    @DataProvider(name = "ESF_withoutPostcode")
+    public Object[] ESF_withoutPostcode() {
+
+        return JSONReader.getEstimatedShippingData("withoutPostcode");
+    }
 }
