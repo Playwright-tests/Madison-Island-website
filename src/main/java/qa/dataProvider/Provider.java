@@ -168,4 +168,10 @@ public class Provider {
 
         return JSONReader.get("quantityField", "notANumber");
     }
+
+    @DataProvider(name = "incorrectCouponCode")
+    public Object[] incorrectCouponCode() {
+
+        return JSONReader.get("couponCode", "incorrect");
+    }
 }
