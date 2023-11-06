@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Shopping cart functionalities test suite">
+<suite name="Shopping cart functionalities">
+
+    <listeners>
+        <listener class-name="qa.testlistener.Listener"/>
+    </listeners>
 
     <parameter name="minValue" value="1"/>
     <parameter name="maxValue" value="999"/>
@@ -11,7 +15,7 @@
     <test name="Shopping cart functionalities">
 
         <classes>
-            <class name="tests.QuantityFieldTest"/>
+            <class name="tests.shoppingcart.QuantityFieldTest"/>
         </classes>
     </test>
 
