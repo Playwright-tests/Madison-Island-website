@@ -4,6 +4,7 @@ import qa.dataProvider.Provider;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.components.AccountDropdownList;
 import qa.pageobject.components.LoginForm;
 import qa.playwright.PlaywrightLauncher;
@@ -40,6 +41,9 @@ public class LoginTest extends BaseTest {
     @Test(dataProvider = "emptyEmailField", dataProviderClass = Provider.class)
     public void emptyEmailField(Pair<String, String> data) {
 
+        ExtentReportsManager.createTest("Empty email field",
+                "Checking whether a message about an empty email field is displayed");
+
         setData(data.getFirst(), data.getSecond());
         Assert.assertTrue(loginForm.isRequiredEmailMessageVisible());
     }
@@ -47,12 +51,18 @@ public class LoginTest extends BaseTest {
     @Test(dataProvider = "incorrectPassword", dataProviderClass = Provider.class)
     public void incorrectPassword(Pair<String, String> data) {
 
+        ExtentReportsManager.createTest("Logging in using \"" + data.getSecond() + "\" as incorrect password",
+                "Checking whether a message about an incorrect password field is displayed");
+
         setData(data.getFirst(), data.getSecond());
         Assert.assertTrue(loginForm.isInvalidLoginOrPasswordMessageVisible());
     }
 
     @Test(dataProvider = "emptyPasswordField", dataProviderClass = Provider.class)
     public void emptyPasswordField(Pair<String, String> data) {
+
+        ExtentReportsManager.createTest("Empty password field",
+                "Checking whether a message about an empty password field is displayed");
 
         setData(data.getFirst(), data.getSecond());
         Assert.assertTrue(loginForm.isRequiredPasswordMessageVisible());
