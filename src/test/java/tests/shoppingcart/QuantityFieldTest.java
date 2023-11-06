@@ -1,4 +1,4 @@
-package tests;
+package tests.shoppingcart;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
