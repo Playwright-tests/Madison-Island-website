@@ -39,32 +39,35 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(dataProvider = "emptyEmailField", dataProviderClass = Provider.class)
-    public void emptyEmailField(Pair<String, String> data) {
+    public void blankEmailField(Pair<String, String> data) {
 
-        ExtentReportsManager.createTest("Empty email field",
-                "Checking whether a message about an empty email field is displayed");
+        ExtentReportsManager.createTest("Blank \"Email Address\" field",
+                "Checking whether a message about an blank \"Email Address\" field is displayed");
 
         setData(data.getFirst(), data.getSecond());
-        Assert.assertTrue(loginForm.isRequiredEmailMessageVisible());
+        Assert.assertTrue(loginForm.isRequiredEmailMessageVisible(),
+                "The message about blank \"Email Address\" has not been displayed");
     }
 
     @Test(dataProvider = "incorrectPassword", dataProviderClass = Provider.class)
     public void incorrectPassword(Pair<String, String> data) {
 
         ExtentReportsManager.createTest("Logging in using \"" + data.getSecond() + "\" as incorrect password",
-                "Checking whether a message about an incorrect password field is displayed");
+                "Checking whether a message about an incorrect password is displayed");
 
         setData(data.getFirst(), data.getSecond());
-        Assert.assertTrue(loginForm.isInvalidLoginOrPasswordMessageVisible());
+        Assert.assertTrue(loginForm.isInvalidLoginOrPasswordMessageVisible(),
+                "The message about an incorrect password has not been displayed");
     }
 
     @Test(dataProvider = "emptyPasswordField", dataProviderClass = Provider.class)
-    public void emptyPasswordField(Pair<String, String> data) {
+    public void blankPasswordField(Pair<String, String> data) {
 
-        ExtentReportsManager.createTest("Empty password field",
-                "Checking whether a message about an empty password field is displayed");
+        ExtentReportsManager.createTest("Blank \"Password\" field",
+                "Checking whether a message about an empty \"Password\" field is displayed");
 
         setData(data.getFirst(), data.getSecond());
-        Assert.assertTrue(loginForm.isRequiredPasswordMessageVisible());
+        Assert.assertTrue(loginForm.isRequiredPasswordMessageVisible(),
+                "The message about blank \"Password\" has not been displayed");
     }
 }
