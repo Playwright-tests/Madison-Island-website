@@ -132,19 +132,19 @@ public class AddingToShoppingCartTest extends BaseTest {
         setFields(ProductShopFactory.withAllFields(getPage(), options));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
-                "No message about incorrect quantity value format has not been displayed, the system has been opened the shopping cart page");
+                "The message about an incorrect quantity value format has not been displayed, the system has been opened the shopping cart page");
     }
 
     @Test(dataProvider = "blankQuantityField", dataProviderClass = Provider.class)
     public void blankQuantityField(ProductOptions options) {
 
-        ExtentReportsManager.createTest("Empty \"Quantity\" field",
-                "Checking the system's behavior when the \"Quantity\" field is empty");
+        ExtentReportsManager.createTest("Blank \"Quantity\" field",
+                "Checking the system's behavior when the \"Quantity\" field is blank");
 
         openProductPage(options.getCategory(), options.getProductType(), options.getName());
         setFields(ProductShopFactory.withAllFields(getPage(), options));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
-                "No message about about empty \"Quantity\" field has not been displayed, the system has been opened the shopping cart page");
+                "The message about about blank \"Quantity\" field has not been displayed, the system has been opened the shopping cart page");
     }
 }
