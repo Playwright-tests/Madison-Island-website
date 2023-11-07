@@ -8,6 +8,7 @@ public class Table extends BasePage {
 
     private final Locator shoppingCartTable;
     private final Locator row;
+    private final Locator quantityErrorMessage;
     private final QuantityCell quantityCell;
 
     public Table(Page page) {
@@ -16,6 +17,7 @@ public class Table extends BasePage {
 
         shoppingCartTable = page.locator("#shopping-cart-table");
         row = shoppingCartTable.locator("tbody tr");
+        quantityErrorMessage = page.locator("p").filter(new Locator.FilterOptions().setHasText("* The requested quantity for"));
 
         quantityCell = new QuantityCell(getPage(), row.locator("td.product-cart-actions"));
     }
@@ -48,6 +50,16 @@ public class Table extends BasePage {
     public QuantityCell getQuantityCell() {
 
         return quantityCell;
+    }
+
+    public boolean isQuantityErrorMessageVisible() {
+
+        return quantityErrorMessage.isVisible();
+    }
+
+    public String getQuantityErrorMessageText() {
+
+        return quantityErrorMessage.textContent();
     }
 
     public boolean isVisible() {
