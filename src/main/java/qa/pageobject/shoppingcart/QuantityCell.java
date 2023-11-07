@@ -1,5 +1,6 @@
 package qa.pageobject.shoppingcart;
 
+import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
@@ -28,9 +29,22 @@ public class QuantityCell extends BasePage {
         quantityField.fill(quantity);
     }
 
+    public Locator getQuantityField() {
+
+        return quantityField;
+    }
+
     public String getQuantity() {
 
         return quantityField.inputValue();
+    }
+
+    public String getValidationMessage() {
+
+        ElementHandle handle = quantityField.elementHandle();
+        Object validationMessage = handle.evaluate("e=>e.validationMessage");
+
+        return validationMessage.toString();
     }
 
     public void clickUpdateButton() {
