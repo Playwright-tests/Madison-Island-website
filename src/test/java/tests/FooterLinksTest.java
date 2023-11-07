@@ -4,6 +4,7 @@ import qa.dataProvider.Provider;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.sections.Footer;
 import qa.base.BaseTest;
 import qa.utils.Pair;
@@ -25,11 +26,15 @@ public class FooterLinksTest extends BaseTest {
     private void check(String link, String expectedURL) {
 
         footer.getFooterLinks().clickElementList(link);
-        Assert.assertEquals(getPage().url(), expectedURL);
+        Assert.assertEquals(getPage().url(), expectedURL,
+                "The page with address \"" + expectedURL + "\" has not been opened");
     }
 
     @Test(dataProvider = "footerCompany", dataProviderClass = Provider.class)
     public void companySection(Pair<String, String> data) {
+
+        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"COMPANY\" section",
+                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
 
         check(data.getFirst(), data.getSecond());
     }
@@ -37,17 +42,26 @@ public class FooterLinksTest extends BaseTest {
     @Test(dataProvider = "footerQuickLinks", dataProviderClass = Provider.class)
     public void quickLinksSection(Pair<String, String> data) {
 
+        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"QUICK LINKS\" section",
+                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
+
         check(data.getFirst(), data.getSecond());
     }
 
     @Test(dataProvider = "footerAccount", dataProviderClass = Provider.class)
     public void accountSection(Pair<String, String> data) {
 
+        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"ACCOUNT\" section",
+                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
+
         check(data.getFirst(), data.getSecond());
     }
 
     @Test(dataProvider = "footerConnectWithUs", dataProviderClass = Provider.class)
     public void connectWithUsSection(Pair<String, String> data) {
+
+        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"CONNECT WITH US\" section",
+                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
 
         check(data.getFirst(), data.getSecond());
     }
