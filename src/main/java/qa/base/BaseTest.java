@@ -2,7 +2,7 @@ package qa.base;
 
 import org.json.simple.parser.ParseException;
 import org.testng.annotations.*;
-import qa.utils.JSONReader;
+import qa.json.JSONReader;
 import qa.playwright.PlaywrightLauncher;
 
 import java.io.IOException;
