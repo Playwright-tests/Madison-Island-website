@@ -1,7 +1,7 @@
 package qa.dataProvider;
 
 import org.testng.annotations.DataProvider;
-import qa.utils.JSONReader;
+import qa.json.JSONReader;
 import qa.utils.Pair;
 
 public class Provider {
@@ -15,25 +15,25 @@ public class Provider {
     @DataProvider(name = "incorrectEmail")
     public Object[] incorrectEmail() {
 
-        return JSONReader.get("login", "incorrectEmail", new Pair<>("email", "password"));
+        return JSONReader.getCredentials("incorrectEmail");
     }
 
     @DataProvider(name = "emptyEmailField")
     public Object[] emptyEmailField() {
 
-        return JSONReader.get("login", "emptyEmailField", new Pair<>("email", "password"));
+        return JSONReader.getCredentials("emptyEmailField");
     }
 
     @DataProvider(name = "incorrectPassword")
     public Object[] incorrectPassword() {
 
-        return JSONReader.get("login", "incorrectPassword", new Pair<>("email", "password"));
+        return JSONReader.getCredentials("incorrectPassword");
     }
 
     @DataProvider(name = "emptyPasswordField")
     public Object[] emptyPasswordField() {
 
-        return JSONReader.get("login", "emptyPasswordField", new Pair<>("email", "password"));
+        return JSONReader.getCredentials("emptyPasswordField");
     }
 
     @DataProvider(name = "mainMenuWomen")
@@ -115,16 +115,22 @@ public class Provider {
         return JSONReader.get("searchEngine", "incorrectPhrase");
     }
 
-    @DataProvider(name = "newsletterIncorrectEmail")
-    public Object[] newsletterIncorrectEmail() {
+    @DataProvider(name = "validationEmailField")
+    public Object[] validationEmailField() {
 
-        return JSONReader.get("newsletter", "incorrectEmail");
+        return JSONReader.getNewsletterData("validationEmailField");
     }
 
     @DataProvider(name = "newsletterCorrectEmail")
     public Object[] newsletterCorrectEmail() {
 
-        return JSONReader.get("newsletter", "correctEmail");
+        return JSONReader.getNewsletterData("correctEmail");
+    }
+
+    @DataProvider(name = "newsletterEmptyEmailField")
+    public Object[] newsletterEmptyEmailField() {
+
+        return JSONReader.getNewsletterData("emptyEmailField");
     }
 
     @DataProvider(name = "promos")
