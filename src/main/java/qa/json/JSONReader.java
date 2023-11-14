@@ -1,9 +1,11 @@
-package qa.utils;
+package qa.json;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import qa.utils.*;
+
 import java.io.*;
 
 
@@ -43,9 +45,26 @@ public class JSONReader {
         return data;
     }
 
+    public static NewsletterData[] getNewsletterData(String node) {
+
+        JSONArray jsonArray = getJSONArray("newsletter", node);
+
+        NewsletterData[] newsletterData = new NewsletterData[jsonArray.length()];
+
+        for(int i = 0; i < jsonArray.length(); i++) {
+
+            newsletterData[i] = new NewsletterData(
+                    jsonArray.getJSONObject(i).getString("email"),
+                    jsonArray.getJSONObject(i).getString("message")
+            );
+        }
+
+        return newsletterData;
+    }
+
     public static Pair<String, String>[] get(String key, String node, Pair<String, String> params) {
 
-        JSONArray jsonArray = getJSONArray(key , node);
+        JSONArray jsonArray = getJSONArray(key, node);
 
         Pair<String, String>[] data = new Pair[jsonArray.length()];
 
@@ -60,15 +79,32 @@ public class JSONReader {
         return data;
     }
 
-    public static ProductOptions[] get(String node) {
+    public static Credentials[] getCredentials(String node) {
 
-        JSONArray jsonArray = getJSONArray("addingToShoppingCart", node);
+        JSONArray jsonArray = getJSONArray("credentials", node);
 
-        ProductOptions[] options = new ProductOptions[jsonArray.length()];
+        Credentials[] credentials = new Credentials[jsonArray.length()];
 
         for (int i = 0; i < jsonArray.length(); i++) {
 
-            options[i] = new ProductOptions(
+            credentials[i] = new Credentials(
+                    jsonArray.getJSONObject(i).getString("email"),
+                    jsonArray.getJSONObject(i).getString("password")
+            );
+        }
+
+        return credentials;
+    }
+
+    public static ProductData[] get(String node) {
+
+        JSONArray jsonArray = getJSONArray("addingToShoppingCart", node);
+
+        ProductData[] data = new ProductData[jsonArray.length()];
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+
+            data[i] = new ProductData(
                     jsonArray.getJSONObject(i).getString("category"),
                     jsonArray.getJSONObject(i).getString("productType"),
                     jsonArray.getJSONObject(i).getString("name"),
@@ -78,7 +114,7 @@ public class JSONReader {
             );
         }
 
-        return options;
+        return data;
     }
 
     public static EstimateShippingData[] getEstimatedShippingData(String node) {
