@@ -1,6 +1,6 @@
 package qa.utils;
 
-public class ProductOptions {
+public class ProductData {
 
     private String category;
     private String productType;
@@ -9,8 +9,8 @@ public class ProductOptions {
     private String size;
     private String quantity;
 
-    public ProductOptions() { }
-    public ProductOptions(String category, String productType, String name, String color, String size, String quantity) {
+    public ProductData() { }
+    public ProductData(String category, String productType, String name, String color, String size, String quantity) {
 
         this.category = category;
         this.productType = productType;
