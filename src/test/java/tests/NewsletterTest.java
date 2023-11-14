@@ -4,14 +4,18 @@ import qa.dataProvider.Provider;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.sections.Footer;
 import qa.playwright.PlaywrightLauncher;
 import qa.base.BaseTest;
+import qa.utils.NewsletterData;
+
 import static qa.playwright.PlaywrightLauncher.*;
 
 public class NewsletterTest extends BaseTest {
 
     private Footer footer;
+    private final String homePageUrl = "http://demo-store.seleniumacademy.com/";
     private final String subPageUrl = "http://demo-store.seleniumacademy.com/newsletter/subscriber/new/";
 
     @BeforeMethod
@@ -25,26 +29,40 @@ public class NewsletterTest extends BaseTest {
         footer.getNewsletterForm().setEmail(email);
         footer.getNewsletterForm().clickSubscribeButton();
 
-        Assert.assertEquals(getPage().url(), expectedURL);
+        Assert.assertEquals(getPage().url(), expectedURL,
+                "Incorrect url");
     }
 
     @Test(dataProvider = "newsletterCorrectEmail", dataProviderClass = Provider.class)
-    public void correctEmail(String email) {
+    public void correctEmail(NewsletterData newsletterData) {
 
-        check(email, subPageUrl);
+        check(newsletterData.getEmail(), subPageUrl);
     }
 
-    @Test(dataProvider = "newsletterIncorrectEmail", dataProviderClass = Provider.class)
-    public void incorrectEmail(String email) {
+    @Test(dataProvider = "validationEmailField", dataProviderClass = Provider.class)
+    public void validationEmailField(NewsletterData newsletterData) {
 
-        check(email, getUrl());
+        ExtentReportsManager.createTest("\"" + newsletterData.getEmail() + "\" as an incorrect email",
+                "Checking whether a message about incorrect email format is displayed");
+
+        check(newsletterData.getEmail(), homePageUrl);
+
+        Assert.assertNotEquals(footer.getNewsletterForm().getValidationMessage(), "",
+                "No validation message");
+
+        Assert.assertEquals(footer.getNewsletterForm().getValidationMessage(), newsletterData.getValidationMessage(),
+                "Incorrect message content");
     }
 
-    @Test
-    public void emptyEmailField() {
+    @Test(dataProvider = "newsletterEmptyEmailField", dataProviderClass = Provider.class)
+    public void emptyEmailField(NewsletterData newsletterData) {
 
-        check("", getUrl());
+        ExtentReportsManager.createTest("Blank \"Email Address\" field",
+                "Checking whether a message about an empty \"Email Address\" field is displayed");
 
-        Assert.assertEquals(footer.getNewsletterForm().getAdviceRequiredEmailText(), "This is a required field.");
+        check(newsletterData.getEmail(), homePageUrl);
+
+        Assert.assertEquals(footer.getNewsletterForm().getAdviceRequiredEmailText(), newsletterData.getValidationMessage(),
+                "Incorrect message content");
     }
 }
