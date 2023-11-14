@@ -1,5 +1,5 @@
 {
-    "login": {
+    "credentials": {
 
         "incorrectEmail": [
 
@@ -74,28 +74,83 @@
 
     "newsletter": {
 
-        "incorrectEmail": [
+        "validationEmailField": [
 
-            "__.2@gmail.com",
-            "@gmail.com",
-            "paul@.gmail-com",
-            "iam_the.user",
-            "pablo@"
+            {
+                "email": "plainaddress",
+                "message": "Uwzględnij znak „@” w adresie e-mail. W adresie „plainaddress” brakuje znaku „@”."
+            },
+
+            {
+                "email": "#@%^%#$@#$@#.com",
+                "message": "Część po znaku „@” nie może zawierać symbolu „%”."
+            },
+
+            {
+                "email": "@example.com",
+                "message": "Podaj część przed znakiem „@”. Adres „@example.com” jest niepełny."
+            },
+
+            {
+                "email": "Joe Smith <email@example.com>",
+                "message": "Część przed znakiem „@” nie może zawierać symbolu „ ”."
+            },
+
+            {
+                "email": "@gmail.com",
+                "message": "Podaj część przed znakiem „@”. Adres „@gmail.com” jest niepełny."
+            },
+
+            {
+                "email": "paul@.gmail-com",
+                "message": "„.” występuje w niewłaściwym miejscu w „.gmail-com”."
+            },
+
+            {
+                "email": "iam_the.user",
+                "message": "Uwzględnij znak „@” w adresie e-mail. W adresie „iam_the.user” brakuje znaku „@”."
+            },
+            
+            {
+                "email": "pablo@",
+                "message": "Podaj część po znaku „@”. Adres „pablo@” jest niepełny."
+            }
         ],
 
         "emptyEmailField": [
 
-            "",
-            "    "
+            {
+                "email": "",
+                "message": "This is a required field."
+            }
         ],
 
         "correctEmail": [
 
-            "jamarican91@write-me.xyz",
-            "reginamalina@aflamyclub.com",
-            "fabian789@11thhourgospelgroup.com",
-            "kondratovsd@issou.com",
-            "dc6909@lasix4u.top"
+            {
+                "email": "jamarican91@write-me.xyz",
+                "message": ""
+            },
+
+            {
+                "email": "reginamalina@aflamyclub.com",
+                "message": ""
+            },
+
+            {
+                "email": "fabian789@11thhourgospelgroup.com",
+                "message": ""
+            },
+
+            {
+                "email": "kondratovsd@issou.com",
+                "message": ""
+            },
+
+            {
+                "email": "dc6909@lasix4u.top",
+                "message": ""
+            }
         ]
     },
 
@@ -559,6 +614,4 @@
             }
         ]
     }
-
-
 }
