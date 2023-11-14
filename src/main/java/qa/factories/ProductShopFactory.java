@@ -2,49 +2,49 @@ package qa.factories;
 
 import com.microsoft.playwright.Page;
 import qa.pageobject.productpage.ProductShop;
-import qa.utils.ProductOptions;
+import qa.utils.ProductData;
 
 public class ProductShopFactory {
 
-    public static ProductShop withAllFields(Page page, ProductOptions options) {
+    public static ProductShop withAllFields(Page page, ProductData data) {
 
         ProductShop productShop = new ProductShop(page);
 
         productShop
-                .setColor(options.getColor())
-                .setSize(options.getSize())
-                .setQuantity(options.getQuantity());
+                .setColor(data.getColor())
+                .setSize(data.getSize())
+                .setQuantity(data.getQuantity());
 
         return productShop;
     }
 
-    public static ProductShop withoutColor(Page page, ProductOptions options) {
+    public static ProductShop withoutColor(Page page, ProductData data) {
 
         ProductShop productShop = new ProductShop(page);
 
         productShop
-                .setSize(options.getSize())
-                .setQuantity(options.getQuantity());
+                .setSize(data.getSize())
+                .setQuantity(data.getQuantity());
 
         return productShop;
     }
 
-    public static ProductShop withoutSize(Page page, ProductOptions options) {
+    public static ProductShop withoutSize(Page page, ProductData data) {
 
         ProductShop productShop = new ProductShop(page);
 
         productShop
-                .setColor(options.getColor())
-                .setQuantity(options.getQuantity());
+                .setColor(data.getColor())
+                .setQuantity(data.getQuantity());
 
         return productShop;
     }
 
-    public static ProductShop withoutColorAndSize(Page page, ProductOptions options) {
+    public static ProductShop withoutColorAndSize(Page page, ProductData data) {
 
         ProductShop productShop = new ProductShop(page);
 
-        productShop.setQuantity(options.getQuantity());
+        productShop.setQuantity(data.getQuantity());
 
         return productShop;
     }
