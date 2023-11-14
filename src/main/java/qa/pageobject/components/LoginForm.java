@@ -1,5 +1,6 @@
 package qa.pageobject.components;
 
+import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
@@ -54,5 +55,14 @@ public class LoginForm extends BasePage {
     public boolean isInvalidLoginOrPasswordMessageVisible() {
 
         return invalidLoginOrPasswordMessage.isVisible();
+    }
+
+    public String getValidationMessage() {
+
+        ElementHandle elementHandle = emailField.elementHandle();
+
+        Object object = elementHandle.evaluate("e=>e.validationMessage");
+
+        return object.toString();
     }
 }
