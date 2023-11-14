@@ -12,7 +12,7 @@ import qa.pageobject.components.ProductThumbnail;
 import qa.pageobject.productpage.ProductShop;
 import qa.pageobject.shoppingcart.ShoppingCart;
 import qa.base.BaseTest;
-import qa.utils.ProductOptions;
+import qa.utils.ProductData;
 
 import static qa.playwright.PlaywrightLauncher.*;
 
@@ -42,39 +42,39 @@ public class AddingToShoppingCartTest extends BaseTest {
         productPage.getProductShop().clickAddToCartButton();
     }
 
-    private void checkCartContents(ProductOptions options) {
+    private void checkCartContents(ProductData data) {
 
         ShoppingCart shoppingCart = new ShoppingCart(getPage());
 
-        Assert.assertEquals(shoppingCart.getTable().getName(), options.getName(), "Incorrect product name in the shopping cart");
-        Assert.assertEquals(shoppingCart.getTable().getColor(), options.getColor(), "Incorrect product color in the shopping cart");
-        Assert.assertEquals(shoppingCart.getTable().getSize(), options.getSize(), "Incorrect product size in the shopping cart");
-        Assert.assertEquals(shoppingCart.getTable().getQuantityCell().getQuantity(), options.getQuantity(), "Incorrect amount of product");
+        Assert.assertEquals(shoppingCart.getTable().getName(), data.getName(), "Incorrect product name in the shopping cart");
+        Assert.assertEquals(shoppingCart.getTable().getColor(), data.getColor(), "Incorrect product color in the shopping cart");
+        Assert.assertEquals(shoppingCart.getTable().getSize(), data.getSize(), "Incorrect product size in the shopping cart");
+        Assert.assertEquals(shoppingCart.getTable().getQuantityCell().getQuantity(), data.getQuantity(), "Incorrect amount of product");
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
-    public void correct(ProductOptions options) {
+    public void correct(ProductData data) {
 
         ExtentReportsManager.createTest("Correct product features",
                 "Checking whether a product with the appropriate parameters has been added to the cart");
 
-        openProductPage(options.getCategory(), options.getProductType(), options.getName());
-        setFields(ProductShopFactory.withAllFields(getPage(), options));
+        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        setFields(ProductShopFactory.withAllFields(getPage(), data));
 
         Assert.assertEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
                 "The shopping cart page has not been opened");
 
-        checkCartContents(options);
+        checkCartContents(data);
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
-    public void colorNotSelected(ProductOptions options) {
+    public void colorNotSelected(ProductData data) {
 
         ExtentReportsManager.createTest("Unselected product color",
                 "Checking whether a message about an unselected product color has appeared");
 
-        openProductPage(options.getCategory(), options.getProductType(), options.getName());
-        setFields(ProductShopFactory.withoutColor(getPage(), options));
+        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        setFields(ProductShopFactory.withoutColor(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
         Assert.assertTrue(productPage.getProductShop().isRequiredColorMessageVisible(),
@@ -82,13 +82,13 @@ public class AddingToShoppingCartTest extends BaseTest {
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
-    public void sizeNotSelected(ProductOptions options) {
+    public void sizeNotSelected(ProductData data) {
 
         ExtentReportsManager.createTest("Unselected product size",
                 "Checking whether a message about an unselected product size has appeared");
 
-        openProductPage(options.getCategory(), options.getProductType(), options.getName());
-        setFields(ProductShopFactory.withoutSize(getPage(), options));
+        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        setFields(ProductShopFactory.withoutSize(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
         Assert.assertTrue(productPage.getProductShop().isRequiredSizeMessageVisible(),
@@ -96,13 +96,13 @@ public class AddingToShoppingCartTest extends BaseTest {
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
-    public void colorAndSizeNotSelected(ProductOptions options) {
+    public void colorAndSizeNotSelected(ProductData data) {
 
         ExtentReportsManager.createTest("Unselected product color and size",
                 "Checking whether a message about an unselected product color and size appeared");
 
-        openProductPage(options.getCategory(), options.getProductType(), options.getName());
-        setFields(ProductShopFactory.withoutColorAndSize(getPage(), options));
+        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        setFields(ProductShopFactory.withoutColorAndSize(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
         Assert.assertTrue(productPage.getProductShop().isRequiredColorMessageVisible());
@@ -110,39 +110,39 @@ public class AddingToShoppingCartTest extends BaseTest {
     }
 
     @Test(dataProvider = "incorrectQuantityValue", dataProviderClass = Provider.class)
-    public void incorrectQuantityValue(ProductOptions options) {
+    public void incorrectQuantityValue(ProductData data) {
 
         ExtentReportsManager.createTest("Incorrect quantity value",
                 "Checking the system's behavior after entering an incorrect value in the \"Quantity\" field.");
 
-        openProductPage(options.getCategory(), options.getProductType(), options.getName());
-        setFields(ProductShopFactory.withAllFields(getPage(), options));
+        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        setFields(ProductShopFactory.withAllFields(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
                 "No message about an incorrect quantity of product, the system has been opened the shopping cart page");
     }
 
     @Test(dataProvider = "incorrectQuantityFormat", dataProviderClass = Provider.class)
-    public void incorrectQuantityFormat(ProductOptions options) {
+    public void incorrectQuantityFormat(ProductData data) {
 
         ExtentReportsManager.createTest("Incorrect product quantity value format",
                 "Checking the system's behavior after entering an incorrect value format in the \"Quantity\" field.");
 
-        openProductPage(options.getCategory(), options.getProductType(), options.getName());
-        setFields(ProductShopFactory.withAllFields(getPage(), options));
+        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        setFields(ProductShopFactory.withAllFields(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
                 "The message about an incorrect quantity value format has not been displayed, the system has been opened the shopping cart page");
     }
 
     @Test(dataProvider = "blankQuantityField", dataProviderClass = Provider.class)
-    public void blankQuantityField(ProductOptions options) {
+    public void blankQuantityField(ProductData data) {
 
         ExtentReportsManager.createTest("Blank \"Quantity\" field",
                 "Checking the system's behavior when the \"Quantity\" field is blank");
 
-        openProductPage(options.getCategory(), options.getProductType(), options.getName());
-        setFields(ProductShopFactory.withAllFields(getPage(), options));
+        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        setFields(ProductShopFactory.withAllFields(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
                 "The message about about blank \"Quantity\" field has not been displayed, the system has been opened the shopping cart page");
