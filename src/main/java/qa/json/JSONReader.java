@@ -7,6 +7,7 @@ import org.json.simple.parser.ParseException;
 import qa.utils.*;
 
 import java.io.*;
+import java.util.stream.IntStream;
 
 
 public class JSONReader {
@@ -35,105 +36,75 @@ public class JSONReader {
 
         JSONArray jsonArray = getJSONArray(key, node);
 
-        String[] data = new String[jsonArray.length()];
+        return IntStream.range(0, jsonArray.length())
+                .mapToObj(jsonArray::getString)
+                .toArray(String[]::new);
+    }
 
-        for (int i = 0; i < jsonArray.length(); i++) {
+    public static LinkData[] getLinks(String node) {
 
-            data[i] = jsonArray.getString(i);
-        }
+        JSONArray jsonArray = getJSONArray("URLs", node);
 
-        return data;
+        return IntStream.range(0, jsonArray.length())
+                .mapToObj(i -> new LinkData(
+                        jsonArray.getJSONObject(i).getString("link"),
+                        jsonArray.getJSONObject(i).getString("url")
+                ))
+                .toArray(LinkData[]::new);
     }
 
     public static NewsletterData[] getNewsletterData(String node) {
 
         JSONArray jsonArray = getJSONArray("newsletter", node);
 
-        NewsletterData[] newsletterData = new NewsletterData[jsonArray.length()];
-
-        for(int i = 0; i < jsonArray.length(); i++) {
-
-            newsletterData[i] = new NewsletterData(
-                    jsonArray.getJSONObject(i).getString("email"),
-                    jsonArray.getJSONObject(i).getString("message")
-            );
-        }
-
-        return newsletterData;
-    }
-
-    public static Pair<String, String>[] get(String key, String node, Pair<String, String> params) {
-
-        JSONArray jsonArray = getJSONArray(key, node);
-
-        Pair<String, String>[] data = new Pair[jsonArray.length()];
-
-        for (int i = 0; i < jsonArray.length(); i++) {
-
-            data[i] = new Pair<>(
-                    jsonArray.getJSONObject(i).getString(params.getFirst()),
-                    jsonArray.getJSONObject(i).getString(params.getSecond())
-            );
-        }
-
-        return data;
+        return IntStream.range(0, jsonArray.length())
+                .mapToObj(i -> new NewsletterData(
+                        jsonArray.getJSONObject(i).getString("email"),
+                        jsonArray.getJSONObject(i).getString("message")
+                ))
+                .toArray(NewsletterData[]::new);
     }
 
     public static Credentials[] getCredentials(String node) {
 
         JSONArray jsonArray = getJSONArray("credentials", node);
 
-        Credentials[] credentials = new Credentials[jsonArray.length()];
-
-        for (int i = 0; i < jsonArray.length(); i++) {
-
-            credentials[i] = new Credentials(
-                    jsonArray.getJSONObject(i).getString("email"),
-                    jsonArray.getJSONObject(i).getString("password")
-            );
-        }
-
-        return credentials;
+        return IntStream.range(0, jsonArray.length())
+                .mapToObj(i -> new Credentials(
+                        jsonArray.getJSONObject(i).getString("email"),
+                        jsonArray.getJSONObject(i).getString("password")
+                ))
+                .toArray(Credentials[]::new);
     }
 
     public static ProductData[] get(String node) {
 
         JSONArray jsonArray = getJSONArray("addingToShoppingCart", node);
 
-        ProductData[] data = new ProductData[jsonArray.length()];
-
-        for (int i = 0; i < jsonArray.length(); i++) {
-
-            data[i] = new ProductData(
-                    jsonArray.getJSONObject(i).getString("category"),
-                    jsonArray.getJSONObject(i).getString("productType"),
-                    jsonArray.getJSONObject(i).getString("name"),
-                    jsonArray.getJSONObject(i).getString("color"),
-                    jsonArray.getJSONObject(i).getString("size"),
-                    jsonArray.getJSONObject(i).getString("quantity")
-            );
-        }
-
-        return data;
+        return IntStream.range(0, jsonArray.length())
+                .mapToObj(i -> new ProductData(
+                        jsonArray.getJSONObject(i).getString("category"),
+                        jsonArray.getJSONObject(i).getString("productType"),
+                        jsonArray.getJSONObject(i).getString("name"),
+                        jsonArray.getJSONObject(i).getString("color"),
+                        jsonArray.getJSONObject(i).getString("size"),
+                        jsonArray.getJSONObject(i).getString("quantity")
+                ))
+                .toArray(ProductData[]::new);
     }
 
     public static EstimateShippingData[] getEstimatedShippingData(String node) {
 
         JSONArray jsonArray = getJSONArray("estimateShippingForm", node);
 
-        EstimateShippingData[] data = new EstimateShippingData[jsonArray.length()];
-
-        for (int i = 0; i < jsonArray.length(); i++) {
-
-            data[i] = new EstimateShippingData(
-                jsonArray.getJSONObject(i).getString("stateType"),
-                    jsonArray.getJSONObject(i).getString("country"),
-                    jsonArray.getJSONObject(i).getString("state"),
-                    jsonArray.getJSONObject(i).getString("city"),
-                    jsonArray.getJSONObject(i).getString("postcode")
-            );
-        }
-
-        return data;
+        return IntStream.range(0, jsonArray.length())
+                .mapToObj(i -> new EstimateShippingData(
+                        jsonArray.getJSONObject(i).getString("stateType"),
+                        jsonArray.getJSONObject(i).getString("country"),
+                        jsonArray.getJSONObject(i).getString("state"),
+                        jsonArray.getJSONObject(i).getString("city"),
+                        jsonArray.getJSONObject(i).getString("postcode")
+                ))
+                .toArray(EstimateShippingData[]::new);
     }
 }
