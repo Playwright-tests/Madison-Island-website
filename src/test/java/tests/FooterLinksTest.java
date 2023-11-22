@@ -7,7 +7,8 @@ import org.testng.annotations.Test;
 import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.sections.Footer;
 import qa.base.BaseTest;
-import qa.utils.Pair;
+import qa.records.LinkData;
+
 
 public class FooterLinksTest extends BaseTest {
 
@@ -21,46 +22,46 @@ public class FooterLinksTest extends BaseTest {
         footer = new Footer(getPage());
     }
 
-    private void check(String link, String expectedURL) {
+    private void check(LinkData linkData) {
 
-        footer.getFooterLinks().clickElementList(link);
-        Assert.assertEquals(getPage().url(), expectedURL,
-                "The page with address \"" + expectedURL + "\" has not been opened");
+        footer.getFooterLinks().clickElementList(linkData.link());
+        Assert.assertEquals(getPage().url(), linkData.url(),
+                "The page with address \"" + linkData.url() + "\" has not been opened");
     }
 
     @Test(dataProvider = "footerCompany", dataProviderClass = Provider.class)
-    public void companySection(Pair<String, String> data) {
+    public void companySection(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"COMPANY\" section",
-                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" link in the \"COMPANY\" section",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" link.");
 
-        check(data.getFirst(), data.getSecond());
+        check(linkData);
     }
 
     @Test(dataProvider = "footerQuickLinks", dataProviderClass = Provider.class)
-    public void quickLinksSection(Pair<String, String> data) {
+    public void quickLinksSection(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"QUICK LINKS\" section",
-                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" link in the \"QUICK LINKS\" section",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" link.");
 
-        check(data.getFirst(), data.getSecond());
+        check(linkData);
     }
 
     @Test(dataProvider = "footerAccount", dataProviderClass = Provider.class)
-    public void accountSection(Pair<String, String> data) {
+    public void accountSection(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"ACCOUNT\" section",
-                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" link in the \"ACCOUNT\" section",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" link.");
 
-        check(data.getFirst(), data.getSecond());
+        check(linkData);
     }
 
     @Test(dataProvider = "footerConnectWithUs", dataProviderClass = Provider.class)
-    public void connectWithUsSection(Pair<String, String> data) {
+    public void connectWithUsSection(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"CONNECT WITH US\" section",
-                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" link in the \"CONNECT WITH US\" section",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" link.");
 
-        check(data.getFirst(), data.getSecond());
+        check(linkData);
     }
 }

@@ -4,10 +4,10 @@ import qa.dataProvider.Provider;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.components.Promos;
 import qa.base.BaseTest;
-import qa.utils.Pair;
-
+import qa.records.LinkData;
 
 public class PromosTest extends BaseTest {
 
@@ -20,10 +20,13 @@ public class PromosTest extends BaseTest {
     }
 
     @Test(dataProvider = "promos", dataProviderClass = Provider.class)
-    public void images(Pair<String, String> data) {
+    public void images(LinkData linkData) {
 
-        promos.clickImage(data.getFirst());
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" image in the \"Promos\" section",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" image.");
 
-        Assert.assertEquals(getPage().url(), data.getSecond());
+        promos.clickImage(linkData.link());
+
+        Assert.assertEquals(getPage().url(), linkData.url());
     }
 }

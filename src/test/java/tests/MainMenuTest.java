@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.sections.Header;
 import qa.base.BaseTest;
-import qa.utils.Pair;
+import qa.records.LinkData;
 
 
 public class MainMenuTest extends BaseTest {
@@ -20,66 +20,69 @@ public class MainMenuTest extends BaseTest {
         header = new Header(getPage());
     }
 
-    private void check(String button, Pair<String, String> data) {
+    private void check(String button, LinkData linkData) {
 
         header.getMainMenu().hoverParent(button);
-        header.getMainMenu().clickItem(data.getFirst());
+        header.getMainMenu().clickItem(linkData.link());
 
-        Assert.assertEquals(getPage().url(), data.getSecond(),
-                "The page with address \"" + data.getSecond() + "\" has not been opened");
+        Assert.assertEquals(getPage().url(), linkData.link(),
+                "The page with address \"" + linkData.url() + "\" has not been opened");
     }
 
     @Test(dataProvider = "mainMenuWomen", dataProviderClass = Provider.class)
-    public void women(Pair<String, String> data) {
+    public void women(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"Women\" section",
-                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" link in the \"Women\" section",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" link.");
 
-        check("Women", data);
+        check("Women", linkData);
     }
 
     @Test(dataProvider = "mainMenuMen", dataProviderClass = Provider.class)
-    public void men(Pair<String, String> data) {
+    public void men(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"Men\" section",
-                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" link in the \"Men\" section",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" link.");
 
-        check("Men", data);
+        check("Men", linkData);
     }
 
     @Test(dataProvider = "mainMenuAccessories", dataProviderClass = Provider.class)
-    public void accessories(Pair<String, String> data) {
+    public void accessories(LinkData linkData) {
 
-        check("Accessories", data);
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" link in the \"Accessories\" section",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" link.");
+
+        check("Accessories", linkData);
     }
 
     @Test(dataProvider = "mainMenuHomeDecor", dataProviderClass = Provider.class)
-    void homeAndDecor(Pair<String, String> data) {
+    void homeAndDecor(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"Home and Decor\" section",
-                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" link in the \"Home and Decor\" section",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" link.");
 
-        check("Home & Decor", data);
+        check("Home & Decor", linkData);
     }
 
     @Test(dataProvider = "mainMenuSale", dataProviderClass = Provider.class)
-    void sale(Pair<String, String> data) {
+    void sale(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"" + data.getFirst() + "\" link in the \"Sale\" section",
-                "Checking whether the page with the address \"" + data.getSecond() +  "\" opens after clicking the \"" + data.getFirst() + "\" link.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" link in the \"Sale\" section",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" link.");
 
-        check("Sale", data);
+        check("Sale", linkData);
     }
 
     @Test(dataProvider = "mainMenuVIP", dataProviderClass = Provider.class)
-    void vip(String expectedURL) {
+    void vip(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"VIP\" link in the \"CONNECT WITH US\" section",
-                "Checking whether the page with the address \"" + expectedURL +  "\" opens after clicking the \"VIP\" link.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" link in the \"CONNECT WITH US\" section",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" link.");
 
         header.getMainMenu().clickVip();
 
-        Assert.assertEquals(getPage().url(), expectedURL,
-                "The page with address \"" + expectedURL + "\" has not been opened");
+        Assert.assertEquals(getPage().url(), linkData.url(),
+                "The page with address \"" + linkData.url() + "\" has not been opened");
     }
 }
