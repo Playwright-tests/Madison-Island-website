@@ -2,7 +2,7 @@ package qa.helpers;
 
 import com.microsoft.playwright.Page;
 import qa.pageobject.productpage.ProductShop;
-import qa.utils.ProductData;
+import qa.records.ProductData;
 
 public class ProductShopFactory {
 
@@ -11,9 +11,9 @@ public class ProductShopFactory {
         ProductShop productShop = new ProductShop(page);
 
         productShop
-                .setColor(data.getColor())
-                .setSize(data.getSize())
-                .setQuantity(data.getQuantity());
+                .setColor(data.color())
+                .setSize(data.size())
+                .setQuantity(data.quantity());
 
         return productShop;
     }
@@ -23,8 +23,8 @@ public class ProductShopFactory {
         ProductShop productShop = new ProductShop(page);
 
         productShop
-                .setSize(data.getSize())
-                .setQuantity(data.getQuantity());
+                .setSize(data.size())
+                .setQuantity(data.quantity());
 
         return productShop;
     }
@@ -34,8 +34,8 @@ public class ProductShopFactory {
         ProductShop productShop = new ProductShop(page);
 
         productShop
-                .setColor(data.getColor())
-                .setQuantity(data.getQuantity());
+                .setColor(data.color())
+                .setQuantity(data.quantity());
 
         return productShop;
     }
@@ -44,7 +44,7 @@ public class ProductShopFactory {
 
         ProductShop productShop = new ProductShop(page);
 
-        productShop.setQuantity(data.getQuantity());
+        productShop.setQuantity(data.quantity());
 
         return productShop;
     }

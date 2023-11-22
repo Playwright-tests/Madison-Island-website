@@ -2,7 +2,7 @@ package qa.helpers;
 
 import com.microsoft.playwright.Page;
 import qa.pageobject.shoppingcart.EstimateShippingForm;
-import qa.utils.EstimateShippingData;
+import qa.records.EstimateShippingData;
 
 public class EstimateShippingFormFactory {
 
@@ -10,19 +10,19 @@ public class EstimateShippingFormFactory {
 
         EstimateShippingForm estimateShippingForm = new EstimateShippingForm(page);
 
-        estimateShippingForm.selectCountry(data.getCountry());
+        estimateShippingForm.selectCountry(data.country());
 
-        if (data.getStateType().contains("dropdownList")) {
+        if (data.stateType().contains("dropdownList")) {
 
-            estimateShippingForm.selectState(data.getState());
+            estimateShippingForm.selectState(data.state());
         }
         else {
 
-            estimateShippingForm.setState(data.getState());
+            estimateShippingForm.setState(data.state());
         }
 
-        estimateShippingForm.setCity(data.getCity());
-        estimateShippingForm.setPostcode(data.getPostcode());
+        estimateShippingForm.setCity(data.city());
+        estimateShippingForm.setPostcode(data.postcode());
 
         return estimateShippingForm;
     }

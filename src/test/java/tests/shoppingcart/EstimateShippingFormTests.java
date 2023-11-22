@@ -7,11 +7,9 @@ import qa.dataProvider.Provider;
 import qa.helpers.EstimateShippingFormFactory;
 import qa.helpers.FillingTheShoppingCart;
 import qa.pageobject.shoppingcart.EstimateShippingForm;
-import qa.utils.EstimateShippingData;
+import qa.records.EstimateShippingData;
 
 public class EstimateShippingFormTests extends BaseTest {
-
-    private EstimateShippingForm estimateShippingForm;
 
     @BeforeMethod
     public void create() {
@@ -21,7 +19,7 @@ public class EstimateShippingFormTests extends BaseTest {
 
     private void fill(EstimateShippingData data) {
 
-        estimateShippingForm = EstimateShippingFormFactory.withAllFields(getPage(), data);
+        EstimateShippingForm estimateShippingForm = EstimateShippingFormFactory.withAllFields(getPage(), data);
         estimateShippingForm.clickEstimateButton();
     }
 

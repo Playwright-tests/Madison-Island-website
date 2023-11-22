@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.sections.Footer;
 import qa.base.BaseTest;
-import qa.utils.NewsletterData;
+import qa.records.NewsletterData;
 
 
 public class NewsletterTest extends BaseTest {
@@ -34,21 +34,21 @@ public class NewsletterTest extends BaseTest {
     @Test(dataProvider = "newsletterCorrectEmail", dataProviderClass = Provider.class)
     public void correctEmail(NewsletterData newsletterData) {
 
-        check(newsletterData.getEmail(), subPageUrl);
+        check(newsletterData.email(), subPageUrl);
     }
 
     @Test(dataProvider = "validationEmailField", dataProviderClass = Provider.class)
     public void validationEmailField(NewsletterData newsletterData) {
 
-        ExtentReportsManager.createTest("\"" + newsletterData.getEmail() + "\" as an incorrect email",
+        ExtentReportsManager.createTest("\"" + newsletterData.email() + "\" as an incorrect email",
                 "Checking whether a message about incorrect email format is displayed");
 
-        check(newsletterData.getEmail(), homePageUrl);
+        check(newsletterData.email(), homePageUrl);
 
         Assert.assertNotEquals(footer.getNewsletterForm().getValidationMessage(), "",
                 "No validation message");
 
-        Assert.assertEquals(footer.getNewsletterForm().getValidationMessage(), newsletterData.getValidationMessage(),
+        Assert.assertEquals(footer.getNewsletterForm().getValidationMessage(), newsletterData.validationMessage(),
                 "Incorrect message content");
     }
 
@@ -58,9 +58,9 @@ public class NewsletterTest extends BaseTest {
         ExtentReportsManager.createTest("Blank \"Email Address\" field",
                 "Checking whether a message about an empty \"Email Address\" field is displayed");
 
-        check(newsletterData.getEmail(), homePageUrl);
+        check(newsletterData.email(), homePageUrl);
 
-        Assert.assertEquals(footer.getNewsletterForm().getAdviceRequiredEmailText(), newsletterData.getValidationMessage(),
+        Assert.assertEquals(footer.getNewsletterForm().getAdviceRequiredEmailText(), newsletterData.validationMessage(),
                 "Incorrect message content");
     }
 }

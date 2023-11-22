@@ -7,7 +7,7 @@ import qa.base.BaseTest;
 import qa.dataProvider.Provider;
 import qa.helpers.LoginHelper;
 import qa.pageobject.accountpage.AccountPage;
-import qa.utils.LinkData;
+import qa.records.LinkData;
 
 public class SideMenuTest extends BaseTest {
 
@@ -24,8 +24,8 @@ public class SideMenuTest extends BaseTest {
     @Test(dataProvider = "sideMenu", dataProviderClass = Provider.class)
     public void links(LinkData linkData) {
 
-        accountPage.getSideMenu().clickLink(linkData.getLink());
+        accountPage.getSideMenu().clickLink(linkData.link());
 
-        Assert.assertEquals(getPage().url(), linkData.getUrl());
+        Assert.assertEquals(getPage().url(), linkData.url());
     }
 }
