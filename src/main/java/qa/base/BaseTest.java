@@ -1,13 +1,19 @@
 package qa.base;
 
+import com.microsoft.playwright.Page;
 import org.json.simple.parser.ParseException;
 import org.testng.annotations.*;
+import qa.enums.Browser;
 import qa.json.JSONReader;
-import qa.playwright.PlaywrightLauncher;
+import qa.playwright.PlaywrightBrowserLauncher;
+import qa.playwright.PlaywrightProvider;
 
 import java.io.IOException;
 
+
 public class BaseTest {
+
+    private PlaywrightBrowserLauncher launcher;
 
     @BeforeClass
     public void init() throws IOException, ParseException {
@@ -18,12 +24,18 @@ public class BaseTest {
     @BeforeMethod
     public void launch() {
 
-        PlaywrightLauncher.launch();
+        launcher = PlaywrightProvider.get(Browser.WEBKIT);
+        launcher.launch("http://demo-store.seleniumacademy.com/");
     }
 
     @AfterMethod
     public void tearDown() {
 
-        PlaywrightLauncher.close();
+        launcher.close();
+    }
+
+    protected Page getPage() {
+
+        return PlaywrightBrowserLauncher.getPage();
     }
 }
