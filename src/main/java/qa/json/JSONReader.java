@@ -4,7 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import qa.utils.*;
+import qa.records.*;
 
 import java.io.*;
 import java.util.stream.IntStream;
@@ -72,7 +72,8 @@ public class JSONReader {
         return IntStream.range(0, jsonArray.length())
                 .mapToObj(i -> new Credentials(
                         jsonArray.getJSONObject(i).getString("email"),
-                        jsonArray.getJSONObject(i).getString("password")
+                        jsonArray.getJSONObject(i).getString("password"),
+                        jsonArray.getJSONObject(i).getString("message")
                 ))
                 .toArray(Credentials[]::new);
     }
