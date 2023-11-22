@@ -5,7 +5,8 @@
 
             {
                 "email": "googmail.com",
-                "password": "pawelek1234"
+                "password": "pawelek1234",
+                "message": ""
             }
         ],
 
@@ -13,7 +14,8 @@
 
             {
                 "email": "",
-                "password": "pawelek1234"
+                "password": "pawelek1234",
+                "message": ""
             }
         ],
 
@@ -21,7 +23,8 @@
 
             {
                 "email": "goo@gmail.com",
-                "password": "kkkkkkkkkkk"
+                "password": "kkkkkkkkkkk",
+                "message": ""
             }
         ],
 
@@ -29,7 +32,8 @@
 
             {
                 "email": "goo@gmail.com",
-                "password": ""
+                "password": "",
+                "message": ""
             }
         ],
 
@@ -37,7 +41,59 @@
 
             {
                 "email": "goo@gmail.com",
-                "password": "pawelek1234"
+                "password": "pawelek1234",
+                "message": ""
+            }
+        ],
+
+        "validationEmailField": [
+
+            {
+                "email": "plainaddress",
+                "password": "pawelek1234",
+                "message": "Uwzględnij znak „@” w adresie e-mail. W adresie „plainaddress” brakuje znaku „@”."
+            },
+
+            {
+                "email": "#@%^%#$@#$@#.com",
+                "password": "pawelek1234",
+                "message": "Część po znaku „@” nie może zawierać symbolu „%”."
+            },
+
+            {
+                "email": "@example.com",
+                "password": "pawelek1234",
+                "message": "Podaj część przed znakiem „@”. Adres „@example.com” jest niepełny."
+            },
+
+            {
+                "email": "Joe Smith <email@example.com>",
+                "password": "pawelek1234",
+                "message": "Część przed znakiem „@” nie może zawierać symbolu „ ”."
+            },
+
+            {
+                "email": "@gmail.com",
+                "password": "pawelek1234",
+                "message": "Podaj część przed znakiem „@”. Adres „@gmail.com” jest niepełny."
+            },
+
+            {
+                "email": "paul@.gmail-com",
+                "password": "pawelek1234",
+                "message": "„.” występuje w niewłaściwym miejscu w „.gmail-com”."
+            },
+
+            {
+                "email": "iam_the.user",
+                "password": "pawelek1234",
+                "message": "Uwzględnij znak „@” w adresie e-mail. W adresie „iam_the.user” brakuje znaku „@”."
+            },
+            
+            {
+                "email": "pablo@",
+                "password": "pawelek1234",
+                "message": "Podaj część po znaku „@”. Adres „pablo@” jest niepełny."
             }
         ]
     },
