@@ -1,8 +1,8 @@
-package tests;
+package tests.shoppingcart;
 
 import qa.dataProvider.Provider;
 import qa.extentreportsmanager.ExtentReportsManager;
-import qa.factories.ProductShopFactory;
+import qa.helpers.ProductShopFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
