@@ -9,7 +9,7 @@ public class Provider {
     @DataProvider(name = "accountDropdownList")
     public Object[] accountDropdownList() {
 
-        return JSONReader.get("URLs", "accountDropdownList", new Pair<>("button", "url"));
+        return JSONReader.getLinks("accountDropdownList");
     }
 
     @DataProvider(name = "incorrectEmail")
@@ -39,62 +39,68 @@ public class Provider {
     @DataProvider(name = "mainMenuWomen")
     public Object[] mainMenuWomen() {
 
-        return JSONReader.get("URLs", "mainMenuWomen", new Pair<>("button", "url"));
+        return JSONReader.getLinks("mainMenuWomen");
     }
 
     @DataProvider(name = "mainMenuMen")
     public Object[] mainMenuMen() {
 
-        return JSONReader.get("URLs", "mainMenuMen", new Pair<>("button", "url"));
+        return JSONReader.getLinks("mainMenuMen");
     }
 
     @DataProvider(name = "mainMenuAccessories")
     public Object[] mainMenuAccessories() {
 
-        return JSONReader.get("URLs", "mainMenuAccessories", new Pair<>("button", "url"));
+        return JSONReader.getLinks("mainMenuAccessories");
     }
 
     @DataProvider(name = "mainMenuHomeDecor")
     public Object[] mainMenuHomeDecor() {
 
-        return JSONReader.get("URLs", "mainMenuHomeDecor", new Pair<>("button", "url"));
+        return JSONReader.getLinks("mainMenuHomeDecor");
     }
 
     @DataProvider(name = "mainMenuSale")
     public Object[] mainMenuSale() {
 
-        return JSONReader.get("URLs", "mainMenuSale", new Pair<>("button", "url"));
+        return JSONReader.getLinks("mainMenuSale");
     }
 
     @DataProvider(name = "mainMenuVIP")
     public Object[] mainMenuVIP() {
 
-        return JSONReader.get("URLs", "mainMenuVIP");
+        return JSONReader.getLinks("mainMenuVip");
+    }
+
+    @DataProvider(name = "sideMenu")
+    public Object[] sideMenu() {
+
+        return JSONReader.getLinks("sideMenu");
     }
 
     @DataProvider(name = "footerCompany")
     public Object[] footerCompany() {
 
-        return JSONReader.get("URLs", "footerCompany", new Pair<>("link", "url"));
+        return JSONReader.getLinks("footerCompany");
 
     }
 
     @DataProvider(name = "footerQuickLinks")
     public Object[] footerQuickLinks() {
 
-        return JSONReader.get("URLs", "footerQuickLinks", new Pair<>("link", "url"));
+        return JSONReader.getLinks("footerQuickLinks");
     }
 
     @DataProvider(name = "footerAccount")
     public Object[] footerAccount() {
 
-        return JSONReader.get("URLs", "footerAccount", new Pair<>("link", "url"));
+        return JSONReader.getLinks("footerAccount");
     }
 
     @DataProvider(name = "footerConnectWithUs")
     public Object[] footerConnectWithUs() {
 
-        return JSONReader.get("URLs", "footerConnectWithUs", new Pair<>("link", "url"));
+        return JSONReader.getLinks("footerConnectWithUs");
     }
 
     @DataProvider(name = "searchEngineCorrectPhrase")
@@ -136,7 +142,7 @@ public class Provider {
     @DataProvider(name = "promos")
     public Object[] promos() {
 
-        return JSONReader.get("URLs", "promos", new Pair<>("altText", "url"));
+        return JSONReader.getLinks("promos");
     }
 
     @DataProvider(name = "correctProductData")
