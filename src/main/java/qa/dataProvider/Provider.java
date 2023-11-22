@@ -2,7 +2,7 @@ package qa.dataProvider;
 
 import org.testng.annotations.DataProvider;
 import qa.json.JSONReader;
-import qa.utils.Pair;
+
 
 public class Provider {
 
@@ -34,6 +34,12 @@ public class Provider {
     public Object[] emptyPasswordField() {
 
         return JSONReader.getCredentials("emptyPasswordField");
+    }
+
+    @DataProvider(name = "credentialsValidationEmailField")
+    public Object[] credentialsValidationEmailField() {
+
+        return JSONReader.getCredentials("validationEmailField");
     }
 
     @DataProvider(name = "mainMenuWomen")
