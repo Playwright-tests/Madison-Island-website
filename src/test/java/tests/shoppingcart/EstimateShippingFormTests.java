@@ -4,8 +4,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.dataProvider.Provider;
-import qa.factories.EstimateShippingFormFactory;
-import qa.factories.FillingTheShoppingCart;
+import qa.helpers.EstimateShippingFormFactory;
+import qa.helpers.FillingTheShoppingCart;
 import qa.pageobject.shoppingcart.EstimateShippingForm;
 import qa.utils.EstimateShippingData;
 
