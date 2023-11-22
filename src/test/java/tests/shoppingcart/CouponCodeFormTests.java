@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.dataProvider.Provider;
 import qa.extentreportsmanager.ExtentReportsManager;
-import qa.factories.FillingTheShoppingCart;
+import qa.helpers.FillingTheShoppingCart;
 import qa.pageobject.shoppingcart.CouponCodeForm;
 import qa.pageobject.shoppingcart.ShoppingCart;
 
