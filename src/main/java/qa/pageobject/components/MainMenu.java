@@ -9,8 +9,8 @@ import java.util.HashMap;
 
 public class MainMenu extends BasePage {
 
-    Locator parent;
-    String hovered;
+    private final Locator parent;
+    private String hovered;
 
     HashMap<String, String> items = new HashMap<>() {{
 

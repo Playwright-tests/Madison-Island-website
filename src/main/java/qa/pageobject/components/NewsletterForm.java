@@ -8,9 +8,9 @@ import qa.base.BasePage;
 
 public class NewsletterForm extends BasePage {
 
-    Locator emailField;
-    Locator subscribeButton;
-    Locator adviceRequiredEmail;
+    private final Locator emailField;
+    private final Locator subscribeButton;
+    private final Locator adviceRequiredEmail;
 
     public NewsletterForm(Page page) {
 

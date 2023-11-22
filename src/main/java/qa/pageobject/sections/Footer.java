@@ -7,8 +7,8 @@ import qa.base.BasePage;
 
 public class Footer extends BasePage {
 
-    FooterLinks footerLinks;
-    NewsletterForm newsletterForm;
+    private final FooterLinks footerLinks;
+    private final NewsletterForm newsletterForm;
 
     public Footer(Page page) {
 
