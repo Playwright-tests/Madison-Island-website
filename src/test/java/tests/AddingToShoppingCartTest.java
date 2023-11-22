@@ -14,8 +14,6 @@ import qa.pageobject.shoppingcart.ShoppingCart;
 import qa.base.BaseTest;
 import qa.utils.ProductData;
 
-import static qa.playwright.PlaywrightLauncher.*;
-
 public class AddingToShoppingCartTest extends BaseTest {
 
     private ProductPage productPage;

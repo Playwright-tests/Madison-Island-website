@@ -8,7 +8,7 @@ import qa.pageobject.sections.Header;
 import qa.base.BaseTest;
 import java.util.function.Consumer;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import static qa.playwright.PlaywrightLauncher.*;
+
 
 public class SearchEngineTest extends BaseTest {
 

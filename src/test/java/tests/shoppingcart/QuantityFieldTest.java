@@ -12,7 +12,6 @@ import qa.pageobject.components.ProductThumbnail;
 import qa.pageobject.productpage.ProductPage;
 import qa.pageobject.productpage.ProductShop;
 import qa.pageobject.shoppingcart.ShoppingCart;
-import qa.playwright.PlaywrightLauncher;
 
 public class QuantityFieldTest extends BaseTest {
 
@@ -21,18 +20,18 @@ public class QuantityFieldTest extends BaseTest {
     @BeforeMethod
     public void create() {
 
-        shoppingCart = new ShoppingCart(PlaywrightLauncher.getPage());
+        shoppingCart = new ShoppingCart(getPage());
 
-        MainMenu mainMenu = new MainMenu(PlaywrightLauncher.getPage());
+        MainMenu mainMenu = new MainMenu(getPage());
 
         mainMenu.hoverParent("Women");
         mainMenu.clickItem("Pants & Denim");
 
-        ProductThumbnail productThumbnail = new ProductThumbnail(PlaywrightLauncher.getPage(), "TriBeCa Skinny Jean");
+        ProductThumbnail productThumbnail = new ProductThumbnail(getPage(), "TriBeCa Skinny Jean");
         productThumbnail.clickViewDetailsButton();
 
-        ProductPage productPage = new ProductPage(PlaywrightLauncher.getPage());
-        productPage.setProductShop(new ProductShop(PlaywrightLauncher.getPage()));
+        ProductPage productPage = new ProductPage(getPage());
+        productPage.setProductShop(new ProductShop(getPage()));
         productPage.getProductShop()
                 .setColor("Black")
                 .setSize("30")

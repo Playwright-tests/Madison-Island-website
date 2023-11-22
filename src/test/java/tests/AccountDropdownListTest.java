@@ -9,8 +9,6 @@ import qa.pageobject.components.AccountDropdownList;
 import qa.base.BaseTest;
 import qa.utils.Pair;
 
-import static qa.playwright.PlaywrightLauncher.*;
-
 public class AccountDropdownListTest extends BaseTest {
 
     private AccountDropdownList accountDropdownList;

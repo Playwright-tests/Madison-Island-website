@@ -7,11 +7,9 @@ import org.testng.annotations.Test;
 import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.components.AccountDropdownList;
 import qa.pageobject.components.LoginForm;
-import qa.playwright.PlaywrightLauncher;
 import qa.base.BaseTest;
 import qa.utils.Credentials;
 import qa.utils.NewsletterData;
-
 
 public class LoginTest extends BaseTest {
 
@@ -20,8 +18,8 @@ public class LoginTest extends BaseTest {
     @BeforeMethod
     public void create() {
 
-        AccountDropdownList accountDropdownList = new AccountDropdownList(PlaywrightLauncher.getPage());
-        loginForm = new LoginForm(PlaywrightLauncher.getPage());
+        AccountDropdownList accountDropdownList = new AccountDropdownList(getPage());
+        loginForm = new LoginForm(getPage());
 
         accountDropdownList.clickAccountNav();
         accountDropdownList.clickItem("My Account");

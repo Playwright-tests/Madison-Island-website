@@ -8,7 +8,6 @@ import qa.pageobject.components.Promos;
 import qa.base.BaseTest;
 import qa.utils.Pair;
 
-import static qa.playwright.PlaywrightLauncher.getPage;
 
 public class PromosTest extends BaseTest {
 

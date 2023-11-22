@@ -9,8 +9,6 @@ import qa.pageobject.sections.Footer;
 import qa.base.BaseTest;
 import qa.utils.Pair;
 
-import static qa.playwright.PlaywrightLauncher.*;
-
 public class FooterLinksTest extends BaseTest {
 
     private Footer footer;

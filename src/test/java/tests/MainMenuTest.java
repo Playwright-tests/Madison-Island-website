@@ -8,7 +8,7 @@ import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.sections.Header;
 import qa.base.BaseTest;
 import qa.utils.Pair;
-import static qa.playwright.PlaywrightLauncher.*;
+
 
 public class MainMenuTest extends BaseTest {
 

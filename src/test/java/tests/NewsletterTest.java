@@ -6,11 +6,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.sections.Footer;
-import qa.playwright.PlaywrightLauncher;
 import qa.base.BaseTest;
 import qa.utils.NewsletterData;
 
-import static qa.playwright.PlaywrightLauncher.*;
 
 public class NewsletterTest extends BaseTest {
 
@@ -21,7 +19,7 @@ public class NewsletterTest extends BaseTest {
     @BeforeMethod
     public void create() {
 
-        footer = new Footer(PlaywrightLauncher.getPage());
+        footer = new Footer(getPage());
     }
 
     private void check(String email, String expectedURL) {

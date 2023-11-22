@@ -10,8 +10,6 @@ import qa.factories.FillingTheShoppingCart;
 import qa.pageobject.shoppingcart.CouponCodeForm;
 import qa.pageobject.shoppingcart.ShoppingCart;
 
-import static qa.playwright.PlaywrightLauncher.*;
-
 public class CouponCodeFormTests extends BaseTest {
 
     private CouponCodeForm couponCodeForm;
@@ -19,7 +17,7 @@ public class CouponCodeFormTests extends BaseTest {
     @BeforeMethod
     public void create() {
 
-        FillingTheShoppingCart.fill("Women", "Pants & Denim", "TriBeCa Skinny Jean", "Black", "30");
+        FillingTheShoppingCart.fill(getPage(), "Women", "Pants & Denim", "TriBeCa Skinny Jean", "Black", "30");
 
         couponCodeForm = new CouponCodeForm(getPage());
     }

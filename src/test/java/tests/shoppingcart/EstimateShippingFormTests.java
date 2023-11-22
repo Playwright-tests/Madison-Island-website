@@ -9,8 +9,6 @@ import qa.factories.FillingTheShoppingCart;
 import qa.pageobject.shoppingcart.EstimateShippingForm;
 import qa.utils.EstimateShippingData;
 
-import static qa.playwright.PlaywrightLauncher.*;
-
 public class EstimateShippingFormTests extends BaseTest {
 
     private EstimateShippingForm estimateShippingForm;
@@ -18,7 +16,7 @@ public class EstimateShippingFormTests extends BaseTest {
     @BeforeMethod
     public void create() {
 
-        FillingTheShoppingCart.fill("Women", "Pants & Denim", "TriBeCa Skinny Jean", "Black", "30");
+        FillingTheShoppingCart.fill(getPage(), "Women", "Pants & Denim", "TriBeCa Skinny Jean", "Black", "30");
     }
 
     private void fill(EstimateShippingData data) {
