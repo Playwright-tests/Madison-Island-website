@@ -24,7 +24,7 @@ public class BaseTest {
     @BeforeMethod
     public void launch() {
 
-        launcher = PlaywrightProvider.get(Browser.WEBKIT);
+        launcher = PlaywrightProvider.get(Browser.CHROME);
         launcher.launch("http://demo-store.seleniumacademy.com/");
     }
 
