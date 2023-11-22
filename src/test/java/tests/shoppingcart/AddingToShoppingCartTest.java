@@ -12,7 +12,7 @@ import qa.pageobject.components.ProductThumbnail;
 import qa.pageobject.productpage.ProductShop;
 import qa.pageobject.shoppingcart.ShoppingCart;
 import qa.base.BaseTest;
-import qa.utils.ProductData;
+import qa.records.ProductData;
 
 public class AddingToShoppingCartTest extends BaseTest {
 
@@ -44,10 +44,10 @@ public class AddingToShoppingCartTest extends BaseTest {
 
         ShoppingCart shoppingCart = new ShoppingCart(getPage());
 
-        Assert.assertEquals(shoppingCart.getTable().getName(), data.getName(), "Incorrect product name in the shopping cart");
-        Assert.assertEquals(shoppingCart.getTable().getColor(), data.getColor(), "Incorrect product color in the shopping cart");
-        Assert.assertEquals(shoppingCart.getTable().getSize(), data.getSize(), "Incorrect product size in the shopping cart");
-        Assert.assertEquals(shoppingCart.getTable().getQuantityCell().getQuantity(), data.getQuantity(), "Incorrect amount of product");
+        Assert.assertEquals(shoppingCart.getTable().getName(), data.name(), "Incorrect product name in the shopping cart");
+        Assert.assertEquals(shoppingCart.getTable().getColor(), data.color(), "Incorrect product color in the shopping cart");
+        Assert.assertEquals(shoppingCart.getTable().getSize(), data.size(), "Incorrect product size in the shopping cart");
+        Assert.assertEquals(shoppingCart.getTable().getQuantityCell().getQuantity(), data.quantity(), "Incorrect amount of product");
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
@@ -56,7 +56,7 @@ public class AddingToShoppingCartTest extends BaseTest {
         ExtentReportsManager.createTest("Correct product features",
                 "Checking whether a product with the appropriate parameters has been added to the cart");
 
-        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        openProductPage(data.category(), data.productType(), data.name());
         setFields(ProductShopFactory.withAllFields(getPage(), data));
 
         Assert.assertEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
@@ -71,7 +71,7 @@ public class AddingToShoppingCartTest extends BaseTest {
         ExtentReportsManager.createTest("Unselected product color",
                 "Checking whether a message about an unselected product color has appeared");
 
-        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        openProductPage(data.category(), data.productType(), data.name());
         setFields(ProductShopFactory.withoutColor(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
@@ -85,7 +85,7 @@ public class AddingToShoppingCartTest extends BaseTest {
         ExtentReportsManager.createTest("Unselected product size",
                 "Checking whether a message about an unselected product size has appeared");
 
-        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        openProductPage(data.category(), data.productType(), data.name());
         setFields(ProductShopFactory.withoutSize(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
@@ -99,7 +99,7 @@ public class AddingToShoppingCartTest extends BaseTest {
         ExtentReportsManager.createTest("Unselected product color and size",
                 "Checking whether a message about an unselected product color and size appeared");
 
-        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        openProductPage(data.category(), data.productType(), data.name());
         setFields(ProductShopFactory.withoutColorAndSize(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
@@ -113,7 +113,7 @@ public class AddingToShoppingCartTest extends BaseTest {
         ExtentReportsManager.createTest("Incorrect quantity value",
                 "Checking the system's behavior after entering an incorrect value in the \"Quantity\" field.");
 
-        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        openProductPage(data.category(), data.productType(), data.name());
         setFields(ProductShopFactory.withAllFields(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
@@ -126,7 +126,7 @@ public class AddingToShoppingCartTest extends BaseTest {
         ExtentReportsManager.createTest("Incorrect product quantity value format",
                 "Checking the system's behavior after entering an incorrect value format in the \"Quantity\" field.");
 
-        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        openProductPage(data.category(), data.productType(), data.name());
         setFields(ProductShopFactory.withAllFields(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
@@ -139,7 +139,7 @@ public class AddingToShoppingCartTest extends BaseTest {
         ExtentReportsManager.createTest("Blank \"Quantity\" field",
                 "Checking the system's behavior when the \"Quantity\" field is blank");
 
-        openProductPage(data.getCategory(), data.getProductType(), data.getName());
+        openProductPage(data.category(), data.productType(), data.name());
         setFields(ProductShopFactory.withAllFields(getPage(), data));
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
