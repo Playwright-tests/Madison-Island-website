@@ -1,4 +1,4 @@
-package qa.factories;
+package qa.helpers;
 
 import com.microsoft.playwright.Page;
 import qa.pageobject.shoppingcart.EstimateShippingForm;
