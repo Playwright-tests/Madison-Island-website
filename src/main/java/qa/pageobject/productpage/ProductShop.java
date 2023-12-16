@@ -7,6 +7,7 @@ import qa.base.BasePage;
 
 public class ProductShop extends BasePage {
 
+    private final Locator productName;
     private final Locator price;
     private final Locator quantityField;
     private final Locator addToCartButton;
@@ -17,37 +18,37 @@ public class ProductShop extends BasePage {
 
         super(page);
 
-        price = page.locator(".price-box");
+        productName = page.locator(".product-name").nth(1);
+        price = page.locator(".price-box").nth(1);
         quantityField = page.locator("#qty");
         addToCartButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add to cart"));
         requiredColorMessage = page.locator("#advice-required-entry-attribute92");
         requiredSizeMessage = page.locator("#advice-required-entry-attribute180");
     }
 
-    public ProductShop setColor(String color) {
+    public void setColor(String color) {
 
         getPage().getByAltText(color).click();
-
-        return this;
     }
 
-    public ProductShop setSize(String size) {
+    public void setSize(String size) {
 
         getPage().getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(size).setExact(true)).click();
-
-        return this;
     }
 
-    public ProductShop setQuantity(String quantity) {
+    public void setQuantity(String quantity) {
 
         quantityField.fill(quantity);
+    }
 
-        return this;
+    public String getProductName() {
+
+        return productName.textContent().trim();
     }
 
     public String getPrice() {
 
-        return price.textContent();
+        return price.textContent().trim();
     }
 
     public String getQuantity() {
