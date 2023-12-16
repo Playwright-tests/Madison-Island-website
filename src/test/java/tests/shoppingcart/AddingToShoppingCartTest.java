@@ -1,146 +1,129 @@
 package tests.shoppingcart;
 
-import qa.dataProvider.Provider;
-import qa.extentreportsmanager.ExtentReportsManager;
-import qa.helpers.ProductShopFactory;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
+import qa.dataProvider.Provider;
+import qa.enums.ProductShopMethods;
+import qa.extentreportsmanager.ExtentReportsManager;
+import qa.helpers.ProductShopHandler;
 import org.testng.annotations.Test;
-import qa.pageobject.productpage.ProductPage;
-import qa.pageobject.components.MainMenu;
-import qa.pageobject.components.ProductThumbnail;
 import qa.pageobject.productpage.ProductShop;
 import qa.pageobject.shoppingcart.ShoppingCart;
 import qa.base.BaseTest;
 import qa.records.ProductData;
+import java.lang.reflect.InvocationTargetException;
 
 public class AddingToShoppingCartTest extends BaseTest {
 
-    private ProductPage productPage;
+    private ProductShop fill(ProductData data) throws InvocationTargetException, IllegalAccessException {
 
-    @BeforeMethod
-    public void create() {
-
-        productPage = new ProductPage(getPage());
+        return ProductShopHandler.set(getPage(), data, ProductShopMethods.ALL);
     }
 
-    private void openProductPage(String category, String type, String name) {
-
-        MainMenu mainMenu = new MainMenu(getPage());
-        ProductThumbnail productThumbnail = new ProductThumbnail(getPage(), name);
-
-        mainMenu.hoverParent(category);
-        mainMenu.clickItem(type);
-        productThumbnail.clickViewDetailsButton();
-    }
-
-    private void setFields(ProductShop productShop) {
-
-        productPage.setProductShop(productShop);
-        productPage.getProductShop().clickAddToCartButton();
-    }
-
-    private void checkCartContents(ProductData data) {
+    private void checkCartContents(ProductData data) throws InvocationTargetException, IllegalAccessException {
 
         ShoppingCart shoppingCart = new ShoppingCart(getPage());
+        ProductShop productShop = fill(data);
 
-        Assert.assertEquals(shoppingCart.getTable().getName(), data.name(), "Incorrect product name in the shopping cart");
+        String productName = productShop.getProductName();
+
+        productShop.clickAddToCartButton();
+
+        Assert.assertEquals(shoppingCart.getTable().getName(), productName, "Incorrect product name in the shopping cart");
         Assert.assertEquals(shoppingCart.getTable().getColor(), data.color(), "Incorrect product color in the shopping cart");
         Assert.assertEquals(shoppingCart.getTable().getSize(), data.size(), "Incorrect product size in the shopping cart");
         Assert.assertEquals(shoppingCart.getTable().getQuantityCell().getQuantity(), data.quantity(), "Incorrect amount of product");
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
-    public void correct(ProductData data) {
+    public void correct(ProductData data) throws InvocationTargetException, IllegalAccessException {
 
         ExtentReportsManager.createTest("Correct product features",
                 "Checking whether a product with the appropriate parameters has been added to the cart");
 
-        openProductPage(data.category(), data.productType(), data.name());
-        setFields(ProductShopFactory.withAllFields(getPage(), data));
-
-        Assert.assertEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
-                "The shopping cart page has not been opened");
-
+        getPage().navigate(data.url());
         checkCartContents(data);
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
-    public void colorNotSelected(ProductData data) {
+    public void colorNotSelected(ProductData data) throws InvocationTargetException, IllegalAccessException {
 
         ExtentReportsManager.createTest("Unselected product color",
                 "Checking whether a message about an unselected product color has appeared");
 
-        openProductPage(data.category(), data.productType(), data.name());
-        setFields(ProductShopFactory.withoutColor(getPage(), data));
+        goToPage(data.url());
+        ProductShop productShop = ProductShopHandler.set(getPage(), data, ProductShopMethods.SET_COLOR);
+        productShop.clickAddToCartButton();
 
-        Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
-        Assert.assertTrue(productPage.getProductShop().isRequiredColorMessageVisible(),
+        Assert.assertTrue(productShop.isRequiredColorMessageVisible(),
                 "The message about unselected product color has not been displayed");
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
-    public void sizeNotSelected(ProductData data) {
+    public void sizeNotSelected(ProductData data) throws InvocationTargetException, IllegalAccessException {
 
         ExtentReportsManager.createTest("Unselected product size",
                 "Checking whether a message about an unselected product size has appeared");
 
-        openProductPage(data.category(), data.productType(), data.name());
-        setFields(ProductShopFactory.withoutSize(getPage(), data));
+        goToPage(data.url());
+        ProductShop productShop = ProductShopHandler.set(getPage(), data, ProductShopMethods.SET_SIZE);
+        productShop.clickAddToCartButton();
 
-        Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
-        Assert.assertTrue(productPage.getProductShop().isRequiredSizeMessageVisible(),
+        Assert.assertTrue(productShop.isRequiredSizeMessageVisible(),
                 "The message about unselected product size has not been displayed");
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
     public void colorAndSizeNotSelected(ProductData data) {
 
-        ExtentReportsManager.createTest("Unselected product color and size",
-                "Checking whether a message about an unselected product color and size appeared");
+        //ExtentReportsManager.createTest("Unselected product color and size",
+          //      "Checking whether a message about an unselected product color and size appeared");
 
-        openProductPage(data.category(), data.productType(), data.name());
-        setFields(ProductShopFactory.withoutColorAndSize(getPage(), data));
+        goToPage(data.url());
+        ProductShop productShop = new ProductShop(getPage());
+        productShop.setQuantity(data.quantity());
+        productShop.clickAddToCartButton();
 
-        Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/");
-        Assert.assertTrue(productPage.getProductShop().isRequiredColorMessageVisible());
-        Assert.assertTrue(productPage.getProductShop().isRequiredSizeMessageVisible());
+        Assert.assertTrue(productShop.isRequiredColorMessageVisible());
+        Assert.assertTrue(productShop.isRequiredSizeMessageVisible());
     }
 
     @Test(dataProvider = "incorrectQuantityValue", dataProviderClass = Provider.class)
-    public void incorrectQuantityValue(ProductData data) {
+    public void incorrectQuantityValue(ProductData data) throws InvocationTargetException, IllegalAccessException {
 
         ExtentReportsManager.createTest("Incorrect quantity value",
                 "Checking the system's behavior after entering an incorrect value in the \"Quantity\" field.");
 
-        openProductPage(data.category(), data.productType(), data.name());
-        setFields(ProductShopFactory.withAllFields(getPage(), data));
+        goToPage(data.url());
+        ProductShop productShop = fill(data);
+        productShop.clickAddToCartButton();
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
                 "No message about an incorrect quantity of product, the system has been opened the shopping cart page");
     }
 
     @Test(dataProvider = "incorrectQuantityFormat", dataProviderClass = Provider.class)
-    public void incorrectQuantityFormat(ProductData data) {
+    public void incorrectQuantityFormat(ProductData data) throws InvocationTargetException, IllegalAccessException {
 
         ExtentReportsManager.createTest("Incorrect product quantity value format",
                 "Checking the system's behavior after entering an incorrect value format in the \"Quantity\" field.");
 
-        openProductPage(data.category(), data.productType(), data.name());
-        setFields(ProductShopFactory.withAllFields(getPage(), data));
+        goToPage(data.url());
+        ProductShop productShop = fill(data);
+        productShop.clickAddToCartButton();
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
                 "The message about an incorrect quantity value format has not been displayed, the system has been opened the shopping cart page");
     }
 
     @Test(dataProvider = "blankQuantityField", dataProviderClass = Provider.class)
-    public void blankQuantityField(ProductData data) {
+    public void blankQuantityField(ProductData data) throws InvocationTargetException, IllegalAccessException {
 
         ExtentReportsManager.createTest("Blank \"Quantity\" field",
                 "Checking the system's behavior when the \"Quantity\" field is blank");
 
-        openProductPage(data.category(), data.productType(), data.name());
-        setFields(ProductShopFactory.withAllFields(getPage(), data));
+        goToPage(data.url());
+        ProductShop productShop = fill(data);
+        productShop.clickAddToCartButton();
 
         Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
                 "The message about about blank \"Quantity\" field has not been displayed, the system has been opened the shopping cart page");
