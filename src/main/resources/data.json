@@ -563,18 +563,14 @@
         "correctData": [
 
             {
-                "category": "Women",
-                "productType": "Tops & Blouses",
-                "name": "Elizabeth Knit Top",
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
                 "color": "Red",
                 "size": "L",
                 "quantity": "5"
             },
 
             {
-                "category": "Men",
-                "productType": "Shirts",
-                "name": "Plaid Cotton Shirt",
+                "url": "http://demo-store.seleniumacademy.com/men/shirts/plaid-cotton-shirt-473.html",
                 "color": "Khaki",
                 "size": "M",
                 "quantity": "2"
@@ -584,9 +580,7 @@
         "incorrectQuantityValue": [
 
             {
-                "category": "Women",
-                "productType": "Tops & Blouses",
-                "name": "Elizabeth Knit Top",
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
                 "color": "Red",
                 "size": "L",
                 "quantity": "-5"
@@ -596,9 +590,7 @@
         "incorrectQuantityFormat" : [
 
             {
-                "category": "Women",
-                "productType": "Tops & Blouses",
-                "name": "Elizabeth Knit Top",
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
                 "color": "Red",
                 "size": "L",
                 "quantity": "q_34"
@@ -608,9 +600,7 @@
         "blankQuantityField": [
 
             {
-                "category": "Women",
-                "productType": "Tops & Blouses",
-                "name": "Elizabeth Knit Top",
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
                 "color": "Red",
                 "size": "L",
                 "quantity": ""
