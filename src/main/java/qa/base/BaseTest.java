@@ -7,6 +7,7 @@ import qa.enums.Browser;
 import qa.json.JSONReader;
 import qa.playwright.PlaywrightBrowserLauncher;
 import qa.playwright.PlaywrightProvider;
+import qa.urls.URLs;
 
 import java.io.IOException;
 
@@ -25,13 +26,19 @@ public class BaseTest {
     public void launch() {
 
         launcher = PlaywrightProvider.get(Browser.CHROME);
-        launcher.launch("http://demo-store.seleniumacademy.com/");
+        launcher.create();
+        launcher.goToPage(URLs.HOME_PAGE.getName());
     }
 
     @AfterMethod
     public void tearDown() {
 
         launcher.close();
+    }
+
+    protected void goToPage(String url) {
+
+        launcher.goToPage(url);
     }
 
     protected Page getPage() {
