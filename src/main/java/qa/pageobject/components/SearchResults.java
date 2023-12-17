@@ -17,12 +17,12 @@ public class SearchResults extends BasePage {
         noResultsMessage = getPage().getByText("Your search returns no results.");
     }
 
-    public Locator getAmountItemsMessage() {
+    public Locator getAmountItemsMessageLocator() {
 
         return amountItemsMessage;
     }
 
-    public Locator getNoResultsMessage() {
+    public Locator getNoResultsMessageLocator() {
 
         return noResultsMessage;
     }
