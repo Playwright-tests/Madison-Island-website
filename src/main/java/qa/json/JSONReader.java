@@ -78,7 +78,7 @@ public class JSONReader {
                 .toArray(Credentials[]::new);
     }
 
-    public static ProductData[] get(String node) {
+    public static ProductData[] getProductData(String node) {
 
         JSONArray jsonArray = getJSONArray("addingToShoppingCart", node);
 
@@ -87,7 +87,9 @@ public class JSONReader {
                         jsonArray.getJSONObject(i).getString("url"),
                         jsonArray.getJSONObject(i).getString("color"),
                         jsonArray.getJSONObject(i).getString("size"),
-                        jsonArray.getJSONObject(i).getString("quantity")
+                        jsonArray.getJSONObject(i).getString("quantity"),
+                        jsonArray.getJSONObject(i).getString("message"),
+                        jsonArray.getJSONObject(i).getString("validationMessage")
                 ))
                 .toArray(ProductData[]::new);
     }
