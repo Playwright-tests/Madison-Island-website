@@ -9,7 +9,7 @@ import qa.enums.ProductShopMethods;
 import qa.helpers.ProductShopHandler;
 import qa.pageobject.productpage.ProductPage;
 import qa.records.ProductData;
-import qa.urls.URLs;
+import qa.enums.URLs;
 import java.lang.reflect.InvocationTargetException;
 
 public class ProductPageQuantityFieldTest extends BaseTest {
