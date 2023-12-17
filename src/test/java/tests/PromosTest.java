@@ -27,6 +27,7 @@ public class PromosTest extends BaseTest {
 
         promos.clickImage(linkData.link());
 
-        Assert.assertEquals(getPage().url(), linkData.url());
+        Assert.assertEquals(getPage().url(), linkData.url(),
+                "The page with address \"" + linkData.url() + "\" has not been opened");
     }
 }
