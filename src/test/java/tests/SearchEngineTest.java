@@ -40,7 +40,7 @@ public class SearchEngineTest extends BaseTest {
 
         Assert.assertTrue(getPage().url().contains(URLs.SEARCH_RESULTS_PAGE.getName()),
                 "The page with address \"" + URLs.SEARCH_RESULTS_PAGE.getName() + "\" has not been opened");
-        Assert.assertTrue(searchResults.getAmountItemsMessage().isVisible(),
+        Assert.assertTrue(searchResults.getAmountItemsMessageLocator().isVisible(),
                 "No product has been found");
     }
 
@@ -54,7 +54,7 @@ public class SearchEngineTest extends BaseTest {
 
         Assert.assertTrue(getPage().url().contains(URLs.SEARCH_RESULTS_PAGE.getName()),
                 "The page with address \"" + URLs.SEARCH_RESULTS_PAGE.getName() + "\" has not been opened");
-        Assert.assertTrue(searchResults.getAmountItemsMessage().isVisible(),
+        Assert.assertTrue(searchResults.getAmountItemsMessageLocator().isVisible(),
                 "No product has been found");
     }
 
@@ -68,7 +68,7 @@ public class SearchEngineTest extends BaseTest {
 
         Assert.assertTrue(getPage().url().contains(URLs.SEARCH_RESULTS_PAGE.getName()),
                 "The page with address \"" + URLs.SEARCH_RESULTS_PAGE.getName() + "\" has not been opened");
-        Assert.assertTrue(searchResults.getNoResultsMessage().isVisible(),
+        Assert.assertTrue(searchResults.getNoResultsMessageLocator().isVisible(),
                 "No product has been found");
     }
 }
