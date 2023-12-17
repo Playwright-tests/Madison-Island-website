@@ -27,9 +27,9 @@ public class ShoppingCart extends BasePage {
         return table;
     }
 
-    public boolean isErrorMessageVisible() {
+    public Locator getErrorMessageLocator() {
 
-        return errorMessage.isVisible();
+        return errorMessage;
     }
 
     public String getErrorMessageSelector() {
