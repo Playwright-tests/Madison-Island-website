@@ -560,67 +560,208 @@
 
     "addingToShoppingCart": {
 
-        "correctData": [
+        "correct": [
 
             {
                 "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
                 "color": "Red",
                 "size": "L",
-                "quantity": "5"
+                "quantity": "5",
+                "message": "This is a required field",
+                "validationMessage": ""
             },
 
             {
                 "url": "http://demo-store.seleniumacademy.com/men/shirts/plaid-cotton-shirt-473.html",
                 "color": "Khaki",
                 "size": "M",
-                "quantity": "2"
+                "quantity": "2",
+                "message": "This is a required field",
+                "validationMessage": ""
             }
         ],
 
-        "incorrectQuantityValue": [
+        "min": [
 
             {
                 "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
                 "color": "Red",
                 "size": "L",
-                "quantity": "-5"
+                "quantity": "1",
+                "message": "",
+                "validationMessage": ""
             }
         ],
 
-        "incorrectQuantityFormat" : [
+        "aboveMin": [
 
             {
                 "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
                 "color": "Red",
                 "size": "L",
-                "quantity": "q_34"
+                "quantity": "2",
+                "message": "",
+                "validationMessage": ""
             }
         ],
 
-        "blankQuantityField": [
+        "belowMax": [
 
             {
                 "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
                 "color": "Red",
                 "size": "L",
-                "quantity": ""
+                "quantity": "2147483646",
+                "message": "The maximum quantity allowed for purchase is",
+                "validationMessage": ""
             }
-        ]
-    },
+        ],
 
-    "quantityField": {
+        "belowMaxSC": [
 
-        "floatingPointNumber": [
+            {
+                "url": "",
+                "color": "",
+                "size": "",
+                "quantity": "999",
+                "message": "The requested quantity for",
+                "validationMessage": ""
+            }
+        ],
 
-            "1.1",
-            "0.999",
-            "8.01"
+        "max": [
+
+            {
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
+                "color": "Red",
+                "size": "L",
+                "quantity": "2147483647",
+                "message": "The maximum quantity allowed for purchase is",
+                "validationMessage": ""
+            }
+        ],
+
+        "maxSC": [
+
+            {
+                "url": "",
+                "color": "",
+                "size": "",
+                "quantity": "1000",
+                "message": "The requested quantity for",
+                "validationMessage": ""
+            }
+        ],
+
+        "belowMin": [
+
+            {
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
+                "color": "Red",
+                "size": "L",
+                "quantity": "0",
+                "message": "Please enter a valid quantity",
+                "validationMessage": ""
+            }
+        ],
+
+        "aboveMax": [
+
+            {
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
+                "color": "Red",
+                "size": "L",
+                "quantity": "2147483648",
+                "message": "Please enter a valid quantity",
+                "validationMessage": ""
+            }
+        ],
+
+        "aboveMaxSC": [
+
+            {
+                "url": "",
+                "color": "",
+                "size": "",
+                "quantity": "1001",
+                "message": "The requested quantity for",
+                "validationMessage": ""
+            }
+        ],
+
+        "negativeSC": [
+
+            {
+                "url": "",
+                "color": "",
+                "size": "",
+                "quantity": "-1",
+                "message": "",
+                "validationMessage": "Podaj wartość w wymaganym formacie."
+            }
+        ],
+
+        "floatingPoint": [
+
+            {
+                    "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
+                    "color": "Red",
+                    "size": "L",
+                    "quantity": "1.1",
+                    "message": "",
+                    "validationMessage": "Podaj wartość w wymaganym formacie."
+            },
+
+            {
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
+                "color": "Red",
+                "size": "L",
+                "quantity": "0.999",
+                "message": "",
+                "validationMessage": "Podaj wartość w wymaganym formacie."
+            },
+
+            {
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
+                "color": "Red",
+                "size": "L",
+                "quantity": "8.01",
+                "message": "",
+                "validationMessage": "Podaj wartość w wymaganym formacie."
+            }
         ],
 
         "notANumber": [
 
-            "_number%2",
-            "&*23-px"
+            {
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
+                "color": "Red",
+                "size": "L",
+                "quantity": "_number%2",
+                "message": "",
+                "validationMessage": "Podaj wartość w wymaganym formacie."
+            },
+
+            {
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
+                "color": "Red",
+                "size": "L",
+                "quantity": "&*23-px",
+                "message": "",
+                "validationMessage": "Podaj wartość w wymaganym formacie."
+            }
+        ],
+
+        "withoutQuantity": [
+
+            {
+                "url": "http://demo-store.seleniumacademy.com/women/tops-blouses/elizabeth-knit-top-493.html",
+                "color": "Red",
+                "size": "L",
+                "quantity": "",
+                "message": "This is a required field",
+                "validationMessage": ""
+            }
         ]
     },
 
