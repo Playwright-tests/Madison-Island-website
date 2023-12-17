@@ -79,11 +79,11 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
 
         System.out.println("MSG: " + shoppingCart.getTable().getErrorMessageText());
 
-        Assert.assertTrue(shoppingCart.isErrorMessageVisible(),
+        Assert.assertTrue(shoppingCart.getErrorMessageLocator().isVisible(),
                 "No message was displayed about the lack of the requested quantity of product");
         Assert.assertTrue(shoppingCart.getErrorMessageText().contains(data.message()),
                 "Incorrect message content");
-        Assert.assertTrue(shoppingCart.getTable().isErrorMessageVisible(),
+        Assert.assertTrue(shoppingCart.getTable().getErrorMessageLocator().isVisible(),
                 "No error message was displayed in the shopping cart table");
         Assert.assertTrue(shoppingCart.getTable().getErrorMessageText().contains(data.message()),
                 "Incorrect error message content");
@@ -97,11 +97,11 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
 
         setQuantity(data.quantity());
 
-        Assert.assertTrue(shoppingCart.getTable().isErrorMessageVisible(),
+        Assert.assertTrue(shoppingCart.getTable().getErrorMessageLocator().isVisible(),
                 "No message was displayed about the lack of the requested quantity of product");
         Assert.assertTrue(shoppingCart.getTable().getErrorMessageText().contains(data.message()),
                 "Incorrect message content");
-        Assert.assertTrue(shoppingCart.getTable().isErrorMessageVisible(),
+        Assert.assertTrue(shoppingCart.getTable().getErrorMessageLocator().isVisible(),
                 "No error message was displayed in the shopping cart table");
         Assert.assertTrue(shoppingCart.getTable().getErrorMessageText().contains(data.message()),
                 "Incorrect error message content");
@@ -115,7 +115,7 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
 
         setQuantity(data.quantity());
 
-        Assert.assertTrue(shoppingCart.getTable().isErrorMessageVisible(),
+        Assert.assertTrue(shoppingCart.getTable().getErrorMessageLocator().isVisible(),
                 "The message about too large value has not been displayed");
         Assert.assertEquals(shoppingCart.getTable().getErrorMessageText(), data.message(),
                 "Incorrect message content");
