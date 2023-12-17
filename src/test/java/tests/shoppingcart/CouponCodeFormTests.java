@@ -5,19 +5,23 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.dataProvider.Provider;
+import qa.enums.URLs;
 import qa.extentreportsmanager.ExtentReportsManager;
-import qa.helpers.FillingTheShoppingCart;
+import qa.helpers.ShoppingCartActions;
 import qa.pageobject.shoppingcart.CouponCodeForm;
 import qa.pageobject.shoppingcart.ShoppingCart;
+
+import java.lang.reflect.InvocationTargetException;
 
 public class CouponCodeFormTests extends BaseTest {
 
     private CouponCodeForm couponCodeForm;
 
     @BeforeMethod
-    public void create() {
+    public void create() throws InvocationTargetException, IllegalAccessException {
 
-        FillingTheShoppingCart.fill(getPage(), "Women", "Pants & Denim", "TriBeCa Skinny Jean", "Black", "30");
+        goToPage(URLs.ELIZABETH_KNIT_PRODUCT_PAGE.getName());
+        ShoppingCartActions.addToCart(getPage());
 
         couponCodeForm = new CouponCodeForm(getPage());
     }
@@ -37,9 +41,7 @@ public class CouponCodeFormTests extends BaseTest {
         fill(couponCode);
 
         ShoppingCart shoppingCart = new ShoppingCart(getPage());
-
         String expectedMessage = "Coupon code \"" + couponCode + "\" is not valid.";
-
         getPage().waitForSelector(shoppingCart.getErrorMessageSelector());
 
         Assert.assertTrue(shoppingCart.isErrorMessageVisible(),
@@ -55,7 +57,6 @@ public class CouponCodeFormTests extends BaseTest {
                 "Checking whether a message about blank \"DISCOUNT CODES\" field is displayed");
 
         fill("");
-
         getPage().waitForSelector(couponCodeForm.getErrorMessageSelector());
 
         Assert.assertTrue(couponCodeForm.isErrorMessageVisible(),
