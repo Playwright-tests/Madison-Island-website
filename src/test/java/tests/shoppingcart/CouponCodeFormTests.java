@@ -59,7 +59,7 @@ public class CouponCodeFormTests extends BaseTest {
         fill("");
         getPage().waitForSelector(couponCodeForm.getErrorMessageSelector());
 
-        Assert.assertTrue(couponCodeForm.isErrorMessageVisible(),
+        Assert.assertTrue(couponCodeForm.getErrorMessageLocator().isVisible(),
                 "The message about blank \"DISCOUNT CODES\" field has not been displayed");
         Assert.assertEquals(couponCodeForm.getErrorMessageText(), "This is a required field.",
                 "Incorrect message content");
