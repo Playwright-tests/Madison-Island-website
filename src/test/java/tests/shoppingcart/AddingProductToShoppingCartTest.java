@@ -57,7 +57,7 @@ public class AddingProductToShoppingCartTest extends BaseTest {
         fill(data, ProductShopMethods.SET_COLOR);
         productShop.clickAddToCartButton();
 
-        Assert.assertTrue(productShop.isRequiredColorMessageVisible(),
+        Assert.assertTrue(productShop.getRequiredColorMessageLocator().isVisible(),
                 "The message about unselected product color has not been displayed");
 
         Assert.assertEquals(productShop.getRequiredColorMessage(), data.message(),
@@ -74,7 +74,7 @@ public class AddingProductToShoppingCartTest extends BaseTest {
         fill(data, ProductShopMethods.SET_SIZE);
         productShop.clickAddToCartButton();
 
-        Assert.assertTrue(productShop.isRequiredSizeMessageVisible(),
+        Assert.assertTrue(productShop.getRequiredSizeMessageLocator().isVisible(),
                 "The message about unselected product size has not been displayed");
 
         Assert.assertEquals(productShop.getRequiredColorMessage(), data.message(),
