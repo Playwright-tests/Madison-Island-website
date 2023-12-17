@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.enums.URLs;
 import qa.extentreportsmanager.ExtentReportsManager;
+import qa.pageobject.accountpage.Dashboard;
 import qa.pageobject.components.LoginForm;
 import qa.base.BaseTest;
 import qa.records.Credentials;
@@ -53,6 +54,19 @@ public class LoginTest extends BaseTest {
 
         Assert.assertTrue(loginForm.isRequiredEmailMessageVisible(),
                 "The message about blank \"Email Address\" has not been displayed");
+    }
+
+    @Test(dataProvider = "CR_correct", dataProviderClass = Provider.class)
+    public void correctCredentials(Credentials credentials) {
+
+        ExtentReportsManager.createTest("Logging in using \"" + credentials.password() + "\" as incorrect password",
+                "Verifying that the user is logged in after logging in with the correct credentials");
+
+        setData(credentials);
+        Dashboard dashboard = new Dashboard(getPage());
+
+        Assert.assertEquals(dashboard.getTitle(), credentials.message(),
+                "An user has not been logged in");
     }
 
     @Test(dataProvider = "incorrectPassword", dataProviderClass = Provider.class)
