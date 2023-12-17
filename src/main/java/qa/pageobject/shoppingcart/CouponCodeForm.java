@@ -33,9 +33,9 @@ public class CouponCodeForm extends BasePage {
         applyButton.click();
     }
 
-    public boolean isErrorMessageVisible() {
+    public Locator getErrorMessageLocator() {
 
-        return errorMessage.isVisible();
+        return errorMessage;
     }
 
     public String getErrorMessageSelector() {
