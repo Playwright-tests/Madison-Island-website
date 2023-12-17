@@ -15,19 +15,23 @@ public abstract class PlaywrightBrowserLauncher {
         playwright = Playwright.create();
     }
 
-    protected void setPage(String url) {
+    protected void setPage() {
 
         page = browser.newPage();
-        page.navigate(url);
     }
     protected abstract void setBrowser();
 
 
-    public void launch(String url) {
+    public void create() {
 
         setPlaywright();
         setBrowser();
-        setPage(url);
+        setPage();
+    }
+
+    public void goToPage(String url) {
+
+        page.navigate(url);
     }
 
     public static Page getPage() {
