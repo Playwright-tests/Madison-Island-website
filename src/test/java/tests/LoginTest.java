@@ -4,8 +4,8 @@ import qa.dataProvider.Provider;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import qa.enums.URLs;
 import qa.extentreportsmanager.ExtentReportsManager;
-import qa.pageobject.components.AccountDropdownList;
 import qa.pageobject.components.LoginForm;
 import qa.base.BaseTest;
 import qa.records.Credentials;
@@ -18,11 +18,8 @@ public class LoginTest extends BaseTest {
     @BeforeMethod
     public void create() {
 
-        AccountDropdownList accountDropdownList = new AccountDropdownList(getPage());
+        goToPage(URLs.LOGIN_PAGE.getName());
         loginForm = new LoginForm(getPage());
-
-        accountDropdownList.clickAccountNav();
-        accountDropdownList.clickItem("My Account");
     }
 
     private void setData(Credentials credentials) {
@@ -42,7 +39,6 @@ public class LoginTest extends BaseTest {
 
         Assert.assertNotEquals(loginForm.getValidationMessage(), "",
                 "No validation message");
-
         Assert.assertEquals(loginForm.getValidationMessage(), credentials.message(),
                 "Incorrect message content");
     }
@@ -54,6 +50,7 @@ public class LoginTest extends BaseTest {
                 "Checking whether a message about an empty \"Email Address\" field is displayed");
 
         setData(credentials);
+
         Assert.assertTrue(loginForm.isRequiredEmailMessageVisible(),
                 "The message about blank \"Email Address\" has not been displayed");
     }
@@ -65,6 +62,7 @@ public class LoginTest extends BaseTest {
                 "Checking whether a message about an incorrect password is displayed");
 
         setData(credentials);
+
         Assert.assertTrue(loginForm.isInvalidLoginOrPasswordMessageVisible(),
                 "The message about an incorrect password has not been displayed");
     }
@@ -76,6 +74,7 @@ public class LoginTest extends BaseTest {
                 "Checking whether a message about an empty \"Password\" field is displayed");
 
         setData(credentials);
+
         Assert.assertTrue(loginForm.isRequiredPasswordMessageVisible(),
                 "The message about blank \"Password\" has not been displayed");
     }
