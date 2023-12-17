@@ -33,7 +33,7 @@ public class AddingToShoppingCartTest extends BaseTest {
         Assert.assertEquals(shoppingCart.getTable().getName(), productName, "Incorrect product name in the shopping cart");
         Assert.assertEquals(shoppingCart.getTable().getColor(), data.color(), "Incorrect product color in the shopping cart");
         Assert.assertEquals(shoppingCart.getTable().getSize(), data.size(), "Incorrect product size in the shopping cart");
-        Assert.assertEquals(shoppingCart.getTable().getQuantityCell().getQuantity(), data.quantity(), "Incorrect amount of product");
+        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getQuantity(), data.quantity(), "Incorrect amount of product");
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)

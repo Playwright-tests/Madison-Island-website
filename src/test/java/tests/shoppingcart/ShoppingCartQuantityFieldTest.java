@@ -29,8 +29,8 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
 
     private void setQuantity(String quantity) {
 
-        shoppingCart.getTable().getQuantityCell().clickQuantityField();
-        shoppingCart.getTable().getQuantityCell().setQuantity(quantity);
+        shoppingCart.getTable().getQuantityField().clickQuantityField();
+        shoppingCart.getTable().getQuantityField().setQuantity(quantity);
         shoppingCart.getTable().clickUpdateCartButton();
 
     }
@@ -129,9 +129,9 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
 
         setQuantity(data.quantity());
 
-        Assert.assertFalse(shoppingCart.getTable().getQuantityCell().getValidationMessage().isEmpty(),
+        Assert.assertFalse(shoppingCart.getTable().getQuantityField().getValidationMessage().isEmpty(),
                 "No validation message");
-        Assert.assertEquals(shoppingCart.getTable().getQuantityCell().getValidationMessage(), data.validationMessage(),
+        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getValidationMessage(), data.validationMessage(),
                 "Incorrect validation message content");
     }
 
@@ -143,9 +143,9 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
 
         setQuantity(data.quantity());
 
-        Assert.assertFalse(shoppingCart.getTable().getQuantityCell().getValidationMessage().isEmpty(),
+        Assert.assertFalse(shoppingCart.getTable().getQuantityField().getValidationMessage().isEmpty(),
                 "No validation message");
-        Assert.assertEquals(shoppingCart.getTable().getQuantityCell().getValidationMessage(), data.validationMessage(),
+        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getValidationMessage(), data.validationMessage(),
                 "Incorrect validation message content");
     }
 
@@ -157,9 +157,9 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
 
         setQuantity(data.quantity());
 
-        Assert.assertFalse(shoppingCart.getTable().getQuantityCell().getValidationMessage().isEmpty(),
+        Assert.assertFalse(shoppingCart.getTable().getQuantityField().getValidationMessage().isEmpty(),
                 "No validation message");
-        Assert.assertEquals(shoppingCart.getTable().getQuantityCell().getValidationMessage(), data.validationMessage(),
+        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getValidationMessage(), data.validationMessage(),
                 "Incorrect validation message content");
     }
 }
