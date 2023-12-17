@@ -9,7 +9,7 @@ import qa.extentreportsmanager.ExtentReportsManager;
 import qa.helpers.ShoppingCartActions;
 import qa.pageobject.shoppingcart.ShoppingCart;
 import qa.records.ProductData;
-import qa.urls.URLs;
+import qa.enums.URLs;
 import qa.utils.Formatter;
 
 import java.lang.reflect.InvocationTargetException;
