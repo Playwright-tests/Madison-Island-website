@@ -12,6 +12,12 @@ public class Provider {
         return JSONReader.getLinks("accountDropdownList");
     }
 
+    @DataProvider(name = "CR_correct")
+    public Object[] CR_correct() {
+
+        return JSONReader.getCredentials("correct");
+    }
+
     @DataProvider(name = "incorrectEmail")
     public Object[] incorrectEmail() {
 
