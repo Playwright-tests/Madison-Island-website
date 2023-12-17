@@ -2,13 +2,15 @@ package qa.pageobject.shoppingcart;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 import qa.base.BasePage;
 
 public class Table extends BasePage {
 
     private final Locator shoppingCartTable;
     private final Locator row;
-    private final Locator quantityErrorMessage;
+    private final Locator errorMessage;
+    private final Locator updateCartButton;
     private final QuantityCell quantityCell;
 
     public Table(Page page) {
@@ -17,9 +19,15 @@ public class Table extends BasePage {
 
         shoppingCartTable = page.locator("#shopping-cart-table");
         row = shoppingCartTable.locator("tbody tr");
-        quantityErrorMessage = page.locator("p").filter(new Locator.FilterOptions().setHasText("* The requested quantity for"));
+        errorMessage = page.locator(".item-msg.error");
+        updateCartButton = row.locator("td.product-cart-actions").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Update"));
 
-        quantityCell = new QuantityCell(getPage(), row.locator("td.product-cart-actions"));
+        quantityCell = new QuantityCell(getPage(), row.locator("td.product-cart-actions").getByRole(AriaRole.TEXTBOX, new Locator.GetByRoleOptions().setName("Qty")));
+    }
+
+    public void clickUpdateCartButton() {
+
+        updateCartButton.click();
     }
 
     public String getName() {
@@ -37,9 +45,9 @@ public class Table extends BasePage {
         return row.locator("td.product-cart-info dl.item-options dd").nth(1).textContent().trim();
     }
 
-    public double getPrice() {
+    public String getPrice() {
 
-        return Double.parseDouble(row.locator("td.product-cart-price span.price").textContent().replaceAll("\\s", "").replace("$", ""));
+        return row.locator("td.product-cart-price span.price").textContent();
     }
 
     public String getSubtotal() {
@@ -52,14 +60,14 @@ public class Table extends BasePage {
         return quantityCell;
     }
 
-    public boolean isQuantityErrorMessageVisible() {
+    public boolean isErrorMessageVisible() {
 
-        return quantityErrorMessage.isVisible();
+        return errorMessage.isVisible();
     }
 
-    public String getQuantityErrorMessageText() {
+    public String getErrorMessageText() {
 
-        return quantityErrorMessage.textContent();
+        return errorMessage.textContent().trim();
     }
 
     public boolean isVisible() {
