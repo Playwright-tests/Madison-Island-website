@@ -50,7 +50,7 @@ public class ProductPageQuantityFieldTest extends BaseTest {
 
         fill(data);
 
-        Assert.assertTrue(productPage.isErrorMessageVisible());
+        Assert.assertTrue(productPage.getErrorMessageLocator().isVisible());
         Assert.assertTrue(productPage.getErrorMessage().contains(data.message()));
     }
 
@@ -59,7 +59,7 @@ public class ProductPageQuantityFieldTest extends BaseTest {
 
         fill(data);
 
-        Assert.assertTrue(productPage.isErrorMessageVisible());
+        Assert.assertTrue(productPage.getErrorMessageLocator().isVisible());
         Assert.assertTrue(productPage.getErrorMessage().contains(data.message()));
     }
 
@@ -68,7 +68,7 @@ public class ProductPageQuantityFieldTest extends BaseTest {
 
         fill(data);
 
-        Assert.assertTrue(productPage.isErrorMessageVisible());
+        Assert.assertTrue(productPage.getErrorMessageLocator().isVisible());
         Assert.assertTrue(productPage.getErrorMessage().contains(data.message()));
     }
 
@@ -77,7 +77,7 @@ public class ProductPageQuantityFieldTest extends BaseTest {
 
         fill(data);
 
-        Assert.assertTrue(productPage.isErrorMessageVisible());
+        Assert.assertTrue(productPage.getErrorMessageLocator().isVisible());
         Assert.assertTrue(productPage.getErrorMessage().contains(data.message()));
     }
 
