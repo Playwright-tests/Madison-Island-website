@@ -154,37 +154,85 @@ public class Provider {
     @DataProvider(name = "correctProductData")
     public Object[] correctProductData() {
 
-        return JSONReader.get("correctData");
+        return JSONReader.getProductData("correct");
     }
 
-    @DataProvider(name = "incorrectQuantityValue")
-    public Object[] incorrectQuantityValue() {
+    @DataProvider(name = "QF_min")
+    public Object[] QF_min() {
 
-        return JSONReader.get("incorrectQuantityValue");
+        return JSONReader.getProductData("min");
     }
 
-    @DataProvider(name = "incorrectQuantityFormat")
-    public Object[] incorrectQuantityFormat() {
+    @DataProvider(name = "QF_aboveMin")
+    public Object[] QF_aboveMin() {
 
-        return JSONReader.get("incorrectQuantityFormat");
+        return JSONReader.getProductData("aboveMin");
     }
 
-    @DataProvider(name = "blankQuantityField")
-    public Object[] blankQuantityField() {
+    @DataProvider(name = "QF_belowMax")
+    public Object[] QF_belowMax() {
 
-        return JSONReader.get("blankQuantityField");
+        return JSONReader.getProductData("belowMax");
     }
 
-    @DataProvider(name = "floatingPointNumber")
-    public Object[] floatingPointNumber() {
+    @DataProvider(name = "QF_belowMaxSC")
+    public Object[] QF_belowMaxSC() {
 
-        return JSONReader.get("quantityField", "floatingPointNumber");
+        return JSONReader.getProductData("belowMaxSC");
     }
 
-    @DataProvider(name = "notANumber")
-    public Object[] notANumber() {
+    @DataProvider(name = "QF_max")
+    public Object[] QF_max() {
 
-        return JSONReader.get("quantityField", "notANumber");
+        return JSONReader.getProductData("max");
+    }
+
+    @DataProvider(name = "QF_maxSC")
+    public Object[] QF_maxSC() {
+
+        return JSONReader.getProductData("maxSC");
+    }
+
+    @DataProvider(name = "QF_belowMin")
+    public Object[] QF_belowMin() {
+
+        return JSONReader.getProductData("belowMin");
+    }
+
+    @DataProvider(name = "QF_aboveMax")
+    public Object[] QF_aboveMax() {
+
+        return JSONReader.getProductData("aboveMax");
+    }
+
+    @DataProvider(name = "QF_aboveMaxSC")
+    public Object[] QF_aboveMaxSC() {
+
+        return JSONReader.getProductData("aboveMaxSC");
+    }
+
+    @DataProvider(name = "QF_negativeSC")
+    public Object[] QF_negativeSC() {
+
+        return JSONReader.getProductData("negativeSC");
+    }
+
+    @DataProvider(name = "QF_floatingPoint")
+    public Object[] QF_floatingPoint() {
+
+        return JSONReader.getProductData("floatingPoint");
+    }
+
+    @DataProvider(name = "QF_notANumber")
+    public Object[] QF_notANumber() {
+
+        return JSONReader.getProductData("notANumber");
+    }
+
+    @DataProvider(name = "QF_blank")
+    public Object[] QF_blank() {
+
+        return JSONReader.getProductData("withoutQuantity");
     }
 
     @DataProvider(name = "incorrectCouponCode")
