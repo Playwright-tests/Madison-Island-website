@@ -7,13 +7,9 @@
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
-    <test name="Testing login functionality">
+    <test name="Login functionalities">
         <classes>
-            <class name="tests.LoginTest">
-                <methods>
-                    <exclude name="incorrectEmail"/>
-                </methods>
-            </class>
+            <class name="tests.LoginTest"/>
         </classes>
     </test>
 

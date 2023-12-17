@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Adding product to the shopping cart">
+<suite name="Product page">
 
     <listeners>
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
-    <test name="Functionality of adding a product to the cart">
-
+    <test name="Product page functionalities">
         <classes>
-            <class name="tests.AddingToShoppingCartTest"/>
+            <class name="tests.productpage.ProductPageQuantityFieldTest"/>
+            <class name="tests.shoppingcart.AddingProductToShoppingCartTest"/>
         </classes>
     </test>
 

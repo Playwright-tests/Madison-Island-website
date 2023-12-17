@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="'ACCOUNT' drop-down list">
+<suite name="Footer">
 
     <listeners>
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
-    <test name="'ACCOUNT' drop-down list links">
+    <test name="Footer links">
         <classes>
-            <class name="tests.AccountDropdownListTest"/>
+            <class name="tests.FooterLinksTest"/>
         </classes>
     </test>
 
