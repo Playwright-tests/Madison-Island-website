@@ -1,14 +1,14 @@
 package tests;
 
+import org.testng.Assert;
 import qa.dataProvider.Provider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import qa.enums.URLs;
+import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.components.SearchResults;
 import qa.pageobject.sections.Header;
 import qa.base.BaseTest;
-import java.util.function.Consumer;
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-
 
 public class SearchEngineTest extends BaseTest {
 
@@ -22,29 +22,53 @@ public class SearchEngineTest extends BaseTest {
         searchResults = new SearchResults(getPage());
     }
 
-    private void check(String phrase, Consumer<SearchResults> consumer) {
+    private void search(String phrase) {
 
         header.getSearchEngine().setPhrase(phrase);
         header.getSearchEngine().clickSearchButton();
 
-        consumer.accept(searchResults);
+        //consumer.accept(searchResults);
     }
 
     @Test(dataProvider = "searchEngineCorrectPhrase", dataProviderClass = Provider.class)
     public void correctPhrase(String phrase) {
 
-        check(phrase, (SearchResults sr)->{assertThat(sr.getAmountItemsMessage()).isVisible();});
+        ExtentReportsManager.createTest("Searching for a product with the correct phrase",
+                "Checking whether the product was found after searching with the correct phrase");
+
+        search(phrase);
+
+        Assert.assertTrue(getPage().url().contains(URLs.SEARCH_RESULTS_PAGE.getName()),
+                "The page with address \"" + URLs.SEARCH_RESULTS_PAGE.getName() + "\" has not been opened");
+        Assert.assertTrue(searchResults.getAmountItemsMessage().isVisible(),
+                "No product has been found");
     }
 
     @Test(dataProvider = "searchEngineCorrectPhraseUpperLower", dataProviderClass = Provider.class)
     public void correctPhraseUpperLower(String phrase) {
 
-        check(phrase, (SearchResults sr)->{assertThat(sr.getAmountItemsMessage()).isVisible();});
+        ExtentReportsManager.createTest("Searching for a product with the correct phrase which has uppercase and lowercase letters",
+                "Checking whether the product was found after searching with the correct phrase which has uppercase and lowercase letters");
+
+        search(phrase);
+
+        Assert.assertTrue(getPage().url().contains(URLs.SEARCH_RESULTS_PAGE.getName()),
+                "The page with address \"" + URLs.SEARCH_RESULTS_PAGE.getName() + "\" has not been opened");
+        Assert.assertTrue(searchResults.getAmountItemsMessage().isVisible(),
+                "No product has been found");
     }
 
     @Test(dataProvider = "searchEngineIncorrectPhrase", dataProviderClass = Provider.class)
     public void incorrectPhrase(String phrase) {
 
-        check(phrase, (SearchResults sr)->{assertThat(sr.getNoResultsMessage()).isVisible();});
+        ExtentReportsManager.createTest("Searching for a product with the incorrect phrase",
+                "Checking whether the product was found after searching with the incorrect phrase");
+
+        search(phrase);
+
+        Assert.assertTrue(getPage().url().contains(URLs.SEARCH_RESULTS_PAGE.getName()),
+                "The page with address \"" + URLs.SEARCH_RESULTS_PAGE.getName() + "\" has not been opened");
+        Assert.assertTrue(searchResults.getNoResultsMessage().isVisible(),
+                "No product has been found");
     }
 }
