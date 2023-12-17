@@ -7,7 +7,7 @@ import qa.enums.Browser;
 import qa.json.JSONReader;
 import qa.playwright.PlaywrightBrowserLauncher;
 import qa.playwright.PlaywrightProvider;
-import qa.urls.URLs;
+import qa.enums.URLs;
 
 import java.io.IOException;
 
