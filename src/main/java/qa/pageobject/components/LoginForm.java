@@ -42,19 +42,19 @@ public class LoginForm extends BasePage {
         loginButton.click();
     }
 
-    public boolean isRequiredEmailMessageVisible() {
+    public Locator getAdviceRequiredEmailLocator() {
 
-        return adviceRequiredEmail.isVisible();
+        return adviceRequiredEmail;
     }
 
-    public boolean isRequiredPasswordMessageVisible() {
+    public Locator getAdviceRequiredPasswordLocator() {
 
-        return adviceRequiredPassword.isVisible();
+        return adviceRequiredPassword;
     }
 
-    public boolean isInvalidLoginOrPasswordMessageVisible() {
+    public Locator getInvalidLoginOrPasswordMessageLocator() {
 
-        return invalidLoginOrPasswordMessage.isVisible();
+        return invalidLoginOrPasswordMessage;
     }
 
     public String getValidationMessage() {
