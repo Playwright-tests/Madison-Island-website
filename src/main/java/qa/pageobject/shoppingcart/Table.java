@@ -60,9 +60,9 @@ public class Table extends BasePage {
         return quantityField;
     }
 
-    public boolean isErrorMessageVisible() {
+    public Locator getErrorMessageLocator() {
 
-        return errorMessage.isVisible();
+        return errorMessage;
     }
 
     public String getErrorMessageText() {
