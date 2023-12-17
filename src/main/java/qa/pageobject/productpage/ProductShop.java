@@ -13,6 +13,7 @@ public class ProductShop extends BasePage {
     private final Locator addToCartButton;
     private final Locator requiredColorMessage;
     private final Locator requiredSizeMessage;
+
     private final QuantityField quantityField;
 
     public ProductShop(Page page) {
@@ -26,6 +27,11 @@ public class ProductShop extends BasePage {
         requiredSizeMessage = page.locator("#advice-required-entry-attribute180");
 
         quantityField = new QuantityField(page, page.locator("#qty"));
+    }
+
+    public void setColor(String color) {
+
+        getPage().getByAltText(color).click();
     }
 
     public void setSize(String size) {
