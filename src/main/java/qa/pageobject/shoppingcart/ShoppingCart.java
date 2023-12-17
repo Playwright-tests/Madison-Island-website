@@ -18,7 +18,7 @@ public class ShoppingCart extends BasePage {
         errorMessageSelector = "li.error-msg";
 
         table = new Table(page);
-        errorMessage = page.locator(errorMessageSelector);
+        errorMessage = page.locator(".error-msg");
         pageTitle = page.locator("div.page-title");
     }
 
