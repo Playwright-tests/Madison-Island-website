@@ -1,4 +1,4 @@
-package qa.urls;
+package qa.enums;
 
 public enum URLs {
 
