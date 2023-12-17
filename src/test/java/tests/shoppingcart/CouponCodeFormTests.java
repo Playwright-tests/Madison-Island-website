@@ -44,7 +44,7 @@ public class CouponCodeFormTests extends BaseTest {
         String expectedMessage = "Coupon code \"" + couponCode + "\" is not valid.";
         getPage().waitForSelector(shoppingCart.getErrorMessageSelector());
 
-        Assert.assertTrue(shoppingCart.isErrorMessageVisible(),
+        Assert.assertTrue(shoppingCart.getErrorMessageLocator().isVisible(),
                 "The message about an incorrect coupon code has not been displayed");
         Assert.assertEquals(shoppingCart.getErrorMessageText(), expectedMessage,
                 "Incorrect message content");
