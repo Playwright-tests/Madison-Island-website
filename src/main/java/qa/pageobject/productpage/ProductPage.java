@@ -22,9 +22,9 @@ public class ProductPage extends BasePage {
         this.productShop = productShop;
     }
 
-    public boolean isErrorMessageVisible() {
+    public Locator getErrorMessageLocator() {
 
-        return errorMessage.isVisible();
+        return errorMessage;
     }
 
     public String getErrorMessage() {
