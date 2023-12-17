@@ -5,7 +5,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.dataProvider.Provider;
-import qa.helpers.LoginHelper;
+import qa.enums.URLs;
+import qa.extentreportsmanager.ExtentReportsManager;
+import qa.helpers.LoginActions;
 import qa.pageobject.accountpage.AccountPage;
 import qa.records.LinkData;
 
@@ -16,7 +18,8 @@ public class SideMenuTest extends BaseTest {
     @BeforeMethod
     public void create() {
 
-        LoginHelper.login(getPage());
+        goToPage(URLs.LOGIN_PAGE.getName());
+        LoginActions.login(getPage());
 
         accountPage = new AccountPage(getPage());
     }
@@ -24,8 +27,12 @@ public class SideMenuTest extends BaseTest {
     @Test(dataProvider = "sideMenu", dataProviderClass = Provider.class)
     public void links(LinkData linkData) {
 
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" button",
+                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" button.");
+
         accountPage.getSideMenu().clickLink(linkData.link());
 
-        Assert.assertEquals(getPage().url(), linkData.url());
+        Assert.assertEquals(getPage().url(), linkData.url(),
+                "The page with address \"" + linkData.url() + "\" has not been opened");
     }
 }
