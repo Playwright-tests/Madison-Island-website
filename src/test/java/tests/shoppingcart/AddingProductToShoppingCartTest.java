@@ -3,6 +3,7 @@ package tests.shoppingcart;
 import org.testng.Assert;
 import qa.dataProvider.Provider;
 import qa.enums.ProductShopMethods;
+import qa.enums.URLs;
 import qa.extentreportsmanager.ExtentReportsManager;
 import qa.helpers.ProductShopHandler;
 import org.testng.annotations.Test;
@@ -12,7 +13,7 @@ import qa.base.BaseTest;
 import qa.records.ProductData;
 import java.lang.reflect.InvocationTargetException;
 
-public class AddingToShoppingCartTest extends BaseTest {
+public class AddingProductToShoppingCartTest extends BaseTest {
 
     private ProductShop productShop;
 
@@ -90,7 +91,7 @@ public class AddingToShoppingCartTest extends BaseTest {
         fill(data, ProductShopMethods.ALL);
         productShop.clickAddToCartButton();
 
-        Assert.assertNotEquals(getPage().url(), "http://demo-store.seleniumacademy.com/checkout/cart/",
+        Assert.assertNotEquals(getPage().url(), URLs.SHOPPING_CART.getName(),
                 "The message about about blank \"Quantity\" field has not been displayed, the system has been opened the shopping cart page");
     }
 }
