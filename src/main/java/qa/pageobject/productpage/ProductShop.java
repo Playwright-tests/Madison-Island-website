@@ -4,15 +4,16 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import qa.base.BasePage;
+import qa.pageobject.shoppingcart.QuantityField;
 
 public class ProductShop extends BasePage {
 
     private final Locator productName;
     private final Locator price;
-    private final Locator quantityField;
     private final Locator addToCartButton;
     private final Locator requiredColorMessage;
     private final Locator requiredSizeMessage;
+    private final QuantityField quantityField;
 
     public ProductShop(Page page) {
 
@@ -20,15 +21,11 @@ public class ProductShop extends BasePage {
 
         productName = page.locator(".product-name").nth(1);
         price = page.locator(".price-box").nth(1);
-        quantityField = page.locator("#qty");
         addToCartButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add to cart"));
         requiredColorMessage = page.locator("#advice-required-entry-attribute92");
         requiredSizeMessage = page.locator("#advice-required-entry-attribute180");
-    }
 
-    public void setColor(String color) {
-
-        getPage().getByAltText(color).click();
+        quantityField = new QuantityField(page, page.locator("#qty"));
     }
 
     public void setSize(String size) {
@@ -38,7 +35,12 @@ public class ProductShop extends BasePage {
 
     public void setQuantity(String quantity) {
 
-        quantityField.fill(quantity);
+        quantityField.setQuantity(quantity);
+    }
+
+    public String getQuantityValidationMessage() {
+
+        return quantityField.getValidationMessage();
     }
 
     public String getProductName() {
@@ -53,7 +55,7 @@ public class ProductShop extends BasePage {
 
     public String getQuantity() {
 
-        return quantityField.textContent();
+        return quantityField.getQuantity();
     }
 
     public void clickAddToCartButton() {
@@ -69,5 +71,15 @@ public class ProductShop extends BasePage {
     public boolean isRequiredSizeMessageVisible() {
 
         return requiredSizeMessage.isVisible();
+    }
+
+    public String getRequiredColorMessage() {
+
+        return requiredColorMessage.textContent();
+    }
+
+    public String getRequiredSizeMessage() {
+
+        return requiredSizeMessage.textContent();
     }
 }
