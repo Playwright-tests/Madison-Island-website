@@ -52,7 +52,7 @@ public class LoginTest extends BaseTest {
 
         setData(credentials);
 
-        Assert.assertTrue(loginForm.isRequiredEmailMessageVisible(),
+        Assert.assertTrue(loginForm.getAdviceRequiredEmailLocator().isVisible(),
                 "The message about blank \"Email Address\" has not been displayed");
     }
 
@@ -77,7 +77,7 @@ public class LoginTest extends BaseTest {
 
         setData(credentials);
 
-        Assert.assertTrue(loginForm.isInvalidLoginOrPasswordMessageVisible(),
+        Assert.assertTrue(loginForm.getInvalidLoginOrPasswordMessageLocator().isVisible(),
                 "The message about an incorrect password has not been displayed");
     }
 
@@ -89,7 +89,7 @@ public class LoginTest extends BaseTest {
 
         setData(credentials);
 
-        Assert.assertTrue(loginForm.isRequiredPasswordMessageVisible(),
+        Assert.assertTrue(loginForm.getAdviceRequiredPasswordLocator().isVisible(),
                 "The message about blank \"Password\" has not been displayed");
     }
 }
