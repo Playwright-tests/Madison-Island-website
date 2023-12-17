@@ -69,14 +69,14 @@ public class ProductShop extends BasePage {
         addToCartButton.click();
     }
 
-    public boolean isRequiredColorMessageVisible() {
+    public Locator getRequiredColorMessageLocator() {
 
-        return requiredColorMessage.isVisible();
+        return requiredColorMessage;
     }
 
-    public boolean isRequiredSizeMessageVisible() {
+    public Locator getRequiredSizeMessageLocator() {
 
-        return requiredSizeMessage.isVisible();
+        return requiredSizeMessage;
     }
 
     public String getRequiredColorMessage() {
