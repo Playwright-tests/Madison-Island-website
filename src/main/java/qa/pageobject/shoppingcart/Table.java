@@ -11,7 +11,7 @@ public class Table extends BasePage {
     private final Locator row;
     private final Locator errorMessage;
     private final Locator updateCartButton;
-    private final QuantityCell quantityCell;
+    private final QuantityField quantityField;
 
     public Table(Page page) {
 
@@ -22,7 +22,7 @@ public class Table extends BasePage {
         errorMessage = page.locator(".item-msg.error");
         updateCartButton = row.locator("td.product-cart-actions").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Update"));
 
-        quantityCell = new QuantityCell(getPage(), row.locator("td.product-cart-actions").getByRole(AriaRole.TEXTBOX, new Locator.GetByRoleOptions().setName("Qty")));
+        quantityField = new QuantityField(getPage(), row.locator("td.product-cart-actions").getByRole(AriaRole.TEXTBOX, new Locator.GetByRoleOptions().setName("Qty")));
     }
 
     public void clickUpdateCartButton() {
@@ -55,9 +55,9 @@ public class Table extends BasePage {
         return row.locator("td.product-cart-total span.price").textContent().replaceAll("\\s", "");
     }
 
-    public QuantityCell getQuantityCell() {
+    public QuantityField getQuantityField() {
 
-        return quantityCell;
+        return quantityField;
     }
 
     public boolean isErrorMessageVisible() {
