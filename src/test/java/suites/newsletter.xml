@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Newsletter">
+
+    <listeners>
+        <listener class-name="qa.testlistener.Listener"/>
+    </listeners>
+
+    <test name="Newsletter functionalities">
+        <classes>
+            <class name="tests.NewsletterTest"/>
+        </classes>
+    </test>
+
+</suite>
