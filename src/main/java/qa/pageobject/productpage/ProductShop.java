@@ -23,8 +23,8 @@ public class ProductShop extends BasePage {
         productName = page.locator(".product-name").nth(1);
         price = page.locator(".price-box").nth(1);
         addToCartButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add to cart"));
-        requiredColorMessage = page.locator("#advice-required-entry-attribute92");
-        requiredSizeMessage = page.locator("#advice-required-entry-attribute180");
+        requiredColorMessage = page.locator(".validation-advice");
+        requiredSizeMessage = page.locator(".validation-advice");
 
         quantityField = new QuantityField(page, page.locator("#qty"));
     }
