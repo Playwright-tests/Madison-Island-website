@@ -81,7 +81,7 @@ public class Provider {
     @DataProvider(name = "mainMenuVIP")
     public Object[] mainMenuVIP() {
 
-        return JSONReader.getLinks("mainMenuVip");
+        return JSONReader.getLinks("mainMenuVIP");
     }
 
     @DataProvider(name = "sideMenu")
