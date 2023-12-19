@@ -10,5 +10,7 @@ public class FirefoxPlaywrightLauncher extends PlaywrightBrowserLauncher {
         browser = playwright
                 .firefox()
                 .launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
+
+        setBrowserInfo();
     }
 }
