@@ -567,7 +567,7 @@
                 "color": "Red",
                 "size": "L",
                 "quantity": "5",
-                "message": "This is a required field",
+                "message": "This is a required field.",
                 "validationMessage": ""
             },
 
@@ -576,7 +576,7 @@
                 "color": "Khaki",
                 "size": "M",
                 "quantity": "2",
-                "message": "This is a required field",
+                "message": "This is a required field.",
                 "validationMessage": ""
             }
         ],
@@ -759,7 +759,7 @@
                 "color": "Red",
                 "size": "L",
                 "quantity": "",
-                "message": "This is a required field",
+                "message": "This is a required field.",
                 "validationMessage": ""
             }
         ]
