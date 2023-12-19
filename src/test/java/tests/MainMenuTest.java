@@ -25,7 +25,7 @@ public class MainMenuTest extends BaseTest {
         header.getMainMenu().hoverParent(button);
         header.getMainMenu().clickItem(linkData.link());
 
-        Assert.assertEquals(getPage().url(), linkData.link(),
+        Assert.assertEquals(getPage().url(), linkData.url(),
                 "The page with address \"" + linkData.url() + "\" has not been opened");
     }
 
