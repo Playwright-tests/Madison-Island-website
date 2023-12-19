@@ -59,7 +59,6 @@ public class AddingProductToShoppingCartTest extends BaseTest {
 
         Assert.assertTrue(productShop.getRequiredColorMessageLocator().isVisible(),
                 "The message about unselected product color has not been displayed");
-
         Assert.assertEquals(productShop.getRequiredColorMessage(), data.message(),
                 "Incorrect message content");
     }
@@ -76,7 +75,6 @@ public class AddingProductToShoppingCartTest extends BaseTest {
 
         Assert.assertTrue(productShop.getRequiredSizeMessageLocator().isVisible(),
                 "The message about unselected product size has not been displayed");
-
         Assert.assertEquals(productShop.getRequiredColorMessage(), data.message(),
                 "Incorrect message content");
     }
