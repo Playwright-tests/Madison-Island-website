@@ -65,7 +65,12 @@ public class ExtentReportsManager {
 
     public static void setTestFailed(String info) {
 
-        extentTest.log(Status.FAIL, info);
+        if (extentTest != null) {
+
+            extentTest.log(Status.FAIL, info);
+        }
+
+
     }
 
     public static void setTestSkipped(String info) {
