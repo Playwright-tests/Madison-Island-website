@@ -28,7 +28,7 @@ jobs:
       # Then run your tests!
       - run:
           name: Run Login tests
-          command: mvn test -DsuiteXmlFile=src/test/resources/login.xml
+          command: mvn test -DsuiteXmlFile=src/test/resources/promos.xml
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
