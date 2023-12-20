@@ -26,8 +26,6 @@ public class SearchEngineTest extends BaseTest {
 
         header.getSearchEngine().setPhrase(phrase);
         header.getSearchEngine().clickSearchButton();
-
-        //consumer.accept(searchResults);
     }
 
     @Test(dataProvider = "searchEngineCorrectPhrase", dataProviderClass = Provider.class)
