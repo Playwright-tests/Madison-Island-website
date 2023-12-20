@@ -18,6 +18,7 @@ public abstract class PlaywrightBrowserLauncher {
 
     protected void setBrowserInfo() {
 
+        logger.info("-".repeat(50));
         logger.info("Browser: " + browser.browserType().name() + " " + browser.version());
     }
 

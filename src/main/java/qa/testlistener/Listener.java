@@ -25,6 +25,7 @@ public class Listener implements ITestListener {
     public void onFinish(ITestContext context) {
 
         logger.info("Test finish");
+        logger.info("-".repeat(50));
 
         ExtentReportsManager.setEnvironment();
         ExtentReportsManager.flush();
