@@ -40,8 +40,8 @@ public class ExtentReportsManager {
         extentReports.setSystemInfo("Free memory", String.valueOf(Runtime.getRuntime().freeMemory()));
         extentReports.setSystemInfo("System property", System.getProperty("user.dir"));
         extentReports.setSystemInfo("Operating system", System.getProperty("os.name") + " " + System.getProperty("os.arch"));
-        extentReports.setSystemInfo("Browser", PlaywrightBrowserLauncher.getPage().context().browser().browserType().name() + " " +
-                PlaywrightBrowserLauncher.getPage().context().browser().version());
+        //extentReports.setSystemInfo("Browser", PlaywrightBrowserLauncher.getPage().context().browser().browserType().name() + " " +
+          //      PlaywrightBrowserLauncher.getPage().context().browser().version());
         extentReports.setSystemInfo("Java runtime version", System.getProperty("java.runtime.version"));
     }
 
