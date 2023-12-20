@@ -108,7 +108,8 @@
                 <version>2.12.4</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
