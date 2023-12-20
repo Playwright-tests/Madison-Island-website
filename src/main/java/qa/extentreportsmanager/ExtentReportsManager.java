@@ -28,21 +28,23 @@ public class ExtentReportsManager {
     public static void initialize(String filename, String reportName) {
 
         extentReports = new ExtentReports();
-
         extentReports.attachReporter(getSparkReporter(filename, reportName));
     }
 
     public static void setEnvironment() {
 
-        extentReports.setSystemInfo("Available processors (cores)", String.valueOf(Runtime.getRuntime().availableProcessors()));
-        extentReports.setSystemInfo("Total memory", String.valueOf(Runtime.getRuntime().totalMemory()));
-        extentReports.setSystemInfo("Maximum memory", String.valueOf(Runtime.getRuntime().maxMemory()));
-        extentReports.setSystemInfo("Free memory", String.valueOf(Runtime.getRuntime().freeMemory()));
-        extentReports.setSystemInfo("System property", System.getProperty("user.dir"));
-        extentReports.setSystemInfo("Operating system", System.getProperty("os.name") + " " + System.getProperty("os.arch"));
-        //extentReports.setSystemInfo("Browser", PlaywrightBrowserLauncher.getPage().context().browser().browserType().name() + " " +
-          //      PlaywrightBrowserLauncher.getPage().context().browser().version());
-        extentReports.setSystemInfo("Java runtime version", System.getProperty("java.runtime.version"));
+        if (extentReports != null) {
+
+            extentReports.setSystemInfo("Available processors (cores)", String.valueOf(Runtime.getRuntime().availableProcessors()));
+            extentReports.setSystemInfo("Total memory", String.valueOf(Runtime.getRuntime().totalMemory()));
+            extentReports.setSystemInfo("Maximum memory", String.valueOf(Runtime.getRuntime().maxMemory()));
+            extentReports.setSystemInfo("Free memory", String.valueOf(Runtime.getRuntime().freeMemory()));
+            extentReports.setSystemInfo("System property", System.getProperty("user.dir"));
+            extentReports.setSystemInfo("Operating system", System.getProperty("os.name") + " " + System.getProperty("os.arch"));
+            extentReports.setSystemInfo("Browser", PlaywrightBrowserLauncher.getPage().context().browser().browserType().name() + " " +
+                                              PlaywrightBrowserLauncher.getPage().context().browser().version());
+            extentReports.setSystemInfo("Java runtime version", System.getProperty("java.runtime.version"));
+        }
     }
 
     public static void createTest(String testName, String testDescription) {
@@ -60,7 +62,10 @@ public class ExtentReportsManager {
 
     public static void setTestPassed(String info) {
 
-        extentTest.log(Status.PASS, info);
+        if (extentTest != null) {
+
+            extentTest.log(Status.PASS, info);
+        }
     }
 
     public static void setTestFailed(String info) {
@@ -69,13 +74,14 @@ public class ExtentReportsManager {
 
             extentTest.log(Status.FAIL, info);
         }
-
-
     }
 
     public static void setTestSkipped(String info) {
 
-        extentTest.log(Status.SKIP, info);
+        if (extentTest != null) {
+
+            extentTest.log(Status.SKIP, info);
+        }
     }
 
     public static void flush() {
