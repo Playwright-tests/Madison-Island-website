@@ -13,8 +13,8 @@ public class LoginActions {
         Credentials[] credentials = (Credentials[]) provider.CR_correct();
 
         LoginForm loginForm = new LoginForm(page);
-        loginForm.setEmail(credentials[0].email());
-        loginForm.setPassword(credentials[0].password());
+        loginForm.setEmail(credentials[0].getEmail());
+        loginForm.setPassword(credentials[0].getPassword());
         loginForm.clickLoginButton();
     }
 }

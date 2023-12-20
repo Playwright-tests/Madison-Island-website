@@ -13,7 +13,7 @@ public class ProductShopHandler {
 
     private static String[] toArray(ProductData data) {
 
-        return new String[]{ data.color(), data.quantity(), data.size() };
+        return new String[]{ data.getColor(), data.getQuantity(), data.getSize() };
     }
 
     public static ProductShop set(Page page, ProductData data, ProductShopMethods omitted) throws InvocationTargetException, IllegalAccessException {
