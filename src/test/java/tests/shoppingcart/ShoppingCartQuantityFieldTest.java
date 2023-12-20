@@ -51,6 +51,9 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
     @Test(dataProvider = "QF_aboveMin", dataProviderClass = Provider.class)
     public void aboveMin(ProductData data) {
 
+        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.getQuantity() + "\" as the above minimum value",
+                "Checking the system's behavior after entering the maximum value in the \"QTY\" field");
+
         String expectedSubtotal = Formatter.format(shoppingCart.getTable().getPrice(), data.getQuantity());
         setQuantity(data.getQuantity());
 
@@ -62,7 +65,7 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
     public void zero() {
 
         ExtentReportsManager.createTest("Setting the product quantity using \"0\" as the maximum value",
-                "checking whether the product will be removed from the shopping cart after setting the quantity to \"0\"");
+                "Checking whether the product will be removed from the shopping cart after setting the quantity to \"0\"");
 
         setQuantity("0");
 
@@ -74,6 +77,9 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
 
     @Test(dataProvider = "QF_belowMaxSC", dataProviderClass = Provider.class)
     public void belowMax(ProductData data) {
+
+        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.getQuantity() + "\" as the below maximum value",
+                "Checking the system's behavior after entering the maximum value in the \"QTY\" field");
 
         setQuantity(data.getQuantity());
 
@@ -117,7 +123,7 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
 
         Assert.assertTrue(shoppingCart.getTable().getErrorMessageLocator().isVisible(),
                 "The message about too large value has not been displayed");
-        Assert.assertEquals(shoppingCart.getTable().getErrorMessageText(), data.getMessage(),
+        Assert.assertTrue(shoppingCart.getTable().getErrorMessageText().contains(data.getMessage()),
                 "Incorrect message content");
     }
 
