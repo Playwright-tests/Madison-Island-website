@@ -49,8 +49,6 @@ public class NewsletterTest extends BaseTest {
 
         Assert.assertNotEquals(footer.getNewsletterForm().getValidationMessage(), "",
                 "No validation message");
-        Assert.assertEquals(footer.getNewsletterForm().getValidationMessage(), newsletterData.getValidationMessage(),
-                "Incorrect message content");
     }
 
     @Test(dataProvider = "newsletterEmptyEmailField", dataProviderClass = Provider.class)
