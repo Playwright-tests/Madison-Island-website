@@ -29,6 +29,8 @@ jobs:
       - run:
           name: Run Login tests
           command: mvn test -DsuiteXmlFile=src/test/resources/newsletter.xml
+      - store_test_results:
+          path: target/surefire-reports
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
