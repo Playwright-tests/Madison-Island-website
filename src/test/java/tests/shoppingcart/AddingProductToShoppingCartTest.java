@@ -32,9 +32,9 @@ public class AddingProductToShoppingCartTest extends BaseTest {
         productShop.clickAddToCartButton();
 
         Assert.assertEquals(shoppingCart.getTable().getName(), productName, "Incorrect product name in the shopping cart");
-        Assert.assertEquals(shoppingCart.getTable().getColor(), data.color(), "Incorrect product color in the shopping cart");
-        Assert.assertEquals(shoppingCart.getTable().getSize(), data.size(), "Incorrect product size in the shopping cart");
-        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getQuantity(), data.quantity(), "Incorrect amount of product");
+        Assert.assertEquals(shoppingCart.getTable().getColor(), data.getColor(), "Incorrect product color in the shopping cart");
+        Assert.assertEquals(shoppingCart.getTable().getSize(), data.getSize(), "Incorrect product size in the shopping cart");
+        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getQuantity(), data.getQuantity(), "Incorrect amount of product");
     }
 
     @Test(dataProvider = "correctProductData", dataProviderClass = Provider.class)
@@ -43,7 +43,7 @@ public class AddingProductToShoppingCartTest extends BaseTest {
         ExtentReportsManager.createTest("Correct product features",
                 "Checking whether a product with the appropriate parameters has been added to the cart");
 
-        getPage().navigate(data.url());
+        getPage().navigate(data.getUrl());
         checkCartContents(data);
     }
 
@@ -53,13 +53,13 @@ public class AddingProductToShoppingCartTest extends BaseTest {
         ExtentReportsManager.createTest("Unselected product color",
                 "Checking whether a message about an unselected product color has appeared");
 
-        goToPage(data.url());
+        goToPage(data.getUrl());
         fill(data, ProductShopMethods.SET_COLOR);
         productShop.clickAddToCartButton();
 
         Assert.assertTrue(productShop.getRequiredColorMessageLocator().isVisible(),
                 "The message about unselected product color has not been displayed");
-        Assert.assertEquals(productShop.getRequiredColorMessage(), data.message(),
+        Assert.assertEquals(productShop.getRequiredColorMessage(), data.getMessage(),
                 "Incorrect message content");
     }
 
@@ -69,13 +69,13 @@ public class AddingProductToShoppingCartTest extends BaseTest {
         ExtentReportsManager.createTest("Unselected product size",
                 "Checking whether a message about an unselected product size has appeared");
 
-        goToPage(data.url());
+        goToPage(data.getUrl());
         fill(data, ProductShopMethods.SET_SIZE);
         productShop.clickAddToCartButton();
 
         Assert.assertTrue(productShop.getRequiredSizeMessageLocator().isVisible(),
                 "The message about unselected product size has not been displayed");
-        Assert.assertEquals(productShop.getRequiredColorMessage(), data.message(),
+        Assert.assertEquals(productShop.getRequiredColorMessage(), data.getMessage(),
                 "Incorrect message content");
     }
 
@@ -85,7 +85,7 @@ public class AddingProductToShoppingCartTest extends BaseTest {
         ExtentReportsManager.createTest("Blank \"Quantity\" field",
                 "Checking the system's behavior when the \"Quantity\" field is blank");
 
-        goToPage(data.url());
+        goToPage(data.getUrl());
         fill(data, ProductShopMethods.ALL);
         productShop.clickAddToCartButton();
 

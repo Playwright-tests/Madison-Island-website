@@ -27,12 +27,12 @@ public class SideMenuTest extends BaseTest {
     @Test(dataProvider = "sideMenu", dataProviderClass = Provider.class)
     public void links(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" button",
-                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" button.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.getLink() + "\" button",
+                "Checking whether the page with the address \"" + linkData.getUrl() +  "\" opens after clicking the \"" + linkData.getLink() + "\" button.");
 
-        accountPage.getSideMenu().clickLink(linkData.link());
+        accountPage.getSideMenu().clickLink(linkData.getLink());
 
-        Assert.assertEquals(getPage().url(), linkData.url(),
-                "The page with address \"" + linkData.url() + "\" has not been opened");
+        Assert.assertEquals(getPage().url(), linkData.getUrl(),
+                "The page with address \"" + linkData.getUrl() + "\" has not been opened");
     }
 }

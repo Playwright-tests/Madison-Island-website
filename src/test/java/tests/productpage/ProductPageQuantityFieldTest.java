@@ -24,7 +24,7 @@ public class ProductPageQuantityFieldTest extends BaseTest {
 
     private void fill(ProductData data) throws InvocationTargetException, IllegalAccessException {
 
-        goToPage(data.url());
+        goToPage(data.getUrl());
 
         productPage.setProductShop(ProductShopHandler.set(getPage(), data, ProductShopMethods.ALL));
         productPage.getProductShop().clickAddToCartButton();
@@ -51,7 +51,7 @@ public class ProductPageQuantityFieldTest extends BaseTest {
         fill(data);
 
         Assert.assertTrue(productPage.getErrorMessageLocator().isVisible());
-        Assert.assertTrue(productPage.getErrorMessage().contains(data.message()));
+        Assert.assertTrue(productPage.getErrorMessage().contains(data.getMessage()));
     }
 
     @Test(dataProvider = "QF_max", dataProviderClass = Provider.class)
@@ -60,7 +60,7 @@ public class ProductPageQuantityFieldTest extends BaseTest {
         fill(data);
 
         Assert.assertTrue(productPage.getErrorMessageLocator().isVisible());
-        Assert.assertTrue(productPage.getErrorMessage().contains(data.message()));
+        Assert.assertTrue(productPage.getErrorMessage().contains(data.getMessage()));
     }
 
     @Test(dataProvider = "QF_belowMin", dataProviderClass = Provider.class)
@@ -69,7 +69,7 @@ public class ProductPageQuantityFieldTest extends BaseTest {
         fill(data);
 
         Assert.assertTrue(productPage.getErrorMessageLocator().isVisible());
-        Assert.assertTrue(productPage.getErrorMessage().contains(data.message()));
+        Assert.assertTrue(productPage.getErrorMessage().contains(data.getMessage()));
     }
 
     @Test(dataProvider = "QF_aboveMax", dataProviderClass = Provider.class)
@@ -78,7 +78,7 @@ public class ProductPageQuantityFieldTest extends BaseTest {
         fill(data);
 
         Assert.assertTrue(productPage.getErrorMessageLocator().isVisible());
-        Assert.assertTrue(productPage.getErrorMessage().contains(data.message()));
+        Assert.assertTrue(productPage.getErrorMessage().contains(data.getMessage()));
     }
 
     @Test(dataProvider = "QF_floatingPoint", dataProviderClass = Provider.class)
@@ -88,7 +88,7 @@ public class ProductPageQuantityFieldTest extends BaseTest {
 
         Assert.assertNotEquals(getPage().url(), URLs.SHOPPING_CART.getName());
         Assert.assertFalse(productPage.getProductShop().getQuantityValidationMessage().isEmpty());
-        Assert.assertEquals(productPage.getProductShop().getQuantityValidationMessage(), data.validationMessage());
+        Assert.assertEquals(productPage.getProductShop().getQuantityValidationMessage(), data.getValidationMessage());
     }
 
     @Test(dataProvider = "QF_notANumber", dataProviderClass = Provider.class)
@@ -98,6 +98,6 @@ public class ProductPageQuantityFieldTest extends BaseTest {
 
         Assert.assertNotEquals(getPage().url(), URLs.SHOPPING_CART.getName());
         Assert.assertFalse(productPage.getProductShop().getQuantityValidationMessage().isEmpty());
-        Assert.assertEquals(productPage.getProductShop().getQuantityValidationMessage(), data.validationMessage());
+        Assert.assertEquals(productPage.getProductShop().getQuantityValidationMessage(), data.getValidationMessage());
     }
 }

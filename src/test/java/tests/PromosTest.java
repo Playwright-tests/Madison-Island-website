@@ -22,12 +22,12 @@ public class PromosTest extends BaseTest {
     @Test(dataProvider = "promos", dataProviderClass = Provider.class)
     public void images(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" image in the \"Promos\" section",
-                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" image.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.getLink() + "\" image in the \"Promos\" section",
+                "Checking whether the page with the address \"" + linkData.getUrl() +  "\" opens after clicking the \"" + linkData.getLink() + "\" image.");
 
-        promos.clickImage(linkData.link());
+        promos.clickImage(linkData.getLink());
 
-        Assert.assertEquals(getPage().url(), linkData.url(),
-                "The page with address \"" + linkData.url() + "\" has not been opened");
+        Assert.assertEquals(getPage().url(), linkData.getUrl(),
+                "The page with address \"" + linkData.getUrl() + "\" has not been opened");
     }
 }

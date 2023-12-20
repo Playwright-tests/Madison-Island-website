@@ -38,24 +38,24 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
     @Test(dataProvider = "QF_min", dataProviderClass = Provider.class)
     public void min(ProductData data) {
 
-        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.quantity() + "\" as the minimum value",
+        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.getQuantity() + "\" as the minimum value",
                 "Checking the system's behavior after entering the maximum value in the \"QTY\" field");
 
-        String expectedSubtotal = Formatter.format(shoppingCart.getTable().getPrice(), data.quantity());
-        setQuantity(data.quantity());
+        String expectedSubtotal = Formatter.format(shoppingCart.getTable().getPrice(), data.getQuantity());
+        setQuantity(data.getQuantity());
 
         Assert.assertEquals(shoppingCart.getTable().getSubtotal(), expectedSubtotal,
-                "Incorrect system behavior after setting the product quantity to \"" + data.quantity() + "\"");
+                "Incorrect system behavior after setting the product quantity to \"" + data.getQuantity() + "\"");
     }
 
     @Test(dataProvider = "QF_aboveMin", dataProviderClass = Provider.class)
     public void aboveMin(ProductData data) {
 
-        String expectedSubtotal = Formatter.format(shoppingCart.getTable().getPrice(), data.quantity());
-        setQuantity(data.quantity());
+        String expectedSubtotal = Formatter.format(shoppingCart.getTable().getPrice(), data.getQuantity());
+        setQuantity(data.getQuantity());
 
         Assert.assertEquals(shoppingCart.getTable().getSubtotal(), expectedSubtotal,
-                "Incorrect system behavior after setting the product quantity to \"" + data.quantity() + "\"");
+                "Incorrect system behavior after setting the product quantity to \"" + data.getQuantity() + "\"");
     }
 
     @Test
@@ -75,91 +75,91 @@ public class ShoppingCartQuantityFieldTest extends BaseTest {
     @Test(dataProvider = "QF_belowMaxSC", dataProviderClass = Provider.class)
     public void belowMax(ProductData data) {
 
-        setQuantity(data.quantity());
+        setQuantity(data.getQuantity());
 
         System.out.println("MSG: " + shoppingCart.getTable().getErrorMessageText());
 
         Assert.assertTrue(shoppingCart.getErrorMessageLocator().isVisible(),
                 "No message was displayed about the lack of the requested quantity of product");
-        Assert.assertTrue(shoppingCart.getErrorMessageText().contains(data.message()),
+        Assert.assertTrue(shoppingCart.getErrorMessageText().contains(data.getMessage()),
                 "Incorrect message content");
         Assert.assertTrue(shoppingCart.getTable().getErrorMessageLocator().isVisible(),
                 "No error message was displayed in the shopping cart table");
-        Assert.assertTrue(shoppingCart.getTable().getErrorMessageText().contains(data.message()),
+        Assert.assertTrue(shoppingCart.getTable().getErrorMessageText().contains(data.getMessage()),
                 "Incorrect error message content");
     }
 
     @Test(dataProvider = "QF_maxSC", dataProviderClass = Provider.class)
     public void max(ProductData data) {
 
-        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.quantity() + "\" as the maximum value",
+        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.getQuantity() + "\" as the maximum value",
                 "Checking the system's behavior after entering the maximum value in the \"QTY\" field");
 
-        setQuantity(data.quantity());
+        setQuantity(data.getQuantity());
 
         Assert.assertTrue(shoppingCart.getTable().getErrorMessageLocator().isVisible(),
                 "No message was displayed about the lack of the requested quantity of product");
-        Assert.assertTrue(shoppingCart.getTable().getErrorMessageText().contains(data.message()),
+        Assert.assertTrue(shoppingCart.getTable().getErrorMessageText().contains(data.getMessage()),
                 "Incorrect message content");
         Assert.assertTrue(shoppingCart.getTable().getErrorMessageLocator().isVisible(),
                 "No error message was displayed in the shopping cart table");
-        Assert.assertTrue(shoppingCart.getTable().getErrorMessageText().contains(data.message()),
+        Assert.assertTrue(shoppingCart.getTable().getErrorMessageText().contains(data.getMessage()),
                 "Incorrect error message content");
     }
 
     @Test(dataProvider = "QF_aboveMaxSC", dataProviderClass = Provider.class)
     public void aboveMax(ProductData data) {
 
-        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.quantity() + "\" as too large value",
+        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.getQuantity() + "\" as too large value",
                 "Checking the system's behavior after entering too large value in the \"QTY\" field");
 
-        setQuantity(data.quantity());
+        setQuantity(data.getQuantity());
 
         Assert.assertTrue(shoppingCart.getTable().getErrorMessageLocator().isVisible(),
                 "The message about too large value has not been displayed");
-        Assert.assertEquals(shoppingCart.getTable().getErrorMessageText(), data.message(),
+        Assert.assertEquals(shoppingCart.getTable().getErrorMessageText(), data.getMessage(),
                 "Incorrect message content");
     }
 
     @Test(dataProvider = "QF_negativeSC", dataProviderClass = Provider.class)
     public void negative(ProductData data) {
 
-        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.quantity() + "\" as the negative number",
+        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.getQuantity() + "\" as the negative number",
                 "Checking the system's behavior after entering the negative number in the \"QTY\" field");
 
-        setQuantity(data.quantity());
+        setQuantity(data.getQuantity());
 
         Assert.assertFalse(shoppingCart.getTable().getQuantityField().getValidationMessage().isEmpty(),
                 "No validation message");
-        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getValidationMessage(), data.validationMessage(),
+        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getValidationMessage(), data.getValidationMessage(),
                 "Incorrect validation message content");
     }
 
     @Test(dataProvider = "QF_floatingPoint", dataProviderClass = Provider.class)
     public void floatingPoint(ProductData data) {
 
-        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.quantity() + "\" as the floating point",
+        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.getQuantity() + "\" as the floating point",
                 "Checking the system's behavior after entering the floating point in the \"QTY\" field");
 
-        setQuantity(data.quantity());
+        setQuantity(data.getQuantity());
 
         Assert.assertFalse(shoppingCart.getTable().getQuantityField().getValidationMessage().isEmpty(),
                 "No validation message");
-        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getValidationMessage(), data.validationMessage(),
+        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getValidationMessage(), data.getValidationMessage(),
                 "Incorrect validation message content");
     }
 
     @Test(dataProvider = "QF_notANumber", dataProviderClass = Provider.class)
     public void notANumber(ProductData data) {
 
-        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.quantity() + "\" as the value which is not a number",
+        ExtentReportsManager.createTest("Setting the product quantity using \"" + data.getQuantity() + "\" as the value which is not a number",
                 "Checking the system's behavior after entering the value which is not a number in the \"QTY\" field");
 
-        setQuantity(data.quantity());
+        setQuantity(data.getQuantity());
 
         Assert.assertFalse(shoppingCart.getTable().getQuantityField().getValidationMessage().isEmpty(),
                 "No validation message");
-        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getValidationMessage(), data.validationMessage(),
+        Assert.assertEquals(shoppingCart.getTable().getQuantityField().getValidationMessage(), data.getValidationMessage(),
                 "Incorrect validation message content");
     }
 }

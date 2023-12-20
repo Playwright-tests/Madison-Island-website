@@ -25,22 +25,22 @@ public class LoginTest extends BaseTest {
 
     private void setData(Credentials credentials) {
 
-        loginForm.setEmail(credentials.email());
-        loginForm.setPassword(credentials.password());
+        loginForm.setEmail(credentials.getEmail());
+        loginForm.setPassword(credentials.getPassword());
         loginForm.clickLoginButton();
     }
 
     @Test(dataProvider = "credentialsValidationEmailField", dataProviderClass = Provider.class)
     public void validationEmailField(Credentials credentials) {
 
-        ExtentReportsManager.createTest("\"" + credentials.email() + "\" as an incorrect email",
+        ExtentReportsManager.createTest("\"" + credentials.getEmail() + "\" as an incorrect email",
                 "Checking whether a message about incorrect email format is displayed");
 
         setData(credentials);
 
         Assert.assertNotEquals(loginForm.getValidationMessage(), "",
                 "No validation message");
-        Assert.assertEquals(loginForm.getValidationMessage(), credentials.message(),
+        Assert.assertEquals(loginForm.getValidationMessage(), credentials.getMessage(),
                 "Incorrect message content");
     }
 
@@ -59,20 +59,20 @@ public class LoginTest extends BaseTest {
     @Test(dataProvider = "CR_correct", dataProviderClass = Provider.class)
     public void correctCredentials(Credentials credentials) {
 
-        ExtentReportsManager.createTest("Logging in using \"" + credentials.password() + "\" as incorrect password",
+        ExtentReportsManager.createTest("Logging in using \"" + credentials.getPassword() + "\" as incorrect password",
                 "Verifying that the user is logged in after logging in with the correct credentials");
 
         setData(credentials);
         Dashboard dashboard = new Dashboard(getPage());
 
-        Assert.assertEquals(dashboard.getTitle(), credentials.message(),
+        Assert.assertEquals(dashboard.getTitle(), credentials.getMessage(),
                 "An user has not been logged in");
     }
 
     @Test(dataProvider = "incorrectPassword", dataProviderClass = Provider.class)
     public void incorrectPassword(Credentials credentials) {
 
-        ExtentReportsManager.createTest("Logging in using \"" + credentials.password() + "\" as incorrect password",
+        ExtentReportsManager.createTest("Logging in using \"" + credentials.getPassword() + "\" as incorrect password",
                 "Checking whether a message about an incorrect password is displayed");
 
         setData(credentials);

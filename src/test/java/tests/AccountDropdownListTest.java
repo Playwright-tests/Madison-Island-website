@@ -23,13 +23,13 @@ public class AccountDropdownListTest extends BaseTest {
     @Test(dataProvider = "accountDropdownList", dataProviderClass = Provider.class)
     void clickingButton(LinkData linkData) {
 
-        ExtentReportsManager.createTest("Clicking the \"" + linkData.link() + "\" button",
-                "Checking whether the page with the address \"" + linkData.url() +  "\" opens after clicking the \"" + linkData.link() + "\" button.");
+        ExtentReportsManager.createTest("Clicking the \"" + linkData.getLink() + "\" button",
+                "Checking whether the page with the address \"" + linkData.getUrl() +  "\" opens after clicking the \"" + linkData.getLink() + "\" button.");
 
         accountDropdownList.clickAccountNav();
-        accountDropdownList.clickItem(linkData.link());
+        accountDropdownList.clickItem(linkData.getLink());
 
-        Assert.assertEquals(getPage().url(), linkData.url(),
-                "The page with address \"" + linkData.url() + "\" has not been opened");
+        Assert.assertEquals(getPage().url(), linkData.getUrl(),
+                "The page with address \"" + linkData.getUrl() + "\" has not been opened");
     }
 }
