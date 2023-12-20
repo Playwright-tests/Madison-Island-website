@@ -44,7 +44,7 @@ public class Listener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
 
-        logger.info("Test FAILED on method: " + result.getMethod().toString());
+        logger.error("Test FAILED on method: " + result.getMethod().toString());
 
         ExtentReportsManager.setTestFailed(result.getThrowable().toString() +
                 "\n \"" + result.getMethod() + "\" method from \"" +
