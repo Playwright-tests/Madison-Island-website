@@ -4,7 +4,7 @@ import qa.dataProviders.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.localtestdata.LocalTestdata;
+import qa.testdatanames.LocalTestdata;
 import qa.pageobject.sections.Footer;
 import qa.base.BaseTest;
 import qa.records.LinkData;
