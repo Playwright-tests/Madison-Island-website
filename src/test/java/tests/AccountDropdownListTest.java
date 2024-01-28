@@ -1,10 +1,11 @@
 package tests;
 
-import qa.dataProvider.Provider;
+import qa.dataProviders.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.extentreportsmanager.ExtentReportsManager;
+import qa.localtestdata.LocalTestdata;
 import qa.pageobject.components.AccountDropdownList;
 import qa.base.BaseTest;
 import qa.records.LinkData;
@@ -20,11 +21,8 @@ public class AccountDropdownListTest extends BaseTest {
         accountDropdownList = new AccountDropdownList(getPage());
     }
 
-    @Test(dataProvider = "accountDropdownList", dataProviderClass = Provider.class)
+    @Test(dataProvider = LocalTestdata.ACCOUNT_DROPDOWN_LIST, dataProviderClass = DataProviders.class)
     void clickingButton(LinkData linkData) {
-
-        ExtentReportsManager.createTest("Clicking the \"" + linkData.getLink() + "\" button",
-                "Checking whether the page with the address \"" + linkData.getUrl() +  "\" opens after clicking the \"" + linkData.getLink() + "\" button.");
 
         accountDropdownList.clickAccountNav();
         accountDropdownList.clickItem(linkData.getLink());
