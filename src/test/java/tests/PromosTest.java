@@ -1,10 +1,10 @@
 package tests;
 
-import qa.dataProvider.Provider;
+import qa.dataProviders.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.extentreportsmanager.ExtentReportsManager;
+import qa.localtestdata.LocalTestdata;
 import qa.pageobject.components.Promos;
 import qa.base.BaseTest;
 import qa.records.LinkData;
@@ -19,11 +19,8 @@ public class PromosTest extends BaseTest {
         promos = new Promos(getPage());
     }
 
-    @Test(dataProvider = "promos", dataProviderClass = Provider.class)
+    @Test(dataProvider = LocalTestdata.PROMOS, dataProviderClass = DataProviders.class)
     public void images(LinkData linkData) {
-
-        ExtentReportsManager.createTest("Clicking the \"" + linkData.getLink() + "\" image in the \"Promos\" section",
-                "Checking whether the page with the address \"" + linkData.getUrl() +  "\" opens after clicking the \"" + linkData.getLink() + "\" image.");
 
         promos.clickImage(linkData.getLink());
 
