@@ -1,16 +1,18 @@
 package qa.helpers;
 
 import com.microsoft.playwright.Page;
-import qa.dataProvider.Provider;
+import qa.dataProviders.DataProviders;
 import qa.pageobject.components.LoginForm;
 import qa.records.Credentials;
 
+import java.io.IOException;
+
 public class LoginActions {
 
-    public static void login(Page page) {
+    public static void login(Page page) throws IOException {
 
-        Provider provider = new Provider();
-        Credentials[] credentials = (Credentials[]) provider.CR_correct();
+        DataProviders dataProviders = new DataProviders();
+        Credentials[] credentials = (Credentials[]) dataProviders.CR_correct();
 
         LoginForm loginForm = new LoginForm(page);
         loginForm.setEmail(credentials[0].getEmail());
