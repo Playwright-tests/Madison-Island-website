@@ -18,7 +18,7 @@ public class MockarooTestdataProvider {
 
     private static final Logger logger = LoggerFactory.getLogger(MockarooTestdataProvider.class);
     private static final String URL = "https://my.api.mockaroo.com/";
-    private static final String API_KEY = "df87e700";
+    private static final String API_KEY = "---";
 
     private static Object getString(InputStream inputStream) throws IOException, ParseException {
 
