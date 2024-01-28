@@ -15,6 +15,8 @@ jobs:
       - image: cimg/openjdk:14.0
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
+    environment:
+      - LC_ALL: "pl_PL.UTF-8"
     steps:
       # Checkout the code as the first step.
       - checkout
@@ -28,7 +30,9 @@ jobs:
       # Then run your tests!
       - run:
           name: Run Login tests
-          command: mvn test -DsuiteXmlFile=src/test/resources/newsletter.xml
+          command: mvn test -DsuiteXmlFile=src/test/resources/login.xml
+      - store_test_results:
+          path: "target/surefire-reports/Login/Login functionalities.xml"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
