@@ -8,7 +8,7 @@ import qa.enums.URLs;
 import qa.pageobject.sections.Footer;
 import qa.base.BaseTest;
 import qa.records.NewsletterData;
-import qa.dataprovidernames.MockarooTestdata;
+import qa.support.dataprovidernames.DataProviderNames;
 
 public class NewsletterTest extends BaseTest {
 
@@ -29,13 +29,13 @@ public class NewsletterTest extends BaseTest {
                 "Incorrect url");
     }
 
-    @Test(dataProvider = MockarooTestdata.NEWSLETTER_CORRECT_EMAIL, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.NEWSLETTER_CORRECT_EMAIL, dataProviderClass = DataProviders.class)
     public void correctEmail(NewsletterData newsletterData) {
 
         check(newsletterData.getEmail(), URLs.NEWSLETTER_SUBSCRIPTION_PAGE.getName());
     }
 
-    @Test(dataProvider = MockarooTestdata.NEWSLETTER_INCORRECT_EMAIL_FORMAT, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.NEWSLETTER_INCORRECT_EMAIL_FORMAT, dataProviderClass = DataProviders.class)
     public void incorrectEmailFormat(NewsletterData newsletterData) {
 
         check(newsletterData.getEmail(), URLs.HOME_PAGE.getName());
