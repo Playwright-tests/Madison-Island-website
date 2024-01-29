@@ -1,19 +1,40 @@
 package tests;
 
 import org.testng.Assert;
-import qa.dataProvider.Provider;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+import qa.dataProviders.SearchEngineDataProviders;
+import qa.enums.DataDownloadMode;
 import qa.enums.URLs;
-import qa.extentreportsmanager.ExtentReportsManager;
+import qa.exceptions.MockarooRequestException;
 import qa.pageobject.components.SearchResults;
 import qa.pageobject.sections.Header;
 import qa.base.BaseTest;
+import qa.support.dataprovidernames.DataProviderNames;
+import qa.support.testdatafilenames.TestdataFileNames;
+
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
 public class SearchEngineTest extends BaseTest {
 
     private Header header;
     private SearchResults searchResults;
+
+    @BeforeSuite
+    public void loadTestdata() throws FileNotFoundException, MalformedURLException, URISyntaxException, MockarooRequestException {
+
+        SearchEngineDataProviders.loadTestdata(TestdataFileNames.PHRASES, DataDownloadMode.LOCAL);
+    }
+
+    @AfterSuite
+    public void clearTestdata() {
+
+        SearchEngineDataProviders.clear();
+    }
 
     @BeforeMethod
     public void create() {
@@ -28,11 +49,8 @@ public class SearchEngineTest extends BaseTest {
         header.getSearchEngine().clickSearchButton();
     }
 
-    @Test(dataProvider = "searchEngineCorrectPhrase", dataProviderClass = Provider.class)
-    public void correctPhrase(String phrase) {
-
-        ExtentReportsManager.createTest("Searching for a product with the correct phrase",
-                "Checking whether the product was found after searching with the correct phrase");
+    @Test(dataProvider = DataProviderNames.CORRECT, dataProviderClass = SearchEngineDataProviders.class)
+    public void correct(String phrase) {
 
         search(phrase);
 
@@ -42,11 +60,8 @@ public class SearchEngineTest extends BaseTest {
                 "No product has been found");
     }
 
-    @Test(dataProvider = "searchEngineCorrectPhraseUpperLower", dataProviderClass = Provider.class)
-    public void correctPhraseUpperLower(String phrase) {
-
-        ExtentReportsManager.createTest("Searching for a product with the correct phrase which has uppercase and lowercase letters",
-                "Checking whether the product was found after searching with the correct phrase which has uppercase and lowercase letters");
+    @Test(dataProvider = DataProviderNames.LOWER_UPPER, dataProviderClass = SearchEngineDataProviders.class)
+    public void lowerUpper(String phrase) {
 
         search(phrase);
 
@@ -56,11 +71,8 @@ public class SearchEngineTest extends BaseTest {
                 "No product has been found");
     }
 
-    @Test(dataProvider = "searchEngineIncorrectPhrase", dataProviderClass = Provider.class)
-    public void incorrectPhrase(String phrase) {
-
-        ExtentReportsManager.createTest("Searching for a product with the incorrect phrase",
-                "Checking whether the product was found after searching with the incorrect phrase");
+    @Test(dataProvider = DataProviderNames.INCORRECT, dataProviderClass = SearchEngineDataProviders.class)
+    public void incorrect(String phrase) {
 
         search(phrase);
 
