@@ -1,18 +1,39 @@
 package tests;
 
-import qa.dataProviders.DataProviders;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import qa.dataProviders.NewsletterDataProviders;
+import qa.enums.DataDownloadMode;
 import qa.enums.URLs;
+import qa.exceptions.MockarooRequestException;
 import qa.pageobject.sections.Footer;
 import qa.base.BaseTest;
 import qa.records.NewsletterData;
 import qa.support.dataprovidernames.DataProviderNames;
+import qa.support.testdatafilenames.TestdataFileNames;
+
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
 public class NewsletterTest extends BaseTest {
 
     private Footer footer;
+
+    @BeforeSuite
+    public void loadTestdata() throws MalformedURLException, FileNotFoundException, URISyntaxException, MockarooRequestException {
+
+        NewsletterDataProviders.loadTestdata(TestdataFileNames.NEWSLETTER, DataDownloadMode.LOCAL);
+    }
+
+    @AfterSuite
+    public void clearTestdata() {
+
+        NewsletterDataProviders.clear();
+    }
 
     @BeforeMethod
     public void create() {
@@ -29,13 +50,13 @@ public class NewsletterTest extends BaseTest {
                 "Incorrect url");
     }
 
-    @Test(dataProvider = DataProviderNames.NEWSLETTER_CORRECT_EMAIL, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.CORRECT, dataProviderClass = NewsletterDataProviders.class)
     public void correctEmail(NewsletterData newsletterData) {
 
         check(newsletterData.getEmail(), URLs.NEWSLETTER_SUBSCRIPTION_PAGE.getName());
     }
 
-    @Test(dataProvider = DataProviderNames.NEWSLETTER_INCORRECT_EMAIL_FORMAT, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.INCORRECT_EMAIL_FORMAT, dataProviderClass = NewsletterDataProviders.class)
     public void incorrectEmailFormat(NewsletterData newsletterData) {
 
         check(newsletterData.getEmail(), URLs.HOME_PAGE.getName());
