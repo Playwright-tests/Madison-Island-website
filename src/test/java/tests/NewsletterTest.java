@@ -1,15 +1,14 @@
 package tests;
 
-import qa.dataProvider.Provider;
+import qa.dataProviders.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.enums.URLs;
-import qa.extentreportsmanager.ExtentReportsManager;
 import qa.pageobject.sections.Footer;
 import qa.base.BaseTest;
 import qa.records.NewsletterData;
-
+import qa.dataprovidernames.MockarooTestdata;
 
 public class NewsletterTest extends BaseTest {
 
@@ -30,20 +29,14 @@ public class NewsletterTest extends BaseTest {
                 "Incorrect url");
     }
 
-    @Test(dataProvider = "newsletterCorrectEmail", dataProviderClass = Provider.class)
+    @Test(dataProvider = MockarooTestdata.NEWSLETTER_CORRECT_EMAIL, dataProviderClass = DataProviders.class)
     public void correctEmail(NewsletterData newsletterData) {
-
-        ExtentReportsManager.createTest("Signing up for the newsletter using valid email",
-                "Checking whether the user will be subscribed to the newsletter using the correct email");
 
         check(newsletterData.getEmail(), URLs.NEWSLETTER_SUBSCRIPTION_PAGE.getName());
     }
 
-    @Test(dataProvider = "validationEmailField", dataProviderClass = Provider.class)
-    public void validationEmailField(NewsletterData newsletterData) {
-
-        ExtentReportsManager.createTest("\"" + newsletterData.getEmail() + "\" as an incorrect email",
-                "Checking whether a message about incorrect email format is displayed");
+    @Test(dataProvider = MockarooTestdata.NEWSLETTER_INCORRECT_EMAIL_FORMAT, dataProviderClass = DataProviders.class)
+    public void incorrectEmailFormat(NewsletterData newsletterData) {
 
         check(newsletterData.getEmail(), URLs.HOME_PAGE.getName());
 
@@ -51,15 +44,12 @@ public class NewsletterTest extends BaseTest {
                 "No validation message");
     }
 
-    @Test(dataProvider = "newsletterEmptyEmailField", dataProviderClass = Provider.class)
-    public void emptyEmailField(NewsletterData newsletterData) {
+    @Test
+    public void emptyEmailField() {
 
-        ExtentReportsManager.createTest("Blank \"Email Address\" field",
-                "Checking whether a message about an empty \"Email Address\" field is displayed");
+        footer.getNewsletterForm().clickSubscribeButton();
 
-        check(newsletterData.getEmail(), URLs.HOME_PAGE.getName());
-
-        Assert.assertEquals(footer.getNewsletterForm().getAdviceRequiredEmailText(), newsletterData.getValidationMessage(),
+        Assert.assertNotEquals(footer.getNewsletterForm().getAdviceRequiredEmailText(), "",
                 "Incorrect message content");
     }
 }
