@@ -4,7 +4,7 @@ import qa.dataProviders.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.testdatanames.LocalTestdata;
+import qa.support.dataprovidernames.DataProviderNames;
 import qa.pageobject.components.Promos;
 import qa.base.BaseTest;
 import qa.records.LinkData;
@@ -19,7 +19,7 @@ public class PromosTest extends BaseTest {
         promos = new Promos(getPage());
     }
 
-    @Test(dataProvider = LocalTestdata.PROMOS, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.PROMOS, dataProviderClass = DataProviders.class)
     public void images(LinkData linkData) {
 
         promos.clickImage(linkData.getLink());
