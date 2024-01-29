@@ -1,19 +1,41 @@
 package tests;
 
-import qa.dataProviders.DataProviders;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import qa.dataProviders.CredentialsDataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import qa.enums.DataDownloadMode;
 import qa.enums.URLs;
+import qa.exceptions.MockarooRequestException;
 import qa.pageobject.accountpage.Dashboard;
 import qa.pageobject.components.LoginForm;
 import qa.base.BaseTest;
 import qa.records.Credentials;
+import qa.support.dataprovidernames.DataProviderNames;
+import qa.support.testdatafilenames.TestdataFileNames;
+
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
 
 public class LoginTest extends BaseTest {
 
     private static LoginForm loginForm;
+
+    @BeforeSuite
+    public void loadTestdata() throws MalformedURLException, FileNotFoundException, URISyntaxException, MockarooRequestException {
+
+        CredentialsDataProviders.loadTestdata(TestdataFileNames.CREDENTIALS, DataDownloadMode.LOCAL);
+    }
+
+    @AfterSuite
+    public void clearTestdata() {
+
+        CredentialsDataProviders.clear();
+    }
 
     @BeforeMethod
     public void create() {
@@ -29,8 +51,8 @@ public class LoginTest extends BaseTest {
         loginForm.clickLoginButton();
     }
 
-    @Test(dataProvider = "credentialsValidationEmailField", dataProviderClass = DataProviders.class)
-    public void validationEmailField(Credentials credentials) {
+    @Test(dataProvider = DataProviderNames.INCORRECT_EMAIL_FORMAT, dataProviderClass = CredentialsDataProviders.class)
+    public void incorrectEmailFormat(Credentials credentials) {
 
         setData(credentials);
 
@@ -38,8 +60,8 @@ public class LoginTest extends BaseTest {
                 "No validation message");
     }
 
-    @Test(dataProvider = "emptyEmailField", dataProviderClass = DataProviders.class)
-    public void emptyEmailField(Credentials credentials) {
+    @Test(dataProvider = DataProviderNames.BLANK_EMAIL_FIELD, dataProviderClass = CredentialsDataProviders.class)
+    public void blankEmailField(Credentials credentials) {
 
         setData(credentials);
 
@@ -47,8 +69,8 @@ public class LoginTest extends BaseTest {
                 "The message about blank \"Email Address\" has not been displayed");
     }
 
-    @Test(dataProvider = "CR_correct", dataProviderClass = DataProviders.class)
-    public void correctCredentials(Credentials credentials) {
+    @Test(dataProvider = DataProviderNames.CORRECT, dataProviderClass = CredentialsDataProviders.class)
+    public void correct(Credentials credentials) {
 
         setData(credentials);
         Dashboard dashboard = new Dashboard(getPage());
@@ -57,16 +79,15 @@ public class LoginTest extends BaseTest {
                 "An user has not been logged in");
     }
 
-    @Test(dataProvider = "incorrectPassword", dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.INCORRECT_PASSWORD, dataProviderClass = CredentialsDataProviders.class)
     public void incorrectPassword(Credentials credentials) {
-
         setData(credentials);
 
         Assert.assertTrue(loginForm.getInvalidLoginOrPasswordMessageLocator().isVisible(),
                 "The message about an incorrect password has not been displayed");
     }
 
-    @Test(dataProvider = "emptyPasswordField", dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.BLANK_PASSWORD_FIELD, dataProviderClass = CredentialsDataProviders.class)
     public void blankPasswordField(Credentials credentials) {
 
         setData(credentials);
