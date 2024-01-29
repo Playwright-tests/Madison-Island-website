@@ -4,8 +4,7 @@ import qa.dataProviders.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.extentreportsmanager.ExtentReportsManager;
-import qa.localtestdata.LocalTestdata;
+import qa.support.dataprovidernames.DataProviderNames;
 import qa.pageobject.components.AccountDropdownList;
 import qa.base.BaseTest;
 import qa.records.LinkData;
@@ -21,7 +20,7 @@ public class AccountDropdownListTest extends BaseTest {
         accountDropdownList = new AccountDropdownList(getPage());
     }
 
-    @Test(dataProvider = LocalTestdata.ACCOUNT_DROPDOWN_LIST, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.ACCOUNT_DROPDOWN_LIST, dataProviderClass = DataProviders.class)
     void clickingButton(LinkData linkData) {
 
         accountDropdownList.clickAccountNav();
