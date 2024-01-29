@@ -5,8 +5,12 @@ import lombok.Getter;
 @Getter
 public class Credentials {
 
-    private String email;
-    private String password;
+    private final String email;
+    private final String password;
 
-    public Credentials() { }
+    public Credentials(String email, String password) {
+
+        this.email = email;
+        this.password = password;
+    }
 }
