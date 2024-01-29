@@ -1,87 +1,94 @@
-package qa.dataProvider;
+package qa.dataProviders;
 
 import org.testng.annotations.DataProvider;
 import qa.json.JSONReader;
+import qa.json.TestdataLoader;
+import qa.support.jsonfilenames.Newsletter;
+import qa.support.dataprovidernames.DataProviderNames;
+import qa.support.jsonfilenames.Login;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 
-public class Provider {
+public class DataProviders {
 
-    @DataProvider(name = "accountDropdownList")
-    public Object[] accountDropdownList() {
+    @DataProvider(name = DataProviderNames.ACCOUNT_DROPDOWN_LIST)
+    public Object[] accountDropdownList() throws FileNotFoundException {
 
-        return JSONReader.getLinks("accountDropdownList");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.ACCOUNT_DROPDOWN_LIST);
     }
 
     @DataProvider(name = "CR_correct")
-    public Object[] CR_correct() {
+    public Object[] CR_correct() throws IOException {
 
-        return JSONReader.getCredentials("correct");
+        return new Object[]{TestdataLoader.getCredentials(Login.CORRECT)};
     }
 
     @DataProvider(name = "incorrectEmail")
-    public Object[] incorrectEmail() {
+    public Object[] incorrectEmail() throws IOException {
 
-        return JSONReader.getCredentials("incorrectEmail");
+        return new Object[]{TestdataLoader.getCredentials(Login.INCORRECT_EMAIL)};
     }
 
     @DataProvider(name = "emptyEmailField")
-    public Object[] emptyEmailField() {
+    public Object[] emptyEmailField() throws IOException {
 
-        return JSONReader.getCredentials("emptyEmailField");
+        return new Object[]{TestdataLoader.getCredentials(Login.BLANK_EMAIL_FIELD)};
     }
 
     @DataProvider(name = "incorrectPassword")
-    public Object[] incorrectPassword() {
+    public Object[] incorrectPassword() throws IOException {
 
-        return JSONReader.getCredentials("incorrectPassword");
+        return new Object[]{TestdataLoader.getCredentials(Login.INCORRECT_PASSWORD)};
     }
 
     @DataProvider(name = "emptyPasswordField")
-    public Object[] emptyPasswordField() {
+    public Object[] emptyPasswordField() throws IOException {
 
-        return JSONReader.getCredentials("emptyPasswordField");
+        return new Object[]{TestdataLoader.getCredentials(Login.BLANK_PASSWORD_FIELD)};
     }
 
     @DataProvider(name = "credentialsValidationEmailField")
-    public Object[] credentialsValidationEmailField() {
+    public Object[] credentialsValidationEmailField() throws FileNotFoundException {
 
-        return JSONReader.getCredentials("validationEmailField");
+        return TestdataLoader.getCredentialsArray(Login.INCORRECT_EMAIL_FORMAT);
     }
 
-    @DataProvider(name = "mainMenuWomen")
-    public Object[] mainMenuWomen() {
+    @DataProvider(name = DataProviderNames.MAIN_MENU_WOMEN)
+    public Object[] mainMenuWomen() throws FileNotFoundException {
 
-        return JSONReader.getLinks("mainMenuWomen");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.MAIN_MENU_WOMEN);
     }
 
-    @DataProvider(name = "mainMenuMen")
-    public Object[] mainMenuMen() {
+    @DataProvider(name = DataProviderNames.MAIN_MENU_MEN)
+    public Object[] mainMenuMen() throws FileNotFoundException {
 
-        return JSONReader.getLinks("mainMenuMen");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.MAIN_MENU_MEN);
     }
 
-    @DataProvider(name = "mainMenuAccessories")
-    public Object[] mainMenuAccessories() {
+    @DataProvider(name = DataProviderNames.MAIN_MENU_ACCESSORIES)
+    public Object[] mainMenuAccessories() throws FileNotFoundException {
 
-        return JSONReader.getLinks("mainMenuAccessories");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.MAIN_MENU_ACCESSORIES);
     }
 
-    @DataProvider(name = "mainMenuHomeDecor")
-    public Object[] mainMenuHomeDecor() {
+    @DataProvider(name = DataProviderNames.MAIN_MENU_HOME_DECOR)
+    public Object[] mainMenuHomeDecor() throws FileNotFoundException {
 
-        return JSONReader.getLinks("mainMenuHomeDecor");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.MAIN_MENU_HOME_DECOR);
     }
 
-    @DataProvider(name = "mainMenuSale")
-    public Object[] mainMenuSale() {
+    @DataProvider(name = DataProviderNames.MAIN_MENU_SALE)
+    public Object[] mainMenuSale() throws FileNotFoundException {
 
-        return JSONReader.getLinks("mainMenuSale");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.MAIN_MENU_SALE);
     }
 
-    @DataProvider(name = "mainMenuVIP")
-    public Object[] mainMenuVIP() {
+    @DataProvider(name = DataProviderNames.MAIN_MENU_VIP)
+    public Object[] mainMenuVIP() throws FileNotFoundException {
 
-        return JSONReader.getLinks("mainMenuVIP");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.MAIN_MENU_VIP);
     }
 
     @DataProvider(name = "sideMenu")
@@ -90,29 +97,29 @@ public class Provider {
         return JSONReader.getLinks("sideMenu");
     }
 
-    @DataProvider(name = "footerCompany")
-    public Object[] footerCompany() {
+    @DataProvider(name = DataProviderNames.FOOTER_COMPANY)
+    public Object[] footerCompany() throws FileNotFoundException {
 
-        return JSONReader.getLinks("footerCompany");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.FOOTER_COMPANY);
 
     }
 
-    @DataProvider(name = "footerQuickLinks")
-    public Object[] footerQuickLinks() {
+    @DataProvider(name = DataProviderNames.FOOTER_QUICK_LINKS)
+    public Object[] footerQuickLinks() throws FileNotFoundException {
 
-        return JSONReader.getLinks("footerQuickLinks");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.FOOTER_QUICK_LINKS);
     }
 
-    @DataProvider(name = "footerAccount")
-    public Object[] footerAccount() {
+    @DataProvider(name = DataProviderNames.FOOTER_ACCOUNT)
+    public Object[] footerAccount() throws FileNotFoundException {
 
-        return JSONReader.getLinks("footerAccount");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.FOOTER_ACCOUNT);
     }
 
-    @DataProvider(name = "footerConnectWithUs")
-    public Object[] footerConnectWithUs() {
+    @DataProvider(name = DataProviderNames.FOOTER_CONNECT_WITH_US)
+    public Object[] footerConnectWithUs() throws FileNotFoundException {
 
-        return JSONReader.getLinks("footerConnectWithUs");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.FOOTER_CONNECT_WITH_US);
     }
 
     @DataProvider(name = "searchEngineCorrectPhrase")
@@ -133,28 +140,22 @@ public class Provider {
         return JSONReader.get("searchEngine", "incorrectPhrase");
     }
 
-    @DataProvider(name = "validationEmailField")
-    public Object[] validationEmailField() {
+    @DataProvider(name = DataProviderNames.NEWSLETTER_INCORRECT_EMAIL_FORMAT)
+    public Object[] newsletterIncorrectEmailFormat() throws FileNotFoundException {
 
-        return JSONReader.getNewsletterData("validationEmailField");
+        return TestdataLoader.getNewsletterDataArray(Newsletter.INCORRECT_EMAIL_FORMAT);
     }
 
-    @DataProvider(name = "newsletterCorrectEmail")
-    public Object[] newsletterCorrectEmail() {
+    @DataProvider(name = DataProviderNames.NEWSLETTER_CORRECT_EMAIL)
+    public Object[] newsletterCorrectEmail() throws FileNotFoundException {
 
-        return JSONReader.getNewsletterData("correctEmail");
+        return TestdataLoader.getNewsletterDataArray(Newsletter.CORRECT);
     }
 
-    @DataProvider(name = "newsletterEmptyEmailField")
-    public Object[] newsletterEmptyEmailField() {
+    @DataProvider(name = DataProviderNames.PROMOS)
+    public Object[] promos() throws FileNotFoundException {
 
-        return JSONReader.getNewsletterData("emptyEmailField");
-    }
-
-    @DataProvider(name = "promos")
-    public Object[] promos() {
-
-        return JSONReader.getLinks("promos");
+        return TestdataLoader.getLinkDataArray(DataProviderNames.PROMOS);
     }
 
     @DataProvider(name = "correctProductData")

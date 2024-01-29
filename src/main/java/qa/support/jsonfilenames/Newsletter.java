@@ -1,4 +1,4 @@
-package qa.mockapi;
+package qa.support.jsonfilenames;
 
 public class Newsletter {
 

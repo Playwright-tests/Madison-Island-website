@@ -1,6 +1,6 @@
-package qa.testdatanames;
+package qa.support.dataprovidernames;
 
-public class LocalTestdata {
+public class DataProviderNames {
 
     public static final String LINKS = "links";
     public static final String MAIN_MENU_WOMEN = "mainMenuWomen";
@@ -15,4 +15,6 @@ public class LocalTestdata {
     public static final String FOOTER_ACCOUNT = "footerAccount";
     public static final String FOOTER_CONNECT_WITH_US = "footerConnectWithUs";
     public static final String PROMOS = "promos";
+    public static final String NEWSLETTER_CORRECT_EMAIL = "newsletterCorrectEmail";
+    public static final String NEWSLETTER_INCORRECT_EMAIL_FORMAT = "newsletterIncorrectEmailFormat";
 }
