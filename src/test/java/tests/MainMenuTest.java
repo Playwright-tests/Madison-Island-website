@@ -1,18 +1,39 @@
 package tests;
 
-import qa.dataProviders.DataProviders;
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+import qa.dataProviders.MainMenuDataProviders;
+import qa.enums.DataDownloadMode;
+import qa.exceptions.MockarooRequestException;
 import qa.support.dataprovidernames.DataProviderNames;
 import qa.pageobject.sections.Header;
 import qa.base.BaseTest;
 import qa.records.LinkData;
+import qa.support.testdatafilenames.TestdataFileNames;
+
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
 
 public class MainMenuTest extends BaseTest {
 
     private Header header;
+
+    @BeforeSuite
+    public void loadTestdata() throws MalformedURLException, FileNotFoundException, URISyntaxException, MockarooRequestException {
+
+        MainMenuDataProviders.loadTestdata(TestdataFileNames.LINKS, DataDownloadMode.LOCAL);
+    }
+
+    @AfterSuite
+    public void clearTestdata() {
+
+        MainMenuDataProviders.clear();
+    }
 
     @BeforeMethod
     public void create() {
@@ -29,37 +50,37 @@ public class MainMenuTest extends BaseTest {
                 "The page with address \"" + linkData.getUrl() + "\" has not been opened");
     }
 
-    @Test(dataProvider = DataProviderNames.MAIN_MENU_WOMEN, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.WOMEN, dataProviderClass = MainMenuDataProviders.class)
     public void women(LinkData linkData) {
 
         check("Women", linkData);
     }
 
-    @Test(dataProvider = DataProviderNames.MAIN_MENU_MEN, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.MEN, dataProviderClass = MainMenuDataProviders.class)
     public void men(LinkData linkData) {
 
         check("Men", linkData);
     }
 
-    @Test(dataProvider = DataProviderNames.MAIN_MENU_ACCESSORIES, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.ACCESSORIES, dataProviderClass = MainMenuDataProviders.class)
     public void accessories(LinkData linkData) {
 
         check("Accessories", linkData);
     }
 
-    @Test(dataProvider = DataProviderNames.MAIN_MENU_HOME_DECOR, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.HOME_DECOR, dataProviderClass = MainMenuDataProviders.class)
     void homeAndDecor(LinkData linkData) {
 
         check("Home & Decor", linkData);
     }
 
-    @Test(dataProvider = DataProviderNames.MAIN_MENU_SALE, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.SALE, dataProviderClass = MainMenuDataProviders.class)
     void sale(LinkData linkData) {
 
         check("Sale", linkData);
     }
 
-    @Test(dataProvider = DataProviderNames.MAIN_MENU_VIP, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.VIP, dataProviderClass = MainMenuDataProviders.class)
     void vip(LinkData linkData) {
 
         header.getMainMenu().clickVip();
