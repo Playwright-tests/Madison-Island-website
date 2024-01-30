@@ -1,18 +1,39 @@
 package tests;
 
-import qa.dataProviders.DataProviders;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import qa.dataProviders.AccountDropdownListDataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import qa.enums.DataDownloadMode;
+import qa.exceptions.MockarooRequestException;
 import qa.support.dataprovidernames.DataProviderNames;
 import qa.pageobject.components.AccountDropdownList;
 import qa.base.BaseTest;
 import qa.records.LinkData;
+import qa.support.testdatafilenames.TestdataFileNames;
+
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
 
 public class AccountDropdownListTest extends BaseTest {
 
     private AccountDropdownList accountDropdownList;
+
+    @BeforeSuite
+    public void loadTestdata() throws MalformedURLException, FileNotFoundException, URISyntaxException, MockarooRequestException {
+
+        AccountDropdownListDataProviders.loadTestdata(TestdataFileNames.LINKS, DataDownloadMode.LOCAL);
+    }
+
+    @AfterSuite
+    public void clearTestdata() {
+
+        AccountDropdownListDataProviders.clear();
+    }
 
     @BeforeMethod
     public void create() {
@@ -20,7 +41,7 @@ public class AccountDropdownListTest extends BaseTest {
         accountDropdownList = new AccountDropdownList(getPage());
     }
 
-    @Test(dataProvider = DataProviderNames.ACCOUNT_DROPDOWN_LIST, dataProviderClass = DataProviders.class)
+    @Test(dataProvider = DataProviderNames.ACCOUNT_DROPDOWN_LIST, dataProviderClass = AccountDropdownListDataProviders.class)
     void clickingButton(LinkData linkData) {
 
         accountDropdownList.clickAccountNav();
