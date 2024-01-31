@@ -1,39 +1,18 @@
 package tests;
 
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.dataProviders.NewsletterDataProviders;
-import qa.enums.DataDownloadMode;
 import qa.enums.URLs;
-import qa.exceptions.MockarooRequestException;
 import qa.pageobject.sections.Footer;
 import qa.base.BaseTest;
 import qa.records.NewsletterData;
 import qa.support.dataprovidernames.DataProviderNames;
-import qa.support.testdatafilenames.TestdataFileNames;
-
-import java.io.FileNotFoundException;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 
 public class NewsletterTest extends BaseTest {
 
     private Footer footer;
-
-    @BeforeSuite
-    public void loadTestdata() throws MalformedURLException, FileNotFoundException, URISyntaxException, MockarooRequestException {
-
-        NewsletterDataProviders.loadTestdata(TestdataFileNames.NEWSLETTER, DataDownloadMode.LOCAL);
-    }
-
-    @AfterSuite
-    public void clearTestdata() {
-
-        NewsletterDataProviders.clear();
-    }
 
     @BeforeMethod
     public void create() {
