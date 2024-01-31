@@ -1,41 +1,19 @@
 package tests;
 
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
 import qa.dataProviders.CredentialsDataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.enums.DataDownloadMode;
 import qa.enums.URLs;
-import qa.exceptions.MockarooRequestException;
 import qa.pageobject.accountpage.Dashboard;
 import qa.pageobject.components.LoginForm;
 import qa.base.BaseTest;
 import qa.records.Credentials;
 import qa.support.dataprovidernames.DataProviderNames;
-import qa.support.testdatafilenames.TestdataFileNames;
-
-import java.io.FileNotFoundException;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-
 
 public class LoginTest extends BaseTest {
 
     private static LoginForm loginForm;
-
-    @BeforeSuite
-    public void loadTestdata() throws MalformedURLException, FileNotFoundException, URISyntaxException, MockarooRequestException {
-
-        CredentialsDataProviders.loadTestdata(TestdataFileNames.CREDENTIALS, DataDownloadMode.LOCAL);
-    }
-
-    @AfterSuite
-    public void clearTestdata() {
-
-        CredentialsDataProviders.clear();
-    }
 
     @BeforeMethod
     public void create() {
