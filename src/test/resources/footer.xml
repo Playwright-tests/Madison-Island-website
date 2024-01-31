@@ -7,6 +7,9 @@
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
+    <parameter name="fileName" value="links"/>
+    <parameter name="downloadMode" value="LOCAL"/>
+
     <test name="Footer links">
         <classes>
             <class name="tests.FooterLinksTest"/>
