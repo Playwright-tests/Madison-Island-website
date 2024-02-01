@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
-import qa.dataProviders.ProductPageQuantityDataProviders;
+import qa.dataProviders.QuantityFieldDataProviders;
 import qa.enums.URLs;
 import qa.helpers.ShoppingCartActions;
 import qa.pageobject.shoppingcart.ShoppingCart;
@@ -34,7 +34,7 @@ public class QuantityFieldTest extends BaseTest {
         shoppingCart.getTable().clickUpdateCartButton();
     }
 
-    @Test(dataProvider = DataProviderNames.MIN, dataProviderClass = ProductPageQuantityDataProviders.class)
+    @Test(dataProvider = DataProviderNames.MIN, dataProviderClass = QuantityFieldDataProviders.class)
     public void min(QuantityData data) {
 
         String expectedSubtotal = Formatter.format(shoppingCart.getTable().getPrice(), data.getQuantity());
@@ -44,7 +44,7 @@ public class QuantityFieldTest extends BaseTest {
                 "Incorrect system behavior after setting the product quantity to \"" + data.getQuantity() + "\"");
     }
 
-    @Test(dataProvider = DataProviderNames.ABOVE_MIN, dataProviderClass = ProductPageQuantityDataProviders.class)
+    @Test(dataProvider = DataProviderNames.ABOVE_MIN, dataProviderClass = QuantityFieldDataProviders.class)
     public void aboveMin(QuantityData data) {
 
         String expectedSubtotal = Formatter.format(shoppingCart.getTable().getPrice(), data.getQuantity());
@@ -54,7 +54,7 @@ public class QuantityFieldTest extends BaseTest {
                 "Incorrect system behavior after setting the product quantity to \"" + data.getQuantity() + "\"");
     }
 
-    @Test(dataProvider = DataProviderNames.BELOW_MAX, dataProviderClass = ProductPageQuantityDataProviders.class)
+    @Test(dataProvider = DataProviderNames.BELOW_MAX, dataProviderClass = QuantityFieldDataProviders.class)
     public void belowMax(QuantityData data) {
 
         setQuantity(data.getQuantity());
@@ -69,7 +69,7 @@ public class QuantityFieldTest extends BaseTest {
                 "Incorrect error message content");
     }
 
-    @Test(dataProvider = DataProviderNames.MAX, dataProviderClass = ProductPageQuantityDataProviders.class)
+    @Test(dataProvider = DataProviderNames.MAX, dataProviderClass = QuantityFieldDataProviders.class)
     public void max(QuantityData data) {
 
         setQuantity(data.getQuantity());
@@ -84,7 +84,7 @@ public class QuantityFieldTest extends BaseTest {
                 "Incorrect error message content");
     }
 
-    @Test(dataProvider = DataProviderNames.ABOVE_MAX, dataProviderClass = ProductPageQuantityDataProviders.class)
+    @Test(dataProvider = DataProviderNames.ABOVE_MAX, dataProviderClass = QuantityFieldDataProviders.class)
     public void aboveMax(QuantityData data) {
 
         setQuantity(data.getQuantity());
@@ -95,7 +95,7 @@ public class QuantityFieldTest extends BaseTest {
                 "Incorrect message content");
     }
 
-    @Test(dataProvider = DataProviderNames.NEGATIVE, dataProviderClass = ProductPageQuantityDataProviders.class)
+    @Test(dataProvider = DataProviderNames.NEGATIVE, dataProviderClass = QuantityFieldDataProviders.class)
     public void negative(QuantityData data) {
 
         setQuantity(data.getQuantity());
@@ -104,7 +104,7 @@ public class QuantityFieldTest extends BaseTest {
                 "No validation message");
     }
 
-    @Test(dataProvider = DataProviderNames.FLOATING_POINT, dataProviderClass = ProductPageQuantityDataProviders.class)
+    @Test(dataProvider = DataProviderNames.FLOATING_POINT, dataProviderClass = QuantityFieldDataProviders.class)
     public void floatingPoint(QuantityData data) {
 
         setQuantity(data.getQuantity());
@@ -113,7 +113,7 @@ public class QuantityFieldTest extends BaseTest {
                 "No validation message");
     }
 
-    @Test(dataProvider = DataProviderNames.NOT_NUMBER, dataProviderClass = ProductPageQuantityDataProviders.class)
+    @Test(dataProvider = DataProviderNames.NOT_NUMBER, dataProviderClass = QuantityFieldDataProviders.class)
     public void notNumber(QuantityData data) {
 
         setQuantity(data.getQuantity());
