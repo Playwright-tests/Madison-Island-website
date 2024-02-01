@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Side menu">
+
+    <listeners>
+        <listener class-name="qa.testlistener.Listener"/>
+    </listeners>
+
+    <parameter name="fileName" value="links"/>
+    <parameter name="downloadMode" value="LOCAL"/>
+
+    <test name="Side menu links">
+        <classes>
+            <class name="tests.account.SideMenuTest"/>
+        </classes>
+    </test>
+
+</suite>
