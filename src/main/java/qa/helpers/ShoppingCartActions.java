@@ -1,21 +1,19 @@
 package qa.helpers;
 
 import com.microsoft.playwright.Page;
-import qa.dataProvider.Provider;
-import qa.enums.ProductShopMethods;
 import qa.pageobject.productpage.ProductShop;
-import qa.records.ProductData;
-
-import java.lang.reflect.InvocationTargetException;
-
 
 public class ShoppingCartActions {
 
-    public static void addToCart(Page page) throws InvocationTargetException, IllegalAccessException {
+    public static ProductShop addToCart(Page page) {
 
-        Provider provider = new Provider();
-        ProductData[] productData = (ProductData[]) provider.correctProductData();
-        ProductShop productShop = ProductShopHandler.set(page, productData[0], ProductShopMethods.ALL);
-        productShop.clickAddToCartButton();
+        String color = "Red";
+        String size = "L";
+
+        ProductShop productShop = new ProductShop(page);
+        productShop.setColor(color);
+        productShop.setSize(size);
+
+        return productShop;
     }
 }
