@@ -1,25 +1,33 @@
 package qa.base;
 
 import com.microsoft.playwright.Page;
-import org.json.simple.parser.ParseException;
 import org.testng.annotations.*;
 import qa.enums.Browser;
-import qa.json.JSONReader;
+import qa.exceptions.MockarooRequestException;
 import qa.playwright.PlaywrightBrowserLauncher;
 import qa.playwright.PlaywrightProvider;
 import qa.enums.URLs;
 
-import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
 
 public class BaseTest {
 
     private PlaywrightBrowserLauncher launcher;
 
-    @BeforeClass
-    public void init() throws IOException, ParseException {
+    @Parameters({"fileName", "downloadMode"})
+    @BeforeSuite
+    public void loadTestdata(String fileName, String downloadMode) throws MalformedURLException, FileNotFoundException, URISyntaxException, MockarooRequestException {
 
-        JSONReader.read();
+        BaseDataProviders.loadTestdata(fileName, downloadMode);
+    }
+
+    @AfterSuite
+    public void clearTestdata() {
+
+        BaseDataProviders.clear();
     }
 
     @BeforeMethod
