@@ -2,7 +2,6 @@ package qa.base;
 
 import qa.IO.LocalTestdataProvider;
 import qa.IO.MockarooTestdataProvider;
-import qa.enums.DataDownloadMode;
 import qa.exceptions.MockarooRequestException;
 
 import java.io.FileNotFoundException;
@@ -13,12 +12,13 @@ public class BaseDataProviders {
 
     private static String jsonFile;
 
-    public static void loadTestdata(String fileName, DataDownloadMode mode) throws FileNotFoundException, MalformedURLException, URISyntaxException, MockarooRequestException {
+    public static void loadTestdata(String fileName, String downloadMode) throws FileNotFoundException, MalformedURLException, URISyntaxException, MockarooRequestException {
 
-        jsonFile = switch (mode) {
+        jsonFile = switch (downloadMode) {
 
-            case LOCAL -> LocalTestdataProvider.fetchTestdata(fileName);
-            case API -> MockarooTestdataProvider.fetchTestdata(fileName);
+            case "LOCAL" -> LocalTestdataProvider.fetchTestdata(fileName);
+            case "API" -> MockarooTestdataProvider.fetchTestdata(fileName);
+            default -> throw new IllegalStateException("Unexpected value: " + downloadMode);
         };
     }
 
