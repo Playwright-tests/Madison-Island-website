@@ -5,7 +5,7 @@ import qa.base.BaseDataProviders;
 import qa.json.TestdataLoader;
 import qa.support.dataprovidernames.DataProviderNames;
 
-public class ProductPageQuantityDataProviders extends BaseDataProviders {
+public class QuantityFieldDataProviders extends BaseDataProviders {
 
     @DataProvider(name = DataProviderNames.BELOW_MIN)
     public Object[] belowMin() {
