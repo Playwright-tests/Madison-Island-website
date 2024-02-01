@@ -2,7 +2,6 @@ package qa.dataProviders;
 
 import org.testng.annotations.DataProvider;
 import qa.base.BaseDataProviders;
-import qa.json.JSONReader;
 import qa.json.TestdataLoader;
 import qa.support.dataprovidernames.DataProviderNames;
 
