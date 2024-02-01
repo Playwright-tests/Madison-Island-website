@@ -7,10 +7,12 @@
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
+    <parameter name="fileName" value="MI_ProductPageQuantity"/>
+    <parameter name="downloadMode" value="LOCAL"/>
+
     <test name="Product page functionalities">
         <classes>
-            <class name="tests.productpage.ProductPageQuantityFieldTest"/>
-            <class name="tests.shoppingcart.AddingProductToShoppingCartTest"/>
+            <class name="tests.productpage.QuantityFieldTest"/>
         </classes>
     </test>
 
