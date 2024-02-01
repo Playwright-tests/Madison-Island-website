@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Shopping cart quantity field">
+
+    <listeners>
+        <listener class-name="qa.testlistener.Listener"/>
+    </listeners>
+
+    <parameter name="fileName" value="MI_ShoppingCartQuantity"/>
+    <parameter name="downloadMode" value="LOCAL"/>
+
+    <test name="Validation the quantity field">
+        <classes>
+            <class name="tests.shoppingcart.QuantityFieldTest"/>
+        </classes>
+    </test>
+
+</suite>
