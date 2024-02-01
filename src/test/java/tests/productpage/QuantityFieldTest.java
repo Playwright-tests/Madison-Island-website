@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
-import qa.dataProviders.ProductPageQuantityTestdataProviders;
+import qa.dataProviders.ProductPageQuantityDataProviders;
 import qa.enums.URLs;
 import qa.helpers.ShoppingCartActions;
 import qa.pageobject.productpage.ProductPage;
@@ -29,7 +29,7 @@ public class QuantityFieldTest extends BaseTest {
         productPage.getProductShop().clickAddToCartButton();
     }
 
-    @Test(dataProvider = DataProviderNames.BELOW_MIN, dataProviderClass = ProductPageQuantityTestdataProviders.class)
+    @Test(dataProvider = DataProviderNames.BELOW_MIN, dataProviderClass = ProductPageQuantityDataProviders.class)
     public void belowMin(QuantityData data) {
 
         actions(data);
@@ -39,7 +39,7 @@ public class QuantityFieldTest extends BaseTest {
         Assert.assertTrue(productPage.getErrorMessage().contains(data.getMessage()));
     }
 
-    @Test(dataProvider = DataProviderNames.MIN, dataProviderClass = ProductPageQuantityTestdataProviders.class)
+    @Test(dataProvider = DataProviderNames.MIN, dataProviderClass = ProductPageQuantityDataProviders.class)
     public void min(QuantityData data)  {
 
         actions(data);
@@ -48,7 +48,7 @@ public class QuantityFieldTest extends BaseTest {
                 "The product has not been added to the shopping cart");
     }
 
-    @Test(dataProvider = DataProviderNames.ABOVE_MIN, dataProviderClass = ProductPageQuantityTestdataProviders.class)
+    @Test(dataProvider = DataProviderNames.ABOVE_MIN, dataProviderClass = ProductPageQuantityDataProviders.class)
     public void aboveMin(QuantityData data) {
 
         actions(data);
@@ -57,7 +57,7 @@ public class QuantityFieldTest extends BaseTest {
                 "The product has not been added to the shopping cart");
     }
 
-    @Test(dataProvider = DataProviderNames.BELOW_MAX, dataProviderClass = ProductPageQuantityTestdataProviders.class)
+    @Test(dataProvider = DataProviderNames.BELOW_MAX, dataProviderClass = ProductPageQuantityDataProviders.class)
     public void belowMax(QuantityData data) {
 
         actions(data);
@@ -68,7 +68,7 @@ public class QuantityFieldTest extends BaseTest {
                 "Incorrect error message content");
     }
 
-    @Test(dataProvider = DataProviderNames.MAX, dataProviderClass = ProductPageQuantityTestdataProviders.class)
+    @Test(dataProvider = DataProviderNames.MAX, dataProviderClass = ProductPageQuantityDataProviders.class)
     public void max(QuantityData data) {
 
         actions(data);
@@ -79,7 +79,7 @@ public class QuantityFieldTest extends BaseTest {
                 "Incorrect error message content");
     }
 
-    @Test(dataProvider = DataProviderNames.ABOVE_MAX, dataProviderClass = ProductPageQuantityTestdataProviders.class)
+    @Test(dataProvider = DataProviderNames.ABOVE_MAX, dataProviderClass = ProductPageQuantityDataProviders.class)
     public void aboveMax(QuantityData data) {
 
         actions(data);
@@ -90,7 +90,7 @@ public class QuantityFieldTest extends BaseTest {
                 "Incorrect error message content");
     }
 
-    @Test(dataProvider = DataProviderNames.FLOATING_POINT, dataProviderClass = ProductPageQuantityTestdataProviders.class)
+    @Test(dataProvider = DataProviderNames.FLOATING_POINT, dataProviderClass = ProductPageQuantityDataProviders.class)
     public void floatingPoint(QuantityData data) {
 
         actions(data);
@@ -101,7 +101,7 @@ public class QuantityFieldTest extends BaseTest {
                 "No validation message");
     }
 
-    @Test(dataProvider = DataProviderNames.NOT_NUMBER, dataProviderClass = ProductPageQuantityTestdataProviders.class)
+    @Test(dataProvider = DataProviderNames.NOT_NUMBER, dataProviderClass = ProductPageQuantityDataProviders.class)
     public void notANumber(QuantityData data) {
 
         actions(data);
