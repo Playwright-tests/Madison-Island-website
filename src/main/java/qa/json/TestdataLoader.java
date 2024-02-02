@@ -2,10 +2,7 @@ package qa.json;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import qa.records.Credentials;
-import qa.records.LinkData;
-import qa.records.NewsletterData;
-import qa.records.QuantityData;
+import qa.records.*;
 
 import java.io.FileNotFoundException;
 import java.util.stream.IntStream;
@@ -69,5 +66,20 @@ public class TestdataLoader {
                         jsonArray.getJSONObject(i).getString("message")
                 ))
                 .toArray(QuantityData[]::new);
+    }
+
+    public static ProductData[] getProductData(String json) {
+
+        JSONObject jsonObject = new JSONObject(json);
+        JSONArray jsonArray = jsonObject.getJSONArray("products");
+
+        return IntStream.range(0, jsonArray.length())
+                .mapToObj(i -> new ProductData(
+                        jsonArray.getJSONObject(i).getString("url"),
+                        jsonArray.getJSONObject(i).getString("color"),
+                        jsonArray.getJSONObject(i).getString("size"),
+                        jsonArray.getJSONObject(i).getString("quantity")
+                ))
+                .toArray(ProductData[]::new);
     }
 }
