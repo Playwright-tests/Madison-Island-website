@@ -32,4 +32,5 @@ public class DataProviderNames {
     public static final String NEGATIVE = "negative";
     public static final String FLOATING_POINT = "floatingPoint";
     public static final String NOT_NUMBER = "notNumber";
+    public static final String PRODUCT_ATTRIBUTES = "productAttributes";
 }
