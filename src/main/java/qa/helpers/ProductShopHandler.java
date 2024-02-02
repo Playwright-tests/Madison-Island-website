@@ -16,7 +16,7 @@ public class ProductShopHandler {
         return new String[]{ data.getColor(), data.getQuantity(), data.getSize() };
     }
 
-    public static ProductShop set(Page page, ProductData data, ProductShopMethods omitted) throws InvocationTargetException, IllegalAccessException {
+    public static ProductShop set(Page page, ProductData data, ProductShopMethods excluded) throws InvocationTargetException, IllegalAccessException {
 
         ProductShop productShop = new ProductShop(page);
         MethodsRetriever<ProductShop> retriever = new MethodsRetriever<>(ProductShop.class);
@@ -25,7 +25,7 @@ public class ProductShopHandler {
 
         for (int i = 0; i < methods.length; i++) {
 
-            if (!methods[i].getName().toLowerCase().contains(omitted.getName().toLowerCase())) {
+            if (!methods[i].getName().toLowerCase().contains(excluded.getName().toLowerCase())) {
 
                 methods[i].invoke(productShop, clothingData[i]);
             }
