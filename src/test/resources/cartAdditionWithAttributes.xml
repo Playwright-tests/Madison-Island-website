@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Adding a product to the shopping cart">
+
+    <parameter name="fileName" value="products"/>
+    <parameter name="downloadMode" value="LOCAL"/>
+
+    <test name="Setting a product attributes">
+        <classes>
+            <class name="tests.productpage.CartAdditionWithAttributesTest"/>
+        </classes>
+    </test>
+
+</suite>
+
