@@ -23,34 +23,36 @@ public class QuantityFieldTest extends BaseTest {
 
         goToPage(URLs.ELIZABETH_KNIT_PRODUCT_PAGE.getName());
         ShoppingCartActions.addToCart(getPage()).clickAddToCartButton();
+        getPage().waitForURL(URLs.SHOPPING_CART.getName());
 
         shoppingCart = new ShoppingCart(getPage());
+        shoppingCart.getTable().findRows();
     }
 
     private void setQuantity(String quantity) {
 
-        shoppingCart.getTable().getQuantityField().clickQuantityField();
-        shoppingCart.getTable().getQuantityField().setQuantity(quantity);
-        shoppingCart.getTable().clickUpdateCartButton();
+        shoppingCart.getTable().getQuantityField(0).clickQuantityField();
+        shoppingCart.getTable().getQuantityField(0).setQuantity(quantity);
+        shoppingCart.getTable().clickUpdateCartButton(0);
     }
 
     @Test(dataProvider = DataProviderNames.MIN, dataProviderClass = QuantityFieldDataProviders.class)
     public void min(QuantityData data) {
 
-        String expectedSubtotal = Formatter.format(shoppingCart.getTable().getPrice(), data.getQuantity());
+        String expectedSubtotal = Formatter.format(shoppingCart.getTable().getPrice(0), data.getQuantity());
         setQuantity(data.getQuantity());
 
-        Assert.assertEquals(shoppingCart.getTable().getSubtotal(), expectedSubtotal,
+        Assert.assertEquals(shoppingCart.getTable().getSubtotal(0), expectedSubtotal,
                 "Incorrect system behavior after setting the product quantity to \"" + data.getQuantity() + "\"");
     }
 
     @Test(dataProvider = DataProviderNames.ABOVE_MIN, dataProviderClass = QuantityFieldDataProviders.class)
     public void aboveMin(QuantityData data) {
 
-        String expectedSubtotal = Formatter.format(shoppingCart.getTable().getPrice(), data.getQuantity());
+        String expectedSubtotal = Formatter.format(shoppingCart.getTable().getPrice(0), data.getQuantity());
         setQuantity(data.getQuantity());
 
-        Assert.assertEquals(shoppingCart.getTable().getSubtotal(), expectedSubtotal,
+        Assert.assertEquals(shoppingCart.getTable().getSubtotal(0), expectedSubtotal,
                 "Incorrect system behavior after setting the product quantity to \"" + data.getQuantity() + "\"");
     }
 
@@ -100,7 +102,7 @@ public class QuantityFieldTest extends BaseTest {
 
         setQuantity(data.getQuantity());
 
-        Assert.assertFalse(shoppingCart.getTable().getQuantityField().getValidationMessage().isEmpty(),
+        Assert.assertFalse(shoppingCart.getTable().getQuantityField(0).getValidationMessage().isEmpty(),
                 "No validation message");
     }
 
@@ -109,7 +111,7 @@ public class QuantityFieldTest extends BaseTest {
 
         setQuantity(data.getQuantity());
 
-        Assert.assertFalse(shoppingCart.getTable().getQuantityField().getValidationMessage().isEmpty(),
+        Assert.assertFalse(shoppingCart.getTable().getQuantityField(0).getValidationMessage().isEmpty(),
                 "No validation message");
     }
 
@@ -118,7 +120,7 @@ public class QuantityFieldTest extends BaseTest {
 
         setQuantity(data.getQuantity());
 
-        Assert.assertFalse(shoppingCart.getTable().getQuantityField().getValidationMessage().isEmpty(),
+        Assert.assertFalse(shoppingCart.getTable().getQuantityField(0).getValidationMessage().isEmpty(),
                 "No validation message");
     }
 }
