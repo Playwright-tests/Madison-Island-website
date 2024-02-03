@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Shopping cart contents after adding products">
+
+    <listeners>
+        <listener class-name="qa.testlistener.Listener"/>
+    </listeners>
+
+    <parameter name="fileName" value="products"/>
+    <parameter name="downloadMode" value="LOCAL"/>
+
+    <test name="Checking shopping cart contents">
+        <classes>
+            <class name="tests.shoppingcart.ContentsAfterAddingProductTest"/>
+        </classes>
+    </test>
+
+</suite>
