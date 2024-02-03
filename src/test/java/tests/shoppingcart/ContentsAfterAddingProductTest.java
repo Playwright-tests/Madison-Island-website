@@ -1,24 +1,24 @@
 package tests.shoppingcart;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import qa.base.BaseTest;
 import qa.dataProviders.ProductDataProviders;
 import qa.enums.ProductShopMethods;
+import qa.enums.URLs;
 import qa.helpers.ProductShopHandler;
 import qa.pageobject.productpage.ProductShop;
 import qa.pageobject.shoppingcart.ShoppingCart;
 import qa.records.ProductData;
-import qa.support.dataprovidernames.DataProviderNames;
 
 import java.lang.reflect.InvocationTargetException;
 
 public class ContentsAfterAddingProductTest extends BaseTest {
 
     private ShoppingCart shoppingCart;
-    private String productName;
-    private ProductData productData;
+    private ProductData[] products;
     private SoftAssert softAssert;
 
     @BeforeMethod
@@ -26,36 +26,45 @@ public class ContentsAfterAddingProductTest extends BaseTest {
 
         shoppingCart = new ShoppingCart(getPage());
         softAssert = new SoftAssert();
+        ProductDataProviders productDataProviders = new ProductDataProviders();
+        products = (ProductData[]) productDataProviders.productAttributes();
     }
 
-    private void actions(ProductData data) throws InvocationTargetException, IllegalAccessException {
+    private void actions() throws InvocationTargetException, IllegalAccessException {
 
-        productData = data;
-        ProductShop productShop = ProductShopHandler.set(getPage(), data, ProductShopMethods.ALL);
-        productName = productShop.getProductName();
+        for (ProductData product : products) {
 
-        productShop.clickAddToCartButton();
+            goToPage(product.getUrl());
+            ProductShop productShop = ProductShopHandler.set(getPage(), product, ProductShopMethods.ALL);
+            productShop.clickAddToCartButton();
+            getPage().waitForURL(URLs.SHOPPING_CART.getName());
+        }
     }
 
     private void checkContents() {
 
-        softAssert.assertEquals(shoppingCart.getTable().getName(), productName,
-                "Incorrect product name in the shopping cart");
-        softAssert.assertEquals(shoppingCart.getTable().getColor(), productData.getColor(),
-                "Incorrect product color in the shopping cart");
-        softAssert.assertEquals(shoppingCart.getTable().getSize(), productData.getSize(),
-                "Incorrect product size in the shopping cart");
-        softAssert.assertEquals(shoppingCart.getTable().getQuantityField().getQuantity(), productData.getQuantity(),
-                "Incorrect amount of product");
+        for (int i = 0; i < products.length; i++) {
+
+            softAssert.assertEquals(shoppingCart.getTable().getName(i), products[i].getName(),
+                    "Incorrect product name in the shopping cart");
+            softAssert.assertEquals(shoppingCart.getTable().getColor(i), products[i].getColor(),
+                    "Incorrect product color in the shopping cart");
+            softAssert.assertEquals(shoppingCart.getTable().getSize(i), products[i].getSize(),
+                    "Incorrect product size in the shopping cart");
+            softAssert.assertEquals(shoppingCart.getTable().getQuantityField(i).getQuantity(), products[i].getQuantity(),
+                    "Incorrect amount of product");
+        }
 
         softAssert.assertAll();
     }
 
-    @Test(dataProvider = DataProviderNames.PRODUCT_ATTRIBUTES, dataProviderClass = ProductDataProviders.class)
-    public void checkingContents(ProductData data) throws InvocationTargetException, IllegalAccessException {
+    @Test
+    public void checkingContents() throws InvocationTargetException, IllegalAccessException {
 
-        goToPage(data.getUrl());
-        actions(data);
+        actions();
+        shoppingCart.getTable().findRows();
+
+        Assert.assertTrue(shoppingCart.getTable().getRowsCount() > 0);
         checkContents();
     }
 }
