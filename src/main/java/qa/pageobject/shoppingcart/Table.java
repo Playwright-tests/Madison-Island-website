@@ -5,59 +5,66 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import qa.base.BasePage;
 
+import java.util.List;
+
 public class Table extends BasePage {
 
     private final Locator shoppingCartTable;
-    private final Locator row;
+    private List<Locator> rows;
     private final Locator errorMessage;
-    private final Locator updateCartButton;
-    private final QuantityField quantityField;
 
     public Table(Page page) {
 
         super(page);
 
         shoppingCartTable = page.locator("#shopping-cart-table");
-        row = shoppingCartTable.locator("tbody tr");
+        rows = shoppingCartTable.locator("tbody tr").all();
         errorMessage = page.locator(".item-msg.error");
-        updateCartButton = row.locator("td.product-cart-actions").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Update"));
-
-        quantityField = new QuantityField(getPage(), row.locator("td.product-cart-actions").getByRole(AriaRole.TEXTBOX, new Locator.GetByRoleOptions().setName("Qty")));
     }
 
-    public void clickUpdateCartButton() {
+    public void findRows() {
 
-        updateCartButton.click();
+        rows = getPage().locator("table#shopping-cart-table tbody tr").all();
     }
 
-    public String getName() {
+    public int getRowsCount() {
 
-        return row.locator("td.product-cart-info h2 a").textContent();
+        return rows.size();
     }
 
-    public String getColor() {
+    public void clickUpdateCartButton(int row) {
 
-        return row.locator("td.product-cart-info dl.item-options dd").first().textContent().trim();
+        rows.get(row).locator("td.product-cart-actions").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Update")).click();
     }
 
-    public String getSize() {
+    public String getName(int row) {
 
-        return row.locator("td.product-cart-info dl.item-options dd").nth(1).textContent().trim();
+        return rows.get(row).locator("td.product-cart-info h2 a").textContent();
     }
 
-    public String getPrice() {
+    public String getColor(int row) {
 
-        return row.locator("td.product-cart-price span.price").textContent();
+        return rows.get(row).locator("td.product-cart-info dl.item-options dd").first().textContent().trim();
     }
 
-    public String getSubtotal() {
+    public String getSize(int row) {
 
-        return row.locator("td.product-cart-total span.price").textContent().replaceAll("\\s", "");
+        return rows.get(row).locator("td.product-cart-info dl.item-options dd").nth(1).textContent().trim();
     }
 
-    public QuantityField getQuantityField() {
+    public String getPrice(int row) {
 
-        return quantityField;
+        return rows.get(row).locator("td.product-cart-price span.price").textContent();
+    }
+
+    public String getSubtotal(int row) {
+
+        return rows.get(row).locator("td.product-cart-total span.price").textContent().replaceAll("\\s", "");
+    }
+
+    public QuantityField getQuantityField(int row) {
+
+        return new QuantityField(getPage(), rows.get(row).locator("td.product-cart-actions").getByRole(AriaRole.TEXTBOX, new Locator.GetByRoleOptions().setName("Qty")));
     }
 
     public Locator getErrorMessageLocator() {
