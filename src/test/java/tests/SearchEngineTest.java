@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.dataProviders.SearchEngineDataProviders;
 import qa.enums.URLs;
-import qa.pageobject.components.SearchResults;
+import qa.pageobject.searchresultspage.SearchResults;
 import qa.pageobject.sections.Header;
 import qa.base.BaseTest;
 import qa.support.dataprovidernames.DataProviderNames;

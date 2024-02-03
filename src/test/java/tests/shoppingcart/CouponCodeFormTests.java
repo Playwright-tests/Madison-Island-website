@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
-import qa.dataProvider.Provider;
+import qa.dataProviders.DataProviders;
 import qa.enums.URLs;
 import qa.extentreportsmanager.ExtentReportsManager;
 import qa.helpers.ShoppingCartActions;
@@ -32,7 +32,7 @@ public class CouponCodeFormTests extends BaseTest {
         couponCodeForm.clickApplyButton();
     }
 
-    @Test(dataProvider = "incorrectCouponCode", dataProviderClass = Provider.class)
+    @Test(dataProvider = "incorrectCouponCode", dataProviderClass = DataProviders.class)
     public void incorrectCouponCode(String couponCode) {
 
         ExtentReportsManager.createTest("Applying a coupon using an incorrect code",

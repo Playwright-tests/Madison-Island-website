@@ -3,8 +3,8 @@ package qa.pageobject.sections;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import qa.pageobject.components.MainMenu;
-import qa.pageobject.components.SearchEngine;
+import qa.pageobject.header.MainMenu;
+import qa.pageobject.header.SearchEngine;
 import qa.base.BasePage;
 
 public class Header extends BasePage {

@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.support.dataprovidernames.DataProviderNames;
-import qa.pageobject.components.AccountDropdownList;
+import qa.pageobject.header.AccountDropdownList;
 import qa.base.BaseTest;
 import qa.records.LinkData;
 

@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.enums.URLs;
 import qa.pageobject.accountpage.Dashboard;
-import qa.pageobject.components.LoginForm;
+import qa.pageobject.loginform.LoginForm;
 import qa.base.BaseTest;
 import qa.records.Credentials;
 import qa.support.dataprovidernames.DataProviderNames;

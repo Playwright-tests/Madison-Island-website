@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.dataProviders.PromosDataProvider;
 import qa.support.dataprovidernames.DataProviderNames;
-import qa.pageobject.components.Promos;
+import qa.pageobject.middlesection.Promos;
 import qa.base.BaseTest;
 import qa.records.LinkData;
 
