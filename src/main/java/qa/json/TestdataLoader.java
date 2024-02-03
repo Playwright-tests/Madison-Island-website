@@ -76,6 +76,7 @@ public class TestdataLoader {
         return IntStream.range(0, jsonArray.length())
                 .mapToObj(i -> new ProductData(
                         jsonArray.getJSONObject(i).getString("url"),
+                        jsonArray.getJSONObject(i).getString("name"),
                         jsonArray.getJSONObject(i).getString("color"),
                         jsonArray.getJSONObject(i).getString("size"),
                         jsonArray.getJSONObject(i).getString("quantity")
