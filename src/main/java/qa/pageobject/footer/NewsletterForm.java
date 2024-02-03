@@ -1,4 +1,4 @@
-package qa.pageobject.components;
+package qa.pageobject.footer;
 
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;

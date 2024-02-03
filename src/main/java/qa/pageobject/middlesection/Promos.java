@@ -1,4 +1,4 @@
-package qa.pageobject.components;
+package qa.pageobject.middlesection;
 
 import com.microsoft.playwright.Page;
 import qa.base.BasePage;

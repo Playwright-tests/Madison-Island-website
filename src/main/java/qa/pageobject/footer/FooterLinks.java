@@ -1,4 +1,4 @@
-package qa.pageobject.components;
+package qa.pageobject.footer;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
