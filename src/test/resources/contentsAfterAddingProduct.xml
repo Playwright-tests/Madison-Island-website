@@ -7,12 +7,13 @@
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
-    <parameter name="fileName" value="products"/>
-    <parameter name="downloadMode" value="LOCAL"/>
-
     <test name="Checking shopping cart contents">
+
+        <parameter name="fileName" value="products"/>
+        <parameter name="downloadMode" value="LOCAL"/>
+
         <classes>
-            <class name="tests.shoppingcart.ContentsAfterAddingProductTest"/>
+            <class name="tests.shoppingcart.contents.ContentsAfterAddingProductTest"/>
         </classes>
     </test>
 
