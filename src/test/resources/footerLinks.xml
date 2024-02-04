@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Footer">
+
+    <listeners>
+        <listener class-name="qa.testlistener.Listener"/>
+    </listeners>
+
+    <test name="Footer links">
+
+        <parameter name="fileName" value="links"/>
+        <parameter name="downloadMode" value="LOCAL"/>
+
+        <classes>
+            <class name="tests.FooterLinksTest"/>
+        </classes>
+    </test>
+
+</suite>
