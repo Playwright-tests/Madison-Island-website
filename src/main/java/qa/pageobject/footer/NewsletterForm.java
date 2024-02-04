@@ -33,7 +33,7 @@ public class NewsletterForm extends BasePage {
 
     public String getEmailFieldText() {
 
-        return emailField.textContent();
+        return emailField.inputValue();
     }
 
     public String getAdviceRequiredEmailText() {
