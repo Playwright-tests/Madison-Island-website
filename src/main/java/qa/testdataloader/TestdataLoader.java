@@ -1,4 +1,4 @@
-package qa.json;
+package qa.testdataloader;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -82,5 +82,21 @@ public class TestdataLoader {
                         jsonArray.getJSONObject(i).getString("quantity")
                 ))
                 .toArray(ProductData[]::new);
+    }
+
+    public static EstimateShippingAndTaxData[] getEstimateShippingAndTaxData(String source, String key1, String key2) {
+
+        JSONObject jsonObject = new JSONObject(source);
+        JSONObject dest = jsonObject.getJSONObject(key1);
+        JSONArray jsonArray = dest.getJSONArray(key2);
+
+        return IntStream.range(0, jsonArray.length())
+                .mapToObj(i -> new EstimateShippingAndTaxData(
+                        jsonArray.getJSONObject(i).getString("country"),
+                        jsonArray.getJSONObject(i).getString("stateOrProvince"),
+                        jsonArray.getJSONObject(i).getString("city"),
+                        jsonArray.getJSONObject(i).getString("zip")
+                ))
+                .toArray(EstimateShippingAndTaxData[]::new);
     }
 }
