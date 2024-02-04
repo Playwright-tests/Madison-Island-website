@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Header">
+    <suite-files>
+        <suite-file path="header/accountDropdownList.xml"/>
+        <suite-file path="header/mainMenu.xml"/>
+        <suite-file path="header/searchEngine.xml"/>
+    </suite-files>
+</suite>

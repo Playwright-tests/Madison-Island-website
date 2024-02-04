@@ -3,7 +3,7 @@
 
 <suite name="Footer">
     <suite-files>
-        <suite-file path="suites/footer/footerLinks.xml"/>
-        <suite-file path="suites/footer/newsletter.xml"/>
+        <suite-file path="footer/footerLinks.xml"/>
+        <suite-file path="footer/newsletter.xml"/>
     </suite-files>
 </suite>

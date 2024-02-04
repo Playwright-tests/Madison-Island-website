@@ -1,4 +1,4 @@
-package tests;
+package tests.promos;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -9,7 +9,7 @@ import qa.pageobject.middlesection.Promos;
 import qa.base.BaseTest;
 import qa.records.LinkData;
 
-public class PromosTest extends BaseTest {
+public class PromosLinksTest extends BaseTest {
 
     private Promos promos;
 

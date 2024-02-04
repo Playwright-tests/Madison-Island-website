@@ -3,6 +3,6 @@
 
 <suite name="Account">
     <suite-files>
-        <suite-file path="suites/account/sideMenu.xml"/>
+        <suite-file path="account/sideMenu.xml"/>
     </suite-files>
 </suite>

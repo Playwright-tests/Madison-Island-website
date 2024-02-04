@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Shopping cart">
+    <suite-files>
+        <suite-file path="shoppingCart/contentsAfterAddingProduct.xml"/>
+        <suite-file path="shoppingCart/quantityField.xml"/>
+        <suite-file path="shoppingCart/couponCode.xml"/>
+        <suite-file path="shoppingCart/removingProduct.xml"/>
+    </suite-files>
+</suite>

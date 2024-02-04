@@ -11,7 +11,7 @@
         <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
-            <class name="tests.PromosTest"/>
+            <class name="tests.promos.PromosLinksTest"/>
         </classes>
     </test>
 
