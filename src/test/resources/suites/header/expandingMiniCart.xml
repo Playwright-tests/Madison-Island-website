@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Expanding the mini cart">
+    
+    <listeners>
+        <listener class-name="qa.testlistener.Listener"/>
+    </listeners>
+    
+    <test name="Clicking the 'Cart' link">
+
+        <classes>
+            <class name="tests.header.minicart.ExpandingMiniCartTest"/>
+        </classes>
+
+    </test>
+    
+</suite>
