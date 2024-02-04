@@ -13,7 +13,10 @@ public class EstimatedShippingAndTaxForm extends BasePage {
     private final Locator cityField;
     private final Locator zipField;
     private final Locator estimateButton;
-    private CountryDropdownList countryDropdownList;
+    private final Locator requiredCountryMessage;
+    private final Locator requiredCityFieldMessage;
+    private final Locator requiredZipFieldMessage;
+    private final CountryDropdownList countryDropdownList;
 
     public EstimatedShippingAndTaxForm(Page page) {
 
@@ -24,6 +27,9 @@ public class EstimatedShippingAndTaxForm extends BasePage {
         cityField = page.locator("#city");
         zipField = page.locator("#postcode");
         estimateButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Estimate"));
+        requiredCountryMessage = page.locator("#advice-validate-select-country");
+        requiredCityFieldMessage = page.locator("#advice-required-entry-region_id");
+        requiredZipFieldMessage = page.locator("#advice-required-entry-postcode");
 
         countryDropdownList = new CountryDropdownList(page);
     }
@@ -66,6 +72,21 @@ public class EstimatedShippingAndTaxForm extends BasePage {
     public String getZipFieldText() {
 
         return zipField.inputValue();
+    }
+
+    public String getRequiredCountryMessageText() {
+
+        return requiredCountryMessage.textContent();
+    }
+
+    public String getRequiredCityFieldMessage() {
+
+        return requiredCityFieldMessage.textContent();
+    }
+
+    public String getRequiredZipFieldMessage() {
+
+        return requiredZipFieldMessage.textContent();
     }
 
     public boolean isStateProvinceFieldVisible() {
