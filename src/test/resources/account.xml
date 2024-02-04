@@ -2,15 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Account">
-
-    <listeners>
-        <listener class-name="qa.testlistener.Listener"/>
-    </listeners>
-
-    <test name="Account functionalities">
-        <classes>
-            <class name="tests.account.SideMenuTest"/>
-        </classes>
-    </test>
-
+    <suite-files>
+        <suite-file path="sideMenu.xml"/>
+    </suite-files>
 </suite>
