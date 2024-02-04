@@ -7,9 +7,17 @@
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
+    <test name="Input text validation">
+
+        <classes>
+            <class name="tests.shoppingcart.quantityfield.InputTextValidationTest"/>
+        </classes>
+
+    </test>
+
     <test name="Validation the quantity field">
 
-        <parameter name="filename" value="MI_ShoppingCartQuantity"/>
+        <parameter name="fileName" value="MI_ShoppingCartQuantity"/>
         <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
