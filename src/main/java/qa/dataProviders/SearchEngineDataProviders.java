@@ -12,18 +12,18 @@ public class SearchEngineDataProviders extends BaseDataProviders {
     @DataProvider(name = DataProviderNames.CORRECT)
     public Object[] correct() throws FileNotFoundException {
 
-        return TestdataLoader.getPhrases(getJsonFile(), DataProviderNames.CORRECT);
+        return TestdataLoader.getStrings(getJsonFile(), DataProviderNames.CORRECT);
     }
 
     @DataProvider(name = DataProviderNames.LOWER_UPPER)
     public Object[] lowerUpper() throws FileNotFoundException {
 
-        return TestdataLoader.getPhrases(getJsonFile(), DataProviderNames.LOWER_UPPER);
+        return TestdataLoader.getStrings(getJsonFile(), DataProviderNames.LOWER_UPPER);
     }
 
     @DataProvider(name = DataProviderNames.INCORRECT)
     public Object[] incorrect() throws FileNotFoundException {
 
-        return TestdataLoader.getPhrases(getJsonFile(), DataProviderNames.INCORRECT);
+        return TestdataLoader.getStrings(getJsonFile(), DataProviderNames.INCORRECT);
     }
 }
