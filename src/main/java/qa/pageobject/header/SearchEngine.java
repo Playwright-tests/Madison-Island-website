@@ -27,4 +27,9 @@ public class SearchEngine extends BasePage {
 
         searchButton.click();
     }
+
+    public String getPhrase() {
+
+        return searchField.inputValue();
+    }
 }
