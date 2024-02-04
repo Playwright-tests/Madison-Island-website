@@ -3,10 +3,11 @@
 
 <suite name="Account dropdown list">
 
-    <parameter name="fileName" value="links"/>
-    <parameter name="downloadMode" value="LOCAL"/>
-
     <test name="Clicking links">
+
+        <parameter name="fileName" value="links"/>
+        <parameter name="downloadMode" value="LOCAL"/>
+
         <classes>
             <class name="tests.AccountDropdownListTest"/>
         </classes>
