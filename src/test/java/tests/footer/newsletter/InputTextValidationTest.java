@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.pageobject.footer.NewsletterForm;
 
-public class TextInputValidationTest extends BaseTest {
+public class InputTextValidationTest extends BaseTest {
 
     private NewsletterForm newsletterForm;
 
