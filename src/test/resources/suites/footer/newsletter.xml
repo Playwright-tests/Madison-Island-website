@@ -10,7 +10,7 @@
     <test name="Input text validation">
 
         <classes>
-            <class name="tests.footer.newsletter.TextInputValidationTest"/>
+            <class name="tests.footer.newsletter.InputTextValidationTest"/>
         </classes>
 
     </test>
