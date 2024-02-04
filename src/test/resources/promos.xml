@@ -6,10 +6,11 @@
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
-    <parameter name="fileName" value="links"/>
-    <parameter name="downloadMode" value="LOCAL"/>
-
     <test name="Promos links">
+
+        <parameter name="fileName" value="links"/>
+        <parameter name="downloadMode" value="LOCAL"/>
+
         <classes>
             <class name="tests.PromosTest"/>
         </classes>
