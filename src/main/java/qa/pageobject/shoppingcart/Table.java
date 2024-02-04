@@ -32,6 +32,11 @@ public class Table extends BasePage {
         return rows.size();
     }
 
+    public void clickRemoveButton(int row) {
+
+        rows.get(row).getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Remove Item X")).click();
+    }
+
     public void clickUpdateCartButton(int row) {
 
         rows.get(row).locator("td.product-cart-actions").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Update")).click();
