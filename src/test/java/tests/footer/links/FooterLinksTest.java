@@ -1,4 +1,4 @@
-package tests;
+package tests.footer.links;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
