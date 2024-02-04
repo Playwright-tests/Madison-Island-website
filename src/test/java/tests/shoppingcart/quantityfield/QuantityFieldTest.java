@@ -1,4 +1,4 @@
-package tests.shoppingcart;
+package tests.shoppingcart.quantityfield;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
