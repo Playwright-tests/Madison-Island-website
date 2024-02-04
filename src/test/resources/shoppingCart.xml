@@ -3,8 +3,8 @@
 
 <suite name="Shopping cart">
     <suite-files>
-        <suite-file path="contentsAfterAddingProduct.xml"/>
-        <suite-file path="shoppingCartQuantity.xml"/>
-        <suite-file path="couponCode.xml"/>
+        <suite-file path="suites/shoppingCart/contentsAfterAddingProduct.xml"/>
+        <suite-file path="suites/shoppingCart/quantityField.xml"/>
+        <suite-file path="suites/shoppingCart/couponCode.xml"/>
     </suite-files>
 </suite>

@@ -3,7 +3,7 @@
 
 <suite name="Product page">
     <suite-files>
-        <suite-file path="productPageQuantity.xml"/>
-        <suite-file path="cartAdditionWithAttributes.xml"/>
+        <suite-file path="suites/productPage/quantityField.xml"/>
+        <suite-file path="suites/productPage/cartAdditionWithAttributes.xml"/>
     </suite-files>
 </suite>

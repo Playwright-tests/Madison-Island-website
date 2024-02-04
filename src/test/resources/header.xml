@@ -3,9 +3,8 @@
 
 <suite name="Header">
     <suite-files>
-        <suite-file path="accountDropdownList.xml"/>
-        <suite-file path="mainMenu.xml"/>
-        <suite-file path="searchEngine.xml"/>
-        <suite-file path="searchEngine.xml"/>
+        <suite-file path="suites/header/accountDropdownList.xml"/>
+        <suite-file path="suites/header/mainMenu.xml"/>
+        <suite-file path="suites/header/searchEngine.xml"/>
     </suite-files>
 </suite>

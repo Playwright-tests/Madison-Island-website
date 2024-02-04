@@ -5,11 +5,11 @@
 <suite name="Madison Island website shop">
 
     <suite-files>
-        <suite-file path="header.xml"/>
+        <suite-file path="mainMenu.xml"/>
         <suite-file path="promos.xml"/>
         <suite-file path="newsletter.xml"/>
-        <suite-file path="footer.xml"/>
-        <suite-file path="productPage.xml"/>
+        <suite-file path="footerLinks.xml"/>
+        <suite-file path="productPageQuantity.xml"/>
         <suite-file path="shoppingCart.xml"/>
         <suite-file path="login.xml"/>
         <suite-file path="account.xml"/>
