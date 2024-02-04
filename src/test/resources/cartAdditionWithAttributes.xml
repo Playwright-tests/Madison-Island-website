@@ -3,10 +3,11 @@
 
 <suite name="Adding a product to the shopping cart">
 
-    <parameter name="fileName" value="products"/>
-    <parameter name="downloadMode" value="LOCAL"/>
-
     <test name="Setting a product attributes">
+
+        <parameter name="fileName" value="products"/>
+        <parameter name="downloadMode" value="LOCAL"/>
+
         <classes>
             <class name="tests.productpage.CartAdditionWithAttributesTest"/>
         </classes>
