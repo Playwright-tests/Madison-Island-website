@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Removing a product from the shopping cart">
+
+    <listeners>
+        <listener class-name="qa.testlistener.Listener"/>
+    </listeners>
+
+    <test name="Removing a product with the remove button">
+
+        <classes>
+            <class name="tests.shoppingcart.removing.RemovingProductTest">
+                <methods>
+                    <include name="withRemoveButton"/>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+
+    <test name="Removing a product with zero value in the quantity field">
+
+        <classes>
+            <class name="tests.shoppingcart.removing.RemovingProductTest">
+                <methods>
+                    <include name="withQuantityField"/>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+
+</suite>
