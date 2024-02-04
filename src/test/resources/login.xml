@@ -7,13 +7,21 @@
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
+    <test name="Input text validation">
+
+        <classes>
+            <class name="tests.login.InputTextValidationTest"/>
+        </classes>
+
+    </test>
+
     <test name="Login functionalities">
 
         <parameter name="fileName" value="MI_Credentials"/>
         <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
-            <class name="tests.LoginTest"/>
+            <class name="tests.login.LoginTest"/>
         </classes>
     </test>
 

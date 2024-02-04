@@ -42,6 +42,16 @@ public class LoginForm extends BasePage {
         loginButton.click();
     }
 
+    public String getEmailFieldText() {
+
+        return emailField.inputValue();
+    }
+
+    public String getPasswordFieldText() {
+
+        return passwordField.inputValue();
+    }
+
     public Locator getAdviceRequiredEmailLocator() {
 
         return adviceRequiredEmail;
