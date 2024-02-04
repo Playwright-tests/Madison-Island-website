@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Coupon code form">
+
+    <listeners>
+        <listener class-name="qa.testlistener.Listener"/>
+    </listeners>
+
+    <test name="Input text validation">
+
+        <classes>
+            <class name="tests.shoppingcart.couponcode.InputTextValidationTest"/>
+        </classes>
+
+    </test>
+
+    <test name="Typing the coupon code">
+
+        <parameter name="fileName" value="MI_CouponCode"/>
+        <parameter name="downloadMode" value="LOCAL"/>
+
+        <classes>
+            <class name="tests.shoppingcart.couponcode.TypingCouponCodeTest"/>
+        </classes>
+
+    </test>
+
+</suite>
