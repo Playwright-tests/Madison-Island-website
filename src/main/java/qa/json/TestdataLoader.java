@@ -45,7 +45,7 @@ public class TestdataLoader {
                 .toArray(NewsletterData[]::new);
     }
 
-    public static String[] getPhrases(String json, String key) throws FileNotFoundException {
+    public static String[] getStrings(String json, String key) throws FileNotFoundException {
 
         JSONObject jsonObject = new JSONObject(json);
         JSONArray jsonArray = jsonObject.getJSONArray(key);
