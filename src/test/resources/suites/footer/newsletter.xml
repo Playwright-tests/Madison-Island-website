@@ -7,13 +7,21 @@
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
+    <test name="Input text validation">
+
+        <classes>
+            <class name="tests.footer.newsletter.TextInputValidationTest"/>
+        </classes>
+
+    </test>
+
     <test name="Subscribing to the newsletter">
 
         <parameter name="fileName" value="MI_Newsletter"/>
         <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
-            <class name="tests.NewsletterTest"/>
+            <class name="tests.footer.newsletter.NewsletterTest"/>
         </classes>
     </test>
 
