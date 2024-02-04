@@ -7,10 +7,11 @@
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
-    <parameter name="fileName" value="MI_Credentials"/>
-    <parameter name="downloadMode" value="LOCAL"/>
-
     <test name="Login functionalities">
+
+        <parameter name="fileName" value="MI_Credentials"/>
+        <parameter name="downloadMode" value="LOCAL"/>
+
         <classes>
             <class name="tests.LoginTest"/>
         </classes>
