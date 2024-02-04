@@ -2,7 +2,7 @@ package qa.dataProviders;
 
 import org.testng.annotations.DataProvider;
 import qa.base.BaseDataProviders;
-import qa.json.TestdataLoader;
+import qa.testdataloader.TestdataLoader;
 import qa.support.dataprovidernames.DataProviderNames;
 
 public class QuantityFieldDataProviders extends BaseDataProviders {

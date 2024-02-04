@@ -35,4 +35,6 @@ public class DataProviderNames {
     public static final String PRODUCT_ATTRIBUTES = "productAttributes";
     public static final String FIELD = "field";
     public static final String DROPDOWN_LIST = "dropdownList";
+    public static final String INCORRECT_CITY = "incorrectCity";
+    public static final String INCORRECT_ZIP = "incorrectZip";
 }
