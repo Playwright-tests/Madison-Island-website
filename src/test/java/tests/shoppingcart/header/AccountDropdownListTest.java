@@ -1,4 +1,4 @@
-package tests;
+package tests.shoppingcart.header;
 
 import qa.dataProviders.AccountDropdownListDataProviders;
 import org.testng.Assert;
