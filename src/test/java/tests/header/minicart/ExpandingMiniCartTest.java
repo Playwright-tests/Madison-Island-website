@@ -1,11 +1,11 @@
-package tests.shoppingcart;
+package tests.header.minicart;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import qa.base.BaseTest;
 import qa.pageobject.sections.Header;
 
-public class LinkToShoppingCartTest extends BaseTest {
+public class ExpandingMiniCartTest extends BaseTest {
 
     @Test
     public void clickingTheLink() {
