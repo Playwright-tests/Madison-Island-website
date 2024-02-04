@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Shopping cart quantity field">
+<suite name="Quantity field">
 
     <listeners>
         <listener class-name="qa.testlistener.Listener"/>
@@ -9,11 +9,11 @@
 
     <test name="Validation the quantity field">
 
-        <parameter name="filename" value="MI_ShoppingCartQuantity"/>
+        <parameter name="fileName" value="MI_ProductPageQuantity"/>
         <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
-            <class name="tests.shoppingcart.quantityfield.QuantityFieldTest"/>
+            <class name="tests.productpage.QuantityFieldTest"/>
         </classes>
     </test>
 

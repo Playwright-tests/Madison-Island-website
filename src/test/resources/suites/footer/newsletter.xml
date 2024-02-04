@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Main menu">
+<suite name="Newsletter">
 
     <listeners>
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
-    <test name="Main menu links">
+    <test name="Subscribing to the newsletter">
 
-        <parameter name="fileName" value="links"/>
+        <parameter name="fileName" value="MI_Newsletter"/>
         <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
-            <class name="tests.MainMenuTest"/>
-            <!--<class name="tests.shoppingcart.LinkToShoppingCartTest"/>-->
+            <class name="tests.NewsletterTest"/>
         </classes>
     </test>
 

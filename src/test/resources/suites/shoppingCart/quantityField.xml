@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Newsletter">
+<suite name="Quantity field">
 
     <listeners>
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
-    <test name="Newsletter functionalities">
+    <test name="Validation the quantity field">
 
-        <parameter name="fileName" value="MI_Newsletter"/>
+        <parameter name="filename" value="MI_ShoppingCartQuantity"/>
         <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
-            <class name="tests.NewsletterTest"/>
+            <class name="tests.shoppingcart.quantityfield.QuantityFieldTest"/>
         </classes>
     </test>
 
