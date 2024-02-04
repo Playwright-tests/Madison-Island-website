@@ -7,5 +7,6 @@
         <suite-file path="shoppingCart/quantityField.xml"/>
         <suite-file path="shoppingCart/couponCode.xml"/>
         <suite-file path="shoppingCart/removingProduct.xml"/>
+        <suite-file path="shoppingCart/estimatedShippingForm.xml"/>
     </suite-files>
 </suite>
