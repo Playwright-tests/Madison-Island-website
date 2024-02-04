@@ -18,10 +18,12 @@ public class BaseTest {
     private PlaywrightBrowserLauncher launcher;
 
     @Parameters({"fileName", "downloadMode"})
-    @BeforeSuite
-    public void loadTestdata(String fileName, String downloadMode) throws MalformedURLException, FileNotFoundException, URISyntaxException, MockarooRequestException {
+    @BeforeClass
+    public void loadTestdata(@Optional("noFile") String fileName, @Optional("noDownloadMode") String downloadMode) throws MalformedURLException, FileNotFoundException, URISyntaxException, MockarooRequestException {
 
-        BaseDataProviders.loadTestdata(fileName, downloadMode);
+        if (!fileName.equals("nofile") && !downloadMode.equals("noDownloadMode")) {
+            BaseDataProviders.loadTestdata(fileName, downloadMode);
+        }
     }
 
     @AfterSuite
