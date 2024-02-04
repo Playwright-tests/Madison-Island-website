@@ -9,7 +9,7 @@
         <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
-            <class name="tests.productpage.CartAdditionWithAttributesTest"/>
+            <class name="tests.productpage.cartAddition.SettingAttributesTest"/>
         </classes>
     </test>
 
