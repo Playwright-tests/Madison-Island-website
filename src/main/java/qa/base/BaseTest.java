@@ -21,7 +21,7 @@ public class BaseTest {
     @BeforeClass
     public void loadTestdata(@Optional("noFile") String fileName, @Optional("noDownloadMode") String downloadMode) throws MalformedURLException, FileNotFoundException, URISyntaxException, MockarooRequestException {
 
-        if (!fileName.equals("nofile") && !downloadMode.equals("noDownloadMode")) {
+        if (!fileName.equals("noFile") && !downloadMode.equals("noDownloadMode")) {
             BaseDataProviders.loadTestdata(fileName, downloadMode);
         }
     }
