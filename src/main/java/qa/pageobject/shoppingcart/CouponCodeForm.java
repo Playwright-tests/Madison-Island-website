@@ -33,6 +33,11 @@ public class CouponCodeForm extends BasePage {
         applyButton.click();
     }
 
+    public String getCouponCode() {
+
+        return couponCodeField.inputValue();
+    }
+
     public Locator getErrorMessageLocator() {
 
         return errorMessage;
