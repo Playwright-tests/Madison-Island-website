@@ -1,4 +1,4 @@
-package tests;
+package tests.login;
 
 import qa.dataProviders.CredentialsDataProviders;
 import org.testng.Assert;
