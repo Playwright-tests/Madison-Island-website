@@ -13,8 +13,7 @@
         <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
-            <class name="tests.MainMenuTest"/>
-            <!--<class name="tests.shoppingcart.LinkToShoppingCartTest"/>-->
+            <class name="tests.header.mainmenu.MainMenuTest"/>
         </classes>
     </test>
 
