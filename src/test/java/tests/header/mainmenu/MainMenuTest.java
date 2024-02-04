@@ -1,4 +1,4 @@
-package tests.shoppingcart.header;
+package tests.header.mainmenu;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
