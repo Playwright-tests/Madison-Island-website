@@ -6,5 +6,6 @@
         <suite-file path="header/accountDropdownList.xml"/>
         <suite-file path="header/mainMenu.xml"/>
         <suite-file path="header/searchEngine.xml"/>
+        <suite-file path="header/expandingMiniCart.xml"/>
     </suite-files>
 </suite>
