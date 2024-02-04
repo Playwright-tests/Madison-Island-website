@@ -1,4 +1,4 @@
-package tests.productpage;
+package tests.productpage.cartAddition;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,7 +13,7 @@ import qa.support.dataprovidernames.DataProviderNames;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class CartAdditionWithAttributesTest extends BaseTest {
+public class SettingAttributesTest extends BaseTest {
 
     private ProductShop productShop;
 

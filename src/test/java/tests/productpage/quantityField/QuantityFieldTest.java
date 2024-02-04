@@ -1,4 +1,4 @@
-package tests.productpage;
+package tests.productpage.quantityField;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
