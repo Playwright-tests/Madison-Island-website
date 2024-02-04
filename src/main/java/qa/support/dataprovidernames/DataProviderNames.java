@@ -33,4 +33,6 @@ public class DataProviderNames {
     public static final String FLOATING_POINT = "floatingPoint";
     public static final String NOT_NUMBER = "notNumber";
     public static final String PRODUCT_ATTRIBUTES = "productAttributes";
+    public static final String FIELD = "field";
+    public static final String DROPDOWN_LIST = "dropdownList";
 }
