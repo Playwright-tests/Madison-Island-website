@@ -3,13 +3,21 @@
 
 <suite name="Search engine">
 
+    <test name="Input text validation">
+
+        <classes>
+            <class name="tests.header.searchengine.InputTextValidationTest"/>
+        </classes>
+
+    </test>
+
     <test name="Searching for products">
 
         <parameter name="fileName" value="MI_Phrases"/>
         <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
-            <class name="tests.SearchEngineTest"/>
+            <class name="tests.header.searchengine.SearchEngineTest"/>
         </classes>
     </test>
 
