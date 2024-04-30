@@ -13,36 +13,36 @@ public class MenDropdownListTest extends MainMenuBaseTest {
     @Test(groups = "withExpandedList")
     public void viewAllMenLink() {
 
-        actions("View All Men", "http://demo-store.seleniumacademy.com/men.html");
+        actionsWithExpandedList("View All Men", "http://demo-store.seleniumacademy.com/men.html");
     }
 
     @Test(groups = "withExpandedList")
     public void newArrivalsLink() {
 
-        actions("New Arrivals", "http://demo-store.seleniumacademy.com/men/new-arrivals.html");
+        actionsWithExpandedList("New Arrivals", "http://demo-store.seleniumacademy.com/men/new-arrivals.html");
     }
 
     @Test(groups = "withExpandedList")
     public void shirtsLink() {
 
-        actions("Shirts", "http://demo-store.seleniumacademy.com/men/shirts.html");
+        actionsWithExpandedList("Shirts", "http://demo-store.seleniumacademy.com/men/shirts.html");
     }
 
     @Test(groups = "withExpandedList")
     public void teesKnitsLink() {
 
-        actions("Tees, Knits and Polos", "http://demo-store.seleniumacademy.com/men/tees-knits-and-polos.html");
+        actionsWithExpandedList("Tees, Knits and Polos", "http://demo-store.seleniumacademy.com/men/tees-knits-and-polos.html");
     }
 
     @Test(groups = "withExpandedList")
     public void pantsAndDenim() {
 
-        actions("Pants & Denim", "http://demo-store.seleniumacademy.com/men/pants-denim.html");
+        actionsWithExpandedList("Pants & Denim", "http://demo-store.seleniumacademy.com/men/pants-denim.html");
     }
 
     @Test(groups = "withExpandedList")
     public void blazersLink() {
 
-        actions("Blazers", "http://demo-store.seleniumacademy.com/men/blazers.html");
+        actionsWithExpandedList("Blazers", "http://demo-store.seleniumacademy.com/men/blazers.html");
     }
 }
