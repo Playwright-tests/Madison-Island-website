@@ -1,7 +1,8 @@
-package qa.base;
+package tests.base;
 
 import com.microsoft.playwright.Page;
 import org.testng.annotations.*;
+import qa.base.BaseDataProviders;
 import qa.enums.Browser;
 import qa.exceptions.MockarooRequestException;
 import qa.playwright.PlaywrightBrowserLauncher;
