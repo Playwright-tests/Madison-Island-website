@@ -1,5 +1,6 @@
 package tests.base;
 
+import lombok.Setter;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import qa.pageobject.header.MainMenu;
@@ -7,6 +8,8 @@ import qa.pageobject.header.MainMenu;
 public class MainMenuBaseTest extends BaseTest {
 
     private MainMenu mainMenu;
+    @Setter
+    private String triggerElement;
 
     @BeforeMethod(onlyForGroups = "withoutExpandedList")
     public void prepareWithoutExpandedList() {
@@ -18,7 +21,7 @@ public class MainMenuBaseTest extends BaseTest {
     public void prepareWithExpandedList() {
 
         mainMenu = new MainMenu(getPage());
-        mainMenu.hoverParent("Women");
+        mainMenu.hoverTriggerElement(triggerElement);
     }
 
     protected void actions(String link, String expectedUrl) {
