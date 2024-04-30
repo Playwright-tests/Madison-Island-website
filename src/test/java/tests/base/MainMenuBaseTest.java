@@ -1,6 +1,5 @@
 package tests.base;
 
-import lombok.Getter;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import qa.pageobject.header.MainMenu;
