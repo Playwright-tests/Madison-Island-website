@@ -1,33 +1,14 @@
 package tests.header.mainmenu;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.base.BaseTest;
-import qa.pageobject.header.MainMenu;
+import tests.base.MainMenuBaseTest;
 
 
-public class WomenDropdownList extends BaseTest {
+public class WomenDropdownListTest extends MainMenuBaseTest {
 
-    private MainMenu mainMenu;
+    public WomenDropdownListTest() {
 
-    @BeforeMethod(onlyForGroups = "withoutExpandedList")
-    public void prepareWithoutExpandedList() {
-
-        mainMenu = new MainMenu(getPage());
-    }
-
-    @BeforeMethod(onlyForGroups = "withExpandedList")
-    public void prepareWithExpandedList() {
-
-        mainMenu = new MainMenu(getPage());
-        mainMenu.hoverParent("Women");
-    }
-
-    private void actions(String link, String expectedUrl) {
-
-        mainMenu.clickItem(link);
-        Assert.assertEquals(getPage().url(), expectedUrl, "Incorrect url");
+        setTriggerElement("Women");
     }
 
     @Test(groups = "withExpandedList")
