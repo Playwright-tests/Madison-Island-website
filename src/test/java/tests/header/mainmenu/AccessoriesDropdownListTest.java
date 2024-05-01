@@ -1,6 +1,7 @@
 package tests.header.mainmenu;
 
 import org.testng.annotations.Test;
+import qa.support.URLs;
 import tests.base.MainMenuBaseTest;
 
 public class AccessoriesDropdownListTest extends MainMenuBaseTest {
@@ -13,30 +14,30 @@ public class AccessoriesDropdownListTest extends MainMenuBaseTest {
     @Test(groups = "withExpandedList")
     public void viewAllAccessoriesLink() {
 
-        actionsWithExpandedList("View All Accessories", "http://demo-store.seleniumacademy.com/accessories.html");
+        actionsForDropdownLists("View All Accessories", URLs.ACCESSORIES_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void eyewearLink() {
 
-        actionsWithExpandedList("Eyewear", "http://demo-store.seleniumacademy.com/accessories/eyewear.html");
+        actionsForDropdownLists("Eyewear", URLs.EYEWEAR_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void jewelryLink() {
 
-        actionsWithExpandedList("Jewelry", "http://demo-store.seleniumacademy.com/accessories/jewelry.html");
+        actionsForDropdownLists("Jewelry", URLs.JEWELRY_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void shoes() {
 
-        actionsWithExpandedList("Shoes", "http://demo-store.seleniumacademy.com/accessories/shoes.html");
+        actionsForDropdownLists("Shoes", URLs.SHOES_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void bagsAndLuggage() {
 
-        actionsWithExpandedList("Bags & Luggage", "http://demo-store.seleniumacademy.com/accessories/bags-luggage.html");
+        actionsForDropdownLists("Bags & Luggage", URLs.BAGS_LUGGAGE_PAGE);
     }
 }

@@ -1,6 +1,7 @@
 package tests.header.mainmenu;
 
 import org.testng.annotations.Test;
+import qa.support.URLs;
 import tests.base.MainMenuBaseTest;
 
 public class MenDropdownListTest extends MainMenuBaseTest {
@@ -13,36 +14,36 @@ public class MenDropdownListTest extends MainMenuBaseTest {
     @Test(groups = "withExpandedList")
     public void viewAllMenLink() {
 
-        actionsWithExpandedList("View All Men", "http://demo-store.seleniumacademy.com/men.html");
+        actionsForDropdownLists("View All Men", URLs.MEN_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void newArrivalsLink() {
 
-        actionsWithExpandedList("New Arrivals", "http://demo-store.seleniumacademy.com/men/new-arrivals.html");
+        actionsForDropdownLists("New Arrivals", URLs.MEN_NEW_ARRIVALS_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void shirtsLink() {
 
-        actionsWithExpandedList("Shirts", "http://demo-store.seleniumacademy.com/men/shirts.html");
+        actionsForDropdownLists("Shirts", URLs.SHIRTS_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void teesKnitsLink() {
 
-        actionsWithExpandedList("Tees, Knits and Polos", "http://demo-store.seleniumacademy.com/men/tees-knits-and-polos.html");
+        actionsForDropdownLists("Tees, Knits and Polos", URLs.TEES_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void pantsAndDenim() {
 
-        actionsWithExpandedList("Pants & Denim", "http://demo-store.seleniumacademy.com/men/pants-denim.html");
+        actionsForDropdownLists("Pants & Denim", URLs.MEN_PANTS_DENIM_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void blazersLink() {
 
-        actionsWithExpandedList("Blazers", "http://demo-store.seleniumacademy.com/men/blazers.html");
+        actionsForDropdownLists("Blazers", URLs.BLAZERS_PAGE);
     }
 }

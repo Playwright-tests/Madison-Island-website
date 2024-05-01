@@ -1,6 +1,7 @@
 package tests.header.mainmenu;
 
 import org.testng.annotations.Test;
+import qa.support.URLs;
 import tests.base.MainMenuBaseTest;
 
 public class HomeAndDecorDropdownListTest extends MainMenuBaseTest {
@@ -13,30 +14,30 @@ public class HomeAndDecorDropdownListTest extends MainMenuBaseTest {
     @Test(groups = "withExpandedList")
     public void viewAllHomeLink() {
 
-        actionsWithExpandedList("View All Home & Decor", "http://demo-store.seleniumacademy.com/home-decor.html");
+        actionsForDropdownLists("View All Home & Decor", URLs.HOME_DECOR_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void booksAndMusicLink() {
 
-        actionsWithExpandedList("Books & Music", "http://demo-store.seleniumacademy.com/home-decor/books-music.html");
+        actionsForDropdownLists("Books & Music", URLs.BOOKS_MUSIC_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void bedAndBatchLink() {
 
-        actionsWithExpandedList("Bed & Bath", "http://demo-store.seleniumacademy.com/home-decor/bed-bath.html");
+        actionsForDropdownLists("Bed & Bath", URLs.BED_BATH_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void electronicsLink() {
 
-        actionsWithExpandedList("Electronics", "http://demo-store.seleniumacademy.com/home-decor/electronics.html");
+        actionsForDropdownLists("Electronics", URLs.ELECTRONICS_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void decorativeAccentsLink() {
 
-        actionsWithExpandedList("Decorative Accents", "http://demo-store.seleniumacademy.com/home-decor/decorative-accents.html");
+        actionsForDropdownLists("Decorative Accents", URLs.DECORATIVE_ACCENTS_PAGE);
     }
 }

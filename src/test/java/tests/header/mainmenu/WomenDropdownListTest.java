@@ -1,6 +1,7 @@
 package tests.header.mainmenu;
 
 import org.testng.annotations.Test;
+import qa.support.URLs;
 import tests.base.MainMenuBaseTest;
 
 
@@ -14,30 +15,30 @@ public class WomenDropdownListTest extends MainMenuBaseTest {
     @Test(groups = "withExpandedList")
     public void viewAllWomenLink() {
 
-        actionsWithExpandedList("View All Women", "http://demo-store.seleniumacademy.com/women.html");
+        actionsForDropdownLists("View All Women", URLs.WOMEN_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void newArrivalsLink() {
 
-        actionsWithExpandedList("New Arrivals", "http://demo-store.seleniumacademy.com/women/new-arrivals.html");
+        actionsForDropdownLists("New Arrivals", URLs.WOMEN_NEW_ARRIVALS_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void topsAndBlousesLink() {
 
-        actionsWithExpandedList("Tops & Blouses", "http://demo-store.seleniumacademy.com/women/tops-blouses.html");
+        actionsForDropdownLists("Tops & Blouses", URLs.TOPS_BLOUSES_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void pantsAndDenimLink() {
 
-        actionsWithExpandedList("Pants & Denim", "http://demo-store.seleniumacademy.com/women/pants-denim.html");
+        actionsForDropdownLists("Pants & Denim", URLs.WOMEN_PANTS_DENIM_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void dressesAndSkirtsLink() {
 
-        actionsWithExpandedList("Dresses & Skirts", "http://demo-store.seleniumacademy.com/women/dresses-skirts.html");
+        actionsForDropdownLists("Dresses & Skirts", URLs.DRESSES_SKIRTS_PAGE);
     }
 }
