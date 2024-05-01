@@ -1,6 +1,7 @@
 package tests.header.mainmenu;
 
 import org.testng.annotations.Test;
+import qa.support.URLs;
 import tests.base.MainMenuBaseTest;
 
 public class SaleDropdownListTest extends MainMenuBaseTest {
@@ -13,30 +14,30 @@ public class SaleDropdownListTest extends MainMenuBaseTest {
     @Test(groups = "withExpandedList")
     public void viewAllSaleLink() {
 
-        actionsWithExpandedList("View All Sale", "http://demo-store.seleniumacademy.com/sale.html");
+        actionsForDropdownLists("View All Sale", URLs.SALE_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void womenLink() {
 
-        actionsWithExpandedList("Women", "http://demo-store.seleniumacademy.com/sale/women.html");
+        actionsForDropdownLists("Women", URLs.SALE_WOMEN_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void menLink() {
 
-        actionsWithExpandedList("Men", "http://demo-store.seleniumacademy.com/sale/men.html");
+        actionsForDropdownLists("Men", URLs.SALE_MEN_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void accessories() {
 
-        actionsWithExpandedList("Accessories", "http://demo-store.seleniumacademy.com/sale/accessories.html");
+        actionsForDropdownLists("Accessories", URLs.SALE_ACCESSORIES_PAGE);
     }
 
     @Test(groups = "withExpandedList")
     public void homeAndDecorLink() {
 
-        actionsWithExpandedList("Home & Decor", "http://demo-store.seleniumacademy.com/sale/home-decor.html");
+        actionsForDropdownLists("Home & Decor", URLs.SALE_HOME_DECOR_PAGE);
     }
 }
