@@ -28,7 +28,7 @@ public class MainMenu extends BasePage {
         parent = getPage().locator("#nav");
     }
 
-    public void hoverParent(String name) {
+    public void hoverTriggerElement(String name) {
 
         parent.getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(name).setExact(true)).hover();
         hovered = name;
@@ -40,8 +40,8 @@ public class MainMenu extends BasePage {
         item.getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(name).setExact(true)).click();
     }
 
-    public void clickVip() {
+    public void clickLink(String link) {
 
-        parent.getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("VIP").setExact(true)).click();
+        getPage().getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(link).setExact(true)).click();
     }
 }
