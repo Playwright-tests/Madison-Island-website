@@ -24,9 +24,15 @@ public class MainMenuBaseTest extends BaseTest {
         mainMenu.hoverTriggerElement(triggerElement);
     }
 
-    protected void actions(String link, String expectedUrl) {
+    protected void actionsForLinks(String link, String expectedUrl) {
 
-        mainMenu.clickItem(link);
+        mainMenu.clickLink(link);
+        Assert.assertEquals(getPage().url(), expectedUrl, "Incorrect url");
+    }
+
+    protected void actionsForDropdownLists(String item, String expectedUrl) {
+
+        mainMenu.clickItem(item);
         Assert.assertEquals(getPage().url(), expectedUrl, "Incorrect url");
     }
 }
