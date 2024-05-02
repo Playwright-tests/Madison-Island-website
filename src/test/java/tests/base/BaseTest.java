@@ -1,17 +1,19 @@
 package tests.base;
 
 import com.microsoft.playwright.Page;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import qa.base.BaseDataProviders;
 import qa.enums.Browser;
 import qa.exceptions.MockarooRequestException;
 import qa.playwright.PlaywrightBrowserLauncher;
 import qa.playwright.PlaywrightProvider;
-import qa.enums.URLs;
+import qa.support.URLs;
 
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.util.function.Consumer;
 
 
 public class BaseTest {
@@ -38,7 +40,7 @@ public class BaseTest {
 
         launcher = PlaywrightProvider.get(Browser.CHROME);
         launcher.create();
-        launcher.goToPage(URLs.HOME_PAGE.getName());
+        launcher.goToPage(URLs.HOME_PAGE);
     }
 
     @AfterMethod
@@ -55,5 +57,11 @@ public class BaseTest {
     protected Page getPage() {
 
         return PlaywrightBrowserLauncher.getPage();
+    }
+
+    protected <T> void clickAndVerifyPageUrl(Consumer<T> consumer, T object, String expectedUrl) {
+
+        consumer.accept(object);
+        Assert.assertEquals(getPage().url(), expectedUrl, "The page " + expectedUrl + " has not been opened");
     }
 }
