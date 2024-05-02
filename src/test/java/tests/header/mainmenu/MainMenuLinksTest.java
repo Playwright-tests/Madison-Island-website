@@ -1,45 +1,54 @@
 package tests.header.mainmenu;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import qa.mainmenu.MainMenu;
 import qa.support.URLs;
-import tests.base.MainMenuBaseTest;
+import tests.base.BaseTest;
 
-public class MainMenuLinksTest extends MainMenuBaseTest {
+public class MainMenuLinksTest extends BaseTest {
 
+    private MainMenu mainMenu;
+
+    @BeforeMethod
+    public void prepare() {
+
+        mainMenu = new MainMenu(getPage());
+    }
 
     @Test(groups = "withoutExpandedList")
     public void womenLink() {
 
-        actionsForLinks("Women", URLs.WOMEN_PAGE);
+        clickAndVerifyPageUrl(MainMenu::clickWomenLink, mainMenu, URLs.WOMEN_PAGE);
     }
 
     @Test(groups = "withoutExpandedList")
     public void menLink() {
 
-        actionsForLinks("Men", URLs.MEN_PAGE);
+        clickAndVerifyPageUrl(MainMenu::clickMenLink, mainMenu, URLs.MEN_PAGE);
     }
 
     @Test(groups = "withoutExpandedList")
     public void accessoriesLink() {
 
-        actionsForLinks("Accessories", URLs.ACCESSORIES_PAGE);
+        clickAndVerifyPageUrl(MainMenu::clickAccessoriesLink, mainMenu, URLs.ACCESSORIES_PAGE);
     }
 
     @Test(groups = "withoutExpandedList")
     public void homeAndDecorLink() {
 
-        actionsForLinks("Home & Decor", URLs.HOME_DECOR_PAGE);
+        clickAndVerifyPageUrl(MainMenu::clickHomeAndDecorLink, mainMenu, URLs.HOME_DECOR_PAGE);
     }
 
     @Test(groups = "withoutExpandedList")
     public void saleLink() {
 
-        actionsForLinks("Sale", URLs.SALE_PAGE);
+        clickAndVerifyPageUrl(MainMenu::clickSaleLink, mainMenu, URLs.SALE_PAGE);
     }
 
     @Test(groups = "withoutExpandedList")
     public void vipLink() {
 
-        actionsForLinks("VIP", URLs.VIP_PAGE);
+        clickAndVerifyPageUrl(MainMenu::clickVipLink, mainMenu, URLs.VIP_PAGE);
     }
 }
