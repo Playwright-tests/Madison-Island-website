@@ -34,4 +34,8 @@ public class URLs {
     public static final String TOPS_BLOUSES_PAGE = "http://demo-store.seleniumacademy.com/women/tops-blouses.html";
     public static final String WOMEN_PANTS_DENIM_PAGE = "http://demo-store.seleniumacademy.com/women/pants-denim.html";
     public static final String DRESSES_SKIRTS_PAGE = "http://demo-store.seleniumacademy.com/women/dresses-skirts.html";
+    public static final String WISHLIST_PAGE = "http://demo-store.seleniumacademy.com/wishlist/";
+    public static final String SHOPPING_CART_PAGE = "http://demo-store.seleniumacademy.com/checkout/cart/";
+    public static final String CHECKOUT_PAGE = "http://demo-store.seleniumacademy.com/checkout/onepage/";
+    public static final String REGISTER_PAGE = "http://demo-store.seleniumacademy.com/customer/account/create/";
 }
