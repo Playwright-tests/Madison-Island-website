@@ -1,0 +1,16 @@
+{
+    "correct": [
+        "sheck0@wsj.com",
+        "mchurn0@woothemes.com",
+        "lchucks0@google.com.au",
+        "driches0@pinterest.com",
+        "wianson0@google.nl"
+    ],
+    "incorrectEmailFormat": [
+        "email@example..com",
+        "email@example.com (Joe Smith)",
+        "email.example.com",
+        ".email@example.com",
+        "Joe Smith <email@example.com>"
+    ]
+}
