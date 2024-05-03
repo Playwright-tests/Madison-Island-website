@@ -38,4 +38,11 @@ public class URLs {
     public static final String SHOPPING_CART_PAGE = "http://demo-store.seleniumacademy.com/checkout/cart/";
     public static final String CHECKOUT_PAGE = "http://demo-store.seleniumacademy.com/checkout/onepage/";
     public static final String REGISTER_PAGE = "http://demo-store.seleniumacademy.com/customer/account/create/";
+    public static final String ABOUT_US_PAGE = "http://demo-store.seleniumacademy.com/about-magento-demo-store/";
+    public static final String CONTACT_US_PAGE = "http://demo-store.seleniumacademy.com/contacts/";
+    public static final String CUSTOMER_SERVICE_PAGE = "http://demo-store.seleniumacademy.com/customer-service/";
+    public static final String PRIVACY_POLICY_PAGE = "http://demo-store.seleniumacademy.com/privacy-policy-cookie-restriction-mode/";
+    public static final String SITE_MAP_PAGE = "http://demo-store.seleniumacademy.com/catalog/seo_sitemap/category/";
+    public static final String SEARCH_TERMS_PAGE = "http://demo-store.seleniumacademy.com/catalogsearch/term/popular/";
+    public static final String ADVANCED_SEARCH_PAGE = "http://demo-store.seleniumacademy.com/catalogsearch/advanced/";
 }
