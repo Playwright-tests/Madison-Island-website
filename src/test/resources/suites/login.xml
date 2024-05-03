@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Login">
+<suite name="Login form">
 
     <listeners>
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
     <test name="Input text validation">
-
         <classes>
             <class name="tests.login.InputTextValidationTest"/>
         </classes>
-
     </test>
 
-    <test name="Login functionalities">
-
-        <parameter name="fileName" value="MI_Credentials"/>
-        <parameter name="downloadMode" value="LOCAL"/>
+    <test name="Login">
+        <parameter name="fileName" value="MI_Credentials.json"/>
 
         <classes>
             <class name="tests.login.LoginTest"/>
