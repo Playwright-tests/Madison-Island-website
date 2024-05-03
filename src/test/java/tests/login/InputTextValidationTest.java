@@ -3,8 +3,8 @@ package tests.login;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.base.BaseTest;
-import qa.enums.URLs;
+import tests.base.BaseTest;
+import qa.support.URLs;
 import qa.pageobject.loginform.LoginForm;
 
 public class InputTextValidationTest extends BaseTest {
@@ -12,9 +12,9 @@ public class InputTextValidationTest extends BaseTest {
     private LoginForm loginForm;
 
     @BeforeMethod
-    public void create() {
+    public void prepare() {
 
-        goToPage(URLs.LOGIN_PAGE.getName());
+        goToPage(URLs.LOGIN_PAGE);
         loginForm = new LoginForm(getPage());
     }
 
