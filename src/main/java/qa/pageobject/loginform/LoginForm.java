@@ -27,14 +27,16 @@ public class LoginForm extends BasePage {
         adviceRequiredPassword = getPage().locator("#advice-required-entry-pass");
     }
 
-    public void setEmail(String email) {
+    public LoginForm setEmail(String email) {
 
         emailField.fill(email);
+        return this;
     }
 
-    public void setPassword(String password) {
+    public LoginForm setPassword(String password) {
 
         passwordField.fill(password);
+        return this;
     }
 
     public void clickLoginButton() {
