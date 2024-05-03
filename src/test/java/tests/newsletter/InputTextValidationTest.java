@@ -1,9 +1,9 @@
-package tests.footer.newsletter;
+package tests.newsletter;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.base.BaseTest;
+import tests.base.BaseTest;
 import qa.pageobject.footer.NewsletterForm;
 
 public class InputTextValidationTest extends BaseTest {
@@ -11,7 +11,7 @@ public class InputTextValidationTest extends BaseTest {
     private NewsletterForm newsletterForm;
 
     @BeforeMethod
-    public void create() {
+    public void prepare() {
 
         newsletterForm = new NewsletterForm(getPage());
     }
