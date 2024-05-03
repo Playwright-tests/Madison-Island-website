@@ -21,9 +21,10 @@ public class NewsletterForm extends BasePage {
         adviceRequiredEmail = getPage().locator("#advice-required-entry-newsletter");
     }
 
-    public void setEmail(String email) {
+    public NewsletterForm setEmail(String email) {
 
         emailField.fill(email);
+        return this;
     }
 
     public void clickSubscribeButton() {
@@ -44,7 +45,6 @@ public class NewsletterForm extends BasePage {
     public String getValidationMessage() {
 
         ElementHandle elementHandle = emailField.elementHandle();
-
         Object object = elementHandle.evaluate("e=>e.validationMessage");
 
         return object.toString();
