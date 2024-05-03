@@ -8,20 +8,16 @@
     </listeners>
 
     <test name="Input text validation">
-
         <classes>
-            <class name="tests.footer.newsletter.InputTextValidationTest"/>
+            <class name="tests.newsletter.InputTextValidationTest"/>
         </classes>
-
     </test>
 
-    <test name="Subscribing to the newsletter">
-
-        <parameter name="fileName" value="MI_Newsletter"/>
-        <parameter name="downloadMode" value="LOCAL"/>
+    <test name="Subscription to the newsletter">
+        <parameter name="fileName" value="MI_Newsletter.json"/>
 
         <classes>
-            <class name="tests.footer.newsletter.NewsletterTest"/>
+            <class name="tests.newsletter.SubscriptionToNewsletterTest"/>
         </classes>
     </test>
 
