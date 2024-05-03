@@ -4,16 +4,13 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import qa.base.BaseDataProviders;
+import qa.support.TestDataLoader;
 import qa.enums.Browser;
-import qa.exceptions.MockarooRequestException;
 import qa.playwright.PlaywrightBrowserLauncher;
 import qa.playwright.PlaywrightProvider;
 import qa.support.URLs;
 
 import java.io.FileNotFoundException;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.util.function.Consumer;
 
 
@@ -21,23 +18,18 @@ public class BaseTest {
 
     private PlaywrightBrowserLauncher launcher;
 
-    @Parameters({"fileName", "downloadMode"})
+    @Parameters({"fileName"})
     @BeforeClass
-    public void loadTestdata(@Optional("noFile") String fileName, @Optional("noDownloadMode") String downloadMode) throws MalformedURLException, FileNotFoundException, URISyntaxException, MockarooRequestException {
+    public void loadTestData(@Optional("noFile") String fileName) throws FileNotFoundException {
 
-        if (!fileName.equals("noFile") && !downloadMode.equals("noDownloadMode")) {
-            BaseDataProviders.loadTestdata(fileName, downloadMode);
+        if (!fileName.equals("noFile")) {
+            TestDataLoader.load(fileName);
         }
     }
 
-    @AfterSuite
-    public void clearTestdata() {
-
-        BaseDataProviders.clear();
-    }
-
+    @Parameters({"fileName"})
     @BeforeMethod
-    public void launch() {
+    public void launch(@Optional("noFile") String fileName) {
 
         launcher = PlaywrightProvider.get(Browser.CHROME);
         launcher.create();
