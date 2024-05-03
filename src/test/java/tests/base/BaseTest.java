@@ -1,6 +1,7 @@
 package tests.base;
 
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.WaitForSelectorState;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import qa.base.BaseDataProviders;
@@ -63,5 +64,17 @@ public class BaseTest {
 
         consumer.accept(object);
         Assert.assertEquals(getPage().url(), expectedUrl, "The page " + expectedUrl + " has not been opened");
+    }
+
+    protected <T> void clickAndCheckDropdownState(Consumer<T> consumer, T object, WaitForSelectorState selectorState, String selector, String expectedState) {
+
+        consumer.accept(object);
+
+        try {
+            getPage().waitForSelector(selector, new Page.WaitForSelectorOptions().setTimeout(2000)
+                    .setState(selectorState));
+        } catch (Exception e) {
+            Assert.fail("The dropdown list has not been " + expectedState);
+        }
     }
 }
