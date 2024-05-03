@@ -41,12 +41,14 @@ public class ExpandingAndCollapsingTest extends BaseTest {
     @Test(groups = "withoutExpandedList")
     public void expandingList() {
 
-        actions(WaitForSelectorState.VISIBLE, "expanded");
+        clickAndCheckDropdownState(AccountDropdownList::clickTriggerElement, accountDropdownList, WaitForSelectorState.VISIBLE,
+                accountDropdownList.getListSelector(), "expanded");
     }
 
     @Test(groups = "withExpandedList")
     public void collapsingList() {
 
-        actions(WaitForSelectorState.HIDDEN, "collapsed");
+        clickAndCheckDropdownState(AccountDropdownList::clickTriggerElement, accountDropdownList, WaitForSelectorState.HIDDEN,
+                accountDropdownList.getListSelector(), "collapsed");
     }
 }
