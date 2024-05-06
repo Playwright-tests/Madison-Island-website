@@ -6,7 +6,7 @@ public class URLs {
     public static final String SHOPPING_CART = "http://demo-store.seleniumacademy.com/checkout/cart/";
     public static final String LOGIN_PAGE = "http://demo-store.seleniumacademy.com/customer/account/login/";
     public static final String NEWSLETTER_SUBSCRIPTION_PAGE = "http://demo-store.seleniumacademy.com/newsletter/subscriber/new/";
-    public static final String SEARCH_RESULTS_PAGE = "http://demo-store.seleniumacademy.com/catalogsearch/result/";
+    public static final String SEARCH_RESULTS_PAGE = "http://demo-store.seleniumacademy.com/catalogsearch/result/?q=";
     public static final String WOMEN_PAGE = "http://demo-store.seleniumacademy.com/women.html";
     public static final String MEN_PAGE = "http://demo-store.seleniumacademy.com/men.html";
     public static final String ACCESSORIES_PAGE = "http://demo-store.seleniumacademy.com/accessories.html";
@@ -45,4 +45,5 @@ public class URLs {
     public static final String SITE_MAP_PAGE = "http://demo-store.seleniumacademy.com/catalog/seo_sitemap/category/";
     public static final String SEARCH_TERMS_PAGE = "http://demo-store.seleniumacademy.com/catalogsearch/term/popular/";
     public static final String ADVANCED_SEARCH_PAGE = "http://demo-store.seleniumacademy.com/catalogsearch/advanced/";
+    public static final String ORDERS_AND_RETURNS_PAGE = "http://demo-store.seleniumacademy.com/sales/guest/form/";
 }
