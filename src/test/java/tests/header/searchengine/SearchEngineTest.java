@@ -1,63 +1,68 @@
 package tests.header.searchengine;
 
+import com.microsoft.playwright.Page;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.dataProviders.SearchEngineDataProviders;
-import qa.enums.URLs;
-import qa.pageobject.searchresultspage.SearchResults;
-import qa.pageobject.sections.Header;
-import qa.base.BaseTest;
+import qa.pageobject.header.SearchEngine;
+import qa.support.URLs;
+import qa.pageobject.searchresultspage.SearchResultsPage;
+import tests.base.BaseTest;
 import qa.support.dataprovidernames.DataProviderNames;
 
 public class SearchEngineTest extends BaseTest {
 
-    private Header header;
-    private SearchResults searchResults;
+    private SearchEngine searchEngine;
+    private SearchResultsPage searchResultsPage;
 
     @BeforeMethod
-    public void create() {
+    public void prepare() {
 
-        header = new Header(getPage());
-        searchResults = new SearchResults(getPage());
+        searchEngine = new SearchEngine(getPage());
+        searchResultsPage = new SearchResultsPage(getPage());
     }
 
-    private void search(String phrase) {
+    private void waitForSearchResultsPage(String phrase) {
 
-        header.getSearchEngine().setPhrase(phrase);
-        header.getSearchEngine().clickSearchButton();
+        try {
+            getPage().waitForURL(URLs.SEARCH_RESULTS_PAGE + phrase,
+                    new Page.WaitForURLOptions().setTimeout(2000));
+        } catch (Exception e) {
+            Assert.fail("The search results page has not been opened");
+        }
     }
+
+    private void actions(String phrase) {
+
+        searchEngine.setPhrase(phrase);
+        searchEngine.clickSearchButton();
+        waitForSearchResultsPage(phrase);
+        searchResultsPage.findProducts();
+    }
+
 
     @Test(dataProvider = DataProviderNames.CORRECT, dataProviderClass = SearchEngineDataProviders.class)
     public void correct(String phrase) {
 
-        search(phrase);
+        actions(phrase);
 
-        Assert.assertTrue(getPage().url().contains(URLs.SEARCH_RESULTS_PAGE.getName()),
-                "The page with address \"" + URLs.SEARCH_RESULTS_PAGE.getName() + "\" has not been opened");
-        Assert.assertTrue(searchResults.getAmountItemsMessageLocator().isVisible(),
-                "No product has been found");
+        Assert.assertTrue(searchResultsPage.getProductsListSize() > 0, "No products found with the correct phrase: " + phrase);
     }
 
     @Test(dataProvider = DataProviderNames.LOWER_UPPER, dataProviderClass = SearchEngineDataProviders.class)
     public void lowerUpper(String phrase) {
 
-        search(phrase);
+        actions(phrase);
 
-        Assert.assertTrue(getPage().url().contains(URLs.SEARCH_RESULTS_PAGE.getName()),
-                "The page with address \"" + URLs.SEARCH_RESULTS_PAGE.getName() + "\" has not been opened");
-        Assert.assertTrue(searchResults.getAmountItemsMessageLocator().isVisible(),
-                "No product has been found");
+        Assert.assertTrue(searchResultsPage.getProductsListSize() > 0, "No products found with the correct phrase: " + phrase);
     }
 
     @Test(dataProvider = DataProviderNames.INCORRECT, dataProviderClass = SearchEngineDataProviders.class)
     public void incorrect(String phrase) {
 
-        search(phrase);
+        actions(phrase);
 
-        Assert.assertTrue(getPage().url().contains(URLs.SEARCH_RESULTS_PAGE.getName()),
-                "The page with address \"" + URLs.SEARCH_RESULTS_PAGE.getName() + "\" has not been opened");
-        Assert.assertTrue(searchResults.getNoResultsMessageLocator().isVisible(),
-                "No product has been found");
+        Assert.assertEquals(searchResultsPage.getProductsListSize(), 0, "Products are found with the correct phrase: " + phrase);
     }
 }
