@@ -1,0 +1,50 @@
+{
+    "correct": [
+        "blouse",
+        "bed",
+        "boots",
+        "jeans",
+        "pants",
+        "books",
+        "music",
+        "shirts",
+        "skirts",
+        "dress"
+    ],
+    "lowerUpper": [
+        "bLoUSE",
+        "bEd",
+        "bOoTs",
+        "JeANs",
+        "pANTs",
+        "bOokS",
+        "mUsIC",
+        "sHIrTs",
+        "SKirts",
+        "drESS"
+    ],
+    "incorrect": [
+        "_63q-IJ-7.2mLAlj",
+        "_92i-OZ-9.anQAwm",
+        "_621-AI-1.kJDAmq",
+        "_83s-CA-9.YtFAfx",
+        "_08l-HR-3.YSYAwn",
+        "_46l-TF-9.cLXAoy",
+        "_31m-NQ-5.QIFAlq",
+        "_956-TX-4.bw5Asg",
+        "_15c-QI-2.mz8Aul",
+        "_656-RT-0.X4CAzl"
+    ],
+    "naughtyString": [
+        "הָיְתָהtestالصفحات التّحول",
+        "̡͓̞ͅI̗̘̦͝n͇͇͙v̮̫ok̲̫̙͈i̖͙̭̹̠̞n̡̻̮̣̺g̲͈͙̭͙̬͎ ̰t͔̦h̞̲e̢̤ ͍̬̲͖f̴̘͕̣è͖ẹ̥̩l͖͔͚i͓͚̦͠n͖͍̗͓̳̮g͍ ̨o͚̪͡f̘̣̬ ̖̘͖̟͙̮c҉͔̫͖͓͇͖ͅh̵̤̣͚͔á̗̼͕ͅo̼̣̥s̱͈̺̖̦̻͢.̛̖̞̠̫̰",
+        "0.00",
+        "!@#$%^&*()",
+        "/dev/null; touch /tmp/blns.fail ; echo",
+        "₀₁₂",
+        "Œ„´‰ˇÁ¨ˆØ∏”’",
+        "-1E2",
+        "-1.00",
+        "nil"
+    ]
+}
