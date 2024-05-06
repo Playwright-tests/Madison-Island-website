@@ -1,4 +1,4 @@
-package tests.header.accountdropdownlist;
+package tests.accountdropdownlist;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

@@ -1,4 +1,4 @@
-package tests.header.mainmenu.accessoriesdropdownlist;
+package tests.mainmenu.accessoriesdropdownlist;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
