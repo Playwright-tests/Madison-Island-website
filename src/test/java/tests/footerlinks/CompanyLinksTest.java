@@ -1,4 +1,4 @@
-package tests.footer.links;
+package tests.footerlinks;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
