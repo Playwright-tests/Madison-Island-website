@@ -1,4 +1,4 @@
-package tests.header.accountdropdownlist;
+package tests.accountdropdownlist;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.WaitForSelectorState;

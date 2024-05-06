@@ -1,4 +1,4 @@
-package tests.header.minicart;
+package tests.minicart;
 
 import com.microsoft.playwright.options.WaitForSelectorState;
 import org.testng.Assert;

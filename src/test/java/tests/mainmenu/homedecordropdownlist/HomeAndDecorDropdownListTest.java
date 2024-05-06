@@ -1,4 +1,4 @@
-package tests.header.mainmenu.homedecordropdownlist;
+package tests.mainmenu.homedecordropdownlist;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

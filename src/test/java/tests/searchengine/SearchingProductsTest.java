@@ -1,4 +1,4 @@
-package tests.header.searchengine;
+package tests.searchengine;
 
 import com.microsoft.playwright.Page;
 import org.testng.Assert;
@@ -11,7 +11,7 @@ import qa.pageobject.searchresultspage.SearchResultsPage;
 import tests.base.BaseTest;
 import qa.support.dataprovidernames.DataProviderNames;
 
-public class SearchEngineTest extends BaseTest {
+public class SearchingProductsTest extends BaseTest {
 
     private SearchEngine searchEngine;
     private SearchResultsPage searchResultsPage;

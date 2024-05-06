@@ -1,4 +1,4 @@
-package tests.header.searchengine;
+package tests.searchengine;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;

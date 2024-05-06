@@ -1,4 +1,4 @@
-package tests.header.mainmenu;
+package tests.mainmenu;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

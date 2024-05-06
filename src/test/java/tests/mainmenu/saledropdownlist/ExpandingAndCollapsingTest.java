@@ -1,39 +1,39 @@
-package tests.header.mainmenu.womendropdownlist;
+package tests.mainmenu.saledropdownlist;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.mainmenu.WomenDropdownList;
+import qa.mainmenu.SaleDropdownList;
 import tests.base.BaseTest;
 
 public class ExpandingAndCollapsingTest extends BaseTest {
 
-    private WomenDropdownList womenDropdownList;
+    private SaleDropdownList saleDropdownList;
 
     @BeforeMethod(onlyForGroups = "withoutExpandedList")
     public void prepareWithoutExpandedList() {
 
-        womenDropdownList = new WomenDropdownList(getPage());
+        saleDropdownList = new SaleDropdownList(getPage());
     }
 
     @BeforeMethod(onlyForGroups = "withExpandedList")
     public void prepareWithExpandedList() {
 
-        womenDropdownList = new WomenDropdownList(getPage());
-        womenDropdownList.hoverTriggerElement();
+        saleDropdownList = new SaleDropdownList(getPage());
+        saleDropdownList.hoverTriggerElement();
     }
 
     @Test(groups = "withoutExpandedList")
     public void expandingDropdownList() {
 
-        womenDropdownList.hoverTriggerElement();
-        Assert.assertTrue(womenDropdownList.isListVisible(), "The dropdown list has not been expanded");
+        saleDropdownList.hoverTriggerElement();
+        Assert.assertTrue(saleDropdownList.isListVisible(), "The dropdown list has not been expanded");
     }
 
     @Test(groups = "withExpandedList")
     public void collapsingDropdownList() {
 
         getPage().mouse().move(0, -100);
-        Assert.assertFalse(womenDropdownList.isListVisible(), "The dropdown list has not been collapsed");
+        Assert.assertFalse(saleDropdownList.isListVisible(), "The dropdown list has not been collapsed");
     }
 }

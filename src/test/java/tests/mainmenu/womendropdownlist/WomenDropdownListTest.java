@@ -1,4 +1,4 @@
-package tests.header.mainmenu.womendropdownlist;
+package tests.mainmenu.womendropdownlist;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
