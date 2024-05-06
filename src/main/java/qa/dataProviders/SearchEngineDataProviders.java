@@ -1,29 +1,28 @@
 package qa.dataProviders;
 
 import org.testng.annotations.DataProvider;
-import qa.base.BaseDataProviders;
-import qa.testdataloader.TestdataLoader;
+import qa.testdataloader.ModelsBuilder;
 import qa.support.dataprovidernames.DataProviderNames;
 
 import java.io.FileNotFoundException;
 
-public class SearchEngineDataProviders extends BaseDataProviders {
+public class SearchEngineDataProviders {
 
     @DataProvider(name = DataProviderNames.CORRECT)
     public Object[] correct() throws FileNotFoundException {
 
-        return TestdataLoader.getStrings(getJsonFile(), DataProviderNames.CORRECT);
+        return ModelsBuilder.getStrings(DataProviderNames.CORRECT);
     }
 
     @DataProvider(name = DataProviderNames.LOWER_UPPER)
     public Object[] lowerUpper() throws FileNotFoundException {
 
-        return TestdataLoader.getStrings(getJsonFile(), DataProviderNames.LOWER_UPPER);
+        return ModelsBuilder.getStrings(DataProviderNames.LOWER_UPPER);
     }
 
     @DataProvider(name = DataProviderNames.INCORRECT)
     public Object[] incorrect() throws FileNotFoundException {
 
-        return TestdataLoader.getStrings(getJsonFile(), DataProviderNames.INCORRECT);
+        return ModelsBuilder.getStrings(DataProviderNames.INCORRECT);
     }
 }
