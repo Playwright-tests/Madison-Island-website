@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Expanding the mini cart">
-    
+<suite name="Main menu">
+
     <listeners>
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
-    
-    <test name="Clicking the 'Cart' link">
+
+    <test name="Links">
+
+        <parameter name="fileName" value="links"/>
+        <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
-            <class name="tests.header.minicart.ExpandingMiniCartTest"/>
+            <class name="tests.mainmenu.MainMenuLinksTest"/>
         </classes>
-
     </test>
-    
+
 </suite>

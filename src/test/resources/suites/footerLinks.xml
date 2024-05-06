@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Main menu">
+<suite name="Footer">
 
     <listeners>
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
-    <test name="Links">
-
-        <parameter name="fileName" value="links"/>
-        <parameter name="downloadMode" value="LOCAL"/>
-
+    <test name="Sections links">
         <classes>
-            <class name="tests.header.mainmenu.MainMenuTest"/>
+            <class name="tests.footerlinks.CompanyLinksTest"/>
+            <class name="tests.footerlinks.QuickLinksTest"/>
+            <class name="tests.footerlinks.AccountLinksTest"/>
         </classes>
     </test>
 

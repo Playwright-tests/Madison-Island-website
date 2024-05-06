@@ -9,7 +9,7 @@
         <parameter name="downloadMode" value="LOCAL"/>
 
         <classes>
-            <class name="tests.header.accountdropdownlist.AccountDropdownListTest"/>
+            <class name="tests.accountdropdownlist.AccountDropdownListLinksTest"/>
         </classes>
     </test>
 

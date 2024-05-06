@@ -5,7 +5,7 @@
 
     <test name="Input text validation">
         <classes>
-            <class name="tests.header.searchengine.InputTextValidationTest"/>
+            <class name="tests.searchengine.InputTextValidationTest"/>
         </classes>
     </test>
 
@@ -13,7 +13,7 @@
         <parameter name="fileName" value="MI_Phrases.json"/>
 
         <classes>
-            <class name="tests.header.searchengine.SearchEngineTest"/>
+            <class name="tests.searchengine.SearchingProductsTest"/>
         </classes>
     </test>
 
