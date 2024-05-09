@@ -7,7 +7,7 @@ import qa.dataProviders.NewsletterDataProviders;
 import qa.pageobject.footer.NewsletterForm;
 import qa.support.URLs;
 import tests.base.BaseTest;
-import qa.support.dataprovidernames.DataProviderNames;
+import qa.support.DataProviderNames;
 
 public class SubscriptionToNewsletterTest extends BaseTest {
 
