@@ -8,8 +8,8 @@ import qa.support.URLs;
 import qa.pageobject.accountpage.Dashboard;
 import qa.pageobject.loginform.LoginForm;
 import tests.base.BaseTest;
-import qa.records.Credentials;
-import qa.support.dataprovidernames.DataProviderNames;
+import qa.models.Credentials;
+import qa.support.DataProviderNames;
 
 public class LoginTest extends BaseTest {
 
