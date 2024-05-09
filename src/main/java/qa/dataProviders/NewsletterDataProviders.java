@@ -1,8 +1,8 @@
 package qa.dataProviders;
 
 import org.testng.annotations.DataProvider;
-import qa.testdataloader.ModelsBuilder;
-import qa.support.dataprovidernames.DataProviderNames;
+import qa.support.ModelsBuilder;
+import qa.support.DataProviderNames;
 
 import java.io.FileNotFoundException;
 
