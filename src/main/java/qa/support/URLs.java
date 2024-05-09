@@ -46,4 +46,15 @@ public class URLs {
     public static final String SEARCH_TERMS_PAGE = "http://demo-store.seleniumacademy.com/catalogsearch/term/popular/";
     public static final String ADVANCED_SEARCH_PAGE = "http://demo-store.seleniumacademy.com/catalogsearch/advanced/";
     public static final String ORDERS_AND_RETURNS_PAGE = "http://demo-store.seleniumacademy.com/sales/guest/form/";
+    public static final String ACCOUNT_DASHBOARD_PAGE = "http://demo-store.seleniumacademy.com/customer/account/";
+    public static final String ACCOUNT_INFORMATION_PAGE = "http://demo-store.seleniumacademy.com/customer/account/edit/";
+    public static final String ADDRESS_BOOK_PAGE = "http://demo-store.seleniumacademy.com/customer/address/new/";
+    public static final String MY_ORDERS_PAGE = "http://demo-store.seleniumacademy.com/sales/order/history/";
+    public static final String BILLING_AGREEMENTS_PAGE = "http://demo-store.seleniumacademy.com/sales/billing_agreement/";
+    public static final String RECURRING_PROFILE_PAGE = "http://demo-store.seleniumacademy.com/sales/recurring_profile/";
+    public static final String MY_PRODUCT_REVIEWS_PAGE = "http://demo-store.seleniumacademy.com/review/customer/";
+    public static final String MY_WISHLIST_PAGE = "http://demo-store.seleniumacademy.com/wishlist/";
+    public static final String MY_APPLICATIONS_PAGE = "http://demo-store.seleniumacademy.com/oauth/customer_token/";
+    public static final String ACCOUNT_NEWSLETTER_SUBSCRIPTION_PAGE = "http://demo-store.seleniumacademy.com/newsletter/manage/";
+    public static final String MY_DOWNLOADABLE_PAGE = "http://demo-store.seleniumacademy.com/downloadable/customer/products/";
 }
