@@ -1,4 +1,4 @@
-package qa.records;
+package qa.models;
 
 import lombok.Getter;
 
