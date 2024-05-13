@@ -1,15 +1,15 @@
 package qa.dataProviders;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.testng.annotations.DataProvider;
-import qa.base.BaseDataProviders;
-import qa.testdataloader.TestdataLoader;
-import qa.support.dataprovidernames.DataProviderNames;
+import qa.support.DataProviderNames;
+import qa.support.ModelsBuilder;
 
-public class ProductDataProviders extends BaseDataProviders {
+public class ProductDataProviders {
 
-    @DataProvider(name = DataProviderNames.PRODUCT_ATTRIBUTES)
-    public Object[] productAttributes() {
+    @DataProvider(name = DataProviderNames.PRODUCTS)
+    public Object[] productAttributes() throws JsonProcessingException {
 
-        return TestdataLoader.getProductData(getJsonFile());
+        return ModelsBuilder.getProduct(DataProviderNames.PRODUCTS);
     }
 }
