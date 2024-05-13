@@ -1,4 +1,4 @@
-package qa.helpers;
+package qa.support;
 
 import com.microsoft.playwright.Page;
 import qa.pageobject.loginform.LoginForm;
