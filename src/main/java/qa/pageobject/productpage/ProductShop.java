@@ -29,19 +29,22 @@ public class ProductShop extends BasePage {
         quantityField = new QuantityField(page, page.locator("#qty"));
     }
 
-    public void setColor(String color) {
+    public ProductShop setColor(String color) {
 
         getPage().getByAltText(color).click();
+        return this;
     }
 
-    public void setSize(String size) {
+    public ProductShop setSize(String size) {
 
         getPage().getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(size).setExact(true)).click();
+        return this;
     }
 
-    public void setQuantity(String quantity) {
+    public ProductShop setQuantity(String quantity) {
 
         quantityField.setQuantity(quantity);
+        return this;
     }
 
     public String getQuantityValidationMessage() {
