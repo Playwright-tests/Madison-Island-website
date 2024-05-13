@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import qa.pageobject.accountpage.SideMenu;
 import tests.base.BaseTest;
 import qa.support.URLs;
-import qa.helpers.Authentication;
+import qa.support.Authentication;
 
 
 import java.io.IOException;
