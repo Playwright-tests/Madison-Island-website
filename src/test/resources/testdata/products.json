@@ -1,0 +1,27 @@
+{
+    "products": [
+
+        {
+            "url": "elizabeth-knit-top-593.html",
+            "name": "Elizabeth Knit Top",
+            "color": "Red",
+            "size": "L",
+            "quantity": "5"
+        },
+
+        {
+            "url": "men/shirts/plaid-cotton-shirt-473.html",
+            "name": "Plaid Cotton Shirt",
+            "color": "Khaki",
+            "size": "XL",
+            "quantity": 2 
+        },
+        {
+            "url": "women/pants-denim/tribeca-skinny-jean.html",
+            "name": "TriBeCa Skinny Jean",
+            "color": "Black",
+            "size": "28",
+            "quantity": 4 
+        }
+    ]
+}
