@@ -8,6 +8,8 @@ import qa.base.BasePage;
 
 public class ProductPage extends BasePage {
 
+    @Getter
+    private final String errorMessageSelector = ".error-msg";
     private final Locator errorMessage;
     @Getter
     @Setter
@@ -17,13 +19,8 @@ public class ProductPage extends BasePage {
 
         super(page);
 
-        errorMessage = page.locator(".error-msg");
+        errorMessage = page.locator(errorMessageSelector);
         this.productShop = new ProductShop(getPage());
-    }
-
-    public Locator getErrorMessageLocator() {
-
-        return errorMessage;
     }
 
     public String getErrorMessage() {
