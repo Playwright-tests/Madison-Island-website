@@ -9,7 +9,7 @@ import qa.pageobject.header.SearchEngine;
 import qa.support.URLs;
 import qa.pageobject.searchresultspage.SearchResultsPage;
 import tests.base.BaseTest;
-import qa.support.dataprovidernames.DataProviderNames;
+import qa.support.DataProviderNames;
 
 public class SearchingProductsTest extends BaseTest {
 
