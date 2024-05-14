@@ -18,7 +18,6 @@ public class Table extends BasePage {
         super(page);
 
         shoppingCartTable = page.locator("#shopping-cart-table");
-        rows = shoppingCartTable.locator("tbody tr").all();
         errorMessage = page.locator(".item-msg.error");
     }
 
