@@ -3,21 +3,26 @@ package tests.productpage.quantityField;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.base.BaseTest;
-import qa.enums.URLs;
+import qa.models.Product;
+import qa.support.URLs;
+import tests.base.BaseTest;
 import qa.pageobject.productpage.ProductPage;
-import qa.pageobject.productpage.ProductShop;
 
-public class InputTextValidationTest extends BaseTest {
+public class InputTextVerificationTest extends BaseTest {
 
     private ProductPage productPage;
+    private final Product product;
+
+    public InputTextVerificationTest(Product product) {
+
+        this.product = product;
+    }
 
     @BeforeMethod
-    public void create() {
+    public void prepare() {
 
-        goToPage(URLs.ELIZABETH_KNIT_PRODUCT_PAGE.getName());
+        goToPage(URLs.HOME_PAGE + product.getUrl());
         productPage = new ProductPage(getPage());
-        productPage.setProductShop(new ProductShop(getPage()));
     }
 
     @Test
@@ -26,7 +31,6 @@ public class InputTextValidationTest extends BaseTest {
         String quantity = "1234";
         productPage.getProductShop().setQuantity(quantity);
 
-        Assert.assertEquals(productPage.getProductShop().getQuantity(), quantity,
-                "Incorrect input content");
+        Assert.assertEquals(productPage.getProductShop().getQuantity(), quantity,"Incorrect input content");
     }
 }
