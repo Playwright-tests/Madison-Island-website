@@ -1,63 +1,22 @@
 package qa.dataProviders;
 
 import org.testng.annotations.DataProvider;
-import qa.base.BaseDataProviders;
-import qa.testdataloader.TestdataLoader;
-import qa.support.dataprovidernames.DataProviderNames;
+import qa.support.ModelsBuilder;
+import qa.support.DataProviderNames;
 
-public class QuantityFieldDataProviders extends BaseDataProviders {
+import java.io.FileNotFoundException;
 
-    @DataProvider(name = DataProviderNames.BELOW_MIN)
-    public Object[] belowMin() {
-
-        return TestdataLoader.getQuantityData(getJsonFile(), DataProviderNames.BELOW_MIN);
-    }
-
-    @DataProvider(name = DataProviderNames.MIN)
-    public Object[] min() {
-
-        return TestdataLoader.getQuantityData(getJsonFile(), DataProviderNames.MIN);
-    }
-
-    @DataProvider(name = DataProviderNames.ABOVE_MIN)
-    public Object[] aboveMin() {
-
-        return TestdataLoader.getQuantityData(getJsonFile(), DataProviderNames.ABOVE_MIN);
-    }
-
-    @DataProvider(name = DataProviderNames.BELOW_MAX)
-    public Object[] belowMax() {
-
-        return TestdataLoader.getQuantityData(getJsonFile(), DataProviderNames.BELOW_MAX);
-    }
-
-    @DataProvider(name = DataProviderNames.MAX)
-    public Object[] max() {
-
-        return TestdataLoader.getQuantityData(getJsonFile(), DataProviderNames.MAX);
-    }
-
-    @DataProvider(name = DataProviderNames.ABOVE_MAX)
-    public Object[] aboveMax() {
-
-        return TestdataLoader.getQuantityData(getJsonFile(), DataProviderNames.ABOVE_MAX);
-    }
-
-    @DataProvider(name = DataProviderNames.NEGATIVE)
-    public Object[] negative() {
-
-        return TestdataLoader.getQuantityData(getJsonFile(), DataProviderNames.NEGATIVE);
-    }
+public class QuantityFieldDataProviders {
 
     @DataProvider(name = DataProviderNames.FLOATING_POINT)
-    public Object[] floatingPoint() {
+    public Object[] floatingPoint() throws FileNotFoundException {
 
-        return TestdataLoader.getQuantityData(getJsonFile(), DataProviderNames.FLOATING_POINT);
+        return ModelsBuilder.getStrings(DataProviderNames.NOT_NUMBER);
     }
 
     @DataProvider(name = DataProviderNames.NOT_NUMBER)
-    public Object[] notNumber() {
+    public Object[] notANumber() throws FileNotFoundException {
 
-        return TestdataLoader.getQuantityData(getJsonFile(), DataProviderNames.NOT_NUMBER);
+        return ModelsBuilder.getStrings(DataProviderNames.NOT_NUMBER);
     }
 }
