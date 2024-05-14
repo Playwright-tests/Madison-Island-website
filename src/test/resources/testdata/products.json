@@ -6,7 +6,8 @@
             "name": "Elizabeth Knit Top",
             "color": "Red",
             "size": "L",
-            "quantity": "5"
+            "quantity": "5",
+            "maxQuantity": "75"
         },
 
         {
@@ -14,14 +15,16 @@
             "name": "Plaid Cotton Shirt",
             "color": "Khaki",
             "size": "XL",
-            "quantity": 2 
+            "quantity": 2,
+            "maxQuantity": "36"
         },
         {
             "url": "women/pants-denim/tribeca-skinny-jean.html",
             "name": "TriBeCa Skinny Jean",
             "color": "Black",
             "size": "28",
-            "quantity": 4 
+            "quantity": "4",
+            "maxQuantity": "11"
         }
     ]
 }
