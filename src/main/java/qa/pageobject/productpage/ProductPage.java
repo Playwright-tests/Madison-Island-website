@@ -2,11 +2,15 @@ package qa.pageobject.productpage;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import lombok.Getter;
+import lombok.Setter;
 import qa.base.BasePage;
 
 public class ProductPage extends BasePage {
 
     private final Locator errorMessage;
+    @Getter
+    @Setter
     private ProductShop productShop;
 
     public ProductPage(Page page) {
@@ -14,12 +18,7 @@ public class ProductPage extends BasePage {
         super(page);
 
         errorMessage = page.locator(".error-msg");
-        this.productShop = null;
-    }
-
-    public void setProductShop(ProductShop productShop) {
-
-        this.productShop = productShop;
+        this.productShop = new ProductShop(getPage());
     }
 
     public Locator getErrorMessageLocator() {
@@ -30,10 +29,5 @@ public class ProductPage extends BasePage {
     public String getErrorMessage() {
 
         return errorMessage.textContent();
-    }
-
-    public ProductShop getProductShop() {
-
-        return productShop;
     }
 }
