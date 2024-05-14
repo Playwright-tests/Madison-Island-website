@@ -1,43 +1,48 @@
 package tests.shoppingcart.contents;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import qa.base.BaseTest;
-import qa.dataProviders.ProductDataProviders;
-import qa.enums.ProductShopMethods;
-import qa.enums.URLs;
-import qa.helpers.ProductShopHandler;
+import tests.base.BaseTest;
+import qa.support.URLs;
 import qa.pageobject.productpage.ProductShop;
 import qa.pageobject.shoppingcart.ShoppingCart;
-import qa.records.ProductData;
+import qa.models.Product;
 
-import java.lang.reflect.InvocationTargetException;
 
-public class ContentsAfterAddingProductTest extends BaseTest {
+public class ShoppingCartStateTest extends BaseTest {
 
+    private ProductShop productShop;
     private ShoppingCart shoppingCart;
-    private ProductData[] products;
+    private final Product[] products;
     private SoftAssert softAssert;
 
-    @BeforeMethod
-    public void create() {
+    public ShoppingCartStateTest(Product[] products) {
 
-        shoppingCart = new ShoppingCart(getPage());
-        softAssert = new SoftAssert();
-        ProductDataProviders productDataProviders = new ProductDataProviders();
-        products = (ProductData[]) productDataProviders.productAttributes();
+        this.products = products;
     }
 
-    private void actions() throws InvocationTargetException, IllegalAccessException {
+    @BeforeMethod
+    public void prepare() throws JsonProcessingException {
 
-        for (ProductData product : products) {
+        productShop = new ProductShop(getPage());
+        shoppingCart = new ShoppingCart(getPage());
+        softAssert = new SoftAssert();
+    }
 
-            goToPage(product.getUrl());
-            ProductShop productShop = ProductShopHandler.set(getPage(), product, ProductShopMethods.ALL);
-            productShop.clickAddToCartButton();
-            getPage().waitForURL(URLs.SHOPPING_CART.getName());
+    private void actions() {
+
+        for (Product product : products) {
+
+            goToPage(URLs.HOME_PAGE + product.getUrl());
+            productShop
+                    .setColor(product.getColor())
+                    .setSize(product.getSize())
+                    .setQuantity(product.getQuantity())
+                    .clickAddToCartButton();
+            getPage().waitForURL(URLs.SHOPPING_CART);
         }
     }
 
@@ -59,7 +64,7 @@ public class ContentsAfterAddingProductTest extends BaseTest {
     }
 
     @Test
-    public void checkingContents() throws InvocationTargetException, IllegalAccessException {
+    public void checkingContents() {
 
         actions();
         shoppingCart.getTable().findRows();
