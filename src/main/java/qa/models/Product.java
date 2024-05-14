@@ -10,6 +10,7 @@ public class Product {
     private String color;
     private String size;
     private String quantity;
+    private String maxQuantity;
 
     public Product() {  }
 }
