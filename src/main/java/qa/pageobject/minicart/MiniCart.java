@@ -1,4 +1,4 @@
-package qa.minicart;
+package qa.pageobject.minicart;
 
 import com.microsoft.playwright.Page;
 import lombok.Getter;

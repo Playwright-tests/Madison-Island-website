@@ -1,4 +1,4 @@
-package qa.mainmenu;
+package qa.pageobject.mainmenu;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
