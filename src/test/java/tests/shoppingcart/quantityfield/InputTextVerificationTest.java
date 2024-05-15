@@ -3,21 +3,28 @@ package tests.shoppingcart.quantityfield;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.base.BaseTest;
-import qa.enums.URLs;
+import qa.models.Product;
+import tests.base.BaseTest;
+import qa.support.URLs;
 import qa.helpers.ShoppingCartActions;
 import qa.pageobject.shoppingcart.ShoppingCart;
 
-public class InputTextValidationTest extends BaseTest {
+public class InputTextVerificationTest extends BaseTest {
 
+    private final Product[] products;
     private ShoppingCart shoppingCart;
 
-    @BeforeMethod
-    public void create() {
+    public InputTextVerificationTest(Product[] products) {
 
-        goToPage(URLs.ELIZABETH_KNIT_PRODUCT_PAGE.getName());
-        ShoppingCartActions.addToCart(getPage()).clickAddToCartButton();
-        getPage().waitForURL(URLs.SHOPPING_CART.getName());
+        this.products = products;
+    }
+
+    @BeforeMethod
+    public void prepare() {
+
+        goToPage(URLs.HOME_PAGE + products[0].getUrl());
+        ShoppingCartActions.addToCart(getPage(), products[0]);
+        getPage().waitForURL(URLs.SHOPPING_CART);
 
         shoppingCart = new ShoppingCart(getPage());
         shoppingCart.getTable().findRows();

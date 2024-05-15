@@ -6,15 +6,15 @@ import qa.models.Product;
 import qa.support.DataProviderNames;
 import qa.support.ModelsBuilder;
 import qa.support.TestDataLoader;
-import tests.productpage.quantityField.InputTextVerificationTest;
+import tests.productpage.quantityField.ValidationTest;
 
-public class InputTextVerificationTestFactory {
+public class ProductPageQtyValidationTestFactory {
 
     @Factory
-    public Object[] createInstance() throws JsonProcessingException {
+    public Object[] creteInstance() throws JsonProcessingException {
 
         TestDataLoader.load("products.json");
         Product[] products = ModelsBuilder.getProduct(DataProviderNames.PRODUCTS);
-        return new Object[] {new InputTextVerificationTest(products[0]) };
+        return new Object[] { new ValidationTest(products[0]) };
     }
 }
