@@ -2,8 +2,27 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Product page">
-    <suite-files>
-        <suite-file path="productPage/quantityField.xml"/>
-        <suite-file path="productPage/settingAttributes.xml"/>
-    </suite-files>
+
+    <listeners>
+        <listener class-name="qa.testlistener.Listener"/>
+    </listeners>
+
+    <test name="Setting a product attributes">
+        <parameter name="fileName" value="products.json"/>
+
+        <classes>
+            <class name="tests.factories.SettingProductAttributesTestFactory">
+
+            </class>
+        </classes>
+    </test>
+
+    <test name="Validation the quantity field">
+        <parameter name="fileName" value="MI_Quantities.json"/>
+
+        <classes>
+            <class name="tests.factories.ProductPageQtyValidationTestFactory"/>
+        </classes>
+    </test>
+
 </suite>
