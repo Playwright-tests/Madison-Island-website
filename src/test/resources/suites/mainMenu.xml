@@ -7,13 +7,44 @@
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
-    <test name="Links">
-
-        <parameter name="fileName" value="links"/>
-        <parameter name="downloadMode" value="LOCAL"/>
-
+    <test name="Main menu links">
         <classes>
             <class name="tests.mainmenu.MainMenuLinksTest"/>
+        </classes>
+    </test>
+
+    <test name="The 'Women' dropdown list">
+        <classes>
+            <class name="tests.mainmenu.womendropdownlist.ExpandingAndCollapsingTest"/>
+            <class name="tests.mainmenu.womendropdownlist.WomenDropdownListTest"/>
+        </classes>
+    </test>
+
+    <test name="The 'Men' dropdown list">
+        <classes>
+            <class name="tests.mainmenu.mendropdownlist.ExpandingAndCollapsingTest"/>
+            <class name="tests.mainmenu.mendropdownlist.MenDropdownListTest"/>
+        </classes>
+    </test>
+
+    <test name="The 'Accessories' dropdown list">
+        <classes>
+            <class name="tests.mainmenu.accessoriesdropdownlist.ExpandingAndCollapsingTest"/>
+            <class name="tests.mainmenu.accessoriesdropdownlist.AccessoriesDropdownListTest"/>
+        </classes>
+    </test>
+
+    <test name="The 'Home and Decor' dropdown list">
+        <classes>
+            <class name="tests.mainmenu.homedecordropdownlist.ExpandingAndCollapsingTest"/>
+            <class name="tests.mainmenu.homedecordropdownlist.HomeAndDecorDropdownListTest"/>
+        </classes>
+    </test>
+
+    <test name="The 'Sale' dropdown list">
+        <classes>
+            <class name="tests.mainmenu.saledropdownlist.ExpandingAndCollapsingTest"/>
+            <class name="tests.mainmenu.saledropdownlist.SaleDropdownListTest"/>
         </classes>
     </test>
 
