@@ -16,14 +16,16 @@ public class QuantityField extends BasePage {
         field = locator;
     }
 
-    public void clickQuantityField() {
+    public QuantityField clickQuantityField() {
 
         field.click();
+        return this;
     }
 
-    public void setQuantity(String quantity) {
+    public QuantityField setQuantity(String quantity) {
 
         field.fill(quantity);
+        return this;
     }
 
     public String getQuantity() {
