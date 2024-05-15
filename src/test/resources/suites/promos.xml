@@ -1,15 +1,11 @@
 
-<suite name="Promos">
+<suite name="Promos section">
 
     <listeners>
         <listener class-name="qa.testlistener.Listener"/>
     </listeners>
 
     <test name="Promos links">
-
-        <parameter name="fileName" value="links"/>
-        <parameter name="downloadMode" value="LOCAL"/>
-
         <classes>
             <class name="tests.promos.PromosSectionLinksTest"/>
         </classes>
