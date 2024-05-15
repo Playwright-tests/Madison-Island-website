@@ -1,10 +1,9 @@
 package tests.mainmenu.accessoriesdropdownlist;
 
-import com.microsoft.playwright.Mouse;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.mainmenu.AccessoriesDropdownList;
+import qa.pageobject.mainmenu.AccessoriesDropdownList;
 import tests.base.BaseTest;
 
 public class ExpandingAndCollapsingTest extends BaseTest {

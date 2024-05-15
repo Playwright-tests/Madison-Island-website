@@ -2,7 +2,7 @@ package tests.mainmenu.homedecordropdownlist;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.mainmenu.HomeAndDecorDropdownList;
+import qa.pageobject.mainmenu.HomeAndDecorDropdownList;
 import qa.support.URLs;
 import tests.base.BaseTest;
 

@@ -2,7 +2,7 @@ package tests.mainmenu.womendropdownlist;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.mainmenu.WomenDropdownList;
+import qa.pageobject.mainmenu.WomenDropdownList;
 import qa.support.URLs;
 import tests.base.BaseTest;
 

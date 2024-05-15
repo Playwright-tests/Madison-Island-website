@@ -3,7 +3,7 @@ package tests.mainmenu.mendropdownlist;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.mainmenu.MenDropdownList;
+import qa.pageobject.mainmenu.MenDropdownList;
 import tests.base.BaseTest;
 
 public class ExpandingAndCollapsingTest extends BaseTest {

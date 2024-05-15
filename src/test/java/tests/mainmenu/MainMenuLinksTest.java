@@ -2,7 +2,7 @@ package tests.mainmenu;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.mainmenu.MainMenu;
+import qa.pageobject.mainmenu.MainMenu;
 import qa.support.URLs;
 import tests.base.BaseTest;
 

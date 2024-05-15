@@ -1,10 +1,9 @@
 package tests.minicart;
 
 import com.microsoft.playwright.options.WaitForSelectorState;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.minicart.MiniCart;
+import qa.pageobject.minicart.MiniCart;
 import tests.base.BaseTest;
 import qa.pageobject.sections.Header;
 
