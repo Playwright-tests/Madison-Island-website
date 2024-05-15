@@ -10,12 +10,6 @@ public class DataProviderNames {
     public static final String INCORRECT_EMAIL_FORMAT = "incorrectEmailFormat";
     public static final String LOWER_UPPER = "lowerUpper";
     public static final String INCORRECT = "incorrect";
-    public static final String BELOW_MIN = "belowMin";
-    public static final String MIN = "min";
-    public static final String ABOVE_MIN = "aboveMin";
-    public static final String BELOW_MAX = "belowMax";
-    public static final String MAX = "max";
-    public static final String ABOVE_MAX = "aboveMax";
     public static final String NEGATIVE = "negative";
     public static final String FLOATING_POINT = "floatingPoint";
     public static final String NOT_NUMBER = "notNumber";
