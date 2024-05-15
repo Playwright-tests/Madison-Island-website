@@ -1,19 +1,20 @@
 package qa.helpers;
 
 import com.microsoft.playwright.Page;
+import qa.models.Product;
 import qa.pageobject.productpage.ProductShop;
 
 public class ShoppingCartActions {
 
-    public static ProductShop addToCart(Page page) {
+    public static void addToCart(Page page, Product product) {
 
-        String color = "Red";
-        String size = "L";
+        page.navigate(page.url());
 
         ProductShop productShop = new ProductShop(page);
-        productShop.setColor(color);
-        productShop.setSize(size);
-
-        return productShop;
+        productShop
+                .setColor(product.getColor())
+                .setSize(product.getSize())
+                .setQuantity(product.getQuantity())
+                .clickAddToCartButton();
     }
 }
