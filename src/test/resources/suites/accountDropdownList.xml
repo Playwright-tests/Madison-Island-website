@@ -3,11 +3,13 @@
 
 <suite name="Account dropdown list">
 
+    <test name="Expanding and collapsing the dropdown list">
+        <classes>
+            <class name="tests.accountdropdownlist.ExpandingAndCollapsingTest"/>
+        </classes>
+    </test>
+
     <test name="Links">
-
-        <parameter name="fileName" value="links"/>
-        <parameter name="downloadMode" value="LOCAL"/>
-
         <classes>
             <class name="tests.accountdropdownlist.AccountDropdownListLinksTest"/>
         </classes>
