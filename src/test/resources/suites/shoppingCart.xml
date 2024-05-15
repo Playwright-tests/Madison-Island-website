@@ -2,11 +2,23 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Shopping cart">
-    <suite-files>
-        <suite-file path="shoppingCart/contentsAfterAddingProduct.xml"/>
-        <suite-file path="shoppingCart/quantityField.xml"/>
-        <suite-file path="shoppingCart/couponCode.xml"/>
-        <suite-file path="shoppingCart/removingProduct.xml"/>
-        <suite-file path="shoppingCart/estimatedShippingForm.xml"/>
-    </suite-files>
+
+    <listeners>
+        <listener class-name="qa.testlistener.Listener"/>
+    </listeners>
+
+    <test name="Shopping cart state">
+        <classes>
+            <class name="tests.factories.ShoppingCartStateTestFactory"/>
+        </classes>
+    </test>
+
+    <test name="Input text validation">
+        <parameter name="fileName" value="MI_Quantities.json"/>
+
+        <classes>
+            <class name="tests.factories.ShoppingCartQtyValidationFactory"/>
+        </classes>
+    </test>
+
 </suite>
