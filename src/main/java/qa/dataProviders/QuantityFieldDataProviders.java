@@ -11,12 +11,18 @@ public class QuantityFieldDataProviders {
     @DataProvider(name = DataProviderNames.FLOATING_POINT)
     public Object[] floatingPoint() throws FileNotFoundException {
 
-        return ModelsBuilder.getStrings(DataProviderNames.NOT_NUMBER);
+        return ModelsBuilder.getStrings(DataProviderNames.FLOATING_POINT);
     }
 
     @DataProvider(name = DataProviderNames.NOT_NUMBER)
     public Object[] notANumber() throws FileNotFoundException {
 
         return ModelsBuilder.getStrings(DataProviderNames.NOT_NUMBER);
+    }
+
+    @DataProvider(name = DataProviderNames.NEGATIVE)
+    public Object[] negative() throws FileNotFoundException {
+
+        return ModelsBuilder.getStrings(DataProviderNames.NEGATIVE);
     }
 }
