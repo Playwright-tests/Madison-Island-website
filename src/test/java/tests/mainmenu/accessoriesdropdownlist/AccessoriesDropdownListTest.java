@@ -2,7 +2,7 @@ package tests.mainmenu.accessoriesdropdownlist;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.mainmenu.AccessoriesDropdownList;
+import qa.pageobject.mainmenu.AccessoriesDropdownList;
 import qa.support.URLs;
 import tests.base.BaseTest;
 
