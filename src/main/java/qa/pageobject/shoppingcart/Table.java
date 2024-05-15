@@ -3,22 +3,25 @@ package qa.pageobject.shoppingcart;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import lombok.Getter;
 import qa.base.BasePage;
 
 import java.util.List;
 
 public class Table extends BasePage {
 
+    @Getter
+    private final String itemErrorMessageSelector = ".item-msg.error";
     private final Locator shoppingCartTable;
     private List<Locator> rows;
-    private final Locator errorMessage;
+    private final Locator itemErrorMessage;
 
     public Table(Page page) {
 
         super(page);
 
         shoppingCartTable = page.locator("#shopping-cart-table");
-        errorMessage = page.locator(".item-msg.error");
+        itemErrorMessage = page.locator(itemErrorMessageSelector);
     }
 
     public void findRows() {
@@ -71,14 +74,9 @@ public class Table extends BasePage {
         return new QuantityField(getPage(), rows.get(row).locator("td.product-cart-actions").getByRole(AriaRole.TEXTBOX, new Locator.GetByRoleOptions().setName("Qty")));
     }
 
-    public Locator getErrorMessageLocator() {
+    public String getItemErrorMessageText() {
 
-        return errorMessage;
-    }
-
-    public String getErrorMessageText() {
-
-        return errorMessage.textContent().trim();
+        return itemErrorMessage.textContent().trim();
     }
 
     public boolean isVisible() {
