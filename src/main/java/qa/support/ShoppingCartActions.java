@@ -22,14 +22,14 @@ public class ShoppingCartActions {
 
         ProductShop productShop = new ProductShop(page);
 
-        for (int i = 0; i < products.length; i++) {
+        for (Product product : products) {
 
-            page.navigate(URLs.HOME_PAGE + products[i].getUrl());
+            page.navigate(URLs.HOME_PAGE + product.getUrl());
 
             productShop
-                    .setColor(products[i].getColor())
-                    .setSize(products[i].getSize())
-                    .setQuantity(products[i].getQuantity())
+                    .setColor(product.getColor())
+                    .setSize(product.getSize())
+                    .setQuantity(product.getQuantity())
                     .clickAddToCartButton();
         }
     }
