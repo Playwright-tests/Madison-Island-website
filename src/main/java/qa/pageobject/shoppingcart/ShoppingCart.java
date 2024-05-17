@@ -2,11 +2,13 @@ package qa.pageobject.shoppingcart;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import lombok.Getter;
 import qa.base.BasePage;
 
 public class ShoppingCart extends BasePage {
 
     private final String errorMessageSelector;
+    @Getter
     private final Table table;
     private final Locator errorMessage;
     private final Locator pageTitle;
@@ -20,11 +22,6 @@ public class ShoppingCart extends BasePage {
         table = new Table(page);
         errorMessage = page.locator(".error-msg");
         pageTitle = page.locator("div.page-title");
-    }
-
-    public Table getTable() {
-
-        return table;
     }
 
     public Locator getErrorMessageLocator() {
