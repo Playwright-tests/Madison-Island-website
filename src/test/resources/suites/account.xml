@@ -8,9 +8,6 @@
     </listeners>
 
     <test name="Side menu links">
-        <parameter name="fileName" value="links"/>
-        <parameter name="downloadMode" value="LOCAL"/>
-
         <classes>
             <class name="tests.account.SideMenuTest"/>
         </classes>
