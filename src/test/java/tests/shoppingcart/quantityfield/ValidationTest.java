@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import qa.dataProviders.QuantityFieldDataProviders;
-import qa.helpers.ShoppingCartActions;
+import qa.support.ShoppingCartActions;
 import qa.models.Product;
 import qa.support.DataProviderNames;
 import tests.base.BaseTest;
@@ -27,7 +27,6 @@ public class ValidationTest extends BaseTest {
     @BeforeMethod
     public void prepare() {
 
-        goToPage(URLs.ELIZABETH_KNIT_PAGE);
         ShoppingCartActions.addToCart(getPage(), product);
         getPage().waitForURL(URLs.SHOPPING_CART);
 
