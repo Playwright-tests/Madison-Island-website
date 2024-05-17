@@ -6,24 +6,23 @@ import org.testng.annotations.Test;
 import qa.models.Product;
 import tests.base.BaseTest;
 import qa.support.URLs;
-import qa.helpers.ShoppingCartActions;
+import qa.support.ShoppingCartActions;
 import qa.pageobject.shoppingcart.ShoppingCart;
 
 public class InputTextVerificationTest extends BaseTest {
 
-    private final Product[] products;
+    private final Product product;
     private ShoppingCart shoppingCart;
 
-    public InputTextVerificationTest(Product[] products) {
+    public InputTextVerificationTest(Product product) {
 
-        this.products = products;
+        this.product = product;
     }
 
     @BeforeMethod
     public void prepare() {
 
-        goToPage(URLs.HOME_PAGE + products[0].getUrl());
-        ShoppingCartActions.addToCart(getPage(), products[0]);
+        ShoppingCartActions.addToCart(getPage(), product);
         getPage().waitForURL(URLs.SHOPPING_CART);
 
         shoppingCart = new ShoppingCart(getPage());
