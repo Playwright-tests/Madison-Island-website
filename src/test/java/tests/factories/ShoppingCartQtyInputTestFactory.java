@@ -15,6 +15,6 @@ public class ShoppingCartQtyInputTestFactory {
 
         TestDataLoader.load("products.json");
         Product[] products = ModelsBuilder.getProduct(DataProviderNames.PRODUCTS);
-        return new Object[] {new InputTextVerificationTest(products) };
+        return new Object[] {new InputTextVerificationTest(products[0]) };
     }
 }
