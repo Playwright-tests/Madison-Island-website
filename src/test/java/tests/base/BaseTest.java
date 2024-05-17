@@ -4,6 +4,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import qa.support.AllureEnvironmentWriter;
 import qa.support.TestDataLoader;
 import qa.enums.Browser;
 import qa.playwright.PlaywrightBrowserLauncher;
@@ -34,6 +35,7 @@ public class BaseTest {
         launcher = PlaywrightProvider.get(Browser.CHROME);
         launcher.create();
         launcher.goToPage(URLs.HOME_PAGE);
+        AllureEnvironmentWriter.setEnvironment();
     }
 
     @AfterMethod
