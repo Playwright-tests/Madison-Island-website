@@ -1,52 +1,59 @@
 package tests.shoppingcart.removing;
 
+import com.microsoft.playwright.Page;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import qa.base.BaseTest;
-import qa.enums.URLs;
-import qa.helpers.ShoppingCartActions;
+import qa.models.Product;
+import qa.support.ShoppingCartActions;
+import tests.base.BaseTest;
+import qa.support.URLs;
 import qa.pageobject.shoppingcart.ShoppingCart;
 
 public class RemovingProductTest extends BaseTest {
 
+    private final Product[] products;
     private ShoppingCart shoppingCart;
+    int currentTableRowsCount;
+
+    public RemovingProductTest(Product[] products) {
+
+        this.products = products;
+    }
 
     @BeforeMethod
-    public void create() {
+    public void prepare() {
 
-        goToPage(URLs.ELIZABETH_KNIT_PRODUCT_PAGE.getName());
-        ShoppingCartActions.addToCart(getPage()).clickAddToCartButton();
-        getPage().waitForURL(URLs.SHOPPING_CART.getName());
+        ShoppingCartActions.addToCart(getPage(), products);
+        getPage().waitForURL(URLs.SHOPPING_CART);
 
         shoppingCart = new ShoppingCart(getPage());
         shoppingCart.getTable().findRows();
+        currentTableRowsCount = shoppingCart.getTable().getRowsCount();
     }
 
-    private void check() {
+    private void actions() {
 
-        Assert.assertEquals(shoppingCart.getTable().getRowsCount(), 0,
-                "The shopping cart is not empty");
-        Assert.assertEquals(shoppingCart.getPageTitleText(), "Shopping Cart is Empty",
-                "Incorrect message content");
-    }
-
-    @Test
-    public void withRemoveButton() {
-
-        shoppingCart.getTable().clickRemoveButton(0);
+        getPage().waitForURL(URLs.SHOPPING_CART, new Page.WaitForURLOptions().setTimeout(2000));
         shoppingCart.getTable().findRows();
 
-        check();
+        Assert.assertEquals(shoppingCart.getTable().getRowsCount(), currentTableRowsCount - 1,
+                "The product has not been removed from the shopping cart");
     }
 
     @Test
-    public void withQuantityField() {
+    public void withRemoveButton() throws InterruptedException {
+
+
+        shoppingCart.getTable().clickRemoveButton(0);
+        actions();
+    }
+
+    @Test
+    public void withQuantityField() throws InterruptedException {
 
         shoppingCart.getTable().getQuantityField(0).setQuantity("0");
         shoppingCart.getTable().clickUpdateCartButton(0);
-        shoppingCart.getTable().findRows();
-
-        check();
+        actions();
     }
 }
