@@ -5,7 +5,7 @@
 <suite name="Madison Island website shop">
 
     <suite-files>
-        <suite-file path="mainMenu.xml"/>
+        <suite-file path="login.xml"/>
     </suite-files>
 
 </suite>
