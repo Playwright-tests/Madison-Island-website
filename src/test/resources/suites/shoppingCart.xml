@@ -13,11 +13,18 @@
         </classes>
     </test>
 
-    <test name="Input text validation">
+    <test name="Quantity field">
         <parameter name="fileName" value="MI_Quantities.json"/>
 
         <classes>
+            <class name="tests.factories.ShoppingCartQtyInputTestFactory"/>
             <class name="tests.factories.ShoppingCartQtyValidationFactory"/>
+        </classes>
+    </test>
+
+    <test name="Removing a product from the shopping cart">
+        <classes>
+            <class name="tests.factories.RemovingProductFromCartTestFactory"/>
         </classes>
     </test>
 
