@@ -9,7 +9,6 @@ import qa.support.URLs;
 import tests.base.BaseTest;
 
 @Epic("E2E")
-@Feature("The \"Company\" section links")
 public class CompanyLinksTest extends BaseTest {
 
     private CompanyLinks companyLinks;
@@ -25,7 +24,7 @@ public class CompanyLinksTest extends BaseTest {
     @Tag("Links")
     @Tag("Footer")
     @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
-    @Description("The \"About Us\" link")
+    @Feature("The \"About Us\" link")
     public void aboutUsLink() {
 
         clickAndVerifyPageUrl(CompanyLinks::clickAboutUsLink, companyLinks, URLs.ABOUT_US_PAGE);
@@ -36,7 +35,7 @@ public class CompanyLinksTest extends BaseTest {
     @Tag("Links")
     @Tag("Footer")
     @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
-    @Description("The \"Contact Us Us\" link")
+    @Feature("The \"Contact Us Us\" link")
     public void contactUsLink() {
 
         clickAndVerifyPageUrl(CompanyLinks::clickContactUsLink, companyLinks, URLs.CONTACT_US_PAGE);
@@ -47,7 +46,7 @@ public class CompanyLinksTest extends BaseTest {
     @Tag("Links")
     @Tag("Footer")
     @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
-    @Description("The \"Customer Service\" link")
+    @Feature("The \"Customer Service\" link")
     public void customerServiceLink() {
 
         clickAndVerifyPageUrl(CompanyLinks::clickCustomerServiceLink, companyLinks, URLs.CUSTOMER_SERVICE_PAGE);
@@ -58,7 +57,7 @@ public class CompanyLinksTest extends BaseTest {
     @Tag("Links")
     @Tag("Footer")
     @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
-    @Description("The \"Privacy Policy\" link")
+    @Feature("The \"Privacy Policy\" link")
     public void privacyPolicyLink() {
 
         clickAndVerifyPageUrl(CompanyLinks::clickPrivacyPolicyLink, companyLinks, URLs.PRIVACY_POLICY_PAGE);

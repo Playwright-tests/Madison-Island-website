@@ -9,7 +9,6 @@ import qa.support.URLs;
 import tests.base.BaseTest;
 
 @Epic("E2E")
-@Feature("The \"Accessories\" dropdown list links")
 public class AccessoriesDropdownListTest extends BaseTest {
 
     private AccessoriesDropdownList accessoriesDropdownList;
@@ -26,7 +25,8 @@ public class AccessoriesDropdownListTest extends BaseTest {
     @Tag("Main menu")
     @Tag("Dropdown list")
     @Tag("Links")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("The \"Account Dashboard\" link")
     public void viewAllAccessoriesLink() {
 
@@ -38,7 +38,8 @@ public class AccessoriesDropdownListTest extends BaseTest {
     @Tag("Main menu")
     @Tag("Dropdown list")
     @Tag("Links")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.NORMAL)
     @Description("The \"Eyewear\" link")
     public void eyewearLink() {
 
@@ -50,7 +51,8 @@ public class AccessoriesDropdownListTest extends BaseTest {
     @Tag("Main menu")
     @Tag("Dropdown list")
     @Tag("Links")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.NORMAL)
     @Description("The \"Jewelry\" link")
     public void jewelryLink() {
 
@@ -62,7 +64,8 @@ public class AccessoriesDropdownListTest extends BaseTest {
     @Tag("Main menu")
     @Tag("Dropdown list")
     @Tag("Links")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.NORMAL)
     @Description("The \"Shoes\" link")
     public void shoes() {
 
@@ -74,7 +77,8 @@ public class AccessoriesDropdownListTest extends BaseTest {
     @Tag("Main menu")
     @Tag("Dropdown list")
     @Tag("Links")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.NORMAL)
     @Description("The \"Bags and Luggage\" link")
     public void bagsAndLuggage() {
 

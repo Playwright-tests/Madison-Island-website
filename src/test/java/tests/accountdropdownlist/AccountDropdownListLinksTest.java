@@ -27,7 +27,8 @@ public class AccountDropdownListLinksTest extends BaseTest {
     @Tag("Dropdown list")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.BLOCKER)
     @Description("The \"My Account\" link")
     public void myAccountLink() {
 
@@ -40,7 +41,8 @@ public class AccountDropdownListLinksTest extends BaseTest {
     @Tag("Dropdown list")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.MINOR)
     @Description("The \"My Wishlist\" link")
     public void myWishlistLink() {
 
@@ -53,7 +55,8 @@ public class AccountDropdownListLinksTest extends BaseTest {
     @Tag("Dropdown list")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("The \"My Cart\" link")
     public void myCartLink() {
 
@@ -66,7 +69,8 @@ public class AccountDropdownListLinksTest extends BaseTest {
     @Tag("Dropdown list")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("The \"Checkout\" link")
     public void checkoutLink() {
 
@@ -79,7 +83,8 @@ public class AccountDropdownListLinksTest extends BaseTest {
     @Tag("Dropdown list")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("The \"Register\" link")
     public void registerLink() {
 
@@ -92,7 +97,8 @@ public class AccountDropdownListLinksTest extends BaseTest {
     @Tag("Dropdown list")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("The \"Log in\" link")
     public void loginLink() {
 

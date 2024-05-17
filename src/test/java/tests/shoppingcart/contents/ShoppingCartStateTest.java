@@ -1,6 +1,8 @@
 package tests.shoppingcart.contents;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import io.qameta.allure.*;
+import io.qameta.allure.testng.Tag;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -11,7 +13,7 @@ import qa.pageobject.productpage.ProductShop;
 import qa.pageobject.shoppingcart.ShoppingCart;
 import qa.models.Product;
 
-
+@Epic("E2E")
 public class ShoppingCartStateTest extends BaseTest {
 
     private ProductShop productShop;
@@ -64,6 +66,12 @@ public class ShoppingCartStateTest extends BaseTest {
     }
 
     @Test
+    @Owner("Paweł Aksman")
+    @Tag("Product page")
+    @Tag("Shopping cart")
+    @Tag("Products")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Adding product to the shopping cart")
     public void checkingContents() {
 
         actions();

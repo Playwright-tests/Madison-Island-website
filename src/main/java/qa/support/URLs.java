@@ -57,4 +57,5 @@ public class URLs {
     public static final String MY_APPLICATIONS_PAGE = "http://demo-store.seleniumacademy.com/oauth/customer_token/";
     public static final String ACCOUNT_NEWSLETTER_SUBSCRIPTION_PAGE = "http://demo-store.seleniumacademy.com/newsletter/manage/";
     public static final String MY_DOWNLOADABLE_PAGE = "http://demo-store.seleniumacademy.com/downloadable/customer/products/";
+    public static final String ACCOUNT_PAGE = "http://demo-store.seleniumacademy.com/customer/account/index/";
 }

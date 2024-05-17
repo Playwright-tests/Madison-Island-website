@@ -9,7 +9,6 @@ import qa.support.URLs;
 import tests.base.BaseTest;
 
 @Epic("E2E")
-@Feature("The \"Account section\" links")
 public class AccountLinksTest extends BaseTest {
 
     private AccountLinks accountLinks;
@@ -25,7 +24,7 @@ public class AccountLinksTest extends BaseTest {
     @Tag("Links")
     @Tag("Footer")
     @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
-    @Description("The \"My Account\" link")
+    @Feature("The \"My Account\" link")
     public void myAccountLink() {
 
         clickAndVerifyPageUrl(AccountLinks::clickMyAccountLink, accountLinks, URLs.LOGIN_PAGE);
@@ -36,7 +35,7 @@ public class AccountLinksTest extends BaseTest {
     @Tag("Links")
     @Tag("Footer")
     @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
-    @Description("The \"Order and Returns\" link")
+    @Feature("The \"Order and Returns\" link")
     public void ordersAndReturnsLink() {
 
         clickAndVerifyPageUrl(AccountLinks::clickOrdersAndReturnsLink, accountLinks, URLs.ORDERS_AND_RETURNS_PAGE);

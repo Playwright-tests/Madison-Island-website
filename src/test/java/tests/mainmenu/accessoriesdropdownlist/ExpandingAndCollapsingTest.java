@@ -6,10 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.pageobject.mainmenu.AccessoriesDropdownList;
+import qa.support.URLs;
 import tests.base.BaseTest;
 
 @Epic("E2E")
-@Feature("Expanding and collapsing the \"Accessories\" dropdown list")
 public class ExpandingAndCollapsingTest extends BaseTest {
 
     private AccessoriesDropdownList accessoriesDropdownList;
@@ -32,7 +32,8 @@ public class ExpandingAndCollapsingTest extends BaseTest {
     @Tag("Main menu")
     @Tag("Dropdown list")
     @Tag("Expanding")
-    @Link(name = "Login page", url = "http://demo-store.seleniumacademy.com/customer/account/login/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("Expanding the \"Accessories\" dropdown list")
     public void expandingDropdownList() {
 
@@ -45,7 +46,8 @@ public class ExpandingAndCollapsingTest extends BaseTest {
     @Tag("Main menu")
     @Tag("Dropdown list")
     @Tag("Collapsing")
-    @Link(name = "Login page", url = "http://demo-store.seleniumacademy.com/customer/account/login/")
+    @Link(name = "Home page", url = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("Collapsing the \"Accessories\" dropdown list")
     public void collapsingDropdownList() {
 

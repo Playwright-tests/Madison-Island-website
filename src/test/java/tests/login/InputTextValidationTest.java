@@ -10,7 +10,6 @@ import qa.support.URLs;
 import qa.pageobject.loginform.LoginForm;
 
 @Epic("E2E")
-@Feature("Login form input fields verification")
 public class InputTextValidationTest extends BaseTest {
 
     private LoginForm loginForm;
@@ -27,8 +26,9 @@ public class InputTextValidationTest extends BaseTest {
     @Tag("Login form")
     @Tag("Fields")
     @Tag("Inputs")
-    @Link(name = "Login page", url = "http://demo-store.seleniumacademy.com/customer/account/login/")
-    @Description("Verification of the \"Email address\" field text input")
+    @Link(name = "Login page", url = URLs.LOGIN_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
+    @Feature("Verification of the \"Email address\" field text input")
     public void emailField() {
 
         String email = "example@gmail.com";
@@ -44,7 +44,8 @@ public class InputTextValidationTest extends BaseTest {
     @Tag("Login form")
     @Tag("Fields")
     @Tag("Inputs")
-    @Link(name = "Login page", url = "http://demo-store.seleniumacademy.com/customer/account/login/")
+    @Link(name = "Login page", url = URLs.LOGIN_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("Verification of the \"Password\" field text input")
     public void passwordField() {
 

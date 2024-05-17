@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 @Epic("E2E")
-@Feature("The account side menu links")
 public class SideMenuTest extends BaseTest {
 
     private SideMenu sideMenu;
@@ -33,6 +32,7 @@ public class SideMenuTest extends BaseTest {
     @Tag("Links")
     @Tag("Menu")
     @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Severity(SeverityLevel.CRITICAL)
     @Description("The \"Account Dashboard\" link")
     public void accountDashboardLink() {
 
@@ -44,7 +44,8 @@ public class SideMenuTest extends BaseTest {
     @Tag("Account")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Account page", url = URLs.ACCOUNT_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("The \"Account Information\" link")
     public void accountInformationLink() {
 
@@ -56,7 +57,8 @@ public class SideMenuTest extends BaseTest {
     @Tag("Account")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Account page", url = URLs.ACCOUNT_PAGE)
+    @Severity(SeverityLevel.NORMAL)
     @Description("The \"Address Book\" link")
     public void addressBookLink() {
 
@@ -68,7 +70,8 @@ public class SideMenuTest extends BaseTest {
     @Tag("Account")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Account page", url = URLs.ACCOUNT_PAGE)
+    @Severity(SeverityLevel.NORMAL)
     @Description("The \"My Orders\" link")
     public void myOrdersLink() {
 
@@ -80,7 +83,8 @@ public class SideMenuTest extends BaseTest {
     @Tag("Account")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Account page", url = URLs.ACCOUNT_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("The \"Billing Agreements\" link")
     public void billingAgreementsLink() {
 
@@ -92,7 +96,8 @@ public class SideMenuTest extends BaseTest {
     @Tag("Account")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Account page", url = URLs.ACCOUNT_PAGE)
+    @Severity(SeverityLevel.NORMAL)
     @Description("The \"Recurring Profiles\" link")
     public void recurringProfilesLink() {
 
@@ -104,7 +109,8 @@ public class SideMenuTest extends BaseTest {
     @Tag("Account")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Account page", url = URLs.ACCOUNT_PAGE)
+    @Severity(SeverityLevel.NORMAL)
     @Description("The \"My Product Reviews\" link")
     public void myProductReviews() {
 
@@ -116,7 +122,8 @@ public class SideMenuTest extends BaseTest {
     @Tag("Account")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Account page", url = URLs.ACCOUNT_PAGE)
+    @Severity(SeverityLevel.NORMAL)
     @Description("The \"My Wishlist\" link")
     public void myWishlistLink() {
 
@@ -128,7 +135,8 @@ public class SideMenuTest extends BaseTest {
     @Tag("Account")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Account page", url = URLs.ACCOUNT_PAGE)
+    @Severity(SeverityLevel.MINOR)
     @Description("The \"My Applications\" link")
     public void myApplicationsLink() {
 
@@ -140,7 +148,8 @@ public class SideMenuTest extends BaseTest {
     @Tag("Account")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Account page", url = URLs.ACCOUNT_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("The \"Newsletter Subscriptions\" link")
     public void newsletterSubscriptionsLink() {
 
@@ -152,7 +161,8 @@ public class SideMenuTest extends BaseTest {
     @Tag("Account")
     @Tag("Links")
     @Tag("Menu")
-    @Link(name = "Account page", url = "http://demo-store.seleniumacademy.com/customer/account/index/")
+    @Link(name = "Account page", url = URLs.ACCOUNT_PAGE)
+    @Severity(SeverityLevel.MINOR)
     @Description("The \"My Downloadable Products\" link")
     public void myDownloadableProducts() {
 

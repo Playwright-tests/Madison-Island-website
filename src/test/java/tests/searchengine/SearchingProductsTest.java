@@ -1,6 +1,8 @@
 package tests.searchengine;
 
 import com.microsoft.playwright.Page;
+import io.qameta.allure.*;
+import io.qameta.allure.testng.Tag;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -11,6 +13,7 @@ import qa.pageobject.searchresultspage.SearchResultsPage;
 import tests.base.BaseTest;
 import qa.support.DataProviderNames;
 
+@Epic("E2E")
 public class SearchingProductsTest extends BaseTest {
 
     private SearchEngine searchEngine;
@@ -42,7 +45,14 @@ public class SearchingProductsTest extends BaseTest {
     }
 
 
-    @Test(dataProvider = DataProviderNames.CORRECT, dataProviderClass = SearchEngineDataProviders.class)
+    @Test(priority = 1, dataProvider = DataProviderNames.CORRECT, dataProviderClass = SearchEngineDataProviders.class)
+    @Owner("Paweł Aksman")
+    @Tag("Header")
+    @Tag("Search engine")
+    @Tag("Buttons")
+    @Link(name = "Home page", value = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Searching with a correct phrase")
     public void correct(String phrase) {
 
         actions(phrase);
@@ -50,7 +60,13 @@ public class SearchingProductsTest extends BaseTest {
         Assert.assertTrue(searchResultsPage.getProductsListSize() > 0, "No products found with the correct phrase: " + phrase);
     }
 
-    @Test(dataProvider = DataProviderNames.LOWER_UPPER, dataProviderClass = SearchEngineDataProviders.class)
+    @Test(priority = 2, dataProvider = DataProviderNames.LOWER_UPPER, dataProviderClass = SearchEngineDataProviders.class)
+    @Owner("Paweł Aksman")
+    @Tag("Header")
+    @Tag("Buttons")
+    @Link(name = "Home page", value = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Searching with a correct phrase having upper and lower cases")
     public void lowerUpper(String phrase) {
 
         actions(phrase);
@@ -58,7 +74,13 @@ public class SearchingProductsTest extends BaseTest {
         Assert.assertTrue(searchResultsPage.getProductsListSize() > 0, "No products found with the correct phrase: " + phrase);
     }
 
-    @Test(dataProvider = DataProviderNames.INCORRECT, dataProviderClass = SearchEngineDataProviders.class)
+    @Test(priority = 3, dataProvider = DataProviderNames.INCORRECT, dataProviderClass = SearchEngineDataProviders.class)
+    @Owner("Paweł Aksman")
+    @Tag("Header")
+    @Tag("Buttons")
+    @Link(name = "Home page", value = URLs.HOME_PAGE)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Searching with an incorrect phrase")
     public void incorrect(String phrase) {
 
         actions(phrase);

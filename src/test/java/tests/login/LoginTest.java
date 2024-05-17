@@ -1,6 +1,5 @@
 package tests.login;
 
-import com.beust.ah.A;
 import io.qameta.allure.*;
 import io.qameta.allure.testng.Tag;
 import qa.dataProviders.CredentialsDataProviders;
@@ -15,7 +14,6 @@ import qa.models.Credentials;
 import qa.support.DataProviderNames;
 
 @Epic("E2E")
-@Feature("Logging in to an account")
 public class LoginTest extends BaseTest {
 
     private static LoginForm loginForm;
@@ -39,7 +37,8 @@ public class LoginTest extends BaseTest {
     @Owner("Paweł Aksman")
     @Tag("Login form")
     @Tag("Login")
-    @Link(name = "Login page", url = "http://demo-store.seleniumacademy.com/customer/account/login/")
+    @Link(name = "Login page", url = URLs.LOGIN_PAGE)
+    @Severity(SeverityLevel.NORMAL)
     @Description("Attempting to log in using an incorrect email format")
     public void incorrectEmailFormat(Credentials credentials) {
 
@@ -55,7 +54,8 @@ public class LoginTest extends BaseTest {
     @Owner("Paweł Aksman")
     @Tag("Login form")
     @Tag("Login")
-    @Link(name = "Login page", url = "http://demo-store.seleniumacademy.com/customer/account/login/")
+    @Link(name = "Login page", url = URLs.LOGIN_PAGE)
+    @Severity(SeverityLevel.MINOR)
     @Description("Attempting to log in without providing input for the \"Email Address\" field")
     public void blankEmailField(Credentials credentials) {
 
@@ -70,7 +70,8 @@ public class LoginTest extends BaseTest {
     @Owner("Paweł Aksman")
     @Tag("Login form")
     @Tag("Login")
-    @Link(name = "Login page", url = "http://demo-store.seleniumacademy.com/customer/account/login/")
+    @Link(name = "Login page", url = URLs.LOGIN_PAGE)
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Logging in using correct credentials")
     public void correct(Credentials credentials) {
 
@@ -87,7 +88,8 @@ public class LoginTest extends BaseTest {
     @Owner("Paweł Aksman")
     @Tag("Login form")
     @Tag("Login")
-    @Link(name = "Login page", url = "http://demo-store.seleniumacademy.com/customer/account/login/")
+    @Link(name = "Login page", url = URLs.LOGIN_PAGE)
+    @Severity(SeverityLevel.CRITICAL)
     @Description("Attempting to log in using an incorrect password")
     public void incorrectPassword(Credentials credentials) {
 
@@ -103,7 +105,8 @@ public class LoginTest extends BaseTest {
     @Owner("Paweł Aksman")
     @Tag("Login form")
     @Tag("Login")
-    @Link(name = "Login page", url = "http://demo-store.seleniumacademy.com/customer/account/login/")
+    @Link(name = "Login page", url = URLs.LOGIN_PAGE)
+    @Severity(SeverityLevel.MINOR)
     @Description("Attempting to log in without providing input for the \"Password\" field")
     public void blankPasswordField(Credentials credentials) {
 

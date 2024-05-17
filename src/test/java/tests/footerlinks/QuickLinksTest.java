@@ -9,7 +9,6 @@ import qa.support.URLs;
 import tests.base.BaseTest;
 
 @Epic("E2E")
-@Feature("The \"Quick Links\" section links")
 public class QuickLinksTest extends BaseTest {
 
     private QuickLinks quickLinks;
@@ -25,7 +24,7 @@ public class QuickLinksTest extends BaseTest {
     @Tag("Links")
     @Tag("Footer")
     @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
-    @Description("The \"Site Map\" link")
+    @Feature("The \"Site Map\" link")
     public void siteMapLink() {
 
         clickAndVerifyPageUrl(QuickLinks::clickSiteMapLink, quickLinks, URLs.SITE_MAP_PAGE);
@@ -36,7 +35,7 @@ public class QuickLinksTest extends BaseTest {
     @Tag("Links")
     @Tag("Footer")
     @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
-    @Description("The \"Search Terms\" link")
+    @Feature("The \"Search Terms\" link")
     public void searchTermsLink() {
 
         clickAndVerifyPageUrl(QuickLinks::clickSearchTermsLink, quickLinks, URLs.SEARCH_TERMS_PAGE);
@@ -47,7 +46,7 @@ public class QuickLinksTest extends BaseTest {
     @Tag("Links")
     @Tag("Footer")
     @Link(name = "Home page", url = "http://demo-store.seleniumacademy.com/")
-    @Description("The \"Advanced Search\" link")
+    @Feature("The \"Advanced Search\" link")
     public void advancedSearch() {
 
         clickAndVerifyPageUrl(QuickLinks::clickAdvancedSearchLink, quickLinks, URLs.ADVANCED_SEARCH_PAGE);
