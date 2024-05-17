@@ -3,6 +3,7 @@ package qa.pageobject.shoppingcart;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import io.qameta.allure.Step;
 import qa.base.BasePage;
 
 public class QuantityField extends BasePage {
@@ -16,12 +17,14 @@ public class QuantityField extends BasePage {
         field = locator;
     }
 
+    @Step("Click the quantity field")
     public QuantityField clickQuantityField() {
 
         field.click();
         return this;
     }
 
+    @Step("Enter a quantity")
     public QuantityField setQuantity(String quantity) {
 
         field.fill(quantity);

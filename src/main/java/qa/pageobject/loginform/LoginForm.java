@@ -4,6 +4,7 @@ import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import io.qameta.allure.Step;
 import qa.base.BasePage;
 
 public class LoginForm extends BasePage {
@@ -27,18 +28,21 @@ public class LoginForm extends BasePage {
         adviceRequiredPassword = getPage().locator("#advice-required-entry-pass");
     }
 
+    @Step("Enter an email")
     public LoginForm setEmail(String email) {
 
         emailField.fill(email);
         return this;
     }
 
+    @Step("Enter a password")
     public LoginForm setPassword(String password) {
 
         passwordField.fill(password);
         return this;
     }
 
+    @Step("Click the \"Login\" button")
     public void clickLoginButton() {
 
         loginButton.click();

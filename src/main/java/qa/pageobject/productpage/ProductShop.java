@@ -3,6 +3,7 @@ package qa.pageobject.productpage;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import io.qameta.allure.Step;
 import qa.base.BasePage;
 import qa.pageobject.shoppingcart.QuantityField;
 
@@ -29,12 +30,14 @@ public class ProductShop extends BasePage {
         quantityField = new QuantityField(page, page.locator("#qty"));
     }
 
+    @Step("Click the color picker")
     public ProductShop setColor(String color) {
 
         getPage().getByAltText(color).click();
         return this;
     }
 
+    @Step("Click the size picker")
     public ProductShop setSize(String size) {
 
         getPage().getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(size).setExact(true)).click();
@@ -67,6 +70,7 @@ public class ProductShop extends BasePage {
         return quantityField.getQuantity();
     }
 
+    @Step("Click the \"Add to Cart\" button")
     public void clickAddToCartButton() {
 
         addToCartButton.click();

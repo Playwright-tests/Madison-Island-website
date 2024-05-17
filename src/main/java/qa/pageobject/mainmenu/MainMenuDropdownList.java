@@ -3,6 +3,7 @@ package qa.pageobject.mainmenu;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import io.qameta.allure.Step;
 import qa.base.BasePage;
 
 public class MainMenuDropdownList extends BasePage {
@@ -20,6 +21,7 @@ public class MainMenuDropdownList extends BasePage {
         this.listContents = listContents;
     }
 
+    @Step("Hover the trigger element")
     public void hoverTriggerElement() {
 
         parent.getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(triggerElementText).setExact(true)).hover();

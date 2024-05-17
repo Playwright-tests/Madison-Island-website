@@ -3,6 +3,7 @@ package qa.pageobject.shoppingcart;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import io.qameta.allure.Step;
 import lombok.Getter;
 import qa.base.BasePage;
 
@@ -34,11 +35,13 @@ public class Table extends BasePage {
         return rows.size();
     }
 
+    @Step("Click the remove button")
     public void clickRemoveButton(int row) {
 
         rows.get(row).getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Remove Item X")).click();
     }
 
+    @Step("Click the \"Update Shopping Cart\" button")
     public void clickUpdateCartButton(int row) {
 
         rows.get(row).locator("td.product-cart-actions").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Update")).click();

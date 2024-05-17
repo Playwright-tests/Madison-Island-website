@@ -3,6 +3,7 @@ package qa.pageobject.sections;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import io.qameta.allure.Step;
 import qa.base.BasePage;
 
 public class Header extends BasePage {
@@ -16,6 +17,7 @@ public class Header extends BasePage {
         shoppingCartLink = page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Cart"));
     }
 
+    @Step("Click the \"Cart\" link")
     public void clickShoppingCartLink() {
 
         shoppingCartLink.click();
